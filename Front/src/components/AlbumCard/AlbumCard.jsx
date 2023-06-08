@@ -12,7 +12,6 @@ function AlbumCard() {
         <div className="AlbumCard-Arrow" />
       </button>
     </div>
-
   );
 }
 export default AlbumCard;

@@ -37,8 +37,8 @@
     margin: 0px;
   }
   &-Button {
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     background: rgba(0, 0, 0, 0);
     border-radius: 30px;
     display: flex;
@@ -47,8 +47,8 @@
     align-items: center;
     cursor: pointer;
     position: relative;
-    left: 75%;
-    bottom: 19%;
+    left: 77%;
+    bottom: 17%;
     transition: all .5s ease-in-out;
   }
 
@@ -70,4 +70,3 @@
 .AlbumCard-Button:hover {
   box-shadow: 1px 1px 12px #555;
 }
-
