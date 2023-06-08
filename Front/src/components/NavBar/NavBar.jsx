@@ -7,6 +7,7 @@ import home from '../../assets/home-icon.svg';
 import style from '../../assets/style-icon.svg';
 import heart from '../../assets/heart-icon.svg';
 import about from '../../assets/about-icon.svg';
+import user from '../../assets/user-icon.svg';
 
 function NavBar() {
   const [activeLink, setActiveLink] = useState('home');
@@ -103,6 +104,9 @@ function NavBar() {
           </span>
         </Navbar.Collapse>
       </Container>
+      <Nav.Link className="user-logo" href="/">
+        <img src={user} alt="Logo pour la connexion de l'utilisateur" />
+      </Nav.Link>
     </Navbar>
   );
 }
