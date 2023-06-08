@@ -1,8 +1,9 @@
 import './App.scss';
+import AlbumCard from '../AlbumCard/AlbumCard';
 
 function App() {
   return (
-    <h1>Hello</h1>
+    <AlbumCard />
   );
 }
 
