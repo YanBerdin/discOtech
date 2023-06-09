@@ -109,8 +109,10 @@ nav.navbar.scrolled {
   background-color: #121212;
 }
 nav.navbar a.navbar-brand {
-  width: 9%;
-  display: block;
+  width: 30%;
+  position: absolute;
+  top: 25;
+  left: 0;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   //texte de la navbar
@@ -280,20 +282,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     font-weight: 400;
     color: #fff !important;
     letter-spacing: 0.8px;
-    padding: 0 15px;
     font-size: 18px;
     opacity: 0.75;
-    text-align: start;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
     display: flex;
+    white-space: nowrap;
+    padding-bottom: 1rem;
   }
   .vvd {
     display: none;
   }
   /* Styles pour le lien utilisateur */
   .navbar .navbar-nav .user-link {
-    width: 8%;
+    width: 10%;
     margin-left: 88%;
     position: absolute;
+    top:4%;
   }
 }

@@ -8,6 +8,7 @@ import style from '../../assets/style-icon.svg';
 import heart from '../../assets/heart-icon.svg';
 import about from '../../assets/about-icon.svg';
 import user from '../../assets/user-icon.svg';
+import logo from '../../assets/Logo.png';
 
 function NavBar() {
   const [activeLink, setActiveLink] = useState('accueil');
@@ -43,6 +44,9 @@ function NavBar() {
       onToggle={handleNavToggle}
     >
       <Container className="navbar-container">
+        <Navbar.Brand href="/">
+          <img src={logo} alt="Logo" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon" />
         </Navbar.Toggle>
@@ -91,8 +95,8 @@ function NavBar() {
             <Nav.Link
               href="#Utilisateur"
               className={
-    activeLink === 'Utilisateur' ? 'active navbar-link user-link' : 'navbar-link user-link'
-  }
+                activeLink === 'Utilisateur' ? 'active navbar-link user-link' : 'navbar-link user-link'
+              }
               onClick={() => onUpdateActiveLink('Utilisateur')}
             >
               <img className="user-img" src={user} alt="Icone de la page à propos" />
