@@ -233,29 +233,43 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 }
 
-@media screen and (min-width: 767px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .navbar-collapse {
-        display: flex !important;
-        justify-content: flex-end;
-      }
-    
-      .navbar-nav {
-        flex-direction: row !important;
-      }
-    
-      .navbar-nav .nav-link {
-        margin: 0 15px;
-        color: #fff !important;
-        font-size: 18px;
-        opacity: 0.75;
-        text-align: start;
-        padding-top: 1rem;
-      }
-    
-      .navbar-toggler {
-        display: none !important;
-      }
-}
+      display: flex !important;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+    }
+  
+    .navbar-nav {
+      flex-direction: row !important;
+    }
+  
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      font-size: 18px;
+      opacity: 0.75;
+      text-align: start;
+      margin-top: -3rem;
+      padding-left: 1.5rem;
+    }
+  
+    .navbar-toggler {
+      display: none !important;
+    }
+
+    .logo-img {
+        margin-left: -2.5rem;
+    }
+
+    .user-img {
+        margin-right: -1.5rem;
+    }
+
+  }
+  
+  
+  
 
 .dropdown-center .dropdown-menu {
     transform: translateX(-50%) !important;
