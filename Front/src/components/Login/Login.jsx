@@ -1,5 +1,9 @@
-import './Login.scss';
+// Dépendances :
+import { Link } from 'react-router-dom';
+
+// Fichiers Style :
 import User from '../../assets/User.png';
+import './Login.scss';
 
 function Login() {
   return (
@@ -13,20 +17,33 @@ function Login() {
 
         {/* Login Input : Mail Adress */}
         <div className="Login-InputContainer">
-          <input placeholder="Adresse e-mail" id="email" className="Login-InputField" type="text" />
+          <input
+            placeholder="Adresse e-mail"
+            id="email"
+            className="Login-InputField"
+            type="text"
+          />
         </div>
 
         {/* Login Input : Password */}
         <div className="Login-InputContainer">
-          <input placeholder="Mot de passe" id="password" className="Login-InputField" type="password" />
+          <input
+            placeholder="Mot de passe"
+            id="password"
+            className="Login-InputField"
+            type="password"
+          />
         </div>
 
         {/* Link to SignUp Form */}
-        <p className="Login-SignUp">Pas encore inscrit ? Rejoins nous <a href="#">ici</a> </p>
+        <p className="Login-SignUp">
+          Pas encore inscrit ? Rejoins nous <Link to="/inscription">ici</Link>{" "}
+        </p>
       </div>
       {/* Login Button */}
-      <button className="Login-Button" id="button" type="submit">Me connecter</button>
-
+      <button className="Login-Button" id="button" type="submit">
+        Me connecter
+      </button>
     </form>
   );
 }
