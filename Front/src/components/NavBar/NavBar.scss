@@ -72,6 +72,12 @@ p.danger {
 }
 
 /************ Navbar Css ************/
+.navbar-white-text {
+    .nav-link {
+      color: #fff !important;
+    }
+  }
+
 nav.navbar {
   padding: 15px;
   position: fixed;
@@ -198,46 +204,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 0.1em;
 }
 
-.user-logo {
-  width: 7%;
-  height: 7%;
-  margin-left: 85%;
-  margin-top: -2rem;
-  display: block;
-}
-
-/* Media query pour les tablettes */
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* Styles CSS pour les tablettes */
-  nav.navbar .navbar-nav .nav-link.navbar-link {
-    font-weight: 400;
-    color: #fff !important;
-    letter-spacing: 0.8px;
-    font-size: 18px;
-    opacity: 0.75;
-    padding-top: 1rem;
-    display: flex;
-    white-space: nowrap;
-    padding-bottom: 1rem;
-  }
-
-  .vvd {
-    display: none;
-  }
-
-  /* Styles pour le lien utilisateur */
-  .navbar .navbar-nav .user-link {
-    width: 10%;
-    margin-left: 88%;
-    position: absolute;
-    top: 4%;
-  }
-}
-
-.mdb-navbar-color {
-  color: white;
-}
-
 @media (max-width: 767px) {
   /* Styles spécifiques aux appareils portables */
   /* Ajoutez ici vos styles pour les appareils portables */
@@ -266,3 +232,33 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     transition-delay: 6s; /* Délai de 0.2 seconde avant le début de la transition */
   }
 }
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .navbar-collapse {
+        display: flex !important;
+        justify-content: flex-end;
+      }
+    
+      .navbar-nav {
+        flex-direction: row !important;
+      }
+    
+      .navbar-nav .nav-link {
+        margin: 0 15px;
+        color: #fff !important;
+        font-size: 18px;
+        opacity: 0.75;
+        text-align: start;
+        padding-top: 1rem;
+      }
+    
+      .navbar-toggler {
+        display: none !important;
+      }
+}
+
+.dropdown-center .dropdown-menu {
+    transform: translateX(-50%) !important;
+    left: -50% !important;
+    top: 150% !important;;
+  }
