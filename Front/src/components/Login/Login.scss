@@ -1,23 +1,40 @@
+body {
+    margin: auto;
+  }
+
 .Login {
-    &-Form {
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(255, 255, 255);
-  padding: 30px 30px 30px 30px;
-  border-radius: 30px;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
-}
-&-UserImg {
+  &-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+  &-Card {
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px 7px 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+    margin: 50px 50px 0px 50px;
+  }
+  &-UserImg {
     width: 40%;
-    }
-&-Header {
+    margin-top: -2.5rem;
+  }
+  &-Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-Title {
     font-size: 2.5em;
     color: #2e2e2e;
     font-weight: 700;
-    margin: 15px 0 30px 0;
+    margin: 20px 0 10px 0;
   }
   &-InputContainer {
     width: 100%;
@@ -30,6 +47,8 @@
     width: 100%;
     height: 40px;
     background-color: transparent;
+    height: 40px;
+    background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(173, 173, 173);
     border-radius: 30px;
@@ -40,18 +59,16 @@
     box-sizing: border-box;
     padding-left: 30px;
   }
-&-Button {
+  &-Button {
     position: relative;
-    width: 100%;
-    border: 2px solid #8000ff;
-    background-color: #8000ff;
+    width: 250px;
+    background-color: #d19ffa5b;
     height: 40px;
     color: white;
-    font-size: 0.8em;
+    font-size: 1.1em;
     font-weight: bold;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    margin: 10px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     cursor: pointer;
     overflow: hidden;
   }
@@ -86,5 +103,3 @@
   transform: translateX(600px);
   transition-duration: 0.5s;
 }
-
-
