@@ -9,6 +9,7 @@ function Login() {
         <div className="Login-Header">
           <img className="Login-UserImg" src={User} alt="Logo de personnage" />
           <p className="Login-Title">Connexion</p>
+
         </div>
 
         {/* Login Input : Mail Adress */}
