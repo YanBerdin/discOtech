@@ -88,6 +88,16 @@ function NavBar() {
               <img className="nav-icon" src={about} alt="Icone de la page à propos" />
               A Propos
             </Nav.Link>
+            <Nav.Link
+              href="#Utilisateur"
+              className={
+    activeLink === 'Utilisateur' ? 'active navbar-link user-link' : 'navbar-link user-link'
+  }
+              onClick={() => onUpdateActiveLink('Utilisateur')}
+            >
+              <img className="user-img" src={user} alt="Icone de la page à propos" />
+            </Nav.Link>
+
           </Nav>
           <span className="navbar-text">
             <a to="#connect">
