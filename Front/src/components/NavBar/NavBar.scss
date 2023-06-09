@@ -90,7 +90,7 @@ nav.navbar {
   left: 0;
   z-index: 9999;
   transition:  0.32s ease-in-out;
-  background-color: #2D005D !important;
+  background-color: #2D005D 0.1;
   border-radius: 0 0 25px 25px;
 }
 nav.navbar.scrolled {
@@ -99,6 +99,7 @@ nav.navbar.scrolled {
 }
 nav.navbar a.navbar-brand {
     width: 9%;
+    display: block;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {  //texte de la navbar
   font-weight: 400;
@@ -252,8 +253,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .user-logo {
-    width: 8%;
-    height: 8%;
+    width: 7%;
+    height: 7%;
     margin-left: 85%;
-    top: 0;
-}   
+    margin-top: -2rem;
+    display: block;
+} 

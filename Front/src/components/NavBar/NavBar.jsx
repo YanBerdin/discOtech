@@ -1,8 +1,8 @@
 import './NavBar.scss';
 
 import { useState, useEffect } from 'react';
-
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { CSSTransition } from 'react-transition-group';
 import home from '../../assets/home-icon.svg';
 import style from '../../assets/style-icon.svg';
 import heart from '../../assets/heart-icon.svg';
@@ -10,8 +10,9 @@ import about from '../../assets/about-icon.svg';
 import user from '../../assets/user-icon.svg';
 
 function NavBar() {
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState('accueil');
   const [scrolled, setScrolled] = useState(false);
+  const [navExpanded, setNavExpanded] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,9 +32,17 @@ function NavBar() {
     setActiveLink(value);
   };
 
+  const handleNavToggle = () => {
+    setNavExpanded(!navExpanded);
+  };
+
   return (
-    <Navbar expand="md" className={scrolled ? 'scrolled' : ''}>
-      <Container>
+    <Navbar
+      expand="md"
+      className={`${scrolled ? 'scrolled' : ''} ${navExpanded ? 'nav-expanded' : ''}`}
+      onToggle={handleNavToggle}
+    >
+      <Container className="navbar-container">
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon" />
         </Navbar.Toggle>
@@ -83,7 +92,6 @@ function NavBar() {
           <span className="navbar-text">
             <a to="#connect">
               <button type="button" className="vvd">
-                {' '}
                 S'inscrire
                 <div className="icon">
                   <svg
@@ -104,9 +112,16 @@ function NavBar() {
           </span>
         </Navbar.Collapse>
       </Container>
-      <Nav.Link className="user-logo" href="/">
-        <img src={user} alt="Logo pour la connexion de l'utilisateur" />
-      </Nav.Link>
+      <CSSTransition
+        in={!navExpanded}
+        timeout={200}
+        classNames="user-icon-animation"
+        unmountOnExit
+      >
+        <Nav.Link className="user-logo" href="/">
+          <img src={user} alt="Logo pour la connexion de l'utilisateur" />
+        </Nav.Link>
+      </CSSTransition>
     </Navbar>
   );
 }
