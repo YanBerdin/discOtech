@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 // Fichiers JSX
 import Login from '../Login/Login';
-import SignUpForm from '../SignUpForm/SignUpForm';
+import SignUp from '../SignUp/SignUp';
 
 // Fichier Styles
 import './App.scss';
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<div>Je suis rendu quand on est sur /, sinon non</div>} />
         <Route path="/connexion" element={<Login />} />
-        <Route path="/inscription" element={<SignUpForm />} />
+        <Route path="/inscription" element={<SignUp />} />
       </Routes>
     </div>
   );

@@ -23,9 +23,8 @@ function Login() {
             className="Login-InputField"
             type="text"
           />
+          {/* Login Input : Password Adress */}
         </div>
-
-        {/* Login Input : Password */}
         <div className="Login-InputContainer">
           <input
             placeholder="Mot de passe"
@@ -37,7 +36,7 @@ function Login() {
 
         {/* Link to SignUp Form */}
         <p className="Login-SignUp">
-          Pas encore inscrit ? Rejoins nous <Link to="/inscription">ici</Link>{" "}
+          Pas encore inscrit ? Rejoins nous <Link to="/inscription">ici</Link>
         </p>
       </div>
       {/* Login Button */}
