@@ -66,7 +66,7 @@ function NavBar() {
           className="navbar-white-text"
           id="responsive-navbar-nav"
         >
-          <Nav className="me-auto">
+          <Nav className="justify-content-start">
             <Nav.Link href="#accueil">
               <img src={home} alt="Icone de l'accueil" className="nav-icon" />
               Accueil

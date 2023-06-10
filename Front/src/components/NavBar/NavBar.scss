@@ -251,9 +251,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
       opacity: 0.75;
       text-align: start;
       margin-top: -3rem;
-      padding-left: 1.5rem;
+      padding-left: 2.5rem;
     }
-  
+
+    .nav-icon {
+        display: none;
+    }
+
     .navbar-toggler {
       display: none !important;
     }
