@@ -1,38 +1,78 @@
-.footerContainer {
-  margin: 1.5rem;
-  padding: 1rem;
-  display: flex;
-  max-width: 1023px;
-  justify-content: space-between;
-  color: black;
+footer {
+  width: 1280px;
+  margin-top: 6rem;
 }
 
-// NavLink {
-//   padding: 1rem;
-// }
+.footerContainer {
+  //   padding: 0.5rem;
+  display: flex;
+  max-width: 1280px;
+  //   justify-content: space-between;
+  color: black;
+  justify-content: space-around;
+}
+
+.logoContainer {
+  width: 320px;
+  flex-basis: 230px;
+  //   flex-shrink: 6;
+}
+
 .Logo {
-  //   max-width: 200px;
-  max-width: 25%;
+  width: 230px;
+  //   flex-shrink: 10;
+}
+
+.Logo:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
 }
 
 .apropos {
-  padding: 1rem;
+  //   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 280px;
+}
+
+.apropos:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
+  //   -webkit-box-shadow: 3px 5px 15px -2px rgba(33,33,33,0.66);
+  //   box-shadow: 3px 5px 15px -2px rgba(33,33,33,0.66);
 }
 
 .liens-utiles {
-  padding: 1rem;
-  width: 25%;
+  //   padding: 0.5rem;
+  width: 280px;
   display: flex;
   flex-direction: column;
 }
 
-.reseau-sociaux {
-  max-width: 25%;
+.liens-utiles:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
+}
+
+.reseaux-sociaux {
+  display: flex;
+  flex-direction: row;
+  width: 280px;
+  gap: 0.5rem;
+//   margin: 1rem;
+  justify-content: center;
+}
+
+.icones {
+  flex-basis: 90px;
 }
 
 .icon-reseaux {
-    max-width: 235px;
+  width: 90px;
+}
+
+.icon-reseaux:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.85);
+  flex-shrink: 6;
 }

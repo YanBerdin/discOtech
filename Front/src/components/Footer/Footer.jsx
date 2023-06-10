@@ -2,14 +2,19 @@
 import { NavLink } from 'react-bootstrap';
 import './Footer.scss';
 import Logo from '../../assets/Logo.png';
+import facebook from '../../assets/facebook.png';
+import instagram from '../../assets/instagram.png';
+import linkedin from '../../assets/linkedin.png';
+import twitter from '../../assets/twitter.png';
 // import {BrowserRouteur} from `react-routeur-dom`;
 
 function Footer() {
   return (
     <footer>
       <section className="footerContainer">
-        <img src={Logo} className="Logo" alt="Logo de cette app" />
-
+        <div className="logoContainer">
+          <img src={Logo} className="Logo" alt="Logo de cette app" />
+        </div>
         <div className="apropos">
           <p>A propos</p>
           <NavLink>L'équipe de developpement</NavLink>
@@ -22,11 +27,14 @@ function Footer() {
           <NavLink>Mentions Légales</NavLink>
         </div>
         <div className="reseaux-sociaux">
-          <img
-            className="icon-reseaux"
-            src="https://e7.pngegg.com/pngimages/288/247/png-clipart-youtube-graphy-social-media-computer-icons-facebook-youtube-text-trademark.png"
-            alt="Logo facebook"
-          />
+          <div className="icones">
+            <img src={facebook} className="icon-reseaux" alt="Logo facebook" />
+            <img src={instagram} className="icon-reseaux" alt="Logo facebook" />
+          </div>
+          <div className="icones">
+            <img src={linkedin} className="icon-reseaux" alt="Logo facebook" />
+            <img src={twitter} className="icon-reseaux" alt="Logo facebook" />
+          </div>
         </div>
       </section>
       <div>
