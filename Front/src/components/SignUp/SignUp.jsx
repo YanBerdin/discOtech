@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 // Fichiers Style :
 import User from '../../assets/User.png';
-import LockLogo from '../../assets/lock.png';
-import MailLogo from '../../assets/mail.png';
-import UserLogo from '../../assets/user.png';
 import './SignUp.scss';
 
 function SignUp() {
@@ -27,11 +24,9 @@ function SignUp() {
 
           <div className="SignUp-InputContainer-User">
             {/* SignUp Input : Last Name */}
-            <img className="SignUp-Logo" src={UserLogo} alt="Logo User" />
             <input type="text" name="" id="lastName" className="SignUp-InputField" placeholder="Nom" />
 
             {/* SignUp Input : First Name */}
-            <img className="SignUp-Logo" src={UserLogo} alt="Logo User" />
             <input type="text" name="" id="firstName" className="SignUp-InputField" placeholder="Prénom" />
           </div>
         </div>
@@ -39,19 +34,16 @@ function SignUp() {
         <div className="SignUp-InputContainer-Website">
           {/* SignUp Input : Mail Adress */}
           <div className="SignUp-InputContainer">
-            <img className="SignUp-Logo" src={MailLogo} alt="Mail" />
             <input placeholder="Adresse e-mail" id="email" className="SignUp-InputField" type="text" />
           </div>
 
           {/* SignUp Input : Password */}
           <div className="SignUp-InputContainer">
-            <img className="SignUp-Logo" src={LockLogo} alt="Cadenas" />
             <input placeholder="Mot de passe" id="password" className="SignUp-InputField" type="text" />
           </div>
 
           {/* SignUp Input : Password Confirm */}
           <div className="SignUp-InputContainer">
-            <img className="SignUp-Logo" src={LockLogo} alt="Cadenas" />
             <input placeholder="Confirmation du Mot de passe" className="SignUp-InputField" type="password" id="confirmPassword" />
           </div>
 
