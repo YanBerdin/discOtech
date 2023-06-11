@@ -1,5 +1,5 @@
 footer {
-  width: 1280px;
+  // max-width: 1280px;
   margin-top: 6rem;
 }
 
@@ -7,20 +7,22 @@ footer {
   //   padding: 0.5rem;
   display: flex;
   max-width: 1280px;
-  //   justify-content: space-between;
   color: black;
   justify-content: space-around;
+  align-items: center;
+  align-content: center;
 }
 
 .logoContainer {
-  width: 320px;
+  max-width: 230px;
   flex-basis: 230px;
   //   flex-shrink: 6;
 }
 
 .Logo {
-  width: 230px;
-  //   flex-shrink: 10;
+  max-width: 100%;
+  height: auto;
+    flex-shrink: 5;
 }
 
 .Logo:hover {
@@ -56,11 +58,12 @@ footer {
 
 .reseaux-sociaux {
   display: flex;
-  flex-direction: row;
-  width: 280px;
+   width: 190px;
+  // max-width: 100%;
+  height: auto;
   gap: 0.5rem;
-//   margin: 1rem;
-  justify-content: center;
+  margin: 1rem;
+  justify-content: space-around;
 }
 
 .icones {
@@ -68,11 +71,13 @@ footer {
 }
 
 .icon-reseaux {
-  width: 90px;
+  max-width: 100%;
+  gap: 0.5rem;
+  flex-shrink: 5;
 }
 
 .icon-reseaux:hover {
   transition: all 0.5s ease-in-out;
   transform: scale(0.85);
-  flex-shrink: 6;
+
 }
