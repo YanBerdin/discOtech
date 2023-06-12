@@ -1,4 +1,4 @@
-import User from '../../../assets/User.png';
+import User from '../../../assets/WelcomeUser.png';
 import './FormHeader.scss';
 
 function FormHeader() {
