@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import './Login.scss';
 import User from '../../assets/User.png';
 
