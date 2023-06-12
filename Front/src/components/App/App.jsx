@@ -1,12 +1,15 @@
 import './App.scss';
-import Login from '../Login/Login';
-import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+
+import NavBar from '../NavBar/NavBar';
+// import Header from '../Header/Header';
 
 function App() {
   return (
-
-<Footer />
-
+    <>
+      <NavBar />
+      <Header />
+    </>
   );
 }
 
