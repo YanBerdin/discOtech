@@ -44,7 +44,7 @@ function SignUp() {
 
           {/* SignUp Input : Password Confirm */}
           <div className="SignUp-InputContainer">
-            <input placeholder="Confirmation du Mot de passe" className="SignUp-InputField" type="password" id="confirmPassword" />
+            <input placeholder="Confirmation du mot de passe" className="SignUp-InputField" type="password" id="confirmPassword" />
           </div>
 
         </div>

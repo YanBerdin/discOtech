@@ -1,0 +1,28 @@
+// todo : Check border-color
+.Button {
+    position: relative;
+    width: 250px;
+    background-color: #d19ffa91;
+    height: 40px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    cursor: pointer;
+    overflow: hidden;
+  
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.253);
+        height: 100%;
+        width: 150px;
+        top: 0;
+        left: -200px;
+        border-bottom-right-radius: 100px;
+        border-top-left-radius: 100px;
+        filter: blur(10px);
+        transition-duration: 0.5s;
+      }
+  }

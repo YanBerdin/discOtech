@@ -1,11 +1,18 @@
-// Dépendances :
+// == Import : npm
 import { Link } from 'react-router-dom';
 
-// Fichiers Style :
+// == Import : local
+import Field from './Field/Field';
+import FormButton from './FormButton/FormButton';
+
 import User from '../../assets/User.png';
 import './Login.scss';
 
-function Login() {
+// == Component
+function Login({
+  email,
+  password,
+}) {
   return (
     <form className="Login-Form" action="">
       <div className="Login-Card">
@@ -16,33 +23,28 @@ function Login() {
         </div>
 
         {/* Login Input : Mail Adress */}
-        <div className="Login-InputContainer">
-          <input
-            placeholder="Adresse e-mail"
-            id="email"
-            className="Login-InputField"
-            type="text"
-          />
-          {/* Login Input : Password Adress */}
-        </div>
-        <div className="Login-InputContainer">
-          <input
-            placeholder="Mot de passe"
-            id="password"
-            className="Login-InputField"
-            type="password"
-          />
-        </div>
+        <Field
+          name="email"
+          placeholder="Adresse e-mail"
+          value={email}
+        />
+
+        {/* Login Input : Password Adress */}
+        <Field
+          name="password"
+          type="password"
+          placeholder="Mot de passe"
+          value={password}
+        />
 
         {/* Link to SignUp Form */}
         <p className="Login-SignUp">
           Pas encore inscrit ? Rejoins nous <Link to="/inscription">ici</Link>
         </p>
       </div>
+
       {/* Login Button */}
-      <button className="Login-Button" id="button" type="submit">
-        Me connecter
-      </button>
+      <FormButton />
     </form>
   );
 }
