@@ -2,35 +2,24 @@
 import { Link } from 'react-router-dom';
 
 // == Import : local
-import Field from './Field/Field';
-import FormButton from './FormButton/FormButton';
-
-import User from '../../assets/User.png';
+import FormField from '../FormField/FormField';
+import FormButton from '../FormButton/FormButton';
+import FormHeader from '../FormHeader/FormHeader';
 import './Login.scss';
 
 // == Component
-function Login({
-  email,
-  password,
-}) {
+function Login({ email, password }) {
   return (
     <form className="Login-Form" action="">
       <div className="Login-Card">
         {/* Login Header : Title and Image */}
-        <div className="Login-Header">
-          <img className="Login-UserImg" src={User} alt="Logo de personnage" />
-          <p className="Login-Title">Connexion</p>
-        </div>
+        <FormHeader />
 
         {/* Login Input : Mail Adress */}
-        <Field
-          name="email"
-          placeholder="Adresse e-mail"
-          value={email}
-        />
+        <FormField name="email" placeholder="Adresse e-mail" value={email} />
 
         {/* Login Input : Password Adress */}
-        <Field
+        <FormField
           name="password"
           type="password"
           placeholder="Mot de passe"

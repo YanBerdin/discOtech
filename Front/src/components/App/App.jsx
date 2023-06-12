@@ -2,8 +2,8 @@
 import { Route, Routes } from 'react-router-dom';
 
 // Fichiers JSX
-import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
+import Login from '../Form/Login/Login';
+import SignUp from '../Form/SignUp/SignUp';
 
 // Fichier Styles
 import './App.scss';
