@@ -1,15 +1,22 @@
-import './App.scss';
-import Header from '../Header/Header';
+// Dépendances
+import { Route, Routes } from 'react-router-dom';
 
-import NavBar from '../NavBar/NavBar';
-// import Header from '../Header/Header';
+// Fichiers JSX
+import Login from '../Form/Login/Login';
+import SignUp from '../Form/SignUp/SignUp';
+
+// Fichier Styles
+import './App.scss';
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <Header />
-    </>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<div>Je suis rendu quand on est sur /, sinon non</div>} />
+        <Route path="/connexion" element={<Login />} />
+        <Route path="/inscription" element={<SignUp />} />
+      </Routes>
+    </div>
   );
 }
 

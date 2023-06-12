@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+
 import App from './components/App/App';
-import './index.scss';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <div className="App">
-      <App />
-    </div>
-  </React.StrictMode>,
+const rootReactElement = (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+
 );
+
+const root = createRoot(document.getElementById('root'));
+root.render(rootReactElement);
