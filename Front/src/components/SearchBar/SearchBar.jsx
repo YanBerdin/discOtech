@@ -7,7 +7,7 @@ function SearchBar() {
       {/* <img className="loupe" src={search} alt="icone de loupe" /> */}
       <input className="input" type="search" placeholder="Votre recherche..." aria-label="Search" />
       <button className="btn" type="submit">
-        Chercher
+        Rechercher
       </button>
     </form>
   );
