@@ -1,42 +1,83 @@
-// import React from "react";
+// = Import : npm
 import { NavLink } from 'react-bootstrap';
-import './Footer.scss';
-import Logo from '../../assets/Logo.png';
-import facebook from '../../assets/facebook.png';
-import instagram from '../../assets/instagram.png';
-import linkedin from '../../assets/linkedin.png';
-import twitter from '../../assets/twitter.png';
-// import {BrowserRouteur} from `react-routeur-dom`;
 
+// = Import : local
+import './Footer.scss';
+import AppLogo from '../../assets/Logo-round.png';
+import facebook from '../../assets/iconeFacebook.png';
+import linkedin from '../../assets/icone-linkedin.png';
+import twitter from '../../assets/icone-twitter.png';
+import instagram from '../../assets/icone-instagram.png';
+
+// = Component
 function Footer() {
   return (
-    <footer>
-      <section className="footerContainer">
-        <div className="logoContainer">
-          <img src={Logo} className="Logo" alt="Logo de cette app" />
-        </div>
-        <div className="apropos">
-          <p>A propos</p>
-          <NavLink className="AboutUs" to="equipe-dev">L'équipe de développement</NavLink>
-          <NavLink className="AboutUs" to="le-projet">Descriptif du projet</NavLink>
-        </div>
-        <div className="liens-utiles">
-          <p>Liens utiles</p>
-          <NavLink to="conditions-generales-utilisation">Conditions générales d'utilisation</NavLink>
-          <NavLink to="mentions-legales">Mentions Légales</NavLink>
-        </div>
-        <div className="reseaux-sociaux">
-          <div className="icones">
-            <img src={facebook} className="icon-reseaux" alt="Logo facebook" />
-            <img src={instagram} className="icon-reseaux" alt="Logo facebook" />
+    <footer className="Footer">
+      <div className="Container">
+        <img
+          src={AppLogo}
+          className="Footer-AppLogo"
+          alt="Logo de l'application en forme de disque "
+        />
+        <section className="Footer-Links">
+          <div className="Footer-About">
+            <p className="titre">A propos</p>
+            <NavLink className="NavLink" to="equipe-dev">
+              L'équipe de développement
+            </NavLink>
+            <NavLink className="NavLink" to="le-projet">
+              Descriptif du projet
+            </NavLink>
           </div>
-          <div className="icones">
-            <img src={linkedin} className="icon-reseaux" alt="Logo facebook" />
-            <img src={twitter} className="icon-reseaux" alt="Logo facebook" />
+
+          <div className="Footer-Useful">
+            <p className="titre">Liens utiles</p>
+            <NavLink className="NavLink" to="conditions-generales-utilisation">
+              Conditions générales d'utilisation
+            </NavLink>
+            <NavLink className="NavLink" to="mentions-legales">Mentions Légales</NavLink>
           </div>
-        </div>
-      </section>
-      <div>
+        </section>
+
+        <section className="Footer-Social">
+          <div className="Footer-Networks">
+            <NavLink className to="https://fr-fr.facebook.com/">
+              <img
+                src={facebook}
+                className="Footer-NetworkLogo"
+                alt="Logo facebook"
+              />
+            </NavLink>
+
+            <NavLink to="https://www.instagram.com/">
+              <img
+                src={instagram}
+                className="Footer-NetworkLogo"
+                alt="Logo instagram"
+              />
+            </NavLink>
+          </div>
+
+          <div className="Footer-Networks">
+            <NavLink to="https://www.linkedin.com/">
+              <img
+                src={linkedin}
+                className="Footer-NetworkLogo"
+                alt="Logo linkedin"
+              />
+            </NavLink>
+
+            <NavLink to="https://twitter.com/explore">
+              <img
+                src={twitter}
+                className="Footer-NetworkLogo"
+                alt="Logo twitter"
+              />
+            </NavLink>
+          </div>
+        </section>
+      </div>
+      <div className="Copyright">
         <p>Copyright DiscO'Tech - Radium - O'clock - 2023</p>
       </div>
     </footer>
