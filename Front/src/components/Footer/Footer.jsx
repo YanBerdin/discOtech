@@ -17,14 +17,13 @@ function Footer() {
         </div>
         <div className="apropos">
           <p>A propos</p>
-          <NavLink>L'équipe de developpement</NavLink>
-          <NavLink>Nous contacter</NavLink>
-          <NavLink>Descriptif du projet</NavLink>
+          <NavLink className="AboutUs" to="equipe-dev">L'équipe de développement</NavLink>
+          <NavLink className="AboutUs" to="le-projet">Descriptif du projet</NavLink>
         </div>
         <div className="liens-utiles">
           <p>Liens utiles</p>
-          <NavLink>Conditions générales d'utilisation</NavLink>
-          <NavLink>Mentions Légales</NavLink>
+          <NavLink to="conditions-generales-utilisation">Conditions générales d'utilisation</NavLink>
+          <NavLink to="mentions-legales">Mentions Légales</NavLink>
         </div>
         <div className="reseaux-sociaux">
           <div className="icones">
