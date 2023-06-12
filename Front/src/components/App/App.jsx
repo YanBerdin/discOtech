@@ -4,7 +4,9 @@ import Footer from '../Footer/Footer';
 
 function App() {
   return (
-    <><Login /><Footer /></>
+
+<Footer />
+
   );
 }
 
