@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 #root {
-   max-width: 1280px;
+   max-width: 100%;
    margin: 0 auto;
    text-align: center;
    font-family: 'Righteous', cursive;
+ }
+ body{
+  background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78))!important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
  }
 
 // .logo {

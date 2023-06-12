@@ -1,0 +1,50 @@
+.form-search {
+    width: 70%;
+    margin: auto;
+    margin-top: -2rem;
+    position: relative;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #ddd;
+    background-color: white;
+    display: flex;
+    padding: 0;
+    padding-left: 1rem;
+  }
+  
+  .input {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    font-size: 1rem;
+    width: 100%;
+    margin-left: 5px;
+  }
+  
+  .input:focus {
+    outline: none;
+  }
+
+  .form-search > .btn {
+    padding: 0rem 2rem;
+  }
+
+//   .loupe {
+//     width: 70%;
+//     height: 70%;
+//   }
+
+@media (max-width: 767px) {
+    /* Styles spécifiques aux appareils portables */
+    .form-search > .btn {
+        padding: 0rem 1rem;
+        font-size: 0.8em;
+      }
+      .input {
+        font-size: 0.8em;
+      }
+      .form-search {
+        margin-top: 1rem;
+      }
+  }

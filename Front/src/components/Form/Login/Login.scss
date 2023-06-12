@@ -1,9 +1,7 @@
 body {
   margin: auto;
   background-size: cover;
-  background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78));
   background-repeat: no-repeat;
-  height: 100vh;
 }
 .Login {
   &-Form {
@@ -41,6 +39,9 @@ body {
   }
   &-SignUp {
     margin: 20px 0px;
+  }
+  &-Link {
+    color: black;
   }
 }
 
