@@ -1,0 +1,83 @@
+footer {
+  // max-width: 1280px;
+  margin-top: 6rem;
+}
+
+.footerContainer {
+  //   padding: 0.5rem;
+  display: flex;
+  max-width: 1280px;
+  color: black;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.logoContainer {
+  max-width: 230px;
+  flex-basis: 230px;
+  //   flex-shrink: 6;
+}
+
+.Logo {
+  max-width: 100%;
+  height: auto;
+    flex-shrink: 5;
+}
+
+.Logo:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
+}
+
+.apropos {
+  //   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.apropos:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
+  //   -webkit-box-shadow: 3px 5px 15px -2px rgba(33,33,33,0.66);
+  //   box-shadow: 3px 5px 15px -2px rgba(33,33,33,0.66);
+}
+
+.liens-utiles {
+  //   padding: 0.5rem;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.liens-utiles:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
+}
+
+.reseaux-sociaux {
+  display: flex;
+   width: 190px;
+  // max-width: 100%;
+  height: auto;
+  gap: 0.5rem;
+  margin: 1rem;
+  justify-content: space-around;
+}
+
+.icones {
+  flex-basis: 90px;
+}
+
+.icon-reseaux {
+  max-width: 100%;
+  gap: 0.5rem;
+  flex-shrink: 5;
+}
+
+.icon-reseaux:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.85);
+
+}
