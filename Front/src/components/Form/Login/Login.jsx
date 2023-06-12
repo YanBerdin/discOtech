@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 // == Import : local
 import FormField from '../FormField/FormField';
-import FormButton from '../FormButton/FormButton';
 import FormHeader from '../FormHeader/FormHeader';
 import './Login.scss';
 
@@ -33,7 +32,9 @@ function Login({ email, password }) {
       </div>
 
       {/* Login Button */}
-      <FormButton />
+      <button className="Login-Button" id="button" type="submit">
+        Me connecter
+      </button>
     </form>
   );
 }

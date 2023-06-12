@@ -3,7 +3,6 @@
 import { Link } from 'react-router-dom';
 
 // == Import : local
-import FormButton from '../FormButton/FormButton';
 import FormField from '../FormField/FormField';
 import FormHeader from '../FormHeader/FormHeader';
 import './SignUp.scss';
@@ -102,7 +101,9 @@ function SignUp({
         </p>
       </div>
       {/* SignUp Button */}
-      <FormButton />
+      <button className="SignUp-Button" id="button" type="submit">
+        M'inscrire
+      </button>
     </form>
   );
 }
