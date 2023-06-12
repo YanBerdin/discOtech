@@ -96,7 +96,7 @@ function SignUp({
         </div>
 
         {/* Link to Login Form */}
-        <p className="SignUp-SignUp">
+        <p className="SignUp-Login">
           Déjà inscrit ? Connecte toi <Link to="/connexion">ici</Link>
         </p>
       </div>
