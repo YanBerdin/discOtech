@@ -10,7 +10,6 @@ import NavBar from '../NavBar/NavBar';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-
 // Fichier Styles
 import './App.scss';
 
@@ -22,7 +21,10 @@ function App() {
       <SearchBar />
 
       <Routes>
-        <Route path="/" element={<div>Je suis rendu quand on est sur /, sinon non</div>} />
+        <Route
+          path="/"
+          element={<div>Je suis rendu quand on est sur /, sinon non</div>}
+        />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />

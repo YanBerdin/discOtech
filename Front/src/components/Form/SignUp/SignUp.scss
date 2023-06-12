@@ -12,14 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
     margin-bottom: 50px;
-=======
-    margin: auto;
-    color:black;
->>>>>>> 0e8bcb273032d8fb94218f071d9189b0724fab99
   }
-
   // Form Card
   &-Card {
     max-width: 50%;
@@ -117,12 +111,9 @@ body {
     cursor: pointer;
     overflow: hidden;
     border: 0;
-<<<<<<< HEAD
   }
   &-Login {
     margin: 20px 0px;
-=======
->>>>>>> 0e8bcb273032d8fb94218f071d9189b0724fab99
   }
 }
 
