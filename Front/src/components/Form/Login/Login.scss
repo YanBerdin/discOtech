@@ -1,9 +1,7 @@
 body {
   margin: auto;
   background-size: cover;
-  background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78));
   background-repeat: no-repeat;
-  height: 100vh;
 }
 .Login {
   &-Form {
@@ -11,9 +9,10 @@ body {
     flex-direction: column;
     align-items: center;
     margin: auto;
+    color:black;
   }
   &-Card {
-    width: 290px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,5 +22,8 @@ body {
     border-radius: 30px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
     margin: 50px 50px 0px 50px;
+  }
+  &-Link {
+    color: black;
   }
 }
