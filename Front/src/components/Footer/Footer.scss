@@ -7,12 +7,13 @@
   // align-content: center;
   padding: 0.5rem;
   margin: 0;
+  position: relative;
 }
 .Footer {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  // margin-top: 1rem;
+  // margin-bottom: 1rem;
   background-color: rgb(126, 115, 115);
-
+  bottom: 0; left: 0; right: 0; top: 100%;
   
   &-Links {
     display: flex;
@@ -44,7 +45,7 @@
     display: flex;
     flex-direction: column;
     max-width: 280px;
-    color: #646cff;
+    color: #ffffff;
   }
 
   &-Useful {
@@ -52,7 +53,7 @@
     max-width: 280px;
     display: flex;
     flex-direction: column;
-    color: #646cff;
+    color: #ffffff;
   }
 
   // &-Useful:hover {
@@ -102,4 +103,6 @@
 .Copyright {
   background-color: rgb(10, 10, 10);
   font-size: 0.8rem;
+  text-align: center;
+  padding: 0px 20px 5px;
 }
