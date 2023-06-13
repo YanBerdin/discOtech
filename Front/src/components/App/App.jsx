@@ -6,7 +6,6 @@ import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-
 import LegalNotices from '../Legal Notices/LegalNotices';
 import TermsofService from '../Terms of Service/TermsofService';
 
