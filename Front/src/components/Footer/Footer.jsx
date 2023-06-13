@@ -15,13 +15,13 @@ function Footer() {
     <footer className="Footer">
 
       <div className="Container">
-        <div className="Footer-Logo-Container">
-          <img
-            src={AppLogo}
-            className="Footer-AppLogo"
-            alt="Logo de l'application en forme de disque "
-          />
-        </div>
+        {/* <div className="Footer-Logo-Container"> */}
+        <img
+          src={AppLogo}
+          className="Footer-AppLogo"
+          alt="Logo de l'application en forme de disque "
+        />
+        {/* </div> */}
         <section className="Footer-Links">
           <div className="Footer-About">
             <p className="titre">A propos</p>

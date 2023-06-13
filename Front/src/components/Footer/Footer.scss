@@ -4,7 +4,8 @@
   max-width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 2rem;
+  padding-bottom: 0;
   margin: 0;
   position: relative;
 }
@@ -12,7 +13,7 @@
 .Footer {
   // margin-top: 1rem;
   // margin-bottom: 1rem;
-  background-color: rgb(126, 115, 115);
+  background-color: rgb(10, 10, 10);
   bottom: 0; left: 0; right: 0; top: 100%;
   
   &-Links {
@@ -25,7 +26,7 @@
   }
 
   &-AppLogo {
-    max-width: 30%;
+    max-width: 7%;
   }
 
   &-AppLogo:hover {
@@ -70,7 +71,6 @@
     flex-direction: column;
     gap: 0.5rem;
     max-width: 230px;
-    margin-right: 4rem;
   }
 
   .NavLink {
@@ -95,7 +95,7 @@
   background-color: rgb(10, 10, 10);
   font-size: 0.8rem;
   text-align: center;
-  padding: 0px 20px 5px;
+  padding: 10px 20px 5px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -107,7 +107,7 @@
   }
 
   .Footer-AppLogo {
-    max-width: 20%;
+    max-width: 13%;
   }
 
   .Footer-NetworkLogo {
@@ -129,6 +129,7 @@
     padding: 0.5rem;
     font-size: 0.7rem;
     align-self: flex-start;
+    padding-bottom: 15px;
   }
 
   .Footer-Useful {
@@ -161,5 +162,6 @@
 
   .Copyright {
     font-size: 0.7rem;
+    margin-top: 10px;
   }
 }
