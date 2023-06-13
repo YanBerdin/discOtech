@@ -10,7 +10,6 @@ import Footer from '../Footer/Footer';
 import LegalNotices from '../Legal Notices/LegalNotices';
 import TermsofService from '../Terms of Service/TermsofService';
 
-
 // Fichier Styles
 import './App.scss';
 import HomePage from '../HomePage/HomePage';

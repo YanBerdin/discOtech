@@ -35,7 +35,7 @@ function NavBar() {
       <Container>
         <Navbar.Brand
           className={`logo-img ${toggleOpen ? 'hidden' : ''}`}
-          href="#accueil"
+          href="/"
         >
           <img
             src={logo}
