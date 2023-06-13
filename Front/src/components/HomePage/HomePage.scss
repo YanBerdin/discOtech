@@ -1,8 +1,7 @@
 .HomePage {
-    display: flex;
-    
+    width: 100%;
+
     &-Suggestions {
-        box-sizing: border-box;
-        width: 20%;
+    padding-left: 2rem;
 }
 }

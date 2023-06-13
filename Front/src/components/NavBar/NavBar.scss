@@ -15,7 +15,6 @@ body {
   overflow-x: hidden;
   position: relative;
   color: #fff !important;
-  font-family: "Centra", sans-serif !important;
 }
 
 h1,
@@ -62,14 +61,6 @@ select:focus {
   }
 }
 
-p.success {
-  color: green;
-}
-
-p.danger {
-  color: red;
-}
-
 /************ Navbar Css ************/
 .navbar-white-text {
     .nav-link {
@@ -85,13 +76,17 @@ nav.navbar {
   left: 0;
   z-index: 9999;
   transition: 0.32s ease-in-out;
-  background-color: #2d005d 0.1;
   border-radius: 0 0 25px 25px;
+  text-align: center;
+}
+
+nav.navbar {
+  background: url('../../assets/videoBg.mp4') no-repeat center center fixed;
+  background-size: cover;
 }
 
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
 }
 
 nav.navbar .navbar-nav .nav-link.navbar-link {
@@ -229,6 +224,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .transition-delayed {
     transition-delay: 6s; /* Délai de 0.2 seconde avant le début de la transition */
   }
+
+  nav.navbar.mobile-open {
+    background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78));
+  } 
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -314,3 +313,4 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
       }
 
   }
+  

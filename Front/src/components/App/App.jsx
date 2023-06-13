@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
 
 // Fichier Styles
 import './App.scss';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/le-projet" />
         <Route path="/*" />
       </Routes>
+      <Footer />
     </div>
   );
 }

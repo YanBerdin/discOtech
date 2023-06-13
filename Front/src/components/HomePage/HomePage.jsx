@@ -1,17 +1,16 @@
 // == Imports : local
 import Header from '../Header/Header';
-import SearchBar from '../SearchBar/SearchBar';
-import Footer from '../Footer/Footer';
+
+import './HomePage.scss';
 
 // == Component
 function HomePage() {
   return (
-    <div className="HomePage">
-      <Header />
-      <SearchBar />
-      <h3 className="HomePage-Suggestions"> Nos Suggestions : </h3>
-      <Footer />
-    </div>
+    <><Header />
+      <div className="HomePage-Container">
+        <h4 className="HomePage-Suggestions"> Nos Suggestions : </h4>
+      </div>
+    </>
 
   );
 }
