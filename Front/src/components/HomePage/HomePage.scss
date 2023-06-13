@@ -1,20 +1,48 @@
 .HomePage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &-Container {
+    display: flex;
     width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    &-Container {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    &-Suggestions {
+  &-Suggestions {
     padding: 5px 25px 7px;
     margin-bottom: 0;
-
-    &-Card {
-        width: 50%;
-        padding: 50px;
-        padding-bottom: 10px;
-    }
+  }
+  
+  &-Card {
+    width: 50%;
+    padding: 50px;
+    padding-bottom: 10px;
+  }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .HomePage {
+    
+    &-Container {
+        margin: 2.3rem;
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+    &-Card {
+      width: 25%;
+      padding: 50px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+    .HomePage {
+        &-Container {
+            margin: 0.9rem;
+            justify-content: flex-start;
+        }
+    }
 }

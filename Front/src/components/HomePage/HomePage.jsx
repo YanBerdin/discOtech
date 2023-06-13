@@ -18,6 +18,7 @@ function HomePage() {
             key={album.id}
             albumname={album.name}
             artistfullname={album.artist.fullname}
+            image={album.image}
           />
         ))}
       </div>

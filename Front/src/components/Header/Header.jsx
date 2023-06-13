@@ -4,7 +4,7 @@ import './Header.scss';
 
 import SearchBar from '../SearchBar/SearchBar';
 
-import videoBg from '../../assets/videoBg.mp4';
+import videoBg from '../../assets/retro.mp4';
 
 function Header() {
   return (
