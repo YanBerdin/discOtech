@@ -7,6 +7,10 @@ import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 
+import LegalNotices from '../Legal Notices/LegalNotices';
+import TermsofService from '../Terms of Service/TermsofService';
+
+
 // Fichier Styles
 import './App.scss';
 import HomePage from '../HomePage/HomePage';
@@ -25,8 +29,8 @@ function App() {
         <Route path="/styles" />
         <Route path="/favoris" />
         <Route path="/a-propos" />
-        <Route path="/mentions-legales" />
-        <Route path="/condition-generales-utilisation" />
+        <Route path="/mentions-legales" element={<LegalNotices />} />
+        <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/equipe-dev" />
         <Route path="/le-projet" />
         <Route path="/*" />

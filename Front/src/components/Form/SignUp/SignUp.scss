@@ -9,7 +9,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    color:black;
     margin-bottom: 50px;
+
   }
   // Form Card
   &-Card {
@@ -111,6 +114,7 @@ body {
   }
   &-Login {
     margin: 20px 0px;
+
   }
 }
 
