@@ -27,7 +27,11 @@ function NavBar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className={`navbar-white-text ${toggleOpen ? 'mobile-open' : ''}`}
+    >
       <Container>
         <Navbar.Brand
           className={`logo-img ${toggleOpen ? 'hidden' : ''}`}

@@ -3,10 +3,10 @@ import './SearchBar.scss';
 
 function SearchBar() {
   return (
-    <form className="form-search">
+    <form className="SearchBar-Form">
       {/* <img className="loupe" src={search} alt="icone de loupe" /> */}
-      <input className="input" type="search" placeholder="Votre recherche..." aria-label="Search" />
-      <button className="btn" type="submit">
+      <input className="SearchBar-Input" type="search" placeholder="Votre recherche..." aria-label="Search" />
+      <button className="SearchBar-Button" type="submit">
         Rechercher
       </button>
     </form>
