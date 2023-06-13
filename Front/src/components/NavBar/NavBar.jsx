@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -71,11 +72,11 @@ function NavBar() {
           id="responsive-navbar-nav"
         >
           <Nav className="justify-content-start">
-            <Nav.Link href="#accueil" onClick={handleToggle}>
+            <Nav.Link href="/">
               <img src={home} alt="Icone de l'accueil" className="nav-icon" />
               Accueil
             </Nav.Link>
-            <Nav.Link href="#styles" onClick={handleToggle}>
+            <Nav.Link href="/styles">
               <img
                 src={style}
                 alt="Icone de la page des styles"
@@ -85,7 +86,7 @@ function NavBar() {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#favoris" onClick={handleToggle}>
+            <Nav.Link href="/favoris">
               <img
                 src={heart}
                 alt="Icone de la page des favoris"
@@ -93,7 +94,7 @@ function NavBar() {
               />
               Favoris
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#aPropos" onClick={handleToggle}>
+            <Nav.Link eventKey={2} href="/a-propos">
               <img
                 src={about}
                 alt="Icone de la page des favoris"

@@ -27,7 +27,7 @@ function Login({ email, password }) {
         />
 
         {/* Link to SignUp Form */}
-        <p className="Login-SignUp">
+        <p className="Login-Link">
           Pas encore inscrit ? Rejoins nous <Link to="/inscription">ici</Link>
         </p>
       </div>
