@@ -313,20 +313,4 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
       }
 
   }
-
-  .navbar-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  
-  .navbar-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   
