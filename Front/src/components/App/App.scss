@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-#root {
+*:root {
    max-width: 100%;
    margin: 0 auto;
   //  text-align: center;
    font-family: 'Righteous', cursive;
+   height: auto;
  }
 
- body {
-  background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78))!important;
+ body{
   background-size: cover;
+  background: linear-gradient(rgb(48, 22, 88),rgb(18, 7, 33), rgb(0, 0, 0));
   background-repeat: no-repeat;
-  height: 100vh;
  }
 
 // .logo {
