@@ -2,12 +2,12 @@
 import './AlbumCard.scss';
 
 // == Component :
-function AlbumCard() {
+function AlbumCard({ albumname, artistfullname }) {
   return (
     <div className="AlbumCard">
       <div className="AlbumCard-Description">
-        <p className="AlbumCard-Title">Album Title</p>
-        <p>Artist Name</p>
+        <p className="AlbumCard-Title">{albumname}</p>
+        <p>{artistfullname}</p>
       </div>
     </div>
   );
