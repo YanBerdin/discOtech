@@ -1,5 +1,6 @@
 // == Imports : local
 import Header from '../Header/Header';
+import AlbumCard from './AlbumCard/AlbumCard';
 
 import './HomePage.scss';
 
@@ -7,8 +8,14 @@ import './HomePage.scss';
 function HomePage() {
   return (
     <><Header />
+      <h4 className="HomePage-Suggestions"> Nos Suggestions : </h4>
       <div className="HomePage-Container">
-        <h4 className="HomePage-Suggestions"> Nos Suggestions : </h4>
+        <AlbumCard className="HomePage-Card" />
+        <AlbumCard />
+        <AlbumCard />
+        <AlbumCard />
+        <AlbumCard />
+        <AlbumCard />
       </div>
     </>
 

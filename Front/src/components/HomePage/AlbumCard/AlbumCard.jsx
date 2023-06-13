@@ -6,7 +6,7 @@ function AlbumCard() {
   return (
     <div className="AlbumCard">
       <div className="AlbumCard-Description">
-        <h3>Album Title</h3>
+        <p className="AlbumCard-Title">Album Title</p>
         <p>Artist Name</p>
       </div>
     </div>
