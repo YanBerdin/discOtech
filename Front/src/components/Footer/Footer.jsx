@@ -13,12 +13,15 @@ import instagram from '../../assets/icone-instagram.png';
 function Footer() {
   return (
     <footer className="Footer">
+
       <div className="Container">
-        <img
-          src={AppLogo}
-          className="Footer-AppLogo"
-          alt="Logo de l'application en forme de disque "
-        />
+        <div className="Footer-Logo-Container">
+          <img
+            src={AppLogo}
+            className="Footer-AppLogo"
+            alt="Logo de l'application en forme de disque "
+          />
+        </div>
         <section className="Footer-Links">
           <div className="Footer-About">
             <p className="titre">A propos</p>
@@ -29,7 +32,9 @@ function Footer() {
               Descriptif du projet
             </NavLink>
           </div>
+        </section>
 
+        <section className="Footer-Links">
           <div className="Footer-Useful">
             <p className="titre">Liens utiles</p>
             <NavLink className="NavLink" to="conditions-generales-utilisation">
@@ -41,7 +46,7 @@ function Footer() {
 
         <section className="Footer-Social">
           <div className="Footer-Networks">
-            <NavLink className to="https://fr-fr.facebook.com/">
+            <NavLink className="NavLink" to="https://fr-fr.facebook.com/">
               <img
                 src={facebook}
                 className="Footer-NetworkLogo"
@@ -49,7 +54,7 @@ function Footer() {
               />
             </NavLink>
 
-            <NavLink to="https://www.instagram.com/">
+            <NavLink className="NavLink" to="https://www.instagram.com/">
               <img
                 src={instagram}
                 className="Footer-NetworkLogo"
@@ -59,7 +64,7 @@ function Footer() {
           </div>
 
           <div className="Footer-Networks">
-            <NavLink to="https://www.linkedin.com/">
+            <NavLink className="NavLink" to="https://www.linkedin.com/">
               <img
                 src={linkedin}
                 className="Footer-NetworkLogo"
@@ -67,7 +72,7 @@ function Footer() {
               />
             </NavLink>
 
-            <NavLink to="https://twitter.com/explore">
+            <NavLink className="NavLink" to="https://twitter.com/explore">
               <img
                 src={twitter}
                 className="Footer-NetworkLogo"
