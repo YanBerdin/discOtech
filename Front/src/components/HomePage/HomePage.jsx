@@ -9,6 +9,7 @@ function HomePage() {
     <div className="HomePage">
       <Header />
       <SearchBar />
+      <h3 className="HomePage-Suggestions"> Nos Suggestions : </h3>
       <Footer />
     </div>
 

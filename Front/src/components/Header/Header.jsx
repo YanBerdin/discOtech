@@ -14,9 +14,6 @@ function Header() {
           Get ready to experience{' '}
           <span className="md:text-[#C07F00] text-white">DISC'OTECH</span>
         </h1>
-        <p className="mb-2 md:text-center md:text-lg md:text-gray-100 text-white texte">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, asperiores.
-        </p>
       </div>
     </div>
   );
