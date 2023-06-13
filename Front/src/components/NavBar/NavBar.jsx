@@ -26,7 +26,11 @@ function NavBar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className={`navbar-white-text ${toggleOpen ? 'mobile-open' : ''}`}
+    >
       <Container>
         <Navbar.Brand
           className={`logo-img ${toggleOpen ? 'hidden' : ''}`}
@@ -54,8 +58,8 @@ function NavBar() {
           id="user-dropdown"
           className={`user-img ${toggleOpen ? 'hidden' : ''} dropdown-center`}
         >
-          <NavDropdown.Item href="#connexion">Se connecter</NavDropdown.Item>
-          <NavDropdown.Item href="#inscription">S'inscrire</NavDropdown.Item>
+          <NavDropdown.Item href="/connexion">Se connecter</NavDropdown.Item>
+          <NavDropdown.Item href="/inscription">S'inscrire</NavDropdown.Item>
         </NavDropdown>
 
         <Navbar.Toggle
@@ -67,11 +71,11 @@ function NavBar() {
           id="responsive-navbar-nav"
         >
           <Nav className="justify-content-start">
-            <Nav.Link href="#accueil">
+            <Nav.Link href="#accueil" onClick={handleToggle}>
               <img src={home} alt="Icone de l'accueil" className="nav-icon" />
               Accueil
             </Nav.Link>
-            <Nav.Link href="#styles">
+            <Nav.Link href="#styles" onClick={handleToggle}>
               <img
                 src={style}
                 alt="Icone de la page des styles"
@@ -81,7 +85,7 @@ function NavBar() {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#favoris">
+            <Nav.Link href="#favoris" onClick={handleToggle}>
               <img
                 src={heart}
                 alt="Icone de la page des favoris"
@@ -89,7 +93,7 @@ function NavBar() {
               />
               Favoris
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#aPropos">
+            <Nav.Link eventKey={2} href="#aPropos" onClick={handleToggle}>
               <img
                 src={about}
                 alt="Icone de la page des favoris"
