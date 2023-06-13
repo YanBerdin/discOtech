@@ -1,8 +1,5 @@
 body {
   margin: auto;
-  background-size: cover;
-  background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78));
-  background-repeat: no-repeat;
   height: auto;
 }
 
@@ -14,8 +11,9 @@ body {
     align-items: center;
     margin: auto;
     color:black;
-  }
+    margin-bottom: 50px;
 
+  }
   // Form Card
   &-Card {
     max-width: 50%;
@@ -114,9 +112,13 @@ body {
     overflow: hidden;
     border: 0;
   }
+  &-Login {
+    margin: 20px 0px;
+
+  }
 }
 
-@media screen and (min-width: 481px) and (max-width: 769px) {
+@media screen and (min-width: 481px) and (max-width: 767px) {
   .SignUp {
     
     &-Form {
