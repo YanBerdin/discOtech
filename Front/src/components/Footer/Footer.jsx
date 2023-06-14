@@ -25,10 +25,10 @@ function Footer() {
         <section className="Footer-Links">
           <div className="Footer-About">
             <p className="titre">A propos</p>
-            <NavLink className="NavLink" to="equipe-dev">
+            <NavLink className="NavLink" to="/equipe-dev">
               L'équipe de développement
             </NavLink>
-            <NavLink className="NavLink" to="le-projet">
+            <NavLink className="NavLink" to="/le-projet">
               Descriptif du projet
             </NavLink>
           </div>
