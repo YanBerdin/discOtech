@@ -1,11 +1,9 @@
-// == Imports : local
 import Header from '../Header/Header';
 import AlbumCard from './AlbumCard/AlbumCard';
 import albumsData from '../../data/data';
 
 import './HomePage.scss';
 
-// == Component
 function HomePage() {
   return (
     <>
@@ -17,7 +15,7 @@ function HomePage() {
             className="HomePage-Card"
             key={album.id}
             albumname={album.name}
-            artistfullname={album.artist.fullname}
+            artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
             image={album.image}
           />
         ))}
