@@ -1,0 +1,47 @@
+.AlbumPage {
+    padding: 20px;
+  
+    .AlbumPage-Header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .AlbumPage-Infos {
+        display: flex;
+        align-items: center;
+  
+        img {
+          width: 200px;
+          height: 200px;
+          margin-right: 20px;
+        }
+  
+        h1 {
+          font-size: 24px;
+          margin-bottom: 5px;
+        }
+  
+        h3 {
+          font-size: 16px;
+          color: #888;
+          margin-bottom: 5px;
+        }
+  
+        h4 {
+          font-size: 14px;
+          color: #888;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  
+    .AlbumPage-Song {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+  
+      h1 {
+        font-size: 16px;
+      }
+    }
+  }
+  
