@@ -1,14 +1,9 @@
-body {
-  margin: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 .Login {
   &-Form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 70px;  
+    margin-bottom: 70px;  
   }
   &-Card {
     width: 30%;
@@ -42,6 +37,7 @@ body {
   }
   &-Link {
     color: black;
+    padding-top: 50px;
   }
 }
 
