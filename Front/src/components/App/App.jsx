@@ -30,10 +30,6 @@ function App() {
         console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
         console.err(err);
       });
-  }, []);
-
-  useEffect(() => {
-    console.log('Hello ! Categories a été modifié dans le state');
   }, [albums]);
 
   return (

@@ -7,12 +7,11 @@ import { useParams } from 'react-router-dom';
 function AlbumPage() {
   const { id } = useParams();
 
-  // const album = album.find(({ id }) => id === params.id);
-
   const [album, setAlbum] = useState();
 
   useEffect(() => {
-    axios.get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/${id}`)
+    axios
+      .get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/${id}`)
       .then((res) => {
         setAlbum(res.data);
         console.log(id);
@@ -29,25 +28,31 @@ function AlbumPage() {
   }
 
   return (
-
     <div className="AlbumPage">
       <ul className="AlbumPage-Header">
         {album && (
-        <li className="AlbumPage-Infos">
-          <img src={album.image} alt="album" />
-          <h1>{album.name}</h1>
-          <h3>{album.artist.fullname}</h3>
-          <h4>{album.support[0].name}</h4>
-          <p>{album.style[0].name}</p>
-          <ul>
-            {album.songs.map((song) => (
-              <li key={song.trackNb}>
-                <h1>{song.title}</h1>
-                <p>Durée : {convertToMinutes(song.duration)}</p>
-              </li>
-            ))}
-          </ul>
-        </li>
+          <li className="AlbumPage-Infos">
+            <img src={album.image} alt="album" className="AlbumPage-Img" />
+            <h1 className="AlbumPage-Name">{album.name}</h1>
+            <h3 className="AlbumPage-ArtistName">{album.artist.fullname}</h3>
+            <ul className="AlbumPage-Supports">
+              {album.support.map((support) => (
+                <li key={support.id} className="AlbumPage-Support">
+                  {support.name}
+                </li>
+              ))}
+            </ul>
+            <p className="AlbumPage-Style">{album.style[0].name}</p>
+            <ul className="AlbumPage-Songs">
+              {album.songs.map((song) => (
+                <li key={song.id}>
+                  <h1 className="AlbumPage-SongTitle">{song.title}</h1>
+                  <h3 className="AlbumPage-SongArtist">{album.artist.fullname}</h3>
+                  <p className="AlbumPage-Duration">Durée : {convertToMinutes(song.duration)}</p>
+                </li>
+              ))}
+            </ul>
+          </li>
         )}
       </ul>
     </div>
