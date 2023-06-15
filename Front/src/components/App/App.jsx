@@ -1,5 +1,7 @@
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // Fichiers JSX
 import Login from '../Form/Login/Login';
@@ -14,13 +16,28 @@ import './App.scss';
 import HomePage from '../HomePage/HomePage';
 
 function App() {
+  const [albums, setAlbums] = useState([]);
+
+  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
+  useEffect(() => {
+    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums')
+      .then((res) => {
+        setAlbums(res.data);
+      })
+      .catch((err) => {
+        alert('Erreur !');
+        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
+        console.err(err);
+      });
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route
           path="/"
-          element={<HomePage />}
+          element={<HomePage albums={albums} />}
         />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />

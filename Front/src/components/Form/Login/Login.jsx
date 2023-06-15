@@ -1,41 +1,83 @@
 // == Import : npm
+/* eslint-disable */
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 // == Import : local
-import FormField from '../FormField/FormField';
 import FormHeader from '../FormHeader/FormHeader';
+import { setEmail, setPassword, setClearInput } from '../../../actions/user';
 import './Login.scss';
 
+
 // == Component
-function Login({ email, password }) {
+function Login() {
+  const dispatch = useDispatch();
+  const { email } = useSelector((state) => state);
+  const { password } = useSelector((state) => state);
+
+  const handleLogin = () => {
+    axios
+      .post("http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/login_check", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(email, password)
+          dispatch(setClearInput(""));
+        } else {
+          alert('Identifiants incorrects. Veuillez réessayer.');
+        }
+      })
+      .catch((err) => {
+        console.log(email, password)
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+        alert("Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.");
+      });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleLogin();
+  };
+
   return (
-    <form className="Login-Form" action="">
+    <form className="Login-Form" onSubmit={handleSubmit}>
       <div className="Login-Card">
-        {/* Login Header : Title and Image */}
         <FormHeader />
 
-        {/* Login Input : Mail Adress */}
-        <FormField name="email" placeholder="Adresse e-mail" value={email} />
+        <div className="Field">
+          <input
+            className="Field-Input"
+            name="email"
+            placeholder="Adresse e-mail"
+            value={email}
+            onChange={(event) => dispatch(setEmail(event.target.value))}
+          />
+        </div>
 
-        {/* Login Input : Password Adress */}
-        <FormField
-          name="password"
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-        />
+        <div className="Field">
+          <input
+            className="Field-Input"
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(event) => dispatch(setPassword(event.target.value))}
+          />
+        </div>
 
-        {/* Link to SignUp Form */}
         <p className="Login-Link">
-          Pas encore inscrit ? Rejoins nous <Link to="/inscription">ici</Link>
+          Pas encore inscrit ? Rejoignez-nous <Link to="/inscription">ici</Link>
         </p>
       </div>
 
-      {/* Login Button */}
       <button className="Login-Button" id="button" type="submit">
         Me connecter
       </button>
     </form>
   );
 }
+
 export default Login;

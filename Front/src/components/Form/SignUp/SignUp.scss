@@ -116,6 +116,41 @@ body {
     margin: 20px 0px;
   }
 }
+.Field {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-Input {
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(173, 173, 173);
+    border-radius: 30px;
+    margin: 10px 0;
+    color: black;
+    font-size: 0.8em;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding-left: 30px;
+  
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid rgb(199, 114, 255);
+    }
+    
+    &::placeholder {
+      color: rgb(80, 80, 80);
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
+}
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .SignUp {
