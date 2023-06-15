@@ -224,12 +224,12 @@ export default [
       },
     ],
     artist: {
-      fullname: 'Artist 6',
+      fullname: 'Gaetan',
     },
     image: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/opening-soon%2C-coming-soon-design-template-2ad6ecb3bfc0d528a9999c00a642d447_screen.jpg?ts=1593776133',
   },
   {
-    id: 6,
+    id: 7,
     name: 'album 6',
     edition: 'edition 6',
     releaseDate: '2002-02-02T00:00:00+01:00',
@@ -258,12 +258,12 @@ export default [
       },
     ],
     artist: {
-      fullname: 'Artist 6',
+      fullname: 'Romain',
     },
     image: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/opening-soon%2C-coming-soon-design-template-2ad6ecb3bfc0d528a9999c00a642d447_screen.jpg?ts=1593776133',
   },
   {
-    id: 6,
+    id: 8,
     name: 'Le chant des dinos',
     edition: 'edition 6',
     releaseDate: '2002-02-02T00:00:00+01:00',
@@ -293,6 +293,40 @@ export default [
     ],
     artist: {
       fullname: 'Eva Redon',
+    },
+    image: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/opening-soon%2C-coming-soon-design-template-2ad6ecb3bfc0d528a9999c00a642d447_screen.jpg?ts=1593776133',
+  },
+  {
+    id: 9,
+    name: 'Le chant des dinos',
+    edition: 'edition 6',
+    releaseDate: '2002-02-02T00:00:00+01:00',
+    createdAt: '2023-06-12T17:25:41+02:00',
+    updatedAt: null,
+    style: [
+      {
+        name: 'Rock',
+      },
+    ],
+    support: [
+      {
+        name: 'Vinyl',
+      },
+    ],
+    songs: [
+      {
+        title: 'titre 51',
+        duration: 30000,
+        trackNb: 1,
+      },
+      {
+        title: 'titre 52',
+        duration: 400000,
+        trackNb: 2,
+      },
+    ],
+    artist: {
+      fullname: 'Eva & Sahra',
     },
     image: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/opening-soon%2C-coming-soon-design-template-2ad6ecb3bfc0d528a9999c00a642d447_screen.jpg?ts=1593776133',
   },

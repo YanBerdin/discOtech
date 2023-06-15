@@ -8,6 +8,7 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LegalNotices from '../Legal Notices/LegalNotices';
 import TermsofService from '../Terms of Service/TermsofService';
+import UserProfile from '../UserProfile/UserProfile';
 
 // Fichier Styles
 import './App.scss';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/equipe-dev" />
         <Route path="/le-projet" />
+        <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/*" />
       </Routes>
       <Footer />
