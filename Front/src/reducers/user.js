@@ -1,17 +1,16 @@
 import {
-//   SET_CLEAR_INPUT,
-//   SET_CONNECTED_USER,
   SET_EMAIL,
-  //   SET_LOGGED_OUT,
   SET_PASSWORD,
+  SET_CLEAR_INPUT,
+  // SET_CONNECTED_USER,
+  // SET_LOGGED_OUT,
 } from '../actions/user';
 
 export const initialState = {
-  isLogged: false,
   email: '',
   password: '',
-  changeField: '',
-  userName: '',
+  // isLogged: false,
+  // userName: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,7 +25,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         password: action.payload.newPassword,
       };
-    //     case SET_CONNECTED_USER:
+    case SET_CLEAR_INPUT:
+      return {
+        ...state,
+        email: action.payload.clearInput,
+        password: action.payload.clearInput,
+      };
+      //     case SET_CONNECTED_USER:
     //       return {
     //         ...state,
     //         isLogged: action.payload.isLogged.logged,
@@ -36,12 +41,6 @@ const reducer = (state = initialState, action = {}) => {
     //       return {
     //         ...state,
     //         isLogged: action.payload.loggedOut,
-    //       };
-    //     case SET_CLEAR_INPUT:
-    //       return {
-    //         ...state,
-    //         email: action.payload.clearInput,
-    //         password: action.payload.clearInput,
     //       };
     default:
       return state;

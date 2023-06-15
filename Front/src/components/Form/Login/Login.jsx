@@ -6,8 +6,9 @@ import axios from 'axios';
 
 // == Import : local
 import FormHeader from '../FormHeader/FormHeader';
+import { setEmail, setPassword, setClearInput } from '../../../actions/user';
 import './Login.scss';
-import { setEmail, setPassword } from '../../actions/user';
+
 
 // == Component
 function Login() {
@@ -17,19 +18,20 @@ function Login() {
 
   const handleLogin = () => {
     axios
-      .post('http://romain-gradelet.vpnuser.lan:8000/api/login_check', {
-        username: email,
+      .post("http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/login_check", {
+        email: email,
         password: password,
       })
-      .then((response) => {
-        if (response.status === 200 && response.data.token) {
-          const { token } = response.data;
-          localStorage.setItem('token', token);
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(email, password)
+          dispatch(setClearInput(""));
         } else {
           alert('Identifiants incorrects. Veuillez réessayer.');
         }
       })
       .catch((err) => {
+        console.log(email, password)
         console.error("Une erreur s'est produite lors de la connexion :", err);
         alert("Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.");
       });
