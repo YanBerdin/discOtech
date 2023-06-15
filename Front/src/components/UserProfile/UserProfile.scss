@@ -2,13 +2,14 @@
   margin-top: 1rem;
 }
 
+.Titre {
+  padding-left: 2rem;
+  margin-top: 2rem;
+  // padding-left: 5rem;
+}
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .PcContainer {
     display: none;
-  }
-  .Titre {
-    padding: 1rem;
-    // padding-left: 5rem;
   }
 }
 
@@ -16,18 +17,10 @@
   .SmartphoneContainer {
     display: none;
   }
-  .Titre {
-    padding: 1rem;
-    // padding-left: 5rem;
-  }
 }
 
 @media screen and (min-width: 1025px) {
   .SmartphoneContainer {
     display: none;
-  }
-  .Titre {
-    padding: 1rem;
-    // padding-left: 5rem;
   }
 }

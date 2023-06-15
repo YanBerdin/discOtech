@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 70px;
+    // margin-top: 70px;
   }
   &-Card {
     min-width: 10%;
@@ -76,7 +76,7 @@ body {
       height: auto;
     }
     &-Form {
-      margin-top: 70px;
+      margin-top: 10px;
     }
     &-Button {
       width: 60%;
