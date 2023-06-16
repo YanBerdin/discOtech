@@ -29,32 +29,36 @@ function AlbumPage() {
 
   return (
     <div className="AlbumPage">
-      <ul className="AlbumPage-Header">
+      <div className="AlbumPage-Header">
         {album && (
-          <li className="AlbumPage-Infos">
-            <img src={album.image} alt="album" className="AlbumPage-Img" />
-            <h1 className="AlbumPage-Name">{album.name}</h1>
-            <h3 className="AlbumPage-ArtistName">{album.artist.fullname}</h3>
-            <ul className="AlbumPage-Supports">
-              {album.support.map((support) => (
-                <li key={support.id} className="AlbumPage-Support">
-                  {support.name}
-                </li>
-              ))}
-            </ul>
-            <p className="AlbumPage-Style">{album.style[0].name}</p>
+          <div className="AlbumPage-Infos">
+            <div className="AlbumPage-ImageContainer">
+              <img src={album.image} alt="album" className="AlbumPage-Img" />
+              <div className="AlbumPage-Description">
+                <h1 className="AlbumPage-Name">{album.name}</h1>
+                <h3 className="AlbumPage-ArtistName">{album.artist.fullname}</h3>
+                <p className="AlbumPage-Style">{album.style[0].name}</p>
+                <ul className="AlbumPage-Supports">
+                  {album.support.map((support) => (
+                    <li key={support.id} className="AlbumPage-Support">
+                      {support.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             <ul className="AlbumPage-Songs">
               {album.songs.map((song) => (
-                <li key={song.id}>
+                <li key={song.id} className="AlbumPage-Playlist">
                   <h1 className="AlbumPage-SongTitle">{song.title}</h1>
                   <h3 className="AlbumPage-SongArtist">{album.artist.fullname}</h3>
                   <p className="AlbumPage-Duration">Durée : {convertToMinutes(song.duration)}</p>
                 </li>
               ))}
             </ul>
-          </li>
+          </div>
         )}
-      </ul>
+      </div>
     </div>
   );
 }
