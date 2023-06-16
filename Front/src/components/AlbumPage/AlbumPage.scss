@@ -105,6 +105,13 @@
         top: 5px;
     }
 
+    &-ReturnBtn {
+      position: absolute;
+      z-index: 2;
+      left: 30px;
+      top: 10px;
+    }
+
     &-Supports {
       list-style: none;
       display: flex;

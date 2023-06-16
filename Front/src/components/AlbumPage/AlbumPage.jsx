@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import ReturnButton from '../ReturnButton/ReturnButton';
 
 function AlbumPage() {
   const { id } = useParams();
@@ -35,6 +36,9 @@ function AlbumPage() {
           <div className="AlbumPage-Infos">
             <div className="AlbumPage-ImageContainer">
               <img src={album.image} alt="album" className="AlbumPage-Img" />
+              <div className="AlbumPage-ReturnBtn">
+                <ReturnButton />
+              </div>
               <div className="AlbumPage-FavoriteBtn">
                 <FavoriteButton />
               </div>
