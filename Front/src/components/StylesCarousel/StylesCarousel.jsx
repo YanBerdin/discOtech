@@ -1,37 +1,56 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState } from 'react';
 import './StylesCarousel.scss';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 function StylesCarousel({ styles }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) => (prevIndex === 0 ? styles.length - 1 : prevIndex - 1));
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex === styles.length - 1 ? 0 : prevIndex + 1));
+  const settings = {
+    infinite: true,
+    speed: 300,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div className="Carousel">
-      <h4 className="Carousel-Title">Parcourir les styles :</h4>
-      <div className="carousel">
-        <button type="button" className="carousel__nav carousel__nav--prev" onClick={handlePrev}>
-          &lt;
-        </button>
-        <div className="carousel__track">
-          {styles.map((style, index) => (
-            <div className={`carousel__style ${index === activeIndex ? 'active' : ''}`} key={style.id}>
-              <img className="carousel__image" src={style.image} alt={style.title} />
-              <h3 className="carousel__title">{style.title}</h3>
+      <Slider {...settings}>
+        {styles.map((style) => (
+          <div className="Carousel-Container">
+            <div className="Carousel-Cards" key={style.id} style={{ backgroundImage: `url(${style.image})` }}>
+              <h3 className="Carousel-StyleName"> {style.name} </h3>
             </div>
-          ))}
-        </div>
-        <button type="button" className="carousel__nav carousel__nav--next" onClick={handleNext}>
-          &gt;
-        </button>
-      </div>
+          </div>
+        ))}
+      </Slider>
+
     </div>
   );
 }
