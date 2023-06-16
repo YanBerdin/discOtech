@@ -1,8 +1,8 @@
 // == Import : local
-import './FormField.scss';
+import './UserProfileFormField.scss';
 
 // == Composant
-function Field({
+function UserProfileFormField({
   value,
   type,
   name,
@@ -11,9 +11,9 @@ function Field({
   return (
     <div className="Field">
       <input
-      // React - state
+        // React - state
         value={value}
-      // Vanillas info
+        // Vanillas info
         type={type}
         className="Field-Input"
         placeholder={placeholder}
@@ -24,4 +24,4 @@ function Field({
 }
 
 // == Export
-export default Field;
+export default UserProfileFormField;
