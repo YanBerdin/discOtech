@@ -1,16 +1,20 @@
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 // Fichiers JSX
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import LegalNotices from '../Legal Notices/LegalNotices';
-import TermsofService from '../Terms of Service/TermsofService';
+
+import LegalNotices from '../LegalNotices/LegalNotices';
+import TermsofService from '../TermsofService/TermsofService';
+import AlbumPage from '../AlbumPage/AlbumPage';
 import UserProfile from '../UserProfile/UserProfile';
+
 
 // Fichier Styles
 import './App.scss';
@@ -30,7 +34,7 @@ function App() {
         console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
         console.err(err);
       });
-  }, []);
+  }, [albums]);
 
   return (
     <div className="App">
@@ -49,6 +53,7 @@ function App() {
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/equipe-dev" />
         <Route path="/le-projet" />
+        <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/*" />
       </Routes>
