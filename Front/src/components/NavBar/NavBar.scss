@@ -68,17 +68,17 @@ select:focus {
     }
   }
 
-  nav.navbar {
-    padding: 15px;
-    position: sticky;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    transition: 0.32s ease-in-out;
-    border-radius: 0 0 25px 25px;
-    text-align: center;
-  }
+nav.navbar {
+  padding: 15px;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: 0.32s ease-in-out;
+  border-radius: 0 0 25px 25px;
+  text-align: center;
+}
 
 nav.navbar {
   background: url('../../assets/videoBg.mp4') no-repeat center center fixed;
