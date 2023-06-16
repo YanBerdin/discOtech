@@ -3,6 +3,7 @@ import './AlbumPage.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 function AlbumPage() {
   const { id } = useParams();
@@ -28,9 +29,14 @@ function AlbumPage() {
   }
 
   return (
-    <div className="AlbumPage">
-      <div className="AlbumPage-Header">
-        {album && (
+    <>
+      <div>
+        <FavoriteButton />
+      </div>
+
+      <div className="AlbumPage">
+        <div className="AlbumPage-Header">
+          {album && (
           <div className="AlbumPage-Infos">
             <div className="AlbumPage-ImageContainer">
               <img src={album.image} alt="album" className="AlbumPage-Img" />
@@ -57,9 +63,10 @@ function AlbumPage() {
               ))}
             </ul>
           </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

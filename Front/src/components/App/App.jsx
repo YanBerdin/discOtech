@@ -15,6 +15,7 @@ import AlbumPage from '../AlbumPage/AlbumPage';
 // Fichier Styles
 import './App.scss';
 import HomePage from '../HomePage/HomePage';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 function App() {
   const [albums, setAlbums] = useState([]);
@@ -43,7 +44,7 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />
-        <Route path="/favoris" />
+        <Route path="/favoris" element={<FavoriteButton />} />
         <Route path="/a-propos" />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />

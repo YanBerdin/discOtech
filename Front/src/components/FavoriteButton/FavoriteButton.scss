@@ -1,0 +1,27 @@
+.favorite-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  transition: transform 0.2s linear;
+  color: rgb(255, 0, 0);
+
+  svg {
+    width: 30px;
+    height: 30px;
+    transition: fill 0.2s linear;
+    fill: none;
+  }
+
+  &.active svg {
+    fill: rgb(255, 0, 0);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
