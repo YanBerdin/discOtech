@@ -116,5 +116,27 @@
       width: 7%;
     }
 
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .AlbumPage {
+        width: 100%;
+      }
+      &-Header {
+        margin: auto;
+      }
+      &-FavoriteBtn {
+          right: 40px;
+      }
+      &-Name,
+    &-ArtistName {
+      font-size: 25px;
+    }
+
+    &-Duration,
+    &-Supports,
+    &-Style {
+        font-size: 15px;
+    }
+    }
+
   }
   
