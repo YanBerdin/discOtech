@@ -1,9 +1,11 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Header from '../Header/Header';
 import StylesCarousel from '../StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
+import Header from '../Header/Header';
 
 import './HomePage.scss';
 
@@ -21,6 +23,7 @@ function HomePage({ albums }) {
         console.err(err);
       });
   }, []);
+
   return (
     <>
       <Header />
