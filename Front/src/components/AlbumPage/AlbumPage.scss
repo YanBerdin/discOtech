@@ -1,139 +1,139 @@
 .AlbumPage {
-    width: 100%;
-    height: auto;
-    display: flex;
-    overflow: hidden;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
-  
-    &-Header {
-      list-style: none;
-      padding: 0;
-    }
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
 
-    &-ImageContainer {
-      position: relative;
-  
-      &::before {
-        content: '';
-        width: 100%;
-        display: block;
-        height: 50%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(
-          to top,
-          black 0%,
-          black 80%,
-          transparent 100%
-        );
-        opacity: 0.4;
-        z-index: 1;
-      }
-    }
-  
-    &-Img {
-      border-radius: 25px;
-      width: 90%;
+  &-Header {
+    list-style: none;
+    padding: 0;
+  }
+
+  &-ImageContainer {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 100%;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
+      height: 50%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(
+        to top,
+        black 0%,
+        black 80%,
+        transparent 100%
+      );
+      opacity: 0.4;
+      z-index: 1;
     }
-  
-    &-Songs {
-        position: relative;
-        list-style: none;
-        color: rgb(255, 255, 255);
-        background-color: rgb(255, 255, 255);
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(26, 26, 27, 0.37);
-        border-radius: 25px;
-        margin-top: -3rem;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-        padding-top: 4rem;
-      }
-  
-      &-Description {
-        color: white;
-        font-size: 13px;
-        font-weight: bold;
-        position: absolute;
-        z-index: 2;
-        left: 45px;
-        bottom: 0px;
-        text-shadow: rgb(56, 56, 56) 2px 2px 2px;
-      }
-  
-    &-Name,
-    &-ArtistName {
-      font-size: 20px;
-    }
+  }
 
-    &-SongTitle {
-        font-size: 20px;
-        width: 93%;
-    }
+  &-Img {
+    border-radius: 25px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
 
-    &-SongArtist {
-        font-size: 15px;
-        width: 80%;
-    }
+  &-Songs {
+    position: relative;
+    list-style: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(26, 26, 27, 0.37);
+    border-radius: 25px;
+    margin-top: -3rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    padding-top: 4rem;
+  }
 
-    &-Duration {
-        font-size: 10px;
-        width: 20%;
-    }
+  &-Description {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    left: 45px;
+    bottom: 0px;
+    text-shadow: rgb(56, 56, 56) 2px 2px 2px;
+  }
 
-    &-Playlist {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid rgb(65, 62, 62);
-        padding-top: 1rem;
-    }
+  &-Name,
+  &-ArtistName {
+    font-size: 20px;
+  }
 
+  &-SongTitle {
+    font-size: 20px;
+    width: 93%;
+  }
+
+  &-SongArtist {
+    font-size: 15px;
+    width: 80%;
+  }
+
+  &-Duration {
+    font-size: 10px;
+    width: 20%;
+  }
+
+  &-Playlist {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(65, 62, 62);
+    padding-top: 1rem;
+  }
+
+  &-FavoriteBtn {
+    position: absolute;
+    z-index: 2;
+    right: 30px;
+    top: 5px;
+  }
+
+  &-ReturnBtn {
+    position: absolute;
+    z-index: 2;
+    left: 30px;
+    top: 10px;
+  }
+
+  &-Supports {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+  }
+
+  &-TrackNb {
+    width: 7%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .AlbumPage {
+      width: 100%;
+    }
+    &-Header {
+      margin: auto;
+    }
     &-FavoriteBtn {
-      position: absolute;
-        z-index: 2;
-        right: 30px;
-        top: 5px;
+      right: 40px;
     }
-
-    &-ReturnBtn {
-      position: absolute;
-      z-index: 2;
-      left: 30px;
-      top: 10px;
-    }
-
-    &-Supports {
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-    }
-
-    &-TrackNb {
-      width: 7%;
-    }
-
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-      .AlbumPage {
-        width: 100%;
-      }
-      &-Header {
-        margin: auto;
-      }
-      &-FavoriteBtn {
-          right: 40px;
-      }
-      &-Name,
+    &-Name,
     &-ArtistName {
       font-size: 25px;
     }
@@ -141,9 +141,88 @@
     &-Duration,
     &-Supports,
     &-Style {
-        font-size: 15px;
-    }
+      font-size: 15px;
     }
 
+    &-ReturnBtn {
+      left: 40px;
+    }
   }
-  
+
+  @media (min-width: 1024px) {
+    .AlbumPage {
+      width: 100%;
+    }
+    &-Header {
+      width: 100%;
+      align-items: flex-start;
+    }
+
+    &-ImageContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-Img {
+      width: 50%;
+      margin: auto 0;
+      left: 30px;
+    }
+
+    &-Description {
+      display: flex;
+      width: 50%;
+      position: relative;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-self: center;
+      row-gap: 1rem;
+      padding-left: 10px;
+    }
+
+    &-Songs {
+      width: 100%;
+      height: 10%;
+    }
+    &-FavoriteBtn {
+      right: 40px;
+      top: 0px;
+    }
+    &-Name,
+    &-ArtistName {
+      width: 100%;
+      height: 10%;
+      font-weight: bold;
+    }
+
+    &-Supports {
+      width: 70%;
+      height: 10%;
+      padding-left: 0;
+    }
+
+    &-Style {
+      width: 100%;
+    }
+
+    &-ReturnBtn {
+      left: 40px;
+      z-index: 3;
+    }
+
+    &-Duration {
+      text-align: end;
+      padding-right: 10px;
+    }
+
+    &-TrackNb {
+      width: 2%;
+    }
+
+    &-Songs {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    }
+  }
