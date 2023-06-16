@@ -29,17 +29,15 @@ function AlbumPage() {
   }
 
   return (
-    <>
-      <div>
-        <FavoriteButton />
-      </div>
-
-      <div className="AlbumPage">
-        <div className="AlbumPage-Header">
-          {album && (
+    <div className="AlbumPage">
+      <div className="AlbumPage-Header">
+        {album && (
           <div className="AlbumPage-Infos">
             <div className="AlbumPage-ImageContainer">
               <img src={album.image} alt="album" className="AlbumPage-Img" />
+              <div className="AlbumPage-FavoriteBtn">
+                <FavoriteButton />
+              </div>
               <div className="AlbumPage-Description">
                 <h1 className="AlbumPage-Name">{album.name}</h1>
                 <h3 className="AlbumPage-ArtistName">{album.artist.fullname}</h3>
@@ -56,6 +54,7 @@ function AlbumPage() {
             <ul className="AlbumPage-Songs">
               {album.songs.map((song) => (
                 <li key={song.id} className="AlbumPage-Playlist">
+                  <p className="AlbumPage-TrackNb">{song.trackNb}.</p>
                   <h1 className="AlbumPage-SongTitle">{song.title}</h1>
                   <h3 className="AlbumPage-SongArtist">{album.artist.fullname}</h3>
                   <p className="AlbumPage-Duration">Durée : {convertToMinutes(song.duration)}</p>
@@ -63,10 +62,9 @@ function AlbumPage() {
               ))}
             </ul>
           </div>
-          )}
-        </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
 

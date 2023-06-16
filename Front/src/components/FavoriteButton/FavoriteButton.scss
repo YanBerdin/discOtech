@@ -8,7 +8,7 @@
   background-color: transparent;
   position: relative;
   transition: transform 0.2s linear;
-  color: rgb(255, 0, 0);
+  color: rgb(255, 168, 6);
 
   svg {
     width: 30px;
@@ -18,7 +18,7 @@
   }
 
   &.active svg {
-    fill: rgb(255, 0, 0);
+    fill: rgba(239, 247, 119, 0.904);
   }
 
   &:hover {

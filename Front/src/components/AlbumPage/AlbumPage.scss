@@ -2,6 +2,9 @@
     width: 100%;
     height: auto;
     display: flex;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
   
     &-Header {
       list-style: none;
@@ -42,17 +45,17 @@
     &-Songs {
         position: relative;
         list-style: none;
-        color: black;
-        background-color: white;
+        color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
         background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        box-shadow: 0 8px 32px 0 rgba(26, 26, 27, 0.37);
         border-radius: 25px;
         margin-top: -3rem;
         color: white;
         display: flex;
         flex-direction: column;
         padding: 0;
-        padding-top: 3rem;
+        padding-top: 4rem;
       }
   
       &-Description {
@@ -62,7 +65,7 @@
         position: absolute;
         z-index: 2;
         left: 45px;
-        bottom: 10px;
+        bottom: 0px;
         text-shadow: rgb(56, 56, 56) 2px 2px 2px;
       }
   
@@ -73,7 +76,7 @@
 
     &-SongTitle {
         font-size: 20px;
-        width: 100%;
+        width: 93%;
     }
 
     &-SongArtist {
@@ -91,6 +94,26 @@
         flex-wrap: wrap;
         margin: 0 1rem;
         padding-bottom: 1rem;
+        border-bottom: 1px solid rgb(65, 62, 62);
+        padding-top: 1rem;
+    }
+
+    &-FavoriteBtn {
+      position: absolute;
+        z-index: 2;
+        right: 30px;
+        top: 5px;
+    }
+
+    &-Supports {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    &-TrackNb {
+      width: 7%;
     }
 
   }
