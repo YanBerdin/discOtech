@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -10,6 +12,7 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LegalNotices from '../Legal Notices/LegalNotices';
 import TermsofService from '../Terms of Service/TermsofService';
+import Favorites from '../Favorites/Favorites';
 
 // Fichier Styles
 import './App.scss';
@@ -42,7 +45,7 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />
-        <Route path="/favoris" />
+        <Route path="/favoris" element={<Favorites />} />
         <Route path="/a-propos" />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
