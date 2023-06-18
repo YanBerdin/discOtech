@@ -11,7 +11,8 @@ import './HomePage.scss';
 
 function HomePage({ albums }) {
   const [styles, setStyles] = useState([]);
-  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
+
+  // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
     axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/styles')
       .then((res) => {

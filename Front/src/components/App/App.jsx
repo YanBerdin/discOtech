@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// Fichiers JSX
+// Fichiers JSXimport { useState } from 'react';
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
@@ -18,10 +20,11 @@ import HomePage from '../HomePage/HomePage';
 
 function App() {
   const [albums, setAlbums] = useState([]);
+  const [search, setSearch] = useState('pink floyd');
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
-  useEffect(() => {
-    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums')
+  const getAlbums = () => {
+    axios.get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums?q=${search}`)
       .then((res) => {
         setAlbums(res.data);
       })
@@ -30,7 +33,8 @@ function App() {
         console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
         console.err(err);
       });
-  }, []);
+  };
+  useEffect(getAlbums, [search]);
 
   return (
     <div className="App">
@@ -38,7 +42,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage albums={albums} />}
+          element={(
+            <HomePage
+              albums={albums}
+              setSearch={setSearch}
+              getAlbums={getAlbums}
+            />
+)}
         />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
