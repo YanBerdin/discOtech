@@ -10,13 +10,27 @@
     letter-spacing: 1px;
   }
 }
-h5, h6 {
-    // font-size: 0.9rem;
+h5,
+h6 {
+  // font-size: 0.9rem;
   font-weight: bold;
   margin-bottom: 1rem;
   margin-top: 0.8rem;
 }
 p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  //   /* Styles spécifiques aux tablettes */
+  .AboutUs-Container {
+    padding: 5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  //   /* Styles spécifiques aux tablettes */
+  .AboutUs-Container {
+    padding: 6rem;
+  }
+}
