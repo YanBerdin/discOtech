@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import api from '../../../api/api';
 
 // == Import : local
-import FormHeader from '../FormHeader/FormHeader';
 import { setEmail, setPassword, setClearInput } from '../../../actions/user';
-import './Login.scss';
-
+import User from '../../../assets/WelcomeUser.png';
+import './Login.scss'
 
 // == Component
 function Login() {
@@ -49,7 +48,10 @@ function Login() {
   return (
     <form className="Login-Form" onSubmit={handleSubmit}>
       <div className="Login-Card">
-        <FormHeader />
+        <div className="Header-Container">
+          <img className="Header-UserImg" src={User} alt="Logo de personnage" />
+          <p className="Header-Title">Connexion</p>
+        </div>
 
         <div className="Field">
           <input
@@ -73,7 +75,7 @@ function Login() {
         </div>
 
         <p className="Login-Link">
-          Pas encore inscrit ? Rejoignez-nous <Link to="/inscription">ici</Link>
+          Pas encore parmi nous ? <br /><Link to="/inscription">Inscrivez-vous ici</Link>
         </p>
       </div>
 
