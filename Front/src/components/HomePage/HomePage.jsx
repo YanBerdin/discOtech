@@ -1,6 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 import StylesCarousel from '../StylesCarousel/StylesCarousel';
@@ -9,8 +10,10 @@ import Header from '../Header/Header';
 
 import './HomePage.scss';
 
-function HomePage({ albums }) {
+function HomePage() {
   const [styles, setStyles] = useState([]);
+  const albums = useSelector((state) => state.albums);
+  console.log(`state albums depuis home page ${albums}`);
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
