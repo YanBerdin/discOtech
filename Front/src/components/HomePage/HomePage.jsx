@@ -1,26 +1,10 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import Header from '../Header/Header';
 import StylesCarousel from '../StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
 
 import './HomePage.scss';
 
-function HomePage({ albums }) {
-  const [styles, setStyles] = useState([]);
-  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
-  useEffect(() => {
-    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/styles')
-      .then((res) => {
-        setStyles(res.data);
-      })
-      .catch((err) => {
-        alert('Erreur !');
-        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
-        console.err(err);
-      });
-  }, []);
+function HomePage({ albums, styles }) {
   return (
     <>
       <Header />
