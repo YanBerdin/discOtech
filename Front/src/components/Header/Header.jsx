@@ -6,6 +6,8 @@ import SearchBar from '../SearchBar/SearchBar';
 import videoBg from '../../assets/retro.mp4';
 
 function Header({ search, setSearch, getAlbums }) {
+  console.log(`valeur de search dans Header : ${search}`);
+
   return (
     <div className="Header">
       <div className="Header-Overlay" />
@@ -19,7 +21,7 @@ function Header({ search, setSearch, getAlbums }) {
         </p>
       </div>
       <SearchBar
-        value={search}
+        search={search}
         setSearch={setSearch}
         getAlbums={getAlbums}
       />

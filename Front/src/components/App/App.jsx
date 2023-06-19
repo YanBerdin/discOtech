@@ -13,25 +13,25 @@ import Footer from '../Footer/Footer';
 import LegalNotices from '../Legal Notices/LegalNotices';
 import TermsofService from '../Terms of Service/TermsofService';
 import UserProfile from '../UserProfile/UserProfile';
+import HomePage from '../HomePage/HomePage';
 
 // Fichier Styles
 import './App.scss';
-import HomePage from '../HomePage/HomePage';
 
 function App() {
   const [albums, setAlbums] = useState([]);
-  const [search, setSearch] = useState('pink floyd');
+  const [search, setSearch] = useState('');
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
   const getAlbums = () => {
-    axios.get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums?q=${search}`)
+    axios.get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/search/?search=${search}`)
       .then((res) => {
         setAlbums(res.data);
+        console.log(`valeur de search dans App ${search}`);
       })
       .catch((err) => {
-        alert('Erreur !');
         console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
-        console.err(err);
+        console.error(err);
       });
   };
   useEffect(getAlbums, [search]);

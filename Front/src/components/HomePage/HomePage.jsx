@@ -13,6 +13,7 @@ function HomePage({
   search, albums, setSearch, getAlbums,
 }) {
   const [styles, setStyles] = useState([]);
+  console.log(`valeur de search dans HomePage : ${search}`);
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {

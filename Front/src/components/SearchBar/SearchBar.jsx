@@ -1,10 +1,13 @@
 import './SearchBar.scss';
 
-function SearchBar({ search, setSearch, getAlbums }) {
+function SearchBar({ setSearch, search, getAlbums }) {
+  console.log(`valeur de search dans SearchBar : ${search}`);
+
   return (
     <form
       className="SearchBar-Form"
       onSubmit={(event) => {
+        console.log('Envoi de la recherche...');
         event.preventDefault();
         getAlbums();
       }}
