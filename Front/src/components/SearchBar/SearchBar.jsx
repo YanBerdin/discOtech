@@ -17,6 +17,7 @@ function SearchBar({ search, setSearch, getAlbums }) {
         value={search}
         onChange={(event) => {
           setSearch(event.target.value);
+          console.log(event.target.value);
         }}
       />
       <button

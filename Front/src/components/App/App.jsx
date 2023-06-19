@@ -47,6 +47,7 @@ function App() {
               albums={albums}
               setSearch={setSearch}
               getAlbums={getAlbums}
+              search={search}
             />
 )}
         />

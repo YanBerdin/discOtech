@@ -9,7 +9,9 @@ import Header from '../Header/Header';
 
 import './HomePage.scss';
 
-function HomePage({ albums }) {
+function HomePage({
+  search, albums, setSearch, getAlbums,
+}) {
   const [styles, setStyles] = useState([]);
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
@@ -27,7 +29,7 @@ function HomePage({ albums }) {
 
   return (
     <>
-      <Header />
+      <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
       <StylesCarousel styles={styles} />
       <h4 className="HomePage-Title">Nos Suggestions :</h4>
       <div className="HomePage-Container">
