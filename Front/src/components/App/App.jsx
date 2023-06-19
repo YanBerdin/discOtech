@@ -2,11 +2,10 @@
 /* eslint-disable no-alert */
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
-
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import api from '../../api/api';
 
-// Fichiers JSX
+// Fichiers JSXimport { useState } from 'react';
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
@@ -16,26 +15,29 @@ import TermsofService from '../Terms of Service/TermsofService';
 import Favorites from '../Favorites/Favorites';
 import AlbumPage from '../AlbumPage/AlbumPage';
 import UserProfile from '../UserProfile/UserProfile';
+import HomePage from '../HomePage/HomePage';
 
 // Fichier Styles
 import './App.scss';
-import HomePage from '../HomePage/HomePage';
 
 function App() {
   const [albums, setAlbums] = useState([]);
+  const [search, setSearch] = useState('');
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
-  useEffect(() => {
-    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums')
+  const getAlbums = () => {
+    api.post('/albums/search', { search: search })
       .then((res) => {
         setAlbums(res.data);
+        console.log(res.data);
+        console.log(`valeur de search dans App ${search}`);
       })
       .catch((err) => {
-        alert('Erreur !');
         console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
-        console.err(err);
+        console.error(err);
       });
-  }, [albums]);
+  };
+  useEffect(getAlbums, [search]);
 
   return (
     <div className="App">
@@ -43,7 +45,14 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage albums={albums} />}
+          element={(
+            <HomePage
+              albums={albums}
+              setSearch={setSearch}
+              getAlbums={getAlbums}
+              search={search}
+            />
+)}
         />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />

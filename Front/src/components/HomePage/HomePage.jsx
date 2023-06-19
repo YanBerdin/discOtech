@@ -1,17 +1,23 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 
-import Header from '../Header/Header';
 import StylesCarousel from '../StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
+import Header from '../Header/Header';
 
 import './HomePage.scss';
 
-function HomePage({ albums }) {
+function HomePage({
+  search, albums, setSearch, getAlbums,
+}) {
   const [styles, setStyles] = useState([]);
-  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
+  console.log(`valeur de search dans HomePage : ${search}`);
+
+  // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
-    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/styles')
+    api.get('/styles')
       .then((res) => {
         setStyles(res.data);
       })
@@ -21,9 +27,10 @@ function HomePage({ albums }) {
         console.err(err);
       });
   }, []);
+
   return (
     <>
-      <Header />
+      <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
       <StylesCarousel styles={styles} />
       <h4 className="HomePage-Title">Nos Suggestions :</h4>
       <div className="HomePage-Container">
