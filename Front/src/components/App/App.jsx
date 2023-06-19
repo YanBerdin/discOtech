@@ -24,9 +24,10 @@ function App() {
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
   const getAlbums = () => {
-    axios.get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/search/?search=${search}`)
+    axios.post('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/search', { search: search })
       .then((res) => {
         setAlbums(res.data);
+        console.log(res.data);
         console.log(`valeur de search dans App ${search}`);
       })
       .catch((err) => {
