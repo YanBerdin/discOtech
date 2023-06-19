@@ -1,10 +1,22 @@
 .AboutUs {
-    &-Container {
+  &-Container {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    margin: auto;
+    flex-shrink: 1;
+    font-size: 0.9rem;
+    flex: 1 1 321px;
+    letter-spacing: 1px;
+  }
 }
-h4 {
-    font-weight: bold;
+h5, h6 {
+    // font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0.8rem;
 }
+p {
+    margin-bottom: 0.5rem;
 }
+

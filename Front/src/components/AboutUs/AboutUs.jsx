@@ -7,44 +7,41 @@ function AboutUs() {
     <>
       <Header />
       <section className="AboutUs-Container">
-        <h4> L’équipe de développement</h4>
-        <h5>Product Owner : Yan Berdin</h5>
+        <h5> L’équipe de développement</h5>
+        <h6>Scrum Master : Eva R.</h6>
         <p>
-          Connait le produit et représente les intérêts et les besoins du
-          client/des utilisateurs purement fonctionnels (non techniques).
-        </p>
-        <p>Tranche en cas de conflits fonctionnels (non techniques)</p>
-        <h5>Scrum Master : Eva Redon</h5>
-        <p>
-          Garant de la méthode du projet : gère le respect des conventions
+          Garant de la méthode du projet : Elle gère le respect des conventions
           définies dans le groupe.
         </p>
+        <p>Tranche en cas de conflits fonctionnels (non techniques)</p>
         <p>
           S’assure que toutes les taches sont bien attribuées, suivies,
           accomplies.
         </p>
         <p>
           Assure la communication au sein du groupe : Vérifie que toute l’équipe
-          possède les bonnes informations Gère l’outil de suivi du projet.
+          possède les bonnes informations.
         </p>
+        <p>Gère l’outil de suivi du projet.</p>
         <p>Anime la réunion du matin et gère l’avancement du projet</p>
-        <h5>
-          Lead Dev Front & Lead Dev Back Front : Sahra Marchand Back : Gaëtan Leborgne
-        </h5>
+        <h6>Lead Dev : Sahra M. (Front) & Gaëtan L. (Back)</h6>
         <p>Choisit les orientations importantes, choix techniques importants</p>
         <p>Veille au bon fonctionnement du projet</p>
-        <h5>Git Master Romain Gradelet</h5>
+        <h6>Git Master : Romain G.</h6>
         <p>Référent technique du versionning avec Git</p>
         <p>
           Garant du versionning de notre application, gère les conflits, valide
           et Merge les Pull Request.
         </p>
-        <h5>
-          Référent technique : Techno Front : Sahra Marchand Back : Gaëtan Leborgne
-        </h5>
+        <h6>Référent technique : Sahra M. (Front) & Gaëtan L. (Back)</h6>
         <p>Référent des librairies et techno utilisées.</p>
         <p>Se documente sur les technos, leur sémantique, leur utilisation.</p>
         <p>Restitue ces informations à l’équipe.</p>
+        <h6>Product Owner : Yan B.</h6>
+        <p>
+          Connait le produit et représente les intérêts et les besoins du
+          client/des utilisateurs purement fonctionnels (non techniques).
+        </p>
       </section>
     </>
   );
