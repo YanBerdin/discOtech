@@ -8,6 +8,32 @@ function AboutUs() {
       <Header />
       <section className="AboutUs-Container">
         <h5> L’équipe de développement</h5>
+        <div className="flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <h5 className="title">Eva Redon</h5>
+              <h6>Scrum Master</h6>
+            </div>
+            <div className="flip-card-back">
+              <p className="title">Scrum Master</p>
+              <p>
+                Garant de la méthode du projet : Elle gère le respect des conventions
+                définies dans le groupe.
+              </p>
+              <p>Tranche en cas de conflits fonctionnels (non techniques)</p>
+              <p>
+                S’assure que toutes les taches sont bien attribuées, suivies,
+                accomplies.
+              </p>
+              <p>
+                Assure la communication au sein du groupe : Vérifie que toute l’équipe
+                possède les bonnes informations.
+              </p>
+              <p>Gère l’outil de suivi du projet.</p>
+              <p>Anime la réunion du matin et gère l’avancement du projet</p>
+            </div>
+          </div>
+        </div>
         <h6>Scrum Master : Eva R.</h6>
         <p>
           Garant de la méthode du projet : Elle gère le respect des conventions
