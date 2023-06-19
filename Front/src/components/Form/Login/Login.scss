@@ -1,27 +1,49 @@
+.Header {
+    &-UserImg {
+        width: 30%;
+      }
+      &-Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5px;
+      }
+      &-Title {
+        font-family: 'Righteous', cursive;
+        font-size: 2.5em;
+        font-weight: 600;
+        margin: 10px 0px;
+        text-align: center;
+      }
+}
 .Login {
   &-Form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 70px;  
+    background-image: url('../../../assets/music-shop.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 110px;
   }
+
   &-Card {
-    width: 30%;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
-    padding: 0px 30px 7px 30px;
+    padding: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.675);
+    background: rgba(0, 0, 0, 0.611);
     border-radius: 30px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.608);
     margin: 50px 50px 0px 50px;
-    height: 60vh;
   }
   &-Button {
     position: relative;
-    width: 18%;
-    background-color: #d19ffa91;
+    width: 230px;
+    background-color: #402656d3;
     height: 40px;
     color: white;
     font-size: 1.1em;
@@ -29,15 +51,14 @@
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     cursor: pointer;
-    overflow: hidden;
-    border: 0;
-  }
-  &-SignUp {
-    margin: 20px 0px;
   }
   &-Link {
-    color: black;
-    padding-top: 50px;
+    padding-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: rgb(19, 0, 68) 1px 0 10px;
   }
 
 }
@@ -50,19 +71,12 @@
 
   &-Input {
     width: 100%;
-    height: 40px;
-    background-color: transparent;
-    height: 40px;
-    background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(173, 173, 173);
-    border-radius: 30px;
+    border-radius: 10px;
     margin: 10px 0;
-    color: black;
-    font-size: 0.8em;
-    font-weight: 500;
     box-sizing: border-box;
-    padding-left: 30px;
+    padding: 8px 15px;
   
     &:focus {
       outline: none;
@@ -76,37 +90,16 @@
     }
   }
 }
-
-
-@media screen and (min-width: 481px) and (max-width: 769px) {
-  .Login {
-    &-Card {
-      padding: 0px 20px 7px 20px;
-      width: 65%;
-      height: auto;
+@media screen and (min-width: 481px) {
+    .Login {
+      &-Card {
+        width:450px;
+      }
+      &-Button {
+        width:300px
+      }
     }
-    &-Button {
-      width:40%
+    .Header-UserImg {
+      width: 20%;
     }
-    &-Form {
-      margin-top: 90px;  
-    }
-  }
- }
-@media screen and  (min-width: 319px) and (max-width: 480px) {
-  .Login{
-    &-Card {
-      padding: 0px 20px 7px 20px;
-      margin: 30px 30px 0px;
-      width: 84%;
-      height: auto;
-    }
-    &-Form {
-      margin-top: 70px;  
-    }
-    &-Button {
-      width:60%
-    }
-  }
-
-}
+   }

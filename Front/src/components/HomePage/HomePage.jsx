@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import api from '../../api/api';
 
-import StylesCarousel from '../StylesCarousel/StylesCarousel';
+import StylesCarousel from './StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
 import Header from '../Header/Header';
 
@@ -32,7 +32,7 @@ function HomePage({
     <>
       <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
       <StylesCarousel styles={styles} />
-      <h4 className="HomePage-Title">Nos Suggestions :</h4>
+      <h2 className="HomePage-Title">Nos Suggestions :</h2>
       <div className="HomePage-Container">
         {albums.map((album) => (
           <AlbumCard

@@ -14,7 +14,7 @@ import LegalNotices from '../LegalNotices/LegalNotices';
 import TermsofService from '../TermsofService/TermsofService';
 import Favorites from '../Favorites/Favorites';
 import AlbumPage from '../AlbumPage/AlbumPage';
-import UserProfile from '../UserProfile/UserProfile';
+import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 
 // Fichier Styles
@@ -26,14 +26,15 @@ function App() {
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
   const getAlbums = () => {
-    api.post('/albums/search', { search: search })
+    api
+      .post('/albums/search', { search: search })
       .then((res) => {
         setAlbums(res.data);
         console.log(res.data);
         console.log(`valeur de search dans App ${search}`);
       })
       .catch((err) => {
-        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
+        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
         console.error(err);
       });
   };
@@ -52,7 +53,7 @@ function App() {
               getAlbums={getAlbums}
               search={search}
             />
-)}
+          )}
         />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
@@ -60,11 +61,14 @@ function App() {
         <Route path="/favoris" element={<Favorites albums={albums} />} />
         <Route path="/a-propos" />
         <Route path="/mentions-legales" element={<LegalNotices />} />
-        <Route path="/condition-generales-utilisation" element={<TermsofService />} />
+        <Route
+          path="/condition-generales-utilisation"
+          element={<TermsofService />}
+        />
         <Route path="/equipe-dev" />
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
-        <Route path="/UserProfile" element={<UserProfile />} />
+        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/*" />
       </Routes>
       <Footer />
