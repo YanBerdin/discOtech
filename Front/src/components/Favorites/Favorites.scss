@@ -1,66 +1,24 @@
-.Favorites-SearchBar {
+.Favorites-Title {
+  height: auto;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 5px 25px 7px;
+  margin-left: 11.5%;
+}
 
-    &-Form{
-      width: 70%;
-      margin: auto;
-      margin-top: 2rem;
-      position: relative;
-      bottom:40%;
-      height: 2.5rem;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0px 0px 8px #ddd;
-      background-color: white;
-      display: flex;
-      padding: 0;
-      padding-left: 1rem;
-    }
-    
-    &-Input {
-      background-color: transparent;
-      border: none;
-      height: 100%;
-      font-size: 1rem;
-      width: 100%;
-      margin-left: 5px;
-  
-      &:focus {
-        outline: none;
-      }
-    }
-  
-    &-Button {
-      padding: 0rem 2rem;
-    }
-  
-  //   .loupe {
-  //     width: 70%;
-  //     height: 70%;
-  //   }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  //   /* Styles spécifiques aux tablettes */
+  .Favorites-Title {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 4%;
   }
-  
-  @media (max-width: 767px) {
-      /* Styles spécifiques aux appareils portables */
-        .SearchBar {
-          &-Form {
-            display: none;
-          }
-        }
-  
-    }
-  
-   @media screen and (min-width: 768px) and (max-width: 1024px) {
-      /* Styles spécifiques aux tablettes */
-      .SearchBar {
-       &-Form{
-         bottom: 35%;
-       }
-       }
-     }
+}
 
-.Favorites-Container {
-    margin-top: 2rem;
-    height: auto;
-    padding: 5px 25px 7px;
-    margin-bottom: 0;
+@media (min-width: 1025px) {
+  .Favorites-Title {
+    margin-left: 6%;
+    width: 100%;
+    justify-content: flex-start;
+  }
 }

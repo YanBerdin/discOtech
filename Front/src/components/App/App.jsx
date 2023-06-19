@@ -45,7 +45,7 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />
-        <Route path="/favoris" element={<Favorites />} />
+        <Route path="/favoris" element={<Favorites albums={albums} />} />
         <Route path="/a-propos" />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />

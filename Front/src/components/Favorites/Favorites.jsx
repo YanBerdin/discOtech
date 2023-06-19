@@ -1,24 +1,17 @@
 import AlbumCard from '../HomePage/AlbumCard/AlbumCard';
-import FavoritesAlbums from '../../data/data';
+// import favoritesAlbums from '../../data/data';
 import './Favorites.scss';
+import Header from '../Header/Header';
 
-function Favorites() {
+function Favorites({ albums }) {
   return (
     <>
-      <div>
-        <form className="Favorites-SearchBar-Form">
-          {/* <img className="loupe" src={search} alt="icone de loupe" /> */}
-          <input className="Favorites-SearchBar-Input" type="search" placeholder="Votre recherche..." aria-label="Search" />
-          <button className="Favorites-SearchBar-Button" type="submit">
-            Rechercher
-          </button>
-        </form>
-      </div>
-      <section className="Favorites-Container">
-        <h4> Mes Favoris :</h4>
-      </section>
+      <Header />
+      <header className="Favorites-Title">
+        <h4>Mes Favoris :</h4>
+      </header>
       <div className="HomePage-Container">
-        {FavoritesAlbums.map((album) => (
+        {albums.map((album) => (
           <AlbumCard
             className="HomePage-Card"
             key={album.id}
