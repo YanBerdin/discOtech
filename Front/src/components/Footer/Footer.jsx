@@ -1,5 +1,5 @@
 // = Import : npm
-import { NavLink } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // = Import : local
 import './Footer.scss';
@@ -25,60 +25,60 @@ function Footer() {
         <section className="Footer-Links">
           <div className="Footer-About">
             <p className="titre">A propos</p>
-            <NavLink className="NavLink" to="/equipe-dev">
+            <Link className="NavLink" to="equipe-dev">
               L'équipe de développement
-            </NavLink>
-            <NavLink className="NavLink" to="/le-projet">
+            </Link>
+            <Link className="NavLink" to="le-projet">
               Descriptif du projet
-            </NavLink>
+            </Link>
           </div>
         </section>
 
         <section className="Footer-Links">
           <div className="Footer-Useful">
             <p className="titre">Liens utiles</p>
-            <NavLink className="NavLink" to="/conditions-generales-utilisation">
+            <Link className="NavLink" to="/conditions-generales-utilisation">
               Conditions générales d'utilisation
-            </NavLink>
-            <NavLink className="NavLink" to="/mentions-legales">Mentions Légales</NavLink>
+            </Link>
+            <Link className="NavLink" to="/mentions-legales">Mentions Légales</Link>
           </div>
         </section>
 
         <section className="Footer-Social">
           <div className="Footer-Networks">
-            <NavLink className="NavLink" to="https://fr-fr.facebook.com/">
+            <Link className="NavLink" to="https://fr-fr.facebook.com/">
               <img
                 src={facebook}
                 className="Footer-NetworkLogo"
                 alt="Logo facebook"
               />
-            </NavLink>
+            </Link>
 
-            <NavLink className="NavLink" to="https://www.instagram.com/">
+            <Link className="NavLink" to="https://www.instagram.com/">
               <img
                 src={instagram}
                 className="Footer-NetworkLogo"
                 alt="Logo instagram"
               />
-            </NavLink>
+            </Link>
           </div>
 
           <div className="Footer-Networks">
-            <NavLink className="NavLink" to="https://www.linkedin.com/">
+            <Link className="NavLink" to="https://www.linkedin.com/">
               <img
                 src={linkedin}
                 className="Footer-NetworkLogo"
                 alt="Logo linkedin"
               />
-            </NavLink>
+            </Link>
 
-            <NavLink className="NavLink" to="https://twitter.com/explore">
+            <Link className="NavLink" to="https://twitter.com/explore">
               <img
                 src={twitter}
                 className="Footer-NetworkLogo"
                 alt="Logo twitter"
               />
-            </NavLink>
+            </Link>
           </div>
         </section>
       </div>
