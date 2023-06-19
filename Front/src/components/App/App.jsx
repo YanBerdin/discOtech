@@ -12,6 +12,8 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LegalNotices from '../Legal Notices/LegalNotices';
 import TermsofService from '../Terms of Service/TermsofService';
+import Favorites from '../Favorites/Favorites';
+import AlbumPage from '../AlbumPage/AlbumPage';
 import UserProfile from '../UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 
@@ -55,12 +57,13 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />
-        <Route path="/favoris" />
+        <Route path="/favoris" element={<Favorites albums={albums} />} />
         <Route path="/a-propos" />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/equipe-dev" />
         <Route path="/le-projet" />
+        <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/UserProfile" element={<UserProfile />} />
         <Route path="/*" />
       </Routes>
