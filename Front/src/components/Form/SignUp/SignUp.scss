@@ -56,13 +56,18 @@
   &-AvatarInput {
     display: none;
   }
+  &-AvatarImg {
+    width: 85px;
+  }
   &-Username {
     display: flex;
     flex-direction: column;
+    width: 60%;
   }
   &-UserTop {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
   }
   &-InputField {
     width: 100%;
@@ -111,15 +116,27 @@
 @media screen and (min-width: 481px) {
   .SignUp {
     &-Card {
-      width:450px;
+      width:400px;
     }
     &-Button {
       width:300px
     }
     &-Avatar {
       height: 120px;
+      width: 120px;
       margin: 15px 15px 15px 0px;
       padding: 5px;
+    }
+    &-AvatarImg {
+      width: 110px;
+    }
+  }
+ }
+
+ @media screen and (min-width: 1024px) {
+  .SignUp {
+    &-Card {
+      width:550px;
     }
   }
  }

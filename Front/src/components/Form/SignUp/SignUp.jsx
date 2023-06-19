@@ -24,7 +24,7 @@ function SignUp({
           {/* SignUp Input : Avatar */}
           <input className="SignUp-AvatarInput" id="file" type="file" />
           <label className="SignUp-Avatar" htmlFor="file">
-            <img src={inputFile} alt="Icone dl" />
+            <img className="SignUp-AvatarImg" src={inputFile} alt="Icone dl" />
           </label>
           {/* SignUp Input : Username */}
           <div className="SignUp-Username">
