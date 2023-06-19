@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 
 import StylesCarousel from '../StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
@@ -17,7 +17,7 @@ function HomePage({
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
-    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/styles')
+    api.get('/styles')
       .then((res) => {
         setStyles(res.data);
       })

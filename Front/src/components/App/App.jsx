@@ -3,7 +3,7 @@
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 
 // Fichiers JSXimport { useState } from 'react';
 import Login from '../Form/Login/Login';
@@ -24,7 +24,7 @@ function App() {
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
   const getAlbums = () => {
-    axios.post('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/search', { search: search })
+    api.post('/albums/search', { search: search })
       .then((res) => {
         setAlbums(res.data);
         console.log(res.data);

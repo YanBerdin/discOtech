@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import './SearchBar.scss';
 
 function SearchBar({ setSearch, search, getAlbums }) {
