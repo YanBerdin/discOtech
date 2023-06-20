@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -16,15 +17,17 @@ import about from '../../assets/about-icon.svg';
 
 function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const logged = useSelector((state) => state.user.logged);
 
   const handleToggle = () => {
     setToggleOpen(!toggleOpen);
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const handleDropdownToggle = () => {
-    setDropdownOpen(!dropdownOpen);
+  const handleLogoutClick = () => {
+    localStorage.removeItem('token');
+
+    window.location = '/';
   };
 
   return (
@@ -60,8 +63,17 @@ function NavBar() {
           id="user-dropdown"
           className={`user-img ${toggleOpen ? 'hidden' : ''} dropdown-center`}
         >
-          <NavDropdown.Item href="/connexion">Se connecter</NavDropdown.Item>
-          <NavDropdown.Item href="/inscription">S'inscrire</NavDropdown.Item>
+          {logged ? (
+            <>
+              <NavDropdown.Item as={Link} to="/user-profile">Mon profil</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleLogoutClick}>Se déconnecter</NavDropdown.Item>
+            </>
+          ) : (
+            <>
+              <NavDropdown.Item as={Link} to="/connexion">Se connecter</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/inscription">S'inscrire</NavDropdown.Item>
+            </>
+          )}
         </NavDropdown>
 
         <Navbar.Toggle
@@ -95,7 +107,7 @@ function NavBar() {
               />
               Favoris
             </Link>
-            <Link eventKey={2} to="/a-propos" className="nav-link">
+            <Link to="/a-propos" className="nav-link">
               <img
                 src={about}
                 alt="Icone de la page des favoris"

@@ -1,3 +1,5 @@
+export const SAVE_LOGIN_SUCCESSFUL = 'SAVE_LOGIN_SUCCESSFUL';
+
 export const SET_EMAIL = 'SET_EMAIL';
 export const setEmail = (newEmail) => ({
   type: SET_EMAIL,
@@ -46,18 +48,10 @@ export const setClearInput = (clearInput) => ({
   },
 });
 
-// export const SET_CONNECTED_USER = 'SET_CONNECTED_USER';
-// export const setConnectedUser = (connectedUser) => ({
-//   type: SET_CONNECTED_USER,
-//   payload: {
-//     isLogged: connectedUser,
-//   },
-// });
-
-// export const SET_LOGGED_OUT = 'SET_LOGGED_OUT';
-// export const setLoggedOut = (loggedOut) => ({
-//   type: SET_LOGGED_OUT,
-//   payload: {
-//     loggedOut: !loggedOut,
-//   },
-// });
+export const saveLoginSuccessful = (firstname, token) => ({
+  type: SAVE_LOGIN_SUCCESSFUL,
+  payload: {
+    firstname: firstname,
+    token: token,
+  },
+});
