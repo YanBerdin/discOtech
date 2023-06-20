@@ -43,8 +43,8 @@ function StylesCarousel({ styles }) {
     <div className="Carousel">
       <Slider {...settings}>
         {styles.map((style) => (
-          <div className="Carousel-Container">
-            <div className="Carousel-Cards" key={style.id} style={{ backgroundImage: `url(${style.image})` }}>
+          <div className="Carousel-Container" key={style.id}>
+            <div className="Carousel-Cards" style={{ backgroundImage: `url(${style.image})` }}>
               <h3 className="Carousel-StyleName"> {style.name} </h3>
             </div>
           </div>

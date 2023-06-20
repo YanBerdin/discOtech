@@ -1,61 +1,118 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import : npm
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import api from '../../../api/api';
 
 // == Import : local
-import FormHeader from '../FormHeader/FormHeader';
+import {
+  setEmail, setPassword, setFirstName, setLastName, setAvatar,
+} from '../../../actions/user';
 import inputFile from '../../../assets/input-file.svg';
+import User from '../../../assets/WelcomeUser.png';
 import './SignUp.scss';
 
 // == Composant
-function SignUp({
-  email, password, lastname, firstname,
-}) {
+function SignUp() {
+  const dispatch = useDispatch();
+  const { email } = useSelector((state) => state.user);
+  const { password } = useSelector((state) => state.user);
+  const { lastname } = useSelector((state) => state.user);
+  const { firstname } = useSelector((state) => state.user);
+  const { avatar } = useSelector((state) => state.user);
+
+  const handleSignUp = () => {
+    api
+      .post('/users/signup', {
+        email: email,
+        password: password,
+        firstname: firstname,
+        lastname: lastname,
+        avatar: avatar,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          console.log(email, password, lastname, firstname, avatar);
+        } else if (res.status === 200) {
+          alert('Cet utilisateur existe déjà');
+        } else {
+          alert('Erreur lors de l\'inscription');
+        }
+      })
+      .catch((err) => {
+        console.log(`email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleSignUp();
+  };
+
   return (
-    <form className="SignUp-Form" action="">
+    <form className="SignUp-Form" onSubmit={handleSubmit}>
       <div className="SignUp-Card">
-        {/* SignUp Header : Title and Image */}
-        <FormHeader />
+        {/* Header */}
+        <div className="Header-Container">
+          <img className="Header-UserImg" src={User} alt="Logo de personnage" />
+          <p className="Header-Title">Inscription</p>
+        </div>
 
-        {/* SignUp Input : Avatar */}
-        <div className="SignUp-InputContainer-UserIdentity">
-          <input className="SignUp-AvatarInput" id="file" type="file" />
+        <div className="SignUp-UserTop">
+          {/* SignUp Input : Avatar */}
+          <input
+            className="SignUp-AvatarInput"
+            type="text"
+            value={avatar}
+            onChange={(event) => dispatch(setAvatar(event.target.value))}
+          />
           <label className="SignUp-Avatar" htmlFor="file">
-            <img src={inputFile} alt="Icone dl" />
+            <img className="SignUp-AvatarImg" src={inputFile} alt="Icone dl" />
           </label>
-
-          <div className="SignUp-InputContainer-User">
-            {/* SignUp Input : Last Name */}
-            <input className="Field-Input" name="lastname" placeholder="Nom" value={lastname} />
-            {/* SignUp Input : First Name */}
-            <input className="Field-Input" name="firstname" placeholder="Prénom" value={firstname} />
+          {/* SignUp Input : Username */}
+          <div className="SignUp-Username">
+            <input
+              className="SignUp-InputField"
+              name="lastname"
+              placeholder="Nom"
+              value={lastname}
+              onChange={(event) => dispatch(setLastName(event.target.value))}
+            />
+            <input
+              className="SignUp-InputField"
+              name="firstname"
+              placeholder="Prénom"
+              value={firstname}
+              onChange={(event) => dispatch(setFirstName(event.target.value))}
+            />
           </div>
         </div>
 
-        <div className="SignUp-InputContainer-Website">
-          {/* SignUp Input : Mail Adress */}
-          <input className="Field-Input" name="email" placeholder="Adresse e-mail" value={email} />
-          {/* SignUp Input : Password */}
-          <input
-            className="Field-Input"
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            value={password}
-          />
-          {/* SignUp Input : Password Confirm */}
-          <input
-            className="Field-Input"
-            name="password"
-            type="password"
-            placeholder="Confirmation du mot de passe"
-            value={password}
-          />
-        </div>
+        {/* SignUp Input : Mail Adress */}
+        <input
+          className="SignUp-InputField"
+          name="email"
+          placeholder="Adresse e-mail"
+          value={email}
+          onChange={(event) => dispatch(setEmail(event.target.value))}
+        />
+
+        {/* SignUp Input : Password */}
+        <input
+          className="SignUp-InputField"
+          name="password"
+          type="password"
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(event) => dispatch(setPassword(event.target.value))}
+        />
 
         {/* Link to Login Form */}
-        <p className="SignUp-Login">
-          Déjà inscrit ? Connecte toi <Link to="/connexion">ici</Link>
+        <p className="SignUp-Link">
+          Déjà inscrit ? <br /> Connecte toi <Link to="/connexion">ici</Link>
         </p>
       </div>
       {/* SignUp Button */}

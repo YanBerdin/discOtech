@@ -1,90 +1,82 @@
-body {
-  margin: auto;
-  height: auto;
+.Header {
+  &-UserImg {
+      width: 30%;
+    }
+    &-Container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5px;
+    }
+    &-Title {
+      font-family: 'Righteous', cursive;
+      font-size: 2.5em;
+      font-weight: 600;
+      margin: 10px 0px;
+    }
 }
 
 .SignUp {
-  // All the Form Component
-  &-Form {
+   &-Form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
-    color:black;
-    margin-bottom: 50px;
+    background-image: url('../../../assets/music-shop.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 80px;
+   }
 
-  }
-  // Form Card
-  &-Card {
-    max-width: 50%;
-    min-width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    padding: 0px 30px 7px 30px;
+   &-Card {
+    width: 300px;
+    padding: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.675);
+    background: rgba(0, 0, 0, 0.611);
     border-radius: 30px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
-    margin: 50px 50px 0px 50px;
-  }
-  // Avatar User Input
-  &-Avatar {
-    height: 70px;
-    width: 70px;
-    background-color: rgb(108, 23, 211);
-    border-radius: 20%;
-    align-self: center;
-    margin: 15px 15px 15px 0px;
-    padding: 8px;
-    cursor: pointer;
-    box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),
-      100px 100px 80px rgba(0, 0, 0, 0.03);
-  }
-  &-AvatarInput {
-    display: none;
-  }
-
-  // Input Containers
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.608);
+    margin: 20px 50px 0px 50px;
+   }
   &-InputContainer {
     width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
-    &-User {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      margin: 0px;
-    }
-    &-UserIdentity {
-      display: flex;
-      flex-direction: row;
-    }
-    &-Website {
-      width: 100%;
-      justify-content: space-evenly;
-    }
   }
-
-  // Text Input
+  &-Avatar {
+    height: 96px;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.302);
+    border-radius: 20%;
+    margin: 15px 15px 15px 0px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  &-AvatarInput {
+    display: none;
+  }
+  &-AvatarImg {
+    width: 85px;
+  }
+  &-Username {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  &-UserTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
   &-InputField {
     width: 100%;
-    height: 40px;
-    background-color: transparent;
-    height: 40px;
-    background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(173, 173, 173);
-    border-radius: 30px;
-    color: black;
-    font-size: 0.8em;
-    font-weight: 500;
+    border-radius: 10px;
+    margin: 10px 0;
     box-sizing: border-box;
-    padding-left: 30px;
-    margin: 6px;
+    padding: 8px 15px;
 
     &:focus {
       outline: none;
@@ -97,11 +89,19 @@ body {
     }
   }
 
-  // Sign Up ButtonLogin
+  &-Link {
+    padding-top: 10px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: rgb(19, 0, 68) 1px 0 10px;
+  }
+
   &-Button {
     position: relative;
-    width: 18%;
-    background-color: #d19ffa91;
+    width: 230px;
+    background-color: #402656d3;
     height: 40px;
     color: white;
     font-size: 1.1em;
@@ -109,85 +109,34 @@ body {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     cursor: pointer;
-    overflow: hidden;
-    border: 0;
   }
-  &-Login {
-    margin: 20px 0px;
-  }
-}
-.Field {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  &-Input {
-    width: 100%;
-    height: 40px;
-    background-color: transparent;
-    height: 40px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid rgb(173, 173, 173);
-    border-radius: 30px;
-    margin: 10px 0;
-    color: black;
-    font-size: 0.8em;
-    font-weight: 500;
-    box-sizing: border-box;
-    padding-left: 30px;
-  
-    &:focus {
-      outline: none;
-      border-bottom: 2px solid rgb(199, 114, 255);
-    }
-    
-    &::placeholder {
-      color: rgb(80, 80, 80);
-      font-size: 1em;
-      font-weight: 500;
-    }
-  }
 }
 
-@media screen and (min-width: 481px) and (max-width: 767px) {
+@media screen and (min-width: 481px) {
   .SignUp {
-    
-    &-Form {
-      margin-top: 10px;  
-    }
-
     &-Card {
-      padding: 0px 20px 7px 20px;
-      max-width: 50%;
-      min-width: 70%;
-      height: auto;
+      width:400px;
     }
-
     &-Button {
-      width:40%
+      width:300px
+    }
+    &-Avatar {
+      height: 120px;
+      width: 120px;
+      margin: 15px 15px 15px 0px;
+      padding: 5px;
+    }
+    &-AvatarImg {
+      width: 110px;
     }
   }
  }
 
-@media screen and  (min-width: 319px) and (max-width: 480px) {
-  .SignUp{
-
-    &-Form {
-      margin-top: 0px;  
-    }
-
+ @media screen and (min-width: 1024px) {
+  .SignUp {
     &-Card {
-      padding: 0px 20px 7px 20px;
-      margin: 30px 30px 0px;
-      max-width: 74%;
-      height: auto;
-    }
-
-    &-Button {
-      width:60%
+      width:550px;
     }
   }
-}
+ }

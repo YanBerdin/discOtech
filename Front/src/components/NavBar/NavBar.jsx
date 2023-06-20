@@ -72,7 +72,7 @@ function NavBar() {
           id="responsive-navbar-nav"
         >
           <Nav className="justify-content-start">
-            <Nav.Link to="/">
+            <Nav.Link href="/">
               <img src={home} alt="Icone de l'accueil" className="nav-icon" />
               Accueil
             </Nav.Link>
