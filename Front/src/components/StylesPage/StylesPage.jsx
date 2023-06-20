@@ -1,17 +1,22 @@
 import './StylesPage.scss';
 
-import SearchBar from '../SearchBar/SearchBar';
+import Header from '../Header/Header';
+import ReturnButton from '../ReturnButton/ReturnButton';
 
 function StylesPage({ styles }) {
   return (
     <>
-      <div className="SearchBar">
-        <SearchBar />
+      <div className="StylesPage-Header">
+        <Header />
       </div>
+      <div className="StylesPage-Return">
+        <ReturnButton />
+      </div>
+      <h1 className="StylesPage-Title">Parcourir les styles :</h1>
       <div className="StylesPage">
         {styles.map((style) => (
-          <div className="StylesPage-Container">
-            <div className="StylesPage-Cards" key={style.id} style={{ backgroundImage: `url(${style.image})` }}>
+          <div className="StylesPage-Container" key={style.id}>
+            <div className="StylesPage-Cards" style={{ backgroundImage: `url(${style.image})` }}>
               <h3 className="StylesPage-StyleName"> {style.name} </h3>
             </div>
           </div>

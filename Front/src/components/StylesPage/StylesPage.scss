@@ -21,14 +21,29 @@
         background-position: center;
         background-size: cover;
     }
+
+    &-Title {
+        font-size: 20px;
+        padding-left: 2rem;
+    }
+
+    &-Return {
+        bottom: 210px;
+        position: relative;
+        left: 10px;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .StylesPage {
+        justify-content: center;
 
         &-Cards {
-            height: 6vh;
+            width: 200px;
+            height: 200px;
         }
+
     }
     
 }
