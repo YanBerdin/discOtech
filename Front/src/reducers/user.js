@@ -9,10 +9,10 @@ import {
 } from '../actions/user';
 
 export const initialState = {
-  email: '',
-  password: '',
-  lastname: '',
-  firstname: '',
+  email: null,
+  password: null,
+  lastname: null,
+  firstname: null,
   avatar: '',
   logged: false,
   token: null,

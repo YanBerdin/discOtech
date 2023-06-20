@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
 .Header {
   width: 100%;
   height: 40vh;
   margin-bottom: 20px;
+  font-family: 'Shrikhand', cursive;
 
   &-Overlay {
     position: absolute;
@@ -23,14 +23,20 @@
     text-align: center;
   }
   &-Description {
-    margin: 0 1.5rem;
+    margin: -10px 1.5rem;
   }
   &-Video {
     width: 100%;
     height: 40vh;
     object-fit: cover;
     z-index: -3;
-    filter: grayscale(60%) blur(2px);
+    filter: grayscale(60%) blur(1px);
+    border-radius: 0px 0px 25px 25px;
+   }
+
+   &-Disco {
+    margin-top: -30px;
+    font-family: 'Syncopate', sans-serif;
    }
 }
 
@@ -39,6 +45,7 @@
      &-Content{
        position: relative;
        top: -62%;
+       padding-bottom: 2rem;
      }
    }
  }

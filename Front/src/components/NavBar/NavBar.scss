@@ -1,71 +1,10 @@
-/************ Default Css ************/
-.App {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 75px;
-}
-
-body {
-  font-weight: 400;
-  overflow-x: hidden;
-  position: relative;
-  color: #fff;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  line-height: normal;
-}
-
-p,
-a,
-li,
-button,
-ul {
-  margin: 0;
-  padding: 0;
-  line-height: normal;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-button {
-  border: 0;
-  background-color: transparent;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-}
-
-@media (min-width: 1700px) {
-  main .container {
-    max-width: 100%;
-    padding: 0 150px;
-  }
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 /************ Navbar Css ************/
 
 .navbar-white-text {
     .nav-link {
       color: #fff;
+      font-family: 'Syncopate', sans-serif;
     }
   }
 
@@ -81,11 +20,6 @@ nav.navbar {
   text-align: center;
 }
 
-nav.navbar {
-  background: url('../../assets/videoBg.mp4') no-repeat center center fixed;
-  background-size: cover;
-}
-
 nav.navbar.scrolled {
   padding: 0px 0;
 }
@@ -99,6 +33,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   opacity: 0.75;
   text-align: start;
   padding-top: 1rem;
+  font-size: 10px;
 }
 
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
@@ -240,7 +175,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 
   nav.navbar.mobile-open {
-    background: linear-gradient(rgb(0, 0, 68), rgb(39, 0, 78));
+    background: transparent;
   } 
 }
 

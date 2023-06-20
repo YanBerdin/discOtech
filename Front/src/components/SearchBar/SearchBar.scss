@@ -14,6 +14,7 @@
     display: flex;
     padding: 0;
     padding-left: 1rem;
+    font-family: 'Syncopate', sans-serif;
   }
 
   &-Button {
@@ -36,6 +37,8 @@
 
   &-Button {
     padding: 0rem 2rem;
+    background-color: transparent;
+    border-color: transparent;
   }
 }
 

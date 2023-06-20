@@ -65,7 +65,7 @@ function NavBar() {
         >
           {logged ? (
             <>
-              <NavDropdown.Item as={Link} to="/profil">Mon profil</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/user-profile">Mon profil</NavDropdown.Item>
               <NavDropdown.Item onClick={handleLogoutClick}>Se déconnecter</NavDropdown.Item>
             </>
           ) : (
