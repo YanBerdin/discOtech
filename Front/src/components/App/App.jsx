@@ -14,6 +14,7 @@ import LegalNotices from '../LegalNotices/LegalNotices';
 import TermsofService from '../TermsofService/TermsofService';
 import Favorites from '../Favorites/Favorites';
 import AlbumPage from '../AlbumPage/AlbumPage';
+import AboutUs from '../AboutUs/AboutUs';
 import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
@@ -77,13 +78,9 @@ function App() {
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />
         <Route path="/favoris" element={<Favorites albums={albums} />} />
-        <Route path="/a-propos" />
         <Route path="/mentions-legales" element={<LegalNotices />} />
-        <Route
-          path="/condition-generales-utilisation"
-          element={<TermsofService />}
-        />
-        <Route path="/equipe-dev" />
+        <Route path="/equipe-dev" element={<AboutUs />} />
+        <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/user-profile" element={<UserProfile />} />
