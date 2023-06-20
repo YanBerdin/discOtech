@@ -199,10 +199,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 0.1em;
 }
 
+.user-img {
+  position: fixed;
+  top: 30px;
+  right: 50px;
+}
+
+
 @media (max-width: 767px) {
   /* Styles spécifiques aux appareils portables */
   .navbar .logo-img {
     display: none;
+  }
+
+  .user-img {
+    position: fixed;
+    top: 15px;
+    right: 15px;
   }
 
   .navbar .user-img {
