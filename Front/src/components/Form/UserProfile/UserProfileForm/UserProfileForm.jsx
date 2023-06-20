@@ -16,6 +16,7 @@ function UserProfileForm() {
         {/* Login Input : Nom */}
         <div className="Field">
           <input
+            required
             className="Field-Input"
             name="lastname"
             placeholder="Nom"
@@ -25,6 +26,7 @@ function UserProfileForm() {
         {/* Login Input : Prénom */}
         <div className="Field">
           <input
+            required
             className="Field-Input"
             name="firstname"
             placeholder="Prénom"
@@ -35,6 +37,7 @@ function UserProfileForm() {
         {/* Login Input : Mail Adress */}
         <div className="Field">
           <input
+            required
             className="Field-Input"
             name="email"
             placeholder="Adresse e-mail"
@@ -45,6 +48,7 @@ function UserProfileForm() {
         {/* Login Input : Password Adress */}
         <div className="Field">
           <input
+            required
             className="Field-Input"
             name="password"
             placeholder="Mot de passe"
