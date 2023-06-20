@@ -17,7 +17,7 @@ function Header({ search, setSearch, getAlbums }) {
           DISC'OTECH
         </h1>
         <p className="mb-2 md:text-center md:text-lg md:text-100 text-white Header-Description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, asperiores.
+          C'est comme Spotify en moins bien, Discogs en mieux et pas du tout comme Youtube.
         </p>
       </div>
       <SearchBar
