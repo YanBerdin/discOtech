@@ -1,8 +1,5 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { useEffect, useState } from 'react';
-import api from '../../api/api';
-
 import StylesCarousel from './StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
 import Header from '../Header/Header';
@@ -10,11 +7,9 @@ import Header from '../Header/Header';
 import './HomePage.scss';
 
 function HomePage({
-  search, albums, setSearch, getAlbums, styles
+  search, albums, setSearch, getAlbums, styles,
 }) {
-  const [styles, setStyles] = useState([]);
   console.log(`valeur de search dans HomePage : ${search}`);
-  
   return (
     <>
       <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />

@@ -14,7 +14,7 @@ import LegalNotices from '../LegalNotices/LegalNotices';
 import TermsofService from '../TermsofService/TermsofService';
 import Favorites from '../Favorites/Favorites';
 import AlbumPage from '../AlbumPage/AlbumPage';
-import UserProfile from '../UserProfile/UserProfile';
+import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
 
@@ -63,6 +63,9 @@ function App() {
             <HomePage
               albums={albums}
               styles={styles}
+              setSearch={setSearch}
+              getAlbums={getAlbums}
+              search={search}
             />
 )}
         />
@@ -70,12 +73,6 @@ function App() {
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" element={<StylesPage styles={styles} />} />
         <Route path="/favoris" />
-              setSearch={setSearch}
-              getAlbums={getAlbums}
-              search={search}
-            />
-          )}
-        />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" />

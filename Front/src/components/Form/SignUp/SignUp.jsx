@@ -112,7 +112,7 @@ function SignUp() {
 
         {/* Link to Login Form */}
         <p className="SignUp-Link">
-          Déjà inscrit ? <br /> Connecte toi <Link to="/connexion">ici</Link>
+          Pas encore parmi nous ? <br /><Link to="/connexion">Connectez-vous ici</Link>
         </p>
       </div>
       {/* SignUp Button */}
