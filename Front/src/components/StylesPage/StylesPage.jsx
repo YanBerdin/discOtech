@@ -12,7 +12,7 @@ function StylesPage({ styles }) {
       <div className="StylesPage-Return">
         <ReturnButton />
       </div>
-      <h1 className="StylesPage-Title">Parcourir les styles :</h1>
+      <h2 className="StylesPage-Title">Parcourir les styles :</h2>
       <div className="StylesPage">
         {styles.map((style) => (
           <div className="StylesPage-Container" key={style.id}>

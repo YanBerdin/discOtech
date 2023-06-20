@@ -4,6 +4,7 @@
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     &-Container {
         padding: 10px;
     }
@@ -23,7 +24,6 @@
     }
 
     &-Title {
-        font-size: 20px;
         padding-left: 2rem;
     }
 
@@ -37,11 +37,30 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .StylesPage {
-        justify-content: center;
 
         &-Cards {
             width: 200px;
             height: 200px;
+        }
+
+        &-Return {
+            bottom: 270px;
+        }
+
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .StylesPage {
+
+        &-Cards {
+            width: 250px;
+            height: 200px;
+        }
+
+        &-Return {
+            display: none;
         }
 
     }
