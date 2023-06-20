@@ -1,9 +1,18 @@
+/* eslint-disable no-console */
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import favoritesAlbumsData from '../../../data/data';
 import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
 import UserProfileForm from './UserProfileForm/UserProfileForm';
 
 function UserProfile() {
+  // Champ controllé des inputs
+  const emailValue = useSelector((state) => state.user.email);
+  const passwordValue = useSelector((state) => state.user.password);
+  const lastnameValue = useSelector((state) => state.user.email);
+  console.log(emailValue);
+  console.log(passwordValue);
+  console.log(lastnameValue);
   return (
     <div className="UserProfileContainer">
       <UserProfileForm />
