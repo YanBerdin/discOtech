@@ -14,8 +14,9 @@ import LegalNotices from '../LegalNotices/LegalNotices';
 import TermsofService from '../TermsofService/TermsofService';
 import Favorites from '../Favorites/Favorites';
 import AlbumPage from '../AlbumPage/AlbumPage';
-import UserProfile from '../Form/UserProfile/UserProfile';
+import UserProfile from '../UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
+import StylesPage from '../StylesPage/StylesPage';
 
 // Fichier Styles
 import './App.scss';
@@ -38,6 +39,20 @@ function App() {
   };
   useEffect(getAlbums, [search]);
 
+  const [styles, setStyles] = useState([]);
+  // Au premier rendu du composant App, je souhaite récupérer la liste des styles
+  useEffect(() => {
+    api.get('/styles')
+      .then((res) => {
+        setStyles(res.data);
+      })
+      .catch((err) => {
+        alert('Erreur !');
+        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
+        console.err(err);
+      });
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
@@ -47,6 +62,14 @@ function App() {
           element={(
             <HomePage
               albums={albums}
+              styles={styles}
+            />
+)}
+        />
+        <Route path="/connexion" element={<Login />} />
+        <Route path="/inscription" element={<SignUp />} />
+        <Route path="/styles" element={<StylesPage styles={styles} />} />
+        <Route path="/favoris" />
               setSearch={setSearch}
               getAlbums={getAlbums}
               search={search}

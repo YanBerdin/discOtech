@@ -10,24 +10,11 @@ import Header from '../Header/Header';
 import './HomePage.scss';
 
 function HomePage({
-  search, albums, setSearch, getAlbums,
+  search, albums, setSearch, getAlbums, styles
 }) {
   const [styles, setStyles] = useState([]);
   console.log(`valeur de search dans HomePage : ${search}`);
-
-  // Au premier rendu du composant App, je souhaite récupérer la liste des styles
-  useEffect(() => {
-    api.get('/styles')
-      .then((res) => {
-        setStyles(res.data);
-      })
-      .catch((err) => {
-        alert('Erreur !');
-        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
-        console.err(err);
-      });
-  }, []);
-
+  
   return (
     <>
       <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
