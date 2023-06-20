@@ -1,6 +1,6 @@
 .SearchBar {
 
-  &-Form{
+  &-Form {
     width: 70%;
     margin: auto;
     margin-top: -3.5rem;
@@ -15,9 +15,14 @@
     padding: 0;
     padding-left: 1rem;
   }
+
+  &-Button {
+    color: black;
+  }
   
   &-Input {
-    background-color: transparent;
+    background-color: white;
+    color: black;
     border: none;
     height: 100%;
     font-size: 1rem;
@@ -32,11 +37,6 @@
   &-Button {
     padding: 0rem 2rem;
   }
-
-//   .loupe {
-//     width: 70%;
-//     height: 70%;
-//   }
 }
 
 @media (max-width: 767px) {

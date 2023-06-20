@@ -21,8 +21,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-family: 'Righteous', cursive;
     text-align: center;
   }
   &-Description {
@@ -33,7 +31,8 @@
     height: 40vh;
     object-fit: cover;
     z-index: -3;
-  }
+    filter: grayscale(60%) blur(2px);
+   }
 }
 
  @media (min-width: 1024px) {

@@ -2,29 +2,32 @@
 /* eslint-disable */
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import api from '../../../api/api';
 
 // == Import : local
-import FormHeader from '../FormHeader/FormHeader';
 import { setEmail, setPassword, setClearInput } from '../../../actions/user';
-import './Login.scss';
-
+import User from '../../../assets/WelcomeUser.png';
+import './Login.scss'
 
 // == Component
 function Login() {
   const dispatch = useDispatch();
-  const { email } = useSelector((state) => state);
-  const { password } = useSelector((state) => state);
+  const { email } = useSelector((state) => state.user);
+  const { password } = useSelector((state) => state.user);
 
   const handleLogin = () => {
-    axios
-      .post("http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/login_check", {
+    api
+      .post('/login_check', {
         email: email,
         password: password,
       })
       .then((res) => {
         if (res.status === 200) {
           console.log(email, password)
+
+          if(res.data.token) {
+            localStorage.setItem('token', token);
+          }
           dispatch(setClearInput(""));
         } else {
           alert('Identifiants incorrects. Veuillez réessayer.');
@@ -45,7 +48,10 @@ function Login() {
   return (
     <form className="Login-Form" onSubmit={handleSubmit}>
       <div className="Login-Card">
-        <FormHeader />
+        <div className="Header-Container">
+          <img className="Header-UserImg" src={User} alt="Logo de personnage" />
+          <p className="Header-Title">Connexion</p>
+        </div>
 
         <div className="Field">
           <input
@@ -69,7 +75,7 @@ function Login() {
         </div>
 
         <p className="Login-Link">
-          Pas encore inscrit ? Rejoignez-nous <Link to="/inscription">ici</Link>
+          Pas encore parmi nous ? <br /><Link to="/inscription">Inscrivez-vous ici</Link>
         </p>
       </div>
 

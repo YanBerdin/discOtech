@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -72,36 +73,36 @@ function NavBar() {
           id="responsive-navbar-nav"
         >
           <Nav className="justify-content-start">
-            <Nav.Link to="/">
+            <Link to="/" className="nav-link">
               <img src={home} alt="Icone de l'accueil" className="nav-icon" />
               Accueil
-            </Nav.Link>
-            <Nav.Link href="/styles">
+            </Link>
+            <Link to="/styles" className="nav-link">
               <img
                 src={style}
                 alt="Icone de la page des styles"
                 className="nav-icon"
               />
               Styles
-            </Nav.Link>
+            </Link>
           </Nav>
           <Nav>
-            <Nav.Link href="/favoris">
+            <Link to="/favoris" className="nav-link">
               <img
                 src={heart}
                 alt="Icone de la page des favoris"
                 className="nav-icon"
               />
               Favoris
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="/a-propos">
+            </Link>
+            <Link eventKey={2} to="/a-propos" className="nav-link">
               <img
                 src={about}
                 alt="Icone de la page des favoris"
                 className="nav-icon"
               />
               À propos
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

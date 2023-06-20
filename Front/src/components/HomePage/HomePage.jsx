@@ -1,31 +1,20 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-import Header from '../Header/Header';
-import StylesCarousel from '../StylesCarousel/StylesCarousel';
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+import StylesCarousel from './StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
+import Header from '../Header/Header';
 
 import './HomePage.scss';
 
-function HomePage({ albums }) {
-  const [styles, setStyles] = useState([]);
-  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
-  useEffect(() => {
-    axios.get('http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/styles')
-      .then((res) => {
-        setStyles(res.data);
-      })
-      .catch((err) => {
-        alert('Erreur !');
-        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
-        console.err(err);
-      });
-  }, []);
+function HomePage({
+  search, albums, setSearch, getAlbums, styles,
+}) {
+  console.log(`valeur de search dans HomePage : ${search}`);
   return (
     <>
-      <Header />
+      <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
       <StylesCarousel styles={styles} />
-      <h4 className="HomePage-Title">Nos Suggestions :</h4>
+      <h2 className="HomePage-Title">Nos Suggestions :</h2>
       <div className="HomePage-Container">
         {albums.map((album) => (
           <AlbumCard
