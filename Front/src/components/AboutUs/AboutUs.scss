@@ -5,12 +5,11 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 2rem;
-    margin: 2rem;
+    padding: 1rem;
     font-size: 0.9rem;
-    gap: 1rem;
-    align-items: center;
-    // line-height: 1.8;
+    gap: 3rem;
+    align-items: flex-start;
+    min-height: 1650px;
   }
 }
 h5,
@@ -20,28 +19,17 @@ h6 {
   margin-bottom: 1rem;
   margin-top: 0.8rem;
 }
+
 p {
   margin-bottom: 0.5rem;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  //   /* Styles spécifiques aux tablettes */
-  .AboutUs-Container {
-    padding: 5rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  //   /* Styles spécifiques aux tablettes */
-  .AboutUs-Container {
-    padding: 6rem;
-  }
-}
 .flip-card {
   background-color: transparent;
   width: 180px;
   height: 254px;
   perspective: 1000px;
+  flex-shrink: 2;
 }
 
 .title {
@@ -50,7 +38,6 @@ p {
   text-align: center;
   margin: 0;
   padding: 1rem;
-  // margin-bottom: 1.2rem;
 }
 
 .flip-card-inner {
@@ -60,44 +47,143 @@ p {
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
-
 }
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
+  // min-height: 300px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border: 1px solid coral;
+  border: 1px solid rgb(155, 39, 190);
   border-radius: 1rem;
   margin-bottom: 1rem;
-  flex-shrink: 2;
-
 }
 
 .flip-card-front {
-  background: linear-gradient(120deg, rgb(238, 234, 229) 60%, rgb(255, 231, 222) 88%,
-     rgb(255, 211, 195) 40%, rgba(176, 8, 243, 0.603) 48%);
-  color: rgb(214, 80, 255);
-  // margin: 1rem;
+  background: linear-gradient(
+    120deg,
+    bisque 60%,
+    rgb(255, 231, 222) 88%,
+    rgb(255, 211, 195) 40%,
+    rgba(113, 62, 160, 0.603) 48%
+  );
+  color: rgb(99, 33, 129);
+  padding: 0.2rem;
+}
+
+.Dino {
+  object-fit: contain;
+  border-radius: 6%;
 }
 
 .flip-card-back {
-  background: linear-gradient(120deg, rgb(224, 145, 255) 30%, coral 88%,
-     bisque 40%, rgb(211, 107, 231) 78%);
+  background: linear-gradient(
+    120deg,
+    rgb(255, 174, 145) 30%,
+    rgb(220, 80, 255) 88%,
+    bisque 40%,
+    rgb(255, 185, 160) 78%
+  );
   color: white;
   transform: rotateY(180deg);
 }
 
-.Info h5 {
-padding-left: 10%;
+h2 {
+  padding: 20px 30px 7px;
+}
+
+@media screen and (min-width: 440px) and (max-width: 665px) {
+  //   /* Styles spécifiques aux tablettes */
+  .AboutUs {
+    &-Container {
+      margin-top: 1rem;
+      min-height: 950px;
+      gap: 2rem;
+    }
+  }
+  .flip-card {
+    width: 170px;
+  }
+}
+
+@media screen and (min-width: 666px) and (max-width: 1024px) {
+  //   /* Styles spécifiques aux tablettes */
+  .flip-card {
+    width: 180px;
+  }
+  .AboutUs {
+    &-Container {
+      margin-top: 1rem;
+      min-height: 700px;
+      gap: 2rem;
+    }
+  }
+}
+
+// @media screen and (min-width: 636px) and (max-width: 1024px) {
+//   //   /* Styles spécifiques aux tablettes */
+//   .flip-card {
+//     width: 190px;
+//   }
+
+//   .AboutUs {
+//     &-Container {
+//       margin-top: 1rem;
+//       min-height: 1000px;
+//       gap: 2rem;
+//     }
+//   }
+// }
+
+@media screen and (min-width: 1024px) and (max-width: 1161px) {
+  //   /* Styles spécifiques aux tablettes */
+  .flip-card {
+    width: 200px;
+  }
+  .AboutUs {
+    &-Container {
+      margin-top: 2rem;
+      min-height: 700px;
+      gap: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1162px) and (max-width: 1424px) {
+  //   /* Styles spécifiques aux tablettes */
+  .flip-card {
+    width: 230px;
+    flex-shrink: 1;
+  }
+  .AboutUs {
+    &-Container {
+      margin-top: 2rem;
+      min-height: 800px;
+      row-gap: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1424px) {
+  .flip-card {
+    width: 240px;
+  }
+  .AboutUs {
+    &-Container {
+      margin-top: 2rem;
+      min-height: 400px;
+      row-gap: 1rem;
+    }
+  }
 }

@@ -1,26 +1,32 @@
 /* eslint-disable max-len */
 import Header from '../Header/Header';
 import './AboutUs.scss';
+import sharaDino from '../../assets/sahra_dino.png';
+import EvaDino from '../../assets/eva3_dino.png';
+import GaetanDino from '../../assets/gaetan_dino.png';
+import RomainDino from '../../assets/romain_dino.png';
+import YanDino from '../../assets/yan_dino.png';
 
 function AboutUs() {
   return (
     <>
       <Header />
       <div className="Info">
-        <h5> L’équipe de développement</h5>
+        <h2> L’équipe de développement</h2>
       </div>
       <section className="AboutUs-Container">
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
+              <img className="Dino" src={EvaDino} alt="illustration_dinosaure" />
               <h5 className="title">Eva Redon</h5>
               <h6>Scrum Master</h6>
             </div>
             <div className="flip-card-back">
               <p className="title">Scrum Master</p>
               <p>
-                Garant de la méthode du projet : Elle gère le respect des
-                conventions définies dans le groupe.
+                Eva veille au respect des
+                conventions définies par l'équipe.
               </p>
               <p>Tranche en cas de conflits fonctionnels (non techniques)</p>
               <p>
@@ -28,15 +34,14 @@ function AboutUs() {
                 accomplies.
               </p>
               <p>Assure la communication au sein du groupe</p>
-              <p>Vérifie que toute l’équipe possède les bonnes informations.</p>
-              <p>Gère l’outil de suivi du projet.</p>
-              <p>Anime la réunion du matin et gère l’avancement du projet</p>
+              <p>Anime le Daily Scrum et gère l’avancement du projet</p>
             </div>
           </div>
         </div>
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
+              <img className="Dino" src={sharaDino} alt="illustration_dinosaure" />
               <h5 className="title">Sahra Marchand</h5>
               <h6>Lead Dev Front-End </h6>
             </div>
@@ -58,6 +63,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
+              <img className="Dino" src={GaetanDino} alt="illustration_dinosaure" />
               <h5 className="title">Gaetan Leborgne</h5>
               <h6>Lead Dev Back-end</h6>
             </div>
@@ -80,6 +86,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
+              <img className="Dino" src={RomainDino} alt="illustration_dinosaure" />
               <h5 className="title">Romain Gradelet</h5>
               <h6>Git Master</h6>
             </div>
@@ -95,6 +102,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
+              <img className="Dino" src={YanDino} alt="illustration_dinosaure" />
               <h5 className="title">Yan Berdin</h5>
               <h6>Product Owner</h6>
             </div>
