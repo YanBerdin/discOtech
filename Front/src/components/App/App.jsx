@@ -30,8 +30,6 @@ function App() {
       .post('/albums/search', { search: search })
       .then((res) => {
         setAlbums(res.data);
-        console.log(res.data);
-        console.log(`valeur de search dans App ${search}`);
       })
       .catch((err) => {
         console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");

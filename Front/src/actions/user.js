@@ -10,7 +10,31 @@ export const SET_PASSWORD = 'SET_PASSWORD';
 export const setPassword = (newPassword) => ({
   type: SET_PASSWORD,
   payload: {
-    newPassword: newPassword,
+    password: newPassword,
+  },
+});
+
+export const SET_FIRSTNAME = 'SET_FIRSTNAME';
+export const setFirstName = (newFirstName) => ({
+  type: SET_FIRSTNAME,
+  payload: {
+    firstname: newFirstName,
+  },
+});
+
+export const SET_LASTNAME = 'SET_LASTNAME';
+export const setLastName = (newLastName) => ({
+  type: SET_LASTNAME,
+  payload: {
+    lastname: newLastName,
+  },
+});
+
+export const SET_AVATAR = 'SET_AVATAR';
+export const setAvatar = (newAvatar) => ({
+  type: SET_AVATAR,
+  payload: {
+    avatar: newAvatar,
   },
 });
 
