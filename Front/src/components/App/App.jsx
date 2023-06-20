@@ -24,6 +24,7 @@ import './App.scss';
 function App() {
   const [albums, setAlbums] = useState([]);
   const [search, setSearch] = useState('');
+  const [styles, setStyles] = useState([]);
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
   const getAlbums = () => {
@@ -39,7 +40,6 @@ function App() {
   };
   useEffect(getAlbums, [search]);
 
-  const [styles, setStyles] = useState([]);
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
     api.get('/styles')
