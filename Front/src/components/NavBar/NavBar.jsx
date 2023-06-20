@@ -95,7 +95,7 @@ function NavBar() {
               />
               Favoris
             </Link>
-            <Link eventKey={2} to="/a-propos" className="nav-link">
+            <Link to="/a-propos" className="nav-link">
               <img
                 src={about}
                 alt="Icone de la page des favoris"

@@ -25,9 +25,9 @@ function Login() {
         if (res.status === 200) {
           console.log(email, password)
 
-          if(res.data.token) {
-            localStorage.setItem('token', token);
-          }
+          // if(res.data.token) {
+          //   localStorage.setItem('token', token);
+          // }
           dispatch(setClearInput(""));
         } else {
           alert('Identifiants incorrects. Veuillez réessayer.');
