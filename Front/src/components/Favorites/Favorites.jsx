@@ -8,7 +8,7 @@ function Favorites({ albums }) {
     <>
       <Header />
       <header className="Favorites-Title">
-        <h4>Mes Favoris :</h4>
+        <h2>Mes Favoris :</h2>
       </header>
       <div className="HomePage-Container">
         {albums.map((album) => (
