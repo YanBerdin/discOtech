@@ -65,7 +65,7 @@ function NavBar() {
         >
           {logged ? (
             <>
-              <NavDropdown.Item as={Link} to="/user-profile">Mon profil</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/profil">Mon profil</NavDropdown.Item>
               <NavDropdown.Item onClick={handleLogoutClick}>Se déconnecter</NavDropdown.Item>
             </>
           ) : (
@@ -107,7 +107,7 @@ function NavBar() {
               />
               Favoris
             </Link>
-            <Link to="/a-propos" className="nav-link">
+            <Link to="/equipe-dev" className="nav-link">
               <img
                 src={about}
                 alt="Icone de la page des favoris"

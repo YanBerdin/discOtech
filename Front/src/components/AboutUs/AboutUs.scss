@@ -13,7 +13,6 @@ h2 {
     font-size: 0.9rem;
     gap: 3rem;
     align-items: flex-start;
-    min-height: 1650px;
   }
 }
 h5,
@@ -30,7 +29,6 @@ p {
 .flip-card {
   background-color: transparent;
   width: 180px;
-  height: 254px;
   perspective: 1000px;
   flex-shrink: 1;
   flex-grow: 0.05;
@@ -64,8 +62,8 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  min-height: 100%;
+  width: 200px;
+  min-height: 350px;
   // min-height: 300px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

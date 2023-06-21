@@ -95,17 +95,13 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" element={<StylesPage styles={styles} />} />
-        <Route path="/favoris" />
-        <Route path="/connexion" element={<Login />} />
-        <Route path="/inscription" element={<SignUp />} />
-        <Route path="/styles" />
         <Route path="/favoris" element={<Favorites albums={albums} />} />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/equipe-dev" element={<AboutUs />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
-        <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/profil" element={<UserProfile />} />
         <Route path="/*" />
       </Routes>
       <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
