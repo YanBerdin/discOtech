@@ -2,7 +2,9 @@
 /* eslint-disable no-alert */
 // Dépendances
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Toast from 'react-bootstrap/Toast';
 import api from '../../api/api';
 
 // Fichiers JSXimport { useState } from 'react';
@@ -19,10 +21,15 @@ import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
 
+import { saveLoginSuccessful } from '../../actions/user';
+
 // Fichier Styles
 import './App.scss';
 
 function App() {
+  const dispatch = useDispatch();
+  const logged = useSelector((state) => state.user.logged);
+  const [showToast, setShowToast] = useState(false);
   const [albums, setAlbums] = useState([]);
   const [search, setSearch] = useState('');
   const [styles, setStyles] = useState([]);
@@ -54,6 +61,21 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      dispatch(saveLoginSuccessful());
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (logged) {
+      setShowToast(true);
+    }
+  }, [logged]);
+
   return (
     <div className="App">
       <NavBar />
@@ -73,19 +95,20 @@ function App() {
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
         <Route path="/styles" element={<StylesPage styles={styles} />} />
-        <Route path="/favoris" />
-        <Route path="/connexion" element={<Login />} />
-        <Route path="/inscription" element={<SignUp />} />
-        <Route path="/styles" />
         <Route path="/favoris" element={<Favorites albums={albums} />} />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/equipe-dev" element={<AboutUs />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
-        <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/profil" element={<UserProfile />} />
         <Route path="/*" />
       </Routes>
+      <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
+        <Toast.Body style={{ color: 'black' }}>
+          Vous êtes bien connecté.
+        </Toast.Body>
+      </Toast>
       <Footer />
     </div>
   );

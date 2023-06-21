@@ -5,17 +5,17 @@ import {
   SET_FIRSTNAME,
   SET_AVATAR,
   SET_CLEAR_INPUT,
-  // SET_CONNECTED_USER,
-  // SET_LOGGED_OUT,
+  SAVE_LOGIN_SUCCESSFUL,
 } from '../actions/user';
 
 export const initialState = {
-  email: '',
-  password: '',
-  lastname: '',
-  firstname: '',
+  email: null,
+  password: null,
+  lastname: null,
+  firstname: null,
   avatar: '',
-  // isLogged: false,
+  logged: false,
+  token: null,
   // userName: '',
 };
 
@@ -50,17 +50,18 @@ const reducer = (state = initialState, action = {}) => {
         email: action.payload.clearInput,
         password: action.payload.clearInput,
       };
-      //     case SET_CONNECTED_USER:
-    //       return {
-    //         ...state,
-    //         isLogged: action.payload.isLogged.logged,
-    //         userName: action.payload.isLogged.pseudo,
-    //       };
-    //     case SET_LOGGED_OUT:
-    //       return {
-    //         ...state,
-    //         isLogged: action.payload.loggedOut,
-    //       };
+    case SAVE_LOGIN_SUCCESSFUL:
+      return {
+        ...state,
+        logged: true,
+        nickname: action.payload.nickname,
+        token: action.payload.token,
+
+        // pour la sécurité : on efface les identifiants dès qu'on a plus besoin
+        email: '',
+        password: '',
+      };
+
     default:
       return state;
   }
