@@ -12,25 +12,11 @@
   }
 
   &-ImageContainer {
-    position: relative;
-
-    &::before {
-      content: "";
-      width: 100%;
-      display: block;
-      height: 50%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(
-        to top,
-        black 0%,
-        black 80%,
-        transparent 100%
-      );
-      opacity: 0.4;
-      z-index: 1;
-    }
+    position:fixed;
+    top:80px;
+    left:50%;
+    transform: translateX(-50%);
+    width: 100%;
   }
 
   &-Img {
@@ -39,54 +25,44 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
   }
 
   &-Songs {
     position: relative;
     list-style: none;
     color: rgb(255, 255, 255);
-    background-color: rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.489);
     box-shadow: 0 8px 32px 0 rgba(26, 26, 27, 0.37);
     border-radius: 25px;
-    margin-top: -3rem;
+    margin-top: 250px;
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 0;
-    padding-top: 4rem;
   }
 
-  &-Description {
+  &-Title {
     color: white;
     font-size: 13px;
     font-weight: bold;
-    position: absolute;
-    z-index: 2;
-    left: 45px;
-    bottom: 0px;
-    text-shadow: rgb(56, 56, 56) 2px 2px 2px;
+    text-align: center;
   }
 
   &-Name,
   &-ArtistName {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   &-SongTitle {
-    font-size: 20px;
+    font-size: 1.1rem;
     width: 93%;
+    line-height: 1px;
+    padding-left: 10px;
   }
 
   &-SongArtist {
     font-size: 15px;
     width: 80%;
-  }
-
-  &-Duration {
-    font-size: 10px;
-    width: 20%;
+    padding-left: 35px;
   }
 
   &-Playlist {
@@ -96,6 +72,14 @@
     padding-bottom: 1rem;
     border-bottom: 1px solid rgb(65, 62, 62);
     padding-top: 1rem;
+  }
+
+  &-Duration {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 13px;
+    width: 20%;
   }
 
   &-FavoriteBtn {
@@ -111,12 +95,18 @@
     left: 30px;
     top: 10px;
   }
-
-  &-Supports {
-    list-style: none;
+  &-Support {
+    padding: 0.6em;
+  }
+  &-Supports{
+    padding: 12px 5px;
+    flex-direction: row-reverse;
+  }
+  &-Supports, &-Style {
     display: flex;
+    list-style: none;
+    font-size: 1.1rem;
     justify-content: space-evenly;
-    width: 300px;
   }
 
   &-TrackNb {
@@ -138,9 +128,7 @@
       font-size: 25px;
     }
 
-    &-Duration,
-    &-Supports,
-    &-Style {
+    &-Duration {
       font-size: 15px;
     }
 
@@ -170,7 +158,7 @@
       left: 30px;
     }
 
-    &-Description {
+    &-Title {
       display: flex;
       width: 50%;
       position: relative;

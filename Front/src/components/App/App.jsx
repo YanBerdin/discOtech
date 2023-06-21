@@ -39,6 +39,7 @@ function App() {
     api
       .post('/albums/search', { search: search })
       .then((res) => {
+        console.log(res.data);
         setAlbums(res.data);
       })
       .catch((err) => {

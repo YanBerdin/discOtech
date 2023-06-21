@@ -9,7 +9,6 @@ import './HomePage.scss';
 function HomePage({
   search, albums, setSearch, getAlbums, styles,
 }) {
-  console.log(`valeur de search dans HomePage : ${search}`);
   return (
     <>
       <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
@@ -23,6 +22,7 @@ function HomePage({
             albumname={album.name}
             artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
             image={album.image}
+            id={album.id}
           />
         ))}
       </div>

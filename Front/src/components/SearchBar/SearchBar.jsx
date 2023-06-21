@@ -2,8 +2,6 @@
 import './SearchBar.scss';
 
 function SearchBar({ setSearch, search, getAlbums }) {
-  console.log(`valeur de search dans SearchBar : ${search}`);
-
   return (
     <form
       className="SearchBar-Form"
