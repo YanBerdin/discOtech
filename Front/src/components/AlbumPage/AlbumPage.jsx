@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import './AlbumPage.scss';
 
 import axios from 'axios';
@@ -34,6 +35,8 @@ function AlbumPage() {
       <div className="AlbumPage-Header">
         {album && (
           <div className="AlbumPage-Infos">
+
+            {/* HEADER IMAGE - BUTTON */}
             <div className="AlbumPage-ImageContainer">
               <img src={album.image} alt="album" className="AlbumPage-Img" />
               <div className="AlbumPage-ReturnBtn">
@@ -42,7 +45,11 @@ function AlbumPage() {
               <div className="AlbumPage-FavoriteBtn">
                 <FavoriteButton />
               </div>
-              <div className="AlbumPage-Description">
+            </div>
+
+            {/* HEADER IMAGE - BUTTON */}
+            <ul className="AlbumPage-Songs">
+              <div className="AlbumPage-Title">
                 <h1 className="AlbumPage-Name">{album.name}</h1>
                 <h3 className="AlbumPage-ArtistName">{album.artist.fullname}</h3>
                 <p className="AlbumPage-Style">{album.style[0].name}</p>
@@ -54,14 +61,13 @@ function AlbumPage() {
                   ))}
                 </ul>
               </div>
-            </div>
-            <ul className="AlbumPage-Songs">
+
               {album.songs.map((song) => (
                 <li key={song.id} className="AlbumPage-Playlist">
                   <p className="AlbumPage-TrackNb">{song.trackNb}.</p>
                   <h1 className="AlbumPage-SongTitle">{song.title}</h1>
                   <h3 className="AlbumPage-SongArtist">{album.artist.fullname}</h3>
-                  <p className="AlbumPage-Duration">Durée : {convertToMinutes(song.duration)}</p>
+                  <p className="AlbumPage-Duration">{convertToMinutes(song.duration)}</p>
                 </li>
               ))}
             </ul>
