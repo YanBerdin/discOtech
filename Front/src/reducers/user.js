@@ -6,6 +6,7 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
+  // CHANGE_PROFIL_FIELD:
 } from '../actions/user';
 
 export const initialState = {
@@ -35,11 +36,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         lastname: action.payload.lastname,
-      }; case SET_FIRSTNAME:
+      };
+    case SET_FIRSTNAME:
       return {
         ...state,
         firstname: action.payload.firstname,
-      }; case SET_AVATAR:
+      };
+    case SET_AVATAR:
       return {
         ...state,
         avatar: action.payload.avatar,
@@ -61,7 +64,23 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
-
+    // case CHANGE_PROFIL_FIELD:
+    //   // 4 traitements sur 1 seule action
+    //   if (action.payload.identifier === 'email') {
+    //     return {
+    //       ...state,
+    //       email: action.payload.newValue,
+    //     };
+    //   }
+    //   // Commenté: if (action.payload.identifer === 'password") {
+    //   return {
+    //     ...state,
+    //     password: action.payload.newValue,
+    //   };
+    //   return {
+    //     ...state,
+    //     emailValue: action.payload.emailValue,
+    //   };
     default:
       return state;
   }
