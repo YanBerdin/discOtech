@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import Header from '../Header/Header';
 import './AboutUs.scss';
 import sharaDino from '../../assets/sahra_dino.png';
 import EvaDino from '../../assets/eva3_dino.png';
@@ -10,7 +9,6 @@ import YanDino from '../../assets/yan_dino.png';
 function AboutUs() {
   return (
     <>
-      <Header />
       <div className="Info">
         <h2> L’équipe de développement</h2>
       </div>
