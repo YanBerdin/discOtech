@@ -1,11 +1,12 @@
 // == Import : npm
 /* eslint-disable */
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../../../api/api';
 
 // == Import : local
-import { setEmail, setPassword, setClearInput } from '../../../actions/user';
+import { setEmail, setPassword, setClearInput, saveLoginSuccessful } from '../../../actions/user';
 import User from '../../../assets/WelcomeUser.png';
 import './Login.scss'
 
@@ -14,6 +15,14 @@ function Login() {
   const dispatch = useDispatch();
   const { email } = useSelector((state) => state.user);
   const { password } = useSelector((state) => state.user);
+  const logged = useSelector((state) => state.user.logged);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (logged) {
+      navigate('/');
+    }
+  }, [logged]);
 
   const handleLogin = () => {
     api
@@ -25,10 +34,12 @@ function Login() {
         if (res.status === 200) {
           console.log(email, password)
 
-          // if(res.data.token) {
-          //   localStorage.setItem('token', token);
-          // }
+          if(res.data.token) {
+            localStorage.setItem('token', res.data.token);
+          }
+
           dispatch(setClearInput(""));
+          dispatch(saveLoginSuccessful());
         } else {
           alert('Identifiants incorrects. Veuillez réessayer.');
         }

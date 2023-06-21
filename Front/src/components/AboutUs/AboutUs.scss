@@ -1,0 +1,170 @@
+h2 {
+  padding: 20px 30px 7px;
+}
+
+.AboutUs {
+  &-Container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem;
+    font-size: 0.9rem;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+}
+h5,
+h6 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0.8rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 180px;
+  perspective: 1000px;
+  flex-shrink: 1;
+  flex-grow: 0.05;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  min-height: 350px;
+  // min-height: 300px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgb(155, 39, 190);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flip-card-front {
+  background: linear-gradient(
+    120deg,
+    bisque 60%,
+    rgb(255, 231, 222) 88%,
+    rgb(255, 211, 195) 40%,
+    rgba(103, 19, 151, 0.603) 48%
+  );
+  color: rgb(119, 34, 158);
+  padding: 0.2rem;
+}
+
+.flip-card-back {
+  background: linear-gradient(
+    120deg,
+    rgb(170, 123, 184) 30%,
+    rgb(164, 52, 192) 88%,
+    bisque 40%,
+    rgb(103, 24, 148) 78%
+  );
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.Dino {
+  object-fit: contain;
+  border-radius: 6%;
+}
+
+@media screen and (min-width: 440px) and (max-width: 665px) {
+  //   /* Styles spécifiques aux tablettes */
+  .AboutUs {
+    &-Container {
+      margin-top: 1rem;
+      min-height: 995px;
+      gap: 2rem;
+    }
+  }
+  .flip-card {
+    width: 180px;
+  }
+}
+
+@media screen and (min-width: 666px) and (max-width: 1024px) {
+  //   /* Styles spécifiques aux tablettes */
+  .flip-card {
+    width: 180px;
+    max-width: 181.8px;
+  }
+  .AboutUs {
+    &-Container {
+      margin-top: 1rem;
+      min-height: 700px;
+      gap: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1161px) {
+  //   /* Styles spécifiques aux tablettes */
+  .flip-card {
+    width: 190px;
+  }
+  .AboutUs {
+    &-Container {
+      min-height: 700px;
+      gap: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1162px) and (max-width: 1424px) {
+  //   /* Styles spécifiques aux tablettes */
+  .flip-card {
+    width: 230px;
+  }
+  .AboutUs {
+    &-Container {
+      min-height: 800px;
+      row-gap: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1424px) {
+  .flip-card {
+    width: 240px;
+  }
+  .AboutUs {
+    &-Container {
+      margin-top: 2rem;
+      min-height: 400px;
+      row-gap: 1rem;
+    }
+  }
+}
