@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import ReturnButton from '../ReturnButton/ReturnButton';
 
-function AlbumPage({ onClick }) {
+function AlbumPage() {
   const { id } = useParams();
 
   const [album, setAlbum] = useState();
@@ -17,13 +17,12 @@ function AlbumPage({ onClick }) {
       .get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/${id}`)
       .then((res) => {
         setAlbum(res.data);
-        onClick(album.id);
         console.log(id);
       })
       .catch((err) => {
         console.err(err);
       });
-  }, [id, album.id, onClick]);
+  }, [id]);
 
   function convertToMinutes(duration) {
     const minutes = Math.floor(duration / 60000);

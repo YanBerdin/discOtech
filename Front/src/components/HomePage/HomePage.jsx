@@ -9,10 +9,6 @@ import './HomePage.scss';
 function HomePage({
   search, albums, setSearch, getAlbums, styles,
 }) {
-  const handleClick = (albumId) => {
-    console.log('Album cliqué - ID:', albumId);
-  };
-
   return (
     <>
       <Header search={search} setSearch={setSearch} getAlbums={getAlbums} />
@@ -26,7 +22,7 @@ function HomePage({
             albumname={album.name}
             artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
             image={album.image}
-            onClick={handleClick}
+            id={album.id}
           />
         ))}
       </div>
