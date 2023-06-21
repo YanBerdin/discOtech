@@ -9,7 +9,6 @@ import ReturnButton from '../ReturnButton/ReturnButton';
 
 function AlbumPage() {
   const { id } = useParams();
-
   const [album, setAlbum] = useState();
 
   useEffect(() => {

@@ -20,11 +20,13 @@ import AboutUs from '../AboutUs/AboutUs';
 import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
+import StyleAlbumsPage from '../StyleAlbumsPage/StyleAlbumsPage';
 
 import { saveLoginSuccessful } from '../../actions/user';
 
 // Fichier Styles
 import './App.scss';
+import Header from '../Header/Header';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,20 +35,6 @@ function App() {
   const [albums, setAlbums] = useState([]);
   const [search, setSearch] = useState('');
   const [styles, setStyles] = useState([]);
-
-  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
-  const getAlbums = () => {
-    api
-      .post('/albums/search', { search: search })
-      .then((res) => {
-        setAlbums(res.data);
-      })
-      .catch((err) => {
-        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
-        console.error(err);
-      });
-  };
-  useEffect(getAlbums, [search]);
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
@@ -79,6 +67,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <Header search={search} setSearch={setSearch} setAlbums={setAlbums} />
       <Routes>
         <Route
           path="/"
@@ -87,13 +76,13 @@ function App() {
               albums={albums}
               styles={styles}
               setSearch={setSearch}
-              getAlbums={getAlbums}
               search={search}
             />
 )}
         />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
+        <Route path="/styles/:idStyle" element={<StyleAlbumsPage />} />
         <Route path="/styles" element={<StylesPage styles={styles} />} />
         <Route path="/favoris" element={<Favorites albums={albums} />} />
         <Route path="/mentions-legales" element={<LegalNotices />} />
