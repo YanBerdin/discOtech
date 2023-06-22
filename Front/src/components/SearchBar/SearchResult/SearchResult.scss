@@ -1,6 +1,7 @@
 .SearchResult {
-  min-height: 100%;
   background-color: rgb(255, 0, 255);
+  height: auto;
+  width: 100%;
 
   &-Container {
     display: flex;
