@@ -1,56 +1,61 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { useDispatch, useSelector } from 'react-redux';
+
 // == Import : npm
 import api from '../../../../api/api';
+
 // == Import : local
+import {
+  setEmail, setPassword, setFirstName, setLastName,
+} from '../../../../actions/user';
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
-// import { changeFirstname } from '../../../../actions/user';
 
 // == Component
 function UserProfileForm() {
-  const { firstname } = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
-  // Champ controllé des inputs
-  const firstnameInputValue = useSelector(
-    (state) => state.user.firstnameInputValue,
-  );
-  const lastnameInputValue = useSelector(
-    (state) => state.user.lastnameInputValue,
-  );
-  const emailInputValue = useSelector((state) => state.user.emailInputValue);
-  const passwordInputValue = useSelector(
-    (state) => state.user.passwordInputValue,
-  );
-  console.log({ firstnameInputValue });
-  console.log({ lastnameInputValue });
-  console.log({ emailInputValue });
-  console.log({ passwordInputValue });
+  const dispatch = useDispatch();
 
-  const handleChangeFirstname = () => {
+  const { email } = useSelector((state) => state.user);
+  const { password } = useSelector((state) => state.user);
+  const { firstname } = useSelector((state) => state.user);
+  const { lastname } = useSelector((state) => state.user);
+  // const { avatar } = useSelector((state) => state.user);
+
+  const handleLastName = () => {
     api
-      .post('/users/edit/firstname', {
-        firstname: firstnameInputValue,
+      .put('/users/edit/lastname', {
+        lastname: lastname,
       })
       .then((res) => {
-        if (res.status === 201) {
-          // console.log(firstname);
-        } else if (res.status === '200') {
-          alert('Cet utilisateur existe déjà');
+        if (res.status === 200) {
+          console.log(lastname);
         } else {
-          alert('Erreur lors de l\'inscription');
+          alert('Erreur lors de la modification');
         }
       })
       .catch((err) => {
-        // eslint-disable-next-line max-len
-        // console.log(`email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`);
+        console.log(`lastname:${lastname}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  const handleChangeFirstnameSubmit = (event) => {
-    event.preventDefault();
-    handleChangeFirstname();
+
+  const handleFirstName = () => {
+    api
+      .put('/users/edit/firstname', {
+        firstname: firstname,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(firstname);
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.log(`lastname:${firstname}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
   };
   return (
     <section className="Login-Form" action="">
@@ -58,38 +63,33 @@ function UserProfileForm() {
         {/* Login Header : Title and Image */}
         <div className="Header-Container">
           <img className="Header-UserImg" src={User} alt="Logo de personnage" />
-          <p className="Header-Title">Bienvenue {firstname} Modifier mon profil</p>
+          <p className="Header-Title">Modifier mon profil</p>
         </div>
         {/* Login Input : Nom */}
-        <form className="Field">
+        <form className="Field" onSubmit={handleLastName}>
           <input
             required
             className="Field-Input"
             type="text"
             name="lastname"
             placeholder="Nom"
-            value={lastnameInputValue}
-            onChange={(event) => {
-              console.log(event.target.value);
-            }}
+            value={lastname || ''} // Warning:`value` prop on `input` should not be null
+            onChange={(event) => dispatch(setLastName(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
           </button>
         </form>
         {/* Login Input : Prénom */}
-        <form className="Field" onSubmit={handleChangeFirstnameSubmit}>
+        <form className="Field" onSubmit={handleFirstName}>
           <input
             required
             className="Field-Input"
             name="firstname"
             type="text"
             placeholder="Prénom"
-            value={firstnameInputValue}
-            onChange={(event) => {
-              console.log(event.target.value);
-            }}
-            // {(event) => dispatch(changeFirstname(event.target.value))}
+            value={firstname || ''} // Warning:`value` prop on `input` should not be null.
+            onChange={(event) => dispatch(setFirstName(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
@@ -104,10 +104,8 @@ function UserProfileForm() {
             name="email"
             type="email"
             placeholder="Adresse e-mail"
-            value={emailInputValue}
-            onChange={(event) => {
-              console.log(event.target.value);
-            }}
+            value={email || ''} // Warning:`value` prop on `input` should not be null.
+            onChange={(event) => dispatch(setEmail(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
@@ -122,10 +120,8 @@ function UserProfileForm() {
             name="password"
             type="text"
             placeholder="Mot de passe"
-            value={passwordInputValue}
-            onChange={(event) => {
-              console.log(event.target.value);
-            }}
+            value={password || ''} // Warning:`value` prop on `input` should not be null.
+            onChange={(event) => dispatch(setPassword(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
