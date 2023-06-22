@@ -7,7 +7,7 @@ import api from '../../../../api/api';
 
 // == Import : local
 import {
-  setEmail, setPassword, setFirstName, setLastName,
+  setEmail, setPassword, setLastName, setNewFirstnameInput, // setFirstName
 } from '../../../../actions/user';
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
@@ -21,10 +21,10 @@ function UserProfileForm() {
   const { firstname } = useSelector((state) => state.user);
   const { lastname } = useSelector((state) => state.user);
   // const { avatar } = useSelector((state) => state.user);
-
+  const { newFirstname } = useSelector((state) => state.user);
   const handleLastName = () => {
     api
-      .post('/users/edit/lastname', {
+      .put('/users/edit/lastname', {
         lastname: lastname,
       })
       .then((res) => {
@@ -42,7 +42,7 @@ function UserProfileForm() {
 
   const handleFirstName = () => {
     api
-      .post('/users/edit/firstname', {
+      .put('/users/edit/firstname', {
         firstname: firstname,
       })
       .then((res) => {
@@ -76,7 +76,7 @@ function UserProfileForm() {
   };
   const handlePassword = () => {
     api
-      .post('/users/edit/password', {
+      .put('/users/edit/password', {
         password: password,
       })
       .then((res) => {
@@ -91,6 +91,27 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
+  // const handleSetUserDetails = () => {
+  //   api
+  //     .get('/users/edit/detail', {
+  //               email: email,
+  //               password: password,
+  //               firstname: firstname,
+  //               lastname: lastname,
+
+  //     })
+  //     .then((res) => {
+  //       if (res.status === 200) {
+  //         console.log(firstname, lastname, email);
+  //       } else {
+  //         alert('Erreur lors de la modification');
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(`firstname:${firstname}`);
+  //       console.error("Une erreur s'est produite lors de la connexion :", err);
+  //     });
+  // };
   return (
     <section className="Login-Form" action="">
       <div className="Login-Card">
@@ -122,8 +143,8 @@ function UserProfileForm() {
             name="firstname"
             type="text"
             placeholder="Prénom"
-            value={firstname || ''} // Warning:`value` prop on `input` should not be null.
-            onChange={(event) => dispatch(setFirstName(event.target.value))}
+            value={newFirstname || ''} // Warning:`value` prop on `input` should not be null.
+            onChange={(event) => dispatch(setNewFirstnameInput(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
