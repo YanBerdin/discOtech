@@ -1,11 +1,12 @@
 .SearchBar {
-
+  position: absolute;
+  top: calc(100% - 80px);
+  width: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   &-Form {
-    width: 70%;
     margin: auto;
-    margin-top: -3.5rem;
-    position: relative;
-    bottom:40%;
+    // position: absolute;
     height: 2.5rem;
     border: none;
     border-radius: 10px;
@@ -15,6 +16,8 @@
     padding: 0;
     padding-left: 1rem;
     font-family: 'Syncopate', sans-serif;
+    // top: 340px;
+    left: 15%;
   }
 
   &-Button {
@@ -57,7 +60,7 @@
     /* Styles spécifiques aux tablettes */
     .SearchBar {
      &-Form{
-       bottom: 35%;
+       top: 30%;
      }
      }
    }

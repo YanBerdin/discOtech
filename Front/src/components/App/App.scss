@@ -1,6 +1,7 @@
 *:root {
    max-width: 100%;
    margin: 0 auto;
+   min-height: 100vh;
    height: auto;
  }
 
@@ -8,6 +9,13 @@
   background-size: cover;
   background: linear-gradient(rgb(11, 4, 22),rgb(18, 7, 33), rgb(0, 0, 0));
   background-repeat: no-repeat;
+ }
+
+ .App {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
  }
 
 // .logo {

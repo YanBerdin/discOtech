@@ -1,12 +1,10 @@
 import AlbumCard from '../HomePage/AlbumCard/AlbumCard';
 // import favoritesAlbums from '../../data/data';
 import './Favorites.scss';
-import Header from '../Header/Header';
 
 function Favorites({ albums }) {
   return (
     <>
-      <Header />
       <header className="Favorites-Title">
         <h4>Mes Favoris :</h4>
       </header>
