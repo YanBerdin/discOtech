@@ -1,4 +1,6 @@
 .SearchResult {
+  min-height: 100%;
+  background-color: rgb(255, 0, 255);
 
   &-Container {
     display: flex;
@@ -6,7 +8,6 @@
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    min-height: 100%;
   }
 
   &-Card {

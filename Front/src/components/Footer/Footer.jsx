@@ -14,7 +14,7 @@ function Footer() {
   return (
     <footer className="Footer">
 
-      <div className="Container">
+      <div className="Footer-Container">
         {/* <div className="Footer-Logo-Container"> */}
         <img
           src={AppLogo}
@@ -24,11 +24,11 @@ function Footer() {
         {/* </div> */}
         <section className="Footer-Links">
           <div className="Footer-About">
-            <p className="titre">A propos</p>
-            <Link className="NavLink" to="equipe-dev">
+            <p className="Footer-Title">A propos</p>
+            <Link className="Footer-NavLink" to="equipe-dev">
               L'équipe de développement
             </Link>
-            <Link className="NavLink" to="le-projet">
+            <Link className="Footer-NavLink" to="le-projet">
               Descriptif du projet
             </Link>
           </div>
@@ -37,10 +37,10 @@ function Footer() {
         <section className="Footer-Links">
           <div className="Footer-Useful">
             <p className="titre">Liens utiles</p>
-            <Link className="NavLink" to="/conditions-generales-utilisation">
+            <Link className="Footer-NavLink" to="/conditions-generales-utilisation">
               Conditions générales d'utilisation
             </Link>
-            <Link className="NavLink" to="/mentions-legales">Mentions Légales</Link>
+            <Link className="Footer-NavLink" to="/mentions-legales">Mentions Légales</Link>
           </div>
         </section>
 
@@ -54,7 +54,7 @@ function Footer() {
               />
             </Link>
 
-            <Link className="NavLink" to="https://www.instagram.com/">
+            <Link className="Footer-NavLink" to="https://www.instagram.com/">
               <img
                 src={instagram}
                 className="Footer-NetworkLogo"
@@ -64,7 +64,7 @@ function Footer() {
           </div>
 
           <div className="Footer-Networks">
-            <Link className="NavLink" to="https://www.linkedin.com/">
+            <Link className="Footer-NavLink" to="https://www.linkedin.com/">
               <img
                 src={linkedin}
                 className="Footer-NetworkLogo"
@@ -72,7 +72,7 @@ function Footer() {
               />
             </Link>
 
-            <Link className="NavLink" to="https://twitter.com/explore">
+            <Link className="Footer-NavLink" to="https://twitter.com/explore">
               <img
                 src={twitter}
                 className="Footer-NetworkLogo"
@@ -82,7 +82,7 @@ function Footer() {
           </div>
         </section>
       </div>
-      <div className="Copyright">
+      <div className="Footer-Copyright">
         <p>Copyright DiscO'Tech - Radium - O'clock - 2023</p>
       </div>
     </footer>

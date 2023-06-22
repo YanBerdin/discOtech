@@ -1,25 +1,25 @@
-.Container {
-  display: flex;
-  background-color: rgb(10, 10, 10);
-  max-width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  padding-bottom: 0;
-  margin: 0;
-  position: relative;
-}
-
 .Footer {
-  // margin-top: 1rem;
-  // margin-bottom: 1rem;
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  top: 100%;
   background-color: rgb(10, 10, 10);
-  bottom: 0; left: 0; right: 0; top: 100%;
-  
+
+  &-Container {
+    display: flex;
+    background-color: rgb(10, 10, 10);
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
   &-Links {
     display: flex;
     max-width: 100%;
-    // justify-content: space-between;
     text-align: start;
     padding: 0.5rem;
     font-size: 0.8rem;
@@ -73,48 +73,48 @@
     max-width: 230px;
   }
 
-  .NavLink {
+  &-NavLink {
     margin-bottom: 0.3rem;
   }
 
-  .NavLink:hover {
+  &-NavLink:hover {
     transition: all 0.5s ease-in-out;
-    transform: scale(0.9);
     color: rgb(177, 162, 174);
-    //   -webkit-box-shadow: 3px 5px 15px -2px rgba(33,33,33,0.66);
-    //   box-shadow: 3px 5px 15px -2px rgba(33,33,33,0.66);
+
   }
 
-  .titre {
+  &-Title {
     font-size: 0.9rem;
     margin-bottom: 0.4rem;
   }
-}
-.Copyright {
-  text-align: center;
-  background-color: rgb(10, 10, 10);
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 10px 20px 5px;
+  &-Copyright {
+    text-align: center;
+    background-color: rgb(10, 10, 10);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px 20px 5px;
+  }
+  
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .Container {
+  .Footer {
+  &-Container {
     display: flex;
     flex-direction: column;
     background-color: rgb(10, 10, 10);
     max-width: 100%;
   }
 
-  .Footer-AppLogo {
+  &-AppLogo {
     max-width: 13%;
   }
 
-  .Footer-NetworkLogo {
+  &-NetworkLogo {
     max-width: 80%;
   }
 
-  .Footer-About {
+  &-About {
     display: flex;
     flex-direction: column;
     // max-width: 280px;
@@ -123,7 +123,7 @@
     margin-left: 0;
   }
 
-  .Footer-Links {
+  &-Links {
     display: flex;
     max-width: 100%;
     padding: 0.5rem;
@@ -132,7 +132,7 @@
     padding-bottom: 15px;
   }
 
-  .Footer-Useful {
+  &-Useful {
     //   padding: 0.5rem;
     // max-width: 280px;
     // width: 100%;
@@ -143,7 +143,7 @@
     margin-left: 0;
   }
 
-  .Footer-Social {
+  &-Social {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -151,17 +151,18 @@
     margin: auto;
   }
 
-  .Footer-Networks {
+  &-Networks {
     gap: 1rem;
   }
 
-  .Footer .titre {
+  &-Title {
     font-size: 0.8rem;
     // margin-bottom: 0.4rem;
   }
 
-  .Copyright {
+  &-Copyright {
     font-size: 0.7rem;
     margin-top: 10px;
   }
+}
 }
