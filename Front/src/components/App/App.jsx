@@ -20,21 +20,35 @@ import AboutUs from '../AboutUs/AboutUs';
 import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
-import StyleAlbumsPage from '../StyleAlbumsPage/StyleAlbumsPage';
 
 import { saveLoginSuccessful } from '../../actions/user';
 
 // Fichier Styles
 import './App.scss';
 import Header from '../Header/Header';
+import SearchResult from '../SearchBar/SearchResult/SearchResult';
 
 function App() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
   const [showToast, setShowToast] = useState(false);
-  const [albums, setAlbums] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   const [search, setSearch] = useState('');
   const [styles, setStyles] = useState([]);
+
+  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
+  const getSuggestions = () => {
+    api
+      .post('/albums/search', { search: search })
+      .then((res) => {
+        setSuggestions(res.data);
+      })
+      .catch((err) => {
+        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
+        console.error(err);
+      });
+  };
+  useEffect(getSuggestions, [search]);
 
   // Au premier rendu du composant App, je souhaite récupérer la liste des styles
   useEffect(() => {
@@ -67,30 +81,31 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Header search={search} setSearch={setSearch} setAlbums={setAlbums} />
+      <Header />
       <Routes>
         <Route
           path="/"
           element={(
             <HomePage
-              albums={albums}
+              suggestions={suggestions}
               styles={styles}
               setSearch={setSearch}
+              getSuggestions={getSuggestions}
               search={search}
             />
 )}
         />
         <Route path="/connexion" element={<Login />} />
         <Route path="/inscription" element={<SignUp />} />
-        <Route path="/styles/:idStyle" element={<StyleAlbumsPage />} />
         <Route path="/styles" element={<StylesPage styles={styles} />} />
-        <Route path="/favoris" element={<Favorites albums={albums} />} />
+        <Route path="/favoris" element={<Favorites />} />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/equipe-dev" element={<AboutUs />} />
         <Route path="/condition-generales-utilisation" element={<TermsofService />} />
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/profil" element={<UserProfile />} />
+        <Route path="/resultat-recherche" element={<SearchResult />} />
         <Route path="/*" />
       </Routes>
       <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>

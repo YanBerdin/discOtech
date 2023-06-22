@@ -7,14 +7,14 @@ import AlbumCard from './AlbumCard/AlbumCard';
 import './HomePage.scss';
 
 function HomePage({
-  albums, styles,
+  suggestions, styles,
 }) {
   return (
     <>
       <StylesCarousel styles={styles} />
       <h2 className="HomePage-Title">Nos Suggestions :</h2>
       <div className="HomePage-Container">
-        {albums.map((album) => (
+        {suggestions.map((album) => (
           <Link to={`/albums/${album.id}`}>
             <AlbumCard
               className="HomePage-Card"
