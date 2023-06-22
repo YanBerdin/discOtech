@@ -29,7 +29,7 @@ function SearchBar() {
 
   useEffect(() => {
     if (location.pathname !== '/resultat-recherche') {
-      setSearch(''); // Réinitialiser la valeur de 'search' à une chaîne vide lorsque vous quittez la page SearchResult
+      setSearch('');
       setAlbums([]);
     }
   }, [location]);
