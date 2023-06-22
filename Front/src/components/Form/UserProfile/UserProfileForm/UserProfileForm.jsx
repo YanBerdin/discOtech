@@ -1,13 +1,17 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// == Import : npm
+import api from '../../../../api/api';
 // == Import : local
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
+// import { changeFirstname } from '../../../../actions/user';
 
 // == Component
 function UserProfileForm() {
-  // const dispatch = usedispatch();
-  const { email } = useSelector((state) => state.user);
+  const { firstname } = useSelector((state) => state.user);
+  // const dispatch = useDispatch();
   // Champ controllé des inputs
   const firstnameInputValue = useSelector(
     (state) => state.user.firstnameInputValue,
@@ -23,14 +27,38 @@ function UserProfileForm() {
   console.log({ lastnameInputValue });
   console.log({ emailInputValue });
   console.log({ passwordInputValue });
-  console.log({ email });
+
+  const handleChangeFirstname = () => {
+    api
+      .post('/users/edit/firstname', {
+        firstname: firstnameInputValue,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          // console.log(firstname);
+        } else if (res.status === '200') {
+          alert('Cet utilisateur existe déjà');
+        } else {
+          alert('Erreur lors de l\'inscription');
+        }
+      })
+      .catch((err) => {
+        // eslint-disable-next-line max-len
+        // console.log(`email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+  const handleChangeFirstnameSubmit = (event) => {
+    event.preventDefault();
+    handleChangeFirstname();
+  };
   return (
     <section className="Login-Form" action="">
       <div className="Login-Card">
         {/* Login Header : Title and Image */}
         <div className="Header-Container">
           <img className="Header-UserImg" src={User} alt="Logo de personnage" />
-          <p className="Header-Title">Modifier mon profil</p>
+          <p className="Header-Title">Bienvenue {firstname} Modifier mon profil</p>
         </div>
         {/* Login Input : Nom */}
         <form className="Field">
@@ -50,7 +78,7 @@ function UserProfileForm() {
           </button>
         </form>
         {/* Login Input : Prénom */}
-        <form className="Field">
+        <form className="Field" onSubmit={handleChangeFirstnameSubmit}>
           <input
             required
             className="Field-Input"
@@ -61,6 +89,7 @@ function UserProfileForm() {
             onChange={(event) => {
               console.log(event.target.value);
             }}
+            // {(event) => dispatch(changeFirstname(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;

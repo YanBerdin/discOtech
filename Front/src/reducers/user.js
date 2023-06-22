@@ -6,7 +6,9 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
-  // CHANGE_PROFIL_FIELD:
+  CHANGE_FIRSTNAME,
+  // Change UserProfile
+  // CHANGE_LASTNAME,
 } from '../actions/user';
 
 export const initialState = {
@@ -64,22 +66,20 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
-    // case CHANGE_PROFIL_FIELD:
-    //   // 4 traitements sur 1 seule action
-    //   if (action.payload.identifier === 'email') {
-    //     return {
-    //       ...state,
-    //       email: action.payload.newValue,
-    //     };
-    //   }
-    //   // Commenté: if (action.payload.identifer === 'password") {
+    case CHANGE_FIRSTNAME:
+      return {
+        ...state,
+        firstname: action.payload.firstname,
+      };
+    // case CHANGE_LASTNAME:
     //   return {
     //     ...state,
-    //     password: action.payload.newValue,
+    //     lastname: action.payload.lasttname,
     //   };
+    // case CHANGE_LASTNAME:
     //   return {
     //     ...state,
-    //     emailValue: action.payload.emailValue,
+    //     lastname: action.payload.lasttname,
     //   };
     default:
       return state;

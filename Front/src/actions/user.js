@@ -55,3 +55,11 @@ export const saveLoginSuccessful = (firstname, token) => ({
     token: token,
   },
 });
+
+export const CHANGE_FIRSTNAME = 'CHANGE_FIRSTNAME';
+export const changeFirstname = (firstnameInputValue) => ({
+  type: CHANGE_FIRSTNAME,
+  payload: {
+    firstname: firstnameInputValue,
+  },
+});
