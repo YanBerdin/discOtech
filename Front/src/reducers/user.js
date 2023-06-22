@@ -66,13 +66,18 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
+      // case CHANGE_FIRSTNAME:
+      //   return {
+      //     ...state,
+      //     firstname: state.newFirstnameInput,
+      //     newFirstnameInput: '',
+      //   };
+
       // case SET_NEW_FIRSTNAME_INPUT:
       //   return {
       //     ...state,
-      //     newFirstname: action.payload.firstnameInputValue,
-      //     // firstnameInputValue: ' ',
+      //     newFirstnameInput: action.payload.value,
       //   };
-
     default:
       return state;
   }

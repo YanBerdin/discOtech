@@ -24,7 +24,7 @@ function UserProfileForm() {
 
   const handleLastName = () => {
     api
-      .put('/users/edit/lastname', {
+      .post('/users/edit/lastname', {
         lastname: lastname,
       })
       .then((res) => {
@@ -42,7 +42,7 @@ function UserProfileForm() {
 
   const handleFirstName = () => {
     api
-      .put('/users/edit/firstname', {
+      .post('/users/edit/firstname', {
         firstname: firstname,
       })
       .then((res) => {
@@ -53,7 +53,41 @@ function UserProfileForm() {
         }
       })
       .catch((err) => {
-        console.log(`lastname:${firstname}`);
+        console.log(`firstname:${firstname}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+  const handleEmail = () => {
+    api
+      .put('/users/edit/email', {
+        email: email,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(email);
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.log(`email:${email}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+  const handlePassword = () => {
+    api
+      .post('/users/edit/password', {
+        password: password,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(password);
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.log(`password:${password}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
@@ -97,7 +131,7 @@ function UserProfileForm() {
         </form>
 
         {/* Login Input : Mail Adress */}
-        <form className="Field">
+        <form className="Field" onSubmit={handleEmail}>
           <input
             required
             className="Field-Input"
@@ -113,7 +147,7 @@ function UserProfileForm() {
         </form>
 
         {/* Login Input : Password Adress */}
-        <form className="Field">
+        <form className="Field" onSubmit={handlePassword}>
           <input
             required
             className="Field-Input"
