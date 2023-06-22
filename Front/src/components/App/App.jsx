@@ -25,6 +25,7 @@ import { saveLoginSuccessful } from '../../actions/user';
 
 // Fichier Styles
 import './App.scss';
+import BottomNavigation from '../BottomNavigation/BottomNavigation';
 
 function App() {
   const dispatch = useDispatch();
@@ -109,6 +110,7 @@ function App() {
           Vous êtes bien connecté.
         </Toast.Body>
       </Toast>
+      <BottomNavigation />
       <Footer />
     </div>
   );
