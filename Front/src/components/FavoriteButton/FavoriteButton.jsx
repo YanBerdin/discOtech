@@ -1,15 +1,37 @@
 import { useState } from 'react';
 import './FavoriteButton.scss';
+import { useParams } from 'react-router-dom';
+import api from '../../api/api';
 
 function FavoriteButton() {
   const [isFavorite, setIsFavorite] = useState(false);
+  const { id } = useParams();
 
-  const handleClick = () => {
+  const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
+    if (isFavorite) {
+      api
+        .delete(`/favorites/albums/${id}`)
+        .then((response) => {
+          console.log('Album retiré des favoris :', response.data);
+        })
+        .catch((error) => {
+          console.error("Erreur lors de la suppression de l'album des favoris :", error);
+        });
+    } else {
+      api
+        .post(`/favorites/albums/${id}`)
+        .then((response) => {
+          console.log('Album ajouté aux favoris :', response.data);
+        })
+        .catch((error) => {
+          console.error("Erreur lors de l'ajout de l'album aux favoris :", error);
+        });
+    }
   };
 
   return (
-    <button type="button" className={`favorite-button ${isFavorite ? 'active' : ''}`} onClick={handleClick}>
+    <button type="button" className={`favorite-button ${isFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
