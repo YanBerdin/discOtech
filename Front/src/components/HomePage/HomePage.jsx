@@ -90,7 +90,7 @@ function HomePage({
             <div className="Carousel-Container" key={album.id}>
               <Link to={`/albums/${album.id}`} key={album.id}>
                 <div className="Carousel-Cards" style={{ backgroundImage: `url(${album.image})` }}>
-                  <h3 className="Carousel-StyleName">{album.name}</h3>
+                  <h3 className="HomePage-StyleName">{album.name}</h3>
                 </div>
               </Link>
             </div>

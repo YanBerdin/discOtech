@@ -28,6 +28,16 @@
     padding: 20px;
     justify-content: center;
   }
+
+  &-StyleName {
+    font-size: 15px;
+    overflow: hidden;
+    margin: 0px;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    font-weight: 100;
+    text-shadow: rgb(56, 56, 56) 2px 2px 2px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
