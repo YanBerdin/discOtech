@@ -1,5 +1,5 @@
 h2 {
-  padding: 20px 30px 7px;
+  padding: 3px 30px 5px;
 }
 
 .AboutUs {
@@ -13,6 +13,8 @@ h2 {
     font-size: 0.9rem;
     gap: 3rem;
     align-items: flex-start;
+    max-height: 400px;
+    height: 400px;
   }
 }
 h5,
@@ -28,9 +30,9 @@ p {
 
 .flip-card {
   background-color: transparent;
-  width: 180px;
+  max-width: 180px;
   perspective: 1000px;
-  flex-shrink: 1;
+  flex-shrink: 2;
   flex-grow: 0.05;
 }
 
@@ -43,9 +45,10 @@ p {
 }
 
 .flip-card-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
+  max-height: 300px;
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -59,17 +62,19 @@ p {
 .flip-card-back {
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
+  // position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 200px;
-  min-height: 350px;
-  // min-height: 300px;
+  max-width: 180px;// Modifié pour fixed Responsive
+  min-height: 311.8px;// Modifié pour fixed Responsive
+  max-height: 350px;// Modifié pour fixed Responsive
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid rgb(155, 39, 190);
   border-radius: 1rem;
   margin-bottom: 1rem;
+  flex-shrink: 2;
 }
 
 .flip-card-front {
@@ -118,14 +123,16 @@ p {
 @media screen and (min-width: 666px) and (max-width: 1024px) {
   //   /* Styles spécifiques aux tablettes */
   .flip-card {
-    width: 180px;
-    max-width: 181.8px;
+    // width: 180px;
+    // max-width: 181.8px;
+    max-width: 160px;
   }
   .AboutUs {
     &-Container {
-      margin-top: 1rem;
-      min-height: 700px;
+      // margin-top: 1rem;
+      // min-height: 700px;
       gap: 1rem;
+      background-color: aqua;
     }
   }
 }
@@ -137,8 +144,10 @@ p {
   }
   .AboutUs {
     &-Container {
-      min-height: 700px;
+      // min-height: 700px;
       gap: 2rem;
+      background-color: red;
+      padding: 0;
     }
   }
 }
@@ -146,25 +155,34 @@ p {
 @media screen and (min-width: 1162px) and (max-width: 1424px) {
   //   /* Styles spécifiques aux tablettes */
   .flip-card {
-    width: 230px;
+    min-width: 190px;
+    // min-height: 311.8px;
   }
   .AboutUs {
     &-Container {
-      min-height: 800px;
-      row-gap: 1rem;
+      max-height: 350px;
+      background-color: bisque;
+      padding: 0;
+      align-items: center;
+      gap: 0;
     }
   }
 }
-
+// Fixed after Bootstrap reset
 @media screen and (min-width: 1424px) {
+  h2 {
+    padding: 3px 62px 5px;
+  }
+  
   .flip-card {
     width: 240px;
   }
   .AboutUs {
     &-Container {
       margin-top: 2rem;
-      min-height: 400px;
-      row-gap: 1rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
+      min-height: 360px;
     }
   }
 }
