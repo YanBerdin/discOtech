@@ -6,6 +6,9 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
+  SET_NEW_FIRSTNAME_INPUT,
+  // Change UserProfile
+  // CHANGE_LASTNAME,
 } from '../actions/user';
 
 export const initialState = {
@@ -17,6 +20,7 @@ export const initialState = {
   logged: false,
   token: null,
   // userName: '',
+  // newFirstname: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,11 +39,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         lastname: action.payload.lastname,
-      }; case SET_FIRSTNAME:
+      };
+    case SET_FIRSTNAME:
       return {
         ...state,
         firstname: action.payload.firstname,
-      }; case SET_AVATAR:
+      };
+    case SET_AVATAR:
       return {
         ...state,
         avatar: action.payload.avatar,
@@ -61,10 +67,29 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
+      // case CHANGE_FIRSTNAME:
+      //   return {
+      //     ...state,
+      //     firstname: state.newFirstname,
+      //     newFirstname: '',
+      //   };
 
+    case SET_NEW_FIRSTNAME_INPUT:
+      return {
+        ...state,
+        firstname: action.payload.firstname,
+      };
     default:
       return state;
   }
+// case SET_NEW_LASTNAME_INPUT:
+//   return {
+//     ...state,
+//     newLastname: action.payload.value,
+//   };
+// default:
+//   return state;
+// }
 };
 
 export default reducer;
