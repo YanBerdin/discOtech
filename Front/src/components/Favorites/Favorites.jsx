@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import AlbumCard from '../HomePage/AlbumCard/AlbumCard';
-// import favoritesAlbums from '../../data/data';
 import './Favorites.scss';
 
 import api from '../../api/api';
+import FavoriteCard from './FavoriteCard/FavoriteCard';
 
 function Favorites() {
   const [albums, setAlbums] = useState([]);
@@ -19,25 +18,29 @@ function Favorites() {
         console.error(err);
       });
   };
-  useEffect(getAlbums);
+
+  useEffect(() => {
+    getAlbums();
+  }, []);
 
   return (
     <>
       <header className="Favorites-Title">
-        <h4>Mes Favoris :</h4>
+        <h2>Mes Favoris :</h2>
       </header>
       <div className="HomePage-Container">
         {albums.map((album) => (
-          <AlbumCard
+          <FavoriteCard
             className="HomePage-Card"
             key={album.id}
-            albumname={album.name}
-            artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
-            image={album.image}
+            albumname={album.album.name}
+            artistfullname={album.album.artist.fullname ?? 'Artiste inconnu'}
+            image={album.album.image}
           />
         ))}
       </div>
     </>
   );
 }
+
 export default Favorites;
