@@ -1,37 +1,56 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './FavoriteButton.scss';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import api from '../../api/api';
+import { addFavorite, removeFavorite } from '../../actions/user';
 
 function FavoriteButton() {
   const [isFavorite, setIsFavorite] = useState(false);
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.user.favorites);
+
+  useEffect(() => {
+    setIsFavorite(favorites.some((favorite) => favorite.id === id));
+  }, [favorites, id]);
 
   const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
     if (isFavorite) {
       api
         .delete(`/favorites/albums/${id}`)
         .then((response) => {
           console.log('Album retiré des favoris :', response.data);
+          dispatch(removeFavorite(id));
         })
         .catch((error) => {
           console.error("Erreur lors de la suppression de l'album des favoris :", error);
+        })
+        .finally(() => {
+          setIsFavorite(false); // Mettre à jour l'état après la suppression du favori
         });
     } else {
       api
         .post(`/favorites/albums/${id}`)
         .then((response) => {
           console.log('Album ajouté aux favoris :', response.data);
+          dispatch(addFavorite(response.data));
         })
         .catch((error) => {
           console.error("Erreur lors de l'ajout de l'album aux favoris :", error);
+        })
+        .finally(() => {
+          setIsFavorite(true); // Mettre à jour l'état après l'ajout du favori
         });
     }
   };
 
   return (
-    <button type="button" className={`favorite-button ${isFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
+    <button
+      type="button"
+      className={`favorite-button ${isFavorite ? 'active' : ''}`}
+      onClick={handleFavoriteClick}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

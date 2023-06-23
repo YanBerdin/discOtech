@@ -1,27 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Favorites.scss';
 
 import api from '../../api/api';
 import FavoriteCard from './FavoriteCard/FavoriteCard';
+import { setFavorites } from '../../actions/user';
 
 function Favorites() {
-  const [albums, setAlbums] = useState([]);
-
-  const getAlbums = () => {
-    api
-      .get('/favorites')
-      .then((res) => {
-        setAlbums(res.data);
-      })
-      .catch((err) => {
-        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
-        console.error(err);
-      });
-  };
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.user.favorites);
 
   useEffect(() => {
-    getAlbums();
-  }, []);
+    const getFavorites = () => {
+      api
+        .get('/favorites')
+        .then((res) => {
+          dispatch(setFavorites(res.data));
+        })
+        .catch((err) => {
+          console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
+          console.error(err);
+        });
+    };
+    getFavorites();
+  }, [dispatch]);
 
   return (
     <>
@@ -29,14 +32,14 @@ function Favorites() {
         <h2>Mes Favoris :</h2>
       </header>
       <div className="HomePage-Container">
-        {albums.map((album) => (
-          <FavoriteCard
-            className="HomePage-Card"
-            key={album.id}
-            albumname={album.album.name}
-            artistfullname={album.album.artist.fullname ?? 'Artiste inconnu'}
-            image={album.album.image}
-          />
+        {favorites.map((favorite) => (
+          <Link to={`/albums/${favorite.album?.id}`} key={favorite.id}>
+            <FavoriteCard
+              albumname={favorite.album?.name}
+              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+              image={favorite.album?.image}
+            />
+          </Link>
         ))}
       </div>
     </>

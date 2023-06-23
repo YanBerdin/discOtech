@@ -9,6 +9,9 @@ import {
   SET_NEW_FIRSTNAME_INPUT,
   // Change UserProfile
   // CHANGE_LASTNAME,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+  SET_FAVORITES,
 } from '../actions/user';
 
 export const initialState = {
@@ -21,6 +24,7 @@ export const initialState = {
   token: null,
   // userName: '',
   // newFirstname: '',
+  favorites: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -78,6 +82,21 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         firstname: action.payload.firstname,
+      };
+    case ADD_FAVORITE:
+      return {
+        ...state,
+        favorites: [...state.favorites, action.payload],
+      };
+    case REMOVE_FAVORITE:
+      return {
+        ...state,
+        favorites: state.favorites.filter((album) => album.id !== action.payload),
+      };
+    case SET_FAVORITES:
+      return {
+        ...state,
+        favorites: action.payload,
       };
     default:
       return state;
