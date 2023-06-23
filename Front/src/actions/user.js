@@ -68,6 +68,13 @@ export const SET_NEW_FIRSTNAME_INPUT = 'SET_NEW_FIRSTNAME_INPUT';
 export const setNewFirstnameInput = (newFirstname) => ({
   type: SET_NEW_FIRSTNAME_INPUT,
   payload: {
-    value: newFirstname,
+    firstname: newFirstname,
   },
 });
+// export const SET_FIRSTNAME = 'SET_FIRSTNAME';
+// export const setFirstName = (newFirstName) => ({
+//   type: SET_FIRSTNAME,
+//   payload: {
+//     firstname: newFirstName,
+//   },
+// });

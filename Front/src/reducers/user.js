@@ -20,7 +20,7 @@ export const initialState = {
   logged: false,
   token: null,
   // userName: '',
-  newFirstname: '',
+  // newFirstname: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -77,12 +77,11 @@ const reducer = (state = initialState, action = {}) => {
     case SET_NEW_FIRSTNAME_INPUT:
       return {
         ...state,
-        newFirstname: action.payload.value,
+        firstname: action.payload.firstname,
       };
     default:
       return state;
   }
-};
 // case SET_NEW_LASTNAME_INPUT:
 //   return {
 //     ...state,
@@ -91,6 +90,6 @@ const reducer = (state = initialState, action = {}) => {
 // default:
 //   return state;
 // }
-// };
+};
 
 export default reducer;

@@ -21,10 +21,11 @@ function UserProfileForm() {
   const { firstname } = useSelector((state) => state.user);
   const { lastname } = useSelector((state) => state.user);
   // const { avatar } = useSelector((state) => state.user);
-  const { newFirstname } = useSelector((state) => state.user);
+  // const { newFirstname } = useSelector((state) => state.user);
+  // Fonctionne
   const handleLastName = () => {
     api
-      .put('/users/edit/lastname', {
+      .patch('/users/edit/lastname', {
         lastname: lastname,
       })
       .then((res) => {
@@ -42,7 +43,7 @@ function UserProfileForm() {
 
   const handleFirstName = () => {
     api
-      .put('/users/edit/firstname', {
+      .patch('/users/edit/firstname', {
         firstname: firstname,
       })
       .then((res) => {
@@ -57,9 +58,10 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  const handleEmail = () => {
+  // Fonctionne
+  const handleEmail = () => { // Fonctionne
     api
-      .put('/users/edit/email', {
+      .patch('/users/edit/email', {
         email: email,
       })
       .then((res) => {
@@ -74,9 +76,10 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
+  // Fonctionne
   const handlePassword = () => {
     api
-      .put('/users/edit/password', {
+      .patch('/users/edit/password', {
         password: password,
       })
       .then((res) => {
@@ -143,7 +146,7 @@ function UserProfileForm() {
             name="firstname"
             type="text"
             placeholder="Prénom"
-            value={newFirstname || ''} // Warning:`value` prop on `input` should not be null.
+            value={firstname || ''} // Warning:`value` prop on `input` should not be null.
             onChange={(event) => dispatch(setNewFirstnameInput(event.target.value))}
           />
           <button className="Field-Button" type="submit">
