@@ -2,19 +2,28 @@ h2 {
   padding: 3px 30px 5px;
 }
 
+.Info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 321px;
+  justify-content: space-around;
+}
+
 .AboutUs {
   &-Container {
-    width: 100%;
+    min-width: 321px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 1rem;
     font-size: 0.9rem;
-    gap: 3rem;
+    gap: 1rem;
     align-items: flex-start;
-    max-height: 400px;
-    height: 400px;
+    // max-height: 400px;
+    min-height: 360px;
+    background-color: chartreuse;
   }
 }
 h5,
@@ -30,10 +39,15 @@ p {
 
 .flip-card {
   background-color: transparent;
-  max-width: 180px;
+  //
+  min-width: 0px;
+  width: 180px;
   perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
   flex-shrink: 2;
-  flex-grow: 0.05;
+  min-height: 360px;
+  // flex-grow: 0.05;
 }
 
 .title {
@@ -66,15 +80,14 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 180px;// Modifié pour fixed Responsive
-  min-height: 311.8px;// Modifié pour fixed Responsive
-  max-height: 350px;// Modifié pour fixed Responsive
+  max-width: 180px; // Modifié pour fixed Responsive
+  min-height: 311.8px; // Modifié pour fixed Responsive
+  max-height: 350px; // Modifié pour fixed Responsive
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid rgb(155, 39, 190);
   border-radius: 1rem;
   margin-bottom: 1rem;
-  flex-shrink: 2;
 }
 
 .flip-card-front {
@@ -125,7 +138,7 @@ p {
   .flip-card {
     // width: 180px;
     // max-width: 181.8px;
-    max-width: 160px;
+      max-width: 180px;
   }
   .AboutUs {
     &-Container {
@@ -147,7 +160,6 @@ p {
       // min-height: 700px;
       gap: 2rem;
       background-color: red;
-      padding: 0;
     }
   }
 }
@@ -164,7 +176,6 @@ p {
       background-color: bisque;
       padding: 0;
       align-items: center;
-      gap: 0;
     }
   }
 }
@@ -173,7 +184,7 @@ p {
   h2 {
     padding: 3px 62px 5px;
   }
-  
+
   .flip-card {
     width: 240px;
   }
