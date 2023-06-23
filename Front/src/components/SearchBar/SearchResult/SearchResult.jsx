@@ -1,6 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
@@ -19,6 +16,7 @@ function SearchResult() {
       api
         .post(`/${type}/search`, { search: search })
         .then((response) => {
+          console.log(`response:${response.data}`);
           setResults(response.data);
         })
         .catch((error) => {
@@ -46,19 +44,20 @@ function SearchResult() {
           </Link>
         ))}
 
-        {type === 'artists' && results.map((result) => {
-          console.log(results);
-
-            <Link to={`/${type}/${result.albums.id}`} key={result.albums.id}>
+        {type === 'artists' && results.map((result) => (
+          <Link to={`/${type}/${result.id}`} key={result.id}>
+            {result.albums.map((album) => (
               <AlbumCard
                 className="SearchResult-Card"
-                albumname={result.albums.name}
-                artistfullname={result.fullname}
-                image={result.albums.image}
-                id={result.albums.id}
+                  // artistfullname={result.artist?.fullname ?? 'Artiste inconnu'}
+                key={album.id}
+                albumname={album.name}
+                image={album.image}
+                id={album.id}
               />
-            </Link>;
-        })}
+            ))}
+          </Link>
+        ))}
       </div>
     </div>
   );
