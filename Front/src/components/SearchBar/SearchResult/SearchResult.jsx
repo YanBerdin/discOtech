@@ -16,7 +16,6 @@ function SearchResult() {
       .post('/albums/search', { search: search })
       .then((res) => {
         setAlbums(res.data);
-      // navigate('/resultat-recherche');
       })
       .catch((err) => {
         console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
