@@ -22,15 +22,10 @@ function SearchBar() {
   };
 
   const isMobile = window.innerWidth <= 767; // Si en dessous ou egal a 767 px alors isMobile
-  console.log(`ismobile + ${isMobile}`);
 
   const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');
   // Si l'url est resultat recherche alors isSearchResultPage
-  console.log(isSearchResultPage);
 
-  if (isMobile && location.pathname !== '/resultat-recherche') {
-    return null; // Si isMobile et que url n'est pas resultat recherche alors retourne rien
-  }
   if (isMobile && isSearchResultPage) {
     return (
       <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>

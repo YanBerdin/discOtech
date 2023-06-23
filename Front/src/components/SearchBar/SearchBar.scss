@@ -52,4 +52,16 @@
   .SearchBar.Search-Result-Visible .SearchBar-Form {
     display: flex;
   }
+  .SearchBar {
+    top: 220px;
+
+    &-Button {
+      font-size: 10px;
+      padding: 10px;
+    }
+
+    &-Input {
+      font-size: 10px;
+    }
+  }
 }
