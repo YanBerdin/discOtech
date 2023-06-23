@@ -47,7 +47,7 @@ function NavBar() {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className={`navbar-white-text ${scrollPosition > 35 ? 'bg' : ''} ${toggleOpen ? 'mobile-open' : ''}`}
+      className={`navbar-white-text ${scrollPosition > 250 ? 'bg' : ''} ${toggleOpen ? 'mobile-open' : ''}`}
     >
       <Container>
         <Navbar.Brand
