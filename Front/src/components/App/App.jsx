@@ -105,7 +105,7 @@ function App() {
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/profil" element={<UserProfile />} />
-        <Route path="/resultat-recherche/:search" element={<SearchResult />} />
+        <Route path="/resultat-recherche/:type/:search" element={<SearchResult />} />
         <Route path="/*" />
       </Routes>
       <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
