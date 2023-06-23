@@ -10,6 +10,9 @@
     // box-shadow: 5px 5px 15px #000000, -10px -10px 15px #131313;
     transition: 0.3s ease-in-out;
     margin: 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
   
     &-Description {
       display: flex;
@@ -19,7 +22,9 @@
       justify-content: flex-end;
       text-shadow: rgb(56, 56, 56) 2px 2px 2px;
       row-gap: 15px;
-      margin-top: 14px;
+      position: relative;
+      top: 30%;
+      
   
       p {
         margin-bottom: 0px;
