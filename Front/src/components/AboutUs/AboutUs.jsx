@@ -18,7 +18,7 @@ function AboutUs() {
             <div className="flip-card-inner">
               <div className="flip-card-front">
                 <img className="Dino" src={EvaDino} alt="illustration_dinosaure" />
-                <h5 className="title">Eva Redon</h5>
+                <h5 className="title">Eva <br /> Redon</h5>
                 <h6>Scrum Master</h6>
               </div>
               <div className="flip-card-back">
@@ -102,7 +102,7 @@ function AboutUs() {
             <div className="flip-card-inner">
               <div className="flip-card-front">
                 <img className="Dino" src={YanDino} alt="illustration_dinosaure" />
-                <h5 className="title">Yan Berdin</h5>
+                <h5 className="title">Yan<br /> Berdin</h5>
                 <h6>Product Owner</h6>
               </div>
               <div className="flip-card-back">
