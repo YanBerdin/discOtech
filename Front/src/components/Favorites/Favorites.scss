@@ -1,4 +1,6 @@
 .Favorites {
+  display: flex;
+  flex-direction: column;
 
 &-Title {
   width: 100%;
@@ -8,7 +10,13 @@
 }
 
 &-Box {
+  display: flex;
   justify-content: center;
+}
+
+&-Container {
+  display: flex;
+  flex-direction: start;
 }
 }
 

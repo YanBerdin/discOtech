@@ -3,7 +3,7 @@
 .Carousel {
     margin: 40px;
     &-Container {
-        padding: 10px;
+        padding:0 10px;
     }
     &-Title {
         padding-top: 15px;
@@ -24,8 +24,8 @@
         background-size: cover;
         &:hover{
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-            transform: scale(1.1, 1.1);
             cursor: pointer;
+            color: rgb(215, 167, 127);
         }
     }
 }
