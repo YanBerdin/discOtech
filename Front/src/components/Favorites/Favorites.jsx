@@ -1,25 +1,30 @@
-import { useEffect, useState } from 'react';
-import AlbumCard from '../HomePage/AlbumCard/AlbumCard';
-// import favoritesAlbums from '../../data/data';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Favorites.scss';
 
 import api from '../../api/api';
+import FavoriteCard from './FavoriteCard/FavoriteCard';
+import { setFavorites } from '../../actions/user';
 
 function Favorites() {
-  const [albums, setAlbums] = useState([]);
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.user.favorites);
 
-  const getAlbums = () => {
-    api
-      .get('/favorites')
-      .then((res) => {
-        setAlbums(res.data);
-      })
-      .catch((err) => {
-        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
-        console.error(err);
-      });
-  };
-  useEffect(getAlbums);
+  useEffect(() => {
+    const getFavorites = () => {
+      api
+        .get('/favorites')
+        .then((res) => {
+          dispatch(setFavorites(res.data));
+        })
+        .catch((err) => {
+          console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
+          console.error(err);
+        });
+    };
+    getFavorites();
+  }, [dispatch]);
 
   return (
     <>
@@ -27,17 +32,19 @@ function Favorites() {
         <h2>Mes Favoris :</h2>
       </header>
       <div className="HomePage-Container">
-        {albums.map((album) => (
-          <AlbumCard
-            className="HomePage-Card"
-            key={album.id}
-            albumname={album.name}
-            artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
-            image={album.image}
-          />
+        {favorites.map((favorite) => (
+          <Link to={`/albums/${favorite.album?.id}`} key={favorite.id}>
+            <FavoriteCard
+              albumname={favorite.album?.name}
+              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+              image={favorite.album?.image}
+              id={favorite.album?.id}
+            />
+          </Link>
         ))}
       </div>
     </>
   );
 }
+
 export default Favorites;

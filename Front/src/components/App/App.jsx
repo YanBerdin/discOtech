@@ -40,7 +40,7 @@ function App() {
   // Au premier rendu du composant App, je souhaite récupérer la liste des albums
   const getSuggestions = () => {
     api
-      .post('/albums/search', { search: search })
+      .post('/albums/random', { search: search })
       .then((res) => {
         console.log(res.data);
         setSuggestions(res.data);

@@ -78,3 +78,20 @@ export const setNewFirstnameInput = (newFirstname) => ({
 //     firstname: newFirstName,
 //   },
 // });
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const addFavorite = (id) => ({
+  type: ADD_FAVORITE,
+  payload: id,
+});
+
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
+export const removeFavorite = (id) => ({
+  type: REMOVE_FAVORITE,
+  payload: id,
+});
+
+export const SET_FAVORITES = 'SET_FAVORITES';
+export const setFavorites = (favorites) => ({
+  type: SET_FAVORITES,
+  payload: favorites,
+});

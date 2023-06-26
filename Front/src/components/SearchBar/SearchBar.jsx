@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 function SearchBar() {
   // stock in state every options of select
   const [search, setSearch] = useState('');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [selectValue, setSelectValue] = useState('albums');
 
   const navigate = useNavigate();
@@ -28,12 +29,17 @@ function SearchBar() {
     }
   };
 
-  const isMobile = window.innerWidth <= 767; // Si en dessous ou egal a 767 px alors isMobile
+  const onWindowResize = () => {
+    setIsMobile(window.innerWidth <= 767);
+  };
+
+  window.addEventListener('resize', onWindowResize);
+  window.addEventListener('load', onWindowResize);
 
   const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');
   // Si l'url est resultat recherche alors isSearchResultPage
 
-  if (isMobile && isSearchResultPage) {
+  if ((isMobile && isSearchResultPage) || !isMobile) {
     return (
       <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>
         {/* si on est sur la bonne url et que nous sommes en mobile alors ajoute la classe */}
