@@ -1,27 +1,42 @@
 .favorite-button {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border: none;
-  background-color: transparent;
-  position: relative;
-  transition: transform 0.2s linear;
-  color: rgb(255, 168, 6);
-
+  padding-top: 10px;
+  margin-left: 110px;
+  width: 35px;
+  height: 35px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.604);
+  outline: none;
+  border-radius: 30px;
+  transition: 0.3s ease-in-out;
+  
   svg {
-    width: 30px;
-    height: 30px;
-    transition: fill 0.2s linear;
+    width: 15px;
+    height: 15px;
+    transition: fill 0.5s linear;
+    cursor: pointer;
     fill: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 
   &.active svg {
-    fill: rgba(239, 247, 119, 0.904);
+    fill: #401064d5;
   }
 
   &:hover {
     transform: scale(1.1);
   }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    margin-left: 160px;
+
+  }
+  
+  @media screen and (min-width: 1025px) {
+      margin-left: 150px;
+    }
 }

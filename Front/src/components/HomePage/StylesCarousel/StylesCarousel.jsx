@@ -1,23 +1,26 @@
-/* eslint-disable jsx-a11y/alt-text */
-import './StylesCarousel.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// = Import : npm
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 
+// = Import : Styles
+import './StylesCarousel.scss';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+// = Import : Carousel Component
 function StylesCarousel({ styles }) {
+  // style for slick slider
   const settings = {
     infinite: true,
     speed: 300,
     slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
           infinite: true,
         },
       },
@@ -25,7 +28,6 @@ function StylesCarousel({ styles }) {
         breakpoint: 600,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
           initialSlide: 2,
         },
       },
@@ -33,7 +35,6 @@ function StylesCarousel({ styles }) {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
           initialSlide: 1,
         },
       },

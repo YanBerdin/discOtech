@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './Favorites.scss';
 
 import api from '../../api/api';
 import FavoriteCard from './FavoriteCard/FavoriteCard';
 import { setFavorites } from '../../actions/user';
+
+import './Favorites.scss';
 
 function Favorites() {
   const dispatch = useDispatch();
@@ -27,23 +28,26 @@ function Favorites() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="Favorites">
       <header className="Favorites-Title">
-        <h2>Mes Favoris :</h2>
+        <h2>Mes Favoris &#x2661;</h2>
       </header>
-      <div className="HomePage-Container">
-        {favorites.map((favorite) => (
-          <Link to={`/albums/${favorite.album?.id}`} key={favorite.id}>
-            <FavoriteCard
-              albumname={favorite.album?.name}
-              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
-              image={favorite.album?.image}
-              id={favorite.album?.id}
-            />
-          </Link>
-        ))}
+      <div className="Favorites-Box">
+        <div className="HomePage-Container">
+          {favorites.map((favorite) => (
+            <Link to={`/albums/${favorite.album?.id}`} key={favorite.id}>
+              <FavoriteCard
+                albumname={favorite.album?.name}
+                artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+                image={favorite.album?.image}
+                id={favorite.album?.id}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
-    </>
+    </div>
+
   );
 }
 

@@ -34,15 +34,15 @@
   &-FavoriteBtn {
     position: absolute;
     z-index: 2;
-    right: 30px;
-    top: 5px;
+    right: 50px;
+    top: 17px;
   }
 
   &-ReturnBtn {
     position: absolute;
     z-index: 2;
-    left: 30px;
-    top: 10px;
+    left: 50px;
+    top: 20px;
   }
 
   // -------------------------------------Description -----------------------------------------
@@ -139,6 +139,9 @@
     font-size: 1.1rem;
     width: 75%;
     padding: 3px 0px 0px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &-SongArtist, &-SongArtistHead {
