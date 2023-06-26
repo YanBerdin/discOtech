@@ -39,23 +39,47 @@ function App() {
   const logged = useSelector((state) => state.user.logged);
   const [showToast, setShowToast] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
+  const [ourfavorites, setOurFavorites] = useState([]);
+  const [latest, setLatest] = useState([]);
   const [search, setSearch] = useState('');
   const [styles, setStyles] = useState([]);
 
   // for HomePage, get suggestions albums from api
-  const getSuggestions = () => {
-    api
-      .post('/albums/random', { search: search })
+  useEffect(() => {
+    api.get('/albums/random')
       .then((res) => {
-        // console.log(res.data);
         setSuggestions(res.data);
       })
       .catch((err) => {
-        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
-        console.error(err);
+        alert('Erreur !');
+        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
+        console.err(err);
       });
-  };
-  useEffect(getSuggestions, [search]);
+  }, []);
+
+  useEffect(() => {
+    api.get('/albums/ourfavorites')
+      .then((res) => {
+        setOurFavorites(res.data);
+      })
+      .catch((err) => {
+        alert('Erreur !');
+        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
+        console.err(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    api.get('/albums/latest')
+      .then((res) => {
+        setLatest(res.data);
+      })
+      .catch((err) => {
+        alert('Erreur !');
+        console.log('Erreur, l\'API ne fonctionne plus. Rechargez plus tard.');
+        console.err(err);
+      });
+  }, []);
 
   // for HomePage, get styles from api
   useEffect(() => {
@@ -97,9 +121,10 @@ function App() {
           element={(
             <HomePage
               suggestions={suggestions}
+              latest={latest}
               styles={styles}
+              ourfavorites={ourfavorites}
               setSearch={setSearch}
-              getSuggestions={getSuggestions}
               search={search}
             />
 )}
