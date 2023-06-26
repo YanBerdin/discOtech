@@ -32,7 +32,7 @@ import { saveLoginSuccessful } from '../../actions/user';
 // = Import : Style
 import './App.scss';
 
-//= App Component
+// = App Component
 function App() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
