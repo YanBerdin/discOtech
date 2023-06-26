@@ -24,7 +24,7 @@
   &-Button {
     color: black;
   }
-  
+
   &-Input {
     background-color: white;
     color: black;
@@ -39,11 +39,33 @@
     }
   }
 
-  &-Button {
-    padding: 0rem 2rem;
+  &-Select {
+    padding: 0.8rem 0rem;
     background-color: transparent;
     border-color: transparent;
     font-size: 12px;
+    margin: 0rem 1rem;
+  }
+
+  &-Options {
+    display: block;
+    height: 36px;
+    width: 100%;
+    padding: 0 16px;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    outline: none;
+    text-align: left;
+    text-overflow: ellipsis;
+    line-height: 36px;
+  }
+
+  &-Button {
+    padding: 0.3rem 1.2rem 2rem 0rem;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 24px;
+    color: rgb(156, 156, 156);
   }
 }
 

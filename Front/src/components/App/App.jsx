@@ -20,6 +20,8 @@ import AboutUs from '../AboutUs/AboutUs';
 import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
+import Header from '../Header/Header';
+import SearchResult from '../SearchBar/SearchResult/SearchResult';
 
 import { saveLoginSuccessful } from '../../actions/user';
 
@@ -106,7 +108,7 @@ function App() {
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/profil" element={<UserProfile />} />
-        <Route path="/resultat-recherche/:search" element={<SearchResult />} />
+        <Route path="/resultat-recherche/:type/:search" element={<SearchResult />} />
         <Route path="/*" />
       </Routes>
       <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
