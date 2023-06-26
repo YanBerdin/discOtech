@@ -1,12 +1,16 @@
-import './BottomNavigation.scss';
-
+// = Import : Dependencies
 import { Link } from 'react-router-dom';
 
+// = Import : JSX
 import user from '../../assets/user-icon.svg';
 import home from '../../assets/home-icon.svg';
 import search from '../../assets/search.svg';
 import heart from '../../assets/heart-icon.svg';
 
+// = Import : Style
+import './BottomNavigation.scss';
+
+// = Bottom Navigation Component
 function BottomNavigation() {
   return (
     <div className="BottomNavigation">
@@ -26,4 +30,5 @@ function BottomNavigation() {
   );
 }
 
+// = Export :
 export default BottomNavigation;

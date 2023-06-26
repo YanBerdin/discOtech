@@ -1,13 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
-// Dépendances
+
+// = Import : npm
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import api from '../../api/api';
 
-// Fichiers JSXimport { useState } from 'react';
+// = Import : JSX
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
@@ -22,13 +24,15 @@ import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
 import Header from '../Header/Header';
 import SearchResult from '../SearchBar/SearchResult/SearchResult';
-
-import { saveLoginSuccessful } from '../../actions/user';
-
-// Fichier Styles
-import './App.scss';
 import BottomNavigation from '../BottomNavigation/BottomNavigation';
 
+// = Import : Redux Actions
+import { saveLoginSuccessful } from '../../actions/user';
+
+// = Import : Style
+import './App.scss';
+
+//= App Component
 function App() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
@@ -37,7 +41,7 @@ function App() {
   const [search, setSearch] = useState('');
   const [styles, setStyles] = useState([]);
 
-  // Au premier rendu du composant App, je souhaite récupérer la liste des albums
+  // for HomePage, get suggestions albums from api
   const getSuggestions = () => {
     api
       .post('/albums/random', { search: search })
@@ -52,7 +56,7 @@ function App() {
   };
   useEffect(getSuggestions, [search]);
 
-  // Au premier rendu du composant App, je souhaite récupérer la liste des styles
+  // for HomePage, get styles from api
   useEffect(() => {
     api.get('/styles')
       .then((res) => {
@@ -65,15 +69,15 @@ function App() {
       });
   }, []);
 
+  // save token in localstorage
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (token) {
       dispatch(saveLoginSuccessful());
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  // if user logged, show the toast (notification)
   useEffect(() => {
     if (logged) {
       setShowToast(true);
@@ -82,8 +86,10 @@ function App() {
 
   return (
     <div className="App">
+      {/* Components available on every page */}
       <NavBar />
       <Header />
+      {/* URL routes for each component */}
       <Routes>
         <Route
           path="/"
@@ -110,15 +116,18 @@ function App() {
         <Route path="/resultat-recherche/:type/:search" element={<SearchResult />} />
         <Route path="/*" />
       </Routes>
+      {/* Toast notification for connexion */}
       <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
         <Toast.Body style={{ color: 'black' }}>
           Vous êtes bien connecté.
         </Toast.Body>
       </Toast>
+      {/* Navigation for mobile users */}
       <BottomNavigation />
       <Footer />
     </div>
   );
 }
 
+// = Export
 export default App;
