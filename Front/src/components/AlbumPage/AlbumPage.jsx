@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
-import './AlbumPage.scss';
-
+// = Import : npm
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+// Import : JSX
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import ReturnButton from '../ReturnButton/ReturnButton';
+
+import './AlbumPage.scss';
 
 function AlbumPage() {
   const { id } = useParams();

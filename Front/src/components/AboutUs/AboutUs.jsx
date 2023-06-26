@@ -1,11 +1,16 @@
 /* eslint-disable max-len */
-import './AboutUs.scss';
+
+// = Import : assets
 import sharaDino from '../../assets/sahra_dino.png';
 import EvaDino from '../../assets/eva3_dino.png';
 import GaetanDino from '../../assets/gaetan_dino.png';
 import RomainDino from '../../assets/romain_dino.png';
 import YanDino from '../../assets/yan_dino.png';
 
+// = Import : style
+import './AboutUs.scss';
+
+// = AboutUs Component
 function AboutUs() {
   return (
     <div className="Info">
@@ -117,4 +122,5 @@ function AboutUs() {
   );
 }
 
+// = Export
 export default AboutUs;

@@ -2,12 +2,14 @@
 import { Link } from 'react-router-dom';
 
 // = Import : local
-import './Footer.scss';
 import AppLogo from '../../assets/Logo-round.png';
 import facebook from '../../assets/iconeFacebook.png';
 import linkedin from '../../assets/icone-linkedin.png';
 import twitter from '../../assets/icone-twitter.png';
 import instagram from '../../assets/icone-instagram.png';
+
+// = Import : style
+import './Footer.scss';
 
 // = Component
 function Footer() {
@@ -15,7 +17,6 @@ function Footer() {
     <footer className="Footer">
 
       <div className="Footer-Container">
-        {/* <div className="Footer-Logo-Container"> */}
         <img
           src={AppLogo}
           className="Footer-AppLogo"
@@ -89,4 +90,5 @@ function Footer() {
   );
 }
 
+// = Export :
 export default Footer;
