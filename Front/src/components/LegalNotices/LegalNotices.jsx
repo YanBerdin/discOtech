@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 
 function LegalNotices() {
   return (
-    <Accordion className="Accordion" defaultActiveKey="0">
+    <Accordion className="Accordion-Container" defaultActiveKey="0">
       <Accordion.Item eventKey="0">
         <Accordion.Header># Mentions légales & Données personnelles / RGPD</Accordion.Header>
         <Accordion.Body>

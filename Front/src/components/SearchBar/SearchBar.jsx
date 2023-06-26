@@ -7,19 +7,26 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function SearchBar() {
+  // stock in state every options of select
   const [search, setSearch] = useState('');
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
+  const [selectValue, setSelectValue] = useState('albums');
+
   const navigate = useNavigate();
   const location = useLocation();
 
-  const getAlbums = () => {
-    navigate(`/resultat-recherche/${search}`);
+  // onClick event on select to update the selected value in state
+  const handleClick = (e) => {
+    setSelectValue(e.target.value);
+    console.log(e.target.value);
   };
-
-  const handleFormSubmit = (event) => {
-    console.log('Envoi de la recherche...');
-    event.preventDefault();
-    getAlbums();
+  // if selected value = type => navigate to :
+  const getResults = () => {
+    if (selectValue === 'albums') {
+      navigate(`/resultat-recherche/albums/${search}`);
+    } else if (selectValue === 'artists') {
+      navigate(`/resultat-recherche/artists/${search}`);
+    }
   };
 
   const onWindowResize = () => {
@@ -36,7 +43,14 @@ function SearchBar() {
     return (
       <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>
         {/* si on est sur la bonne url et que nous sommes en mobile alors ajoute la classe */}
-        <form className="SearchBar-Form" onSubmit={handleFormSubmit}>
+        <form
+          className="SearchBar-Form"
+          onSubmit={(event) => {
+            console.log('Envoi de la recherche...');
+            event.preventDefault();
+            getResults();
+          }}
+        >
           <input
             className="SearchBar-Input"
             type="search"
@@ -48,8 +62,20 @@ function SearchBar() {
               console.log(event.target.value);
             }}
           />
+
+          <div>
+            <select
+              className="SearchBar-Select"
+              value={selectValue}
+              onChange={handleClick}
+            >
+              <option className="SearchBar-Options" value="albums">albums</option>
+              <option className="SearchBar-Options" value="artists">artists</option>
+            </select>
+          </div>
+
           <button className="SearchBar-Button" type="submit">
-            Rechercher
+            &#x1F50E;
           </button>
         </form>
       </div>

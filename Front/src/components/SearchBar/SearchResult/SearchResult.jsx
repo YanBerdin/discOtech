@@ -6,36 +6,60 @@ import api from '../../../api/api';
 import './SearchResult.scss';
 
 function SearchResult() {
-  const { search } = useParams();
+  const { search, type } = useParams();
+  const [results, setResults] = useState([]);
 
-  const [albums, setAlbums] = useState([]);
+  console.log(`search:${search}, type:${type}`);
 
-  console.log(search);
   useEffect(() => {
-    api
-      .post('/albums/search', { search: search })
-      .then((res) => {
-        setAlbums(res.data);
-      })
-      .catch((err) => {
-        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
-        console.error(err);
-      });
-  }, [search]);
+    const fetchResults = () => {
+      api
+        .post(`/${type}/search`, { search: search })
+        .then((response) => {
+          console.log('RESPONSE', response.data);
+          setResults(response.data);
+        })
+        .catch((error) => {
+          console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
+          console.error(error);
+        });
+    };
+
+    fetchResults();
+  }, [search, type]);
+
   return (
     <div className="SearchResult">
-      <h2>Résultats de recherche pour "{search}"</h2>
-      <div className="SearchResult-Container">
-        {albums && albums.map((album) => (
-          <Link to={`/albums/${album.id}`} key={album.id}>
+      <h2>Résultats de recherche pour "{search}" : </h2>
+      <div className="SearchResult-Box">
+
+        {type === 'albums' && results.map((result) => (
+          <Link to={`/${type}/${result.id}`} key={result.id}>
             <AlbumCard
               className="SearchResult-Card"
-              albumname={album.name}
-              artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
-              image={album.image}
-              id={album.id}
+              albumname={result.name}
+              artistfullname={result.artist?.fullname ?? 'Artiste inconnu'}
+              image={result.image}
+              id={result.id}
             />
           </Link>
+        ))}
+
+        {type === 'artists' && results.map((result) => (
+          <>
+            {result.albums.map((album) => (
+              <Link to={`/albums/${album.id}`} key={result.id}>
+                <AlbumCard
+                  className="SearchResult-Card"
+                  artistfullname={result?.fullname ?? 'Artiste inconnu'}
+                  key={album.id}
+                  albumname={album.name}
+                  image={album.image}
+                  id={album.id}
+                />
+              </Link>
+            ))}
+          </>
         ))}
       </div>
     </div>

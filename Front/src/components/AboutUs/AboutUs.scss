@@ -1,5 +1,14 @@
 h2 {
-  padding: 20px 30px 7px;
+  padding: 3px 30px 5px;
+}
+
+.Info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 200px;
+  justify-content: center;
+  // max-width: 100vw;
 }
 
 .AboutUs {
@@ -9,10 +18,12 @@ h2 {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 1rem;
     font-size: 0.9rem;
-    gap: 3rem;
-    align-items: flex-start;
+    gap: 0.5rem;
+    min-height: 360px;
+    // background-color: chartreuse;
+    padding: 1rem;
+    margin-top: 1rem;
   }
 }
 h5,
@@ -28,10 +39,12 @@ p {
 
 .flip-card {
   background-color: transparent;
+  // min-width: 0px;
   width: 180px;
   perspective: 1000px;
-  flex-shrink: 1;
-  flex-grow: 0.05;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 360px;
 }
 
 .title {
@@ -43,11 +56,12 @@ p {
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  width: 180px;
   height: 100%;
+  max-height: 300px;
   text-align: center;
-  transition: transform 1s;
+  transition: transform 1.2s;
   transform-style: preserve-3d;
 }
 
@@ -62,9 +76,8 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 200px;
-  min-height: 350px;
-  // min-height: 300px;
+  width: 180px; // Modifié pour fixed Responsive
+  min-height: 311.8px; // Modifié pour fixed Responsive
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid rgb(155, 39, 190);
@@ -99,72 +112,4 @@ p {
 .Dino {
   object-fit: contain;
   border-radius: 6%;
-}
-
-@media screen and (min-width: 440px) and (max-width: 665px) {
-  //   /* Styles spécifiques aux tablettes */
-  .AboutUs {
-    &-Container {
-      margin-top: 1rem;
-      min-height: 995px;
-      gap: 2rem;
-    }
-  }
-  .flip-card {
-    width: 180px;
-  }
-}
-
-@media screen and (min-width: 666px) and (max-width: 1024px) {
-  //   /* Styles spécifiques aux tablettes */
-  .flip-card {
-    width: 180px;
-    max-width: 181.8px;
-  }
-  .AboutUs {
-    &-Container {
-      margin-top: 1rem;
-      min-height: 700px;
-      gap: 1rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1161px) {
-  //   /* Styles spécifiques aux tablettes */
-  .flip-card {
-    width: 190px;
-  }
-  .AboutUs {
-    &-Container {
-      min-height: 700px;
-      gap: 2rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1162px) and (max-width: 1424px) {
-  //   /* Styles spécifiques aux tablettes */
-  .flip-card {
-    width: 230px;
-  }
-  .AboutUs {
-    &-Container {
-      min-height: 800px;
-      row-gap: 1rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1424px) {
-  .flip-card {
-    width: 240px;
-  }
-  .AboutUs {
-    &-Container {
-      margin-top: 2rem;
-      min-height: 400px;
-      row-gap: 1rem;
-    }
-  }
 }
