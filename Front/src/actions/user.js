@@ -79,15 +79,15 @@ export const setNewFirstnameInput = (newFirstname) => ({
 //   },
 // });
 export const ADD_FAVORITE = 'ADD_FAVORITE';
-export const addFavorite = (album) => ({
+export const addFavorite = (id) => ({
   type: ADD_FAVORITE,
-  payload: album,
+  payload: id,
 });
 
 export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
-export const removeFavorite = (albumId) => ({
+export const removeFavorite = (id) => ({
   type: REMOVE_FAVORITE,
-  payload: albumId,
+  payload: id,
 });
 
 export const SET_FAVORITES = 'SET_FAVORITES';

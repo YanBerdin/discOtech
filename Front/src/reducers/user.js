@@ -91,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
     case REMOVE_FAVORITE:
       return {
         ...state,
-        favorites: state.favorites.filter((album) => album.id !== action.payload),
+        favorites: state.favorites.filter((favorite) => favorite.album.id !== action.payload),
       };
     case SET_FAVORITES:
       return {

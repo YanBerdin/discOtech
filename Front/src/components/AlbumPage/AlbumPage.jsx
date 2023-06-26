@@ -42,7 +42,7 @@ function AlbumPage() {
                 <ReturnButton />
               </div>
               <div className="AlbumPage-FavoriteBtn">
-                <FavoriteButton />
+                <FavoriteButton id={parseInt(id, 10)} />
               </div>
             </div>
 

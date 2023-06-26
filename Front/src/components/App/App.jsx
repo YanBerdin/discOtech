@@ -102,7 +102,7 @@ function App() {
         <Route path="/favoris" element={<Favorites />} />
         <Route path="/mentions-legales" element={<LegalNotices />} />
         <Route path="/equipe-dev" element={<AboutUs />} />
-        <Route path="/condition-generales-utilisation" element={<TermsofService />} />
+        <Route path="/conditions-generales-utilisation" element={<TermsofService />} />
         <Route path="/le-projet" />
         <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/profil" element={<UserProfile />} />

@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import './FavoriteButton.scss';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import api from '../../api/api';
 import { addFavorite, removeFavorite } from '../../actions/user';
 
-function FavoriteButton() {
+function FavoriteButton({ id }) {
   const [isFavorite, setIsFavorite] = useState(false);
-  const { id } = useParams();
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.user.favorites);
 
   useEffect(() => {
-    setIsFavorite(favorites.some((favorite) => favorite.id === id));
+    console.log('FAVORITE', favorites);
+    setIsFavorite(favorites.find((fav) => fav.album?.id === id));
   }, [favorites, id]);
 
-  const handleFavoriteClick = () => {
+  const handleFavoriteClick = (e) => {
+    e.preventDefault();
     if (isFavorite) {
       api
         .delete(`/favorites/albums/${id}`)

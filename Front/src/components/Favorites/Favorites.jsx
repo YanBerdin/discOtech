@@ -38,6 +38,7 @@ function Favorites() {
               albumname={favorite.album?.name}
               artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
               image={favorite.album?.image}
+              id={favorite.album?.id}
             />
           </Link>
         ))}
