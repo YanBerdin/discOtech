@@ -6,13 +6,11 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
-  SET_NEW_FIRSTNAME_INPUT,
-  // Change UserProfile
-  // CHANGE_LASTNAME,
+  UPDATE_FIRSTNAME,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_FAVORITES,
-  SET_DETAILS,
+  // UPDATE_LASTNAME
 } from '../actions/user';
 
 export const initialState = {
@@ -23,10 +21,7 @@ export const initialState = {
   avatar: '',
   logged: false,
   token: null,
-  // userName: '',
-  // newFirstname: '',
   favorites: [],
-  // detail: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -47,6 +42,11 @@ const reducer = (state = initialState, action = {}) => {
         lastname: action.payload.lastname,
       };
     case SET_FIRSTNAME:
+      return {
+        ...state,
+        firstname: action.payload.firstname,
+      };
+    case UPDATE_FIRSTNAME:
       return {
         ...state,
         firstname: action.payload.firstname,
@@ -73,23 +73,6 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
-      // case CHANGE_FIRSTNAME:
-      //   return {
-      //     ...state,
-      //     firstname: state.newFirstname,
-      //     newFirstname: '',
-      //   };
-
-    case SET_NEW_FIRSTNAME_INPUT:
-      return {
-        ...state,
-        firstname: action.payload.firstname,
-      };
-    case SET_DETAILS:
-      return {
-        ...state,
-        detail: action.payload.detail,
-      };
     case ADD_FAVORITE:
       return {
         ...state,
@@ -108,10 +91,10 @@ const reducer = (state = initialState, action = {}) => {
     default:
       return state;
   }
-// case SET_NEW_LASTNAME_INPUT:
+// case UPDATE_LASTNAME:
 //   return {
 //     ...state,
-//     newLastname: action.payload.value,
+//     lastname: action.payload.value,
 //   };
 // default:
 //   return state;

@@ -10,8 +10,7 @@ import {
   setEmail,
   setPassword,
   setLastName,
-  setNewFirstnameInput,
-  setDetails,
+  updateFirstname,
 } from '../../../../actions/user';
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
@@ -19,7 +18,6 @@ import './UserProfileForm.scss';
 // == Component
 function UserProfileForm() {
   const dispatch = useDispatch();
-
   const {
     email, password, firstname, lastname,
   } = useSelector(
@@ -62,9 +60,8 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // Fonctionne
+  // OK
   const handleEmail = () => {
-    // Fonctionne
     api
       .patch('/users/edit/email', {
         email: email,
@@ -99,31 +96,11 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // useEffect(() => {
-  //   // Effectuez ici votre requête API pour récupérer le prénom de l'utilisateur
-  //   // par exemple, en utilisant fetch() ou une librairie comme axios
-  //   api
-  //     .get('/users/detail', {
-  //       detail: detail,
-  //     })
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         dispatch(setDetails({
-  //           email, password, firstname, lastname,
-  //         }));
-  //         console.log(email, password, firstname, lastname);
-  //       } else {
-  //         alert('Erreur lors de la modification');
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error("Une erreur s'est produite lors de la connexion :", err);
-  //     });
-  // }, []);
   useEffect(() => {
     api.get('/users/detail').then((res) => {
       console.log(res.data);
-      setDetails(res.data.lastname);
+      // setUserData(res.data);
+      // console.log(userData);
     });
   }, []);
 
@@ -133,7 +110,7 @@ function UserProfileForm() {
         {/* Login Header : Title and Image */}
         <div className="Header-Container">
           <img className="Header-UserImg" src={User} alt="Logo de personnage" />
-          <p className="Header-Title">Modifier mon profil{lastname}</p>
+          <p className="Header-Title">Modifier mon profil</p>
         </div>
         {/* Login Input : Nom */}
         <form className="Field" onSubmit={handleLastName}>
@@ -157,9 +134,9 @@ function UserProfileForm() {
             className="Field-Input"
             name="firstname"
             type="text"
-            placeholder={firstname}
+            placeholder="Prénom"
             value={firstname || ''} // Warning:`value` prop on `input` should not be null.
-            onChange={(event) => dispatch(setNewFirstnameInput(event.target.value))}
+            onChange={(event) => dispatch(updateFirstname(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;

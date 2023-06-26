@@ -24,6 +24,13 @@ export const setFirstName = (newFirstName) => ({
   },
 });
 
+export const UPDATE_FIRSTNAME = 'UPDATE_FIRSTNAME';
+export const updateFirstname = (newFirstName) => ({
+  type: UPDATE_FIRSTNAME,
+  payload: {
+    firstname: newFirstName,
+  },
+});
 export const SET_LASTNAME = 'SET_LASTNAME';
 export const setLastName = (newLastName) => ({
   type: SET_LASTNAME,
@@ -31,7 +38,13 @@ export const setLastName = (newLastName) => ({
     lastname: newLastName,
   },
 });
-
+// export const UPDATE_LASTNAME = 'UPDATE_LASTNAME';
+// export const updateLastName = (newLastName) => ({
+//   type: UPDATE_LASTNAME,
+//   payload: {
+//     lastname: newLastName,
+//   },
+// });
 export const SET_AVATAR = 'SET_AVATAR';
 export const setAvatar = (newAvatar) => ({
   type: SET_AVATAR,
@@ -56,28 +69,13 @@ export const saveLoginSuccessful = (firstname, token) => ({
   },
 });
 
-// export const CHANGE_FIRSTNAME = 'CHANGE_FIRSTNAME';
-// export const changeFirstname = (firstname) => ({
-//   type: CHANGE_FIRSTNAME,
+// export const SET_USER_DETAILS = 'SET_USER_DETAILS';
+// export const setUserDetails = (firstname,) => ({
+//   type: SET_USER_DETAILS,
 //   payload: {
-//     firstname: newFirstnameInput,
+//     detail: detail,
 //   },
 // });
-//
-export const SET_NEW_FIRSTNAME_INPUT = 'SET_NEW_FIRSTNAME_INPUT';
-export const setNewFirstnameInput = (newFirstname) => ({
-  type: SET_NEW_FIRSTNAME_INPUT,
-  payload: {
-    firstname: newFirstname,
-  },
-});
-export const SET_DETAILS = 'SET_DETAILS';
-export const setDetails = (detail) => ({
-  type: SET_DETAILS,
-  payload: {
-    detail: detail,
-  },
-});
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const addFavorite = (id) => ({
   type: ADD_FAVORITE,
