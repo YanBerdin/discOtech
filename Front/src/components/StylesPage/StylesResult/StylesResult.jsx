@@ -1,8 +1,7 @@
-import './StylesResult.scss';
-
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import api from '../../../api/api';
+import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
 
 function StylesResult() {
   const [albums, setAlbums] = useState([]);
@@ -28,15 +27,23 @@ function StylesResult() {
   // console.log(filteredAlbums);
 
   return (
-    <div>
+    <div className="SearchResult">
       <h2>Albums avec le style "{name}" :</h2>
-      {filteredAlbums.map((album) => (
-        <div key={album.id}>
-          <h4>{album.title}</h4>
-          <p>{album.artist.fullname}</p>
-          <img src={album.image} alt={album.title} />
+      <div className="SearchResult-Parent">
+        <div className="SearchResult-Box">
+          {filteredAlbums.map((album) => (
+            <Link to={`/albums/${album.id}`} key={album.id}>
+              <AlbumCard
+                className="SearchResult-Card"
+                artistfullname={album.artist.fullname}
+                albumname={album.name}
+                image={album.image}
+                id={album.id}
+              />
+            </Link>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

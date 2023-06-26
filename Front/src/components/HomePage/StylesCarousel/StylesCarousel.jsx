@@ -3,6 +3,7 @@ import './StylesCarousel.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 function StylesCarousel({ styles }) {
   const settings = {
@@ -44,13 +45,14 @@ function StylesCarousel({ styles }) {
       <Slider {...settings}>
         {styles.map((style) => (
           <div className="Carousel-Container" key={style.id}>
-            <div className="Carousel-Cards" style={{ backgroundImage: `url(${style.image})` }}>
-              <h3 className="Carousel-StyleName"> {style.name} </h3>
-            </div>
+            <Link to={`/styles/${style.name}`}>
+              <div className="Carousel-Cards" style={{ backgroundImage: `url(${style.image})` }}>
+                <h3 className="Carousel-StyleName"> {style.name} </h3>
+              </div>
+            </Link>
           </div>
         ))}
       </Slider>
-
     </div>
   );
 }
