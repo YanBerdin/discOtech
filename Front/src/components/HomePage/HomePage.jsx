@@ -1,7 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { Link } from 'react-router-dom';
-/* eslint-disable jsx-a11y/alt-text */
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

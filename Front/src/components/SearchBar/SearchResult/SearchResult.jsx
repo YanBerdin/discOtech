@@ -30,7 +30,7 @@ function SearchResult() {
 
   return (
     <div className="SearchResult">
-      <h2>Résultats de recherche pour "{search}" : </h2>
+      <h2>{results.length} albums trouvés pour "{search}" </h2>
       <div className="SearchResult-Box">
 
         {type === 'albums' && results.map((result) => (

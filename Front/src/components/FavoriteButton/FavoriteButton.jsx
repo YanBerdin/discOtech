@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import './FavoriteButton.scss';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,9 +1,15 @@
-.Favorites-Title {
-  height: auto;
+.Favorites {
+
+&-Title {
   width: 100%;
-  justify-content: flex-start;
-  padding: 5px 25px 7px;
-  margin-left: 11.5%;
+  display: flex;
+  height: auto;
+  justify-content: center;
+}
+
+&-Box {
+  justify-content: center;
+}
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -17,7 +23,8 @@
 
 @media (min-width: 1025px) {
   .Favorites-Title {
-    margin-left: 6%;
+    margin-top: 30px;
+    margin-left: 0;
     width: 100%;
     justify-content: flex-start;
   }
