@@ -52,6 +52,10 @@
     font-size: 1.5rem;
   }
 
+  &-Name {
+    padding-top: 15px;
+  }
+
   &-SongTitle {
     font-size: 1.1rem;
     width: 93%;
@@ -99,7 +103,7 @@
     padding: 0.6em;
   }
   &-Supports{
-    padding: 12px 5px;
+    padding: 6px 5px;
     flex-direction: row-reverse;
   }
   &-Supports, &-Style {
