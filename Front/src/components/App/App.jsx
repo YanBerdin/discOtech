@@ -20,13 +20,13 @@ import AboutUs from '../AboutUs/AboutUs';
 import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
+import Header from '../Header/Header';
+import SearchResult from '../SearchBar/SearchResult/SearchResult';
 
 import { saveLoginSuccessful } from '../../actions/user';
 
 // Fichier Styles
 import './App.scss';
-import Header from '../Header/Header';
-import SearchResult from '../SearchBar/SearchResult/SearchResult';
 
 function App() {
   const dispatch = useDispatch();

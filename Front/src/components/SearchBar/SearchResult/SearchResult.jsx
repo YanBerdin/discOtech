@@ -16,7 +16,7 @@ function SearchResult() {
       api
         .post(`/${type}/search`, { search: search })
         .then((response) => {
-          console.log(`response:${response.data}`);
+          console.log('RESPONSE', response.data);
           setResults(response.data);
         })
         .catch((error) => {
@@ -30,7 +30,7 @@ function SearchResult() {
   return (
     <div className="SearchResult">
       <h2>Résultats de recherche pour "{search}" : </h2>
-      <div className="SearchResult-Container">
+      <div className="SearchResult-Box">
 
         {type === 'albums' && results.map((result) => (
           <Link to={`/${type}/${result.id}`} key={result.id}>
@@ -45,18 +45,20 @@ function SearchResult() {
         ))}
 
         {type === 'artists' && results.map((result) => (
-          <Link to={`/${type}/${result.id}`} key={result.id}>
+          <>
             {result.albums.map((album) => (
-              <AlbumCard
-                className="SearchResult-Card"
-                  // artistfullname={result.artist?.fullname ?? 'Artiste inconnu'}
-                key={album.id}
-                albumname={album.name}
-                image={album.image}
-                id={album.id}
-              />
+              <Link to={`/albums/${album.id}`} key={result.id}>
+                <AlbumCard
+                  className="SearchResult-Card"
+                  artistfullname={result?.fullname ?? 'Artiste inconnu'}
+                  key={album.id}
+                  albumname={album.name}
+                  image={album.image}
+                  id={album.id}
+                />
+              </Link>
             ))}
-          </Link>
+          </>
         ))}
       </div>
     </div>
