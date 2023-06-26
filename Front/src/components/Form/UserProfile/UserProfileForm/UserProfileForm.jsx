@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useEffect } from 'react';
 // == Import : npm
 import api from '../../../../api/api';
 
@@ -16,12 +16,10 @@ import './UserProfileForm.scss';
 function UserProfileForm() {
   const dispatch = useDispatch();
 
-  const { email } = useSelector((state) => state.user);
-  const { password } = useSelector((state) => state.user);
-  const { firstname } = useSelector((state) => state.user);
-  const { lastname } = useSelector((state) => state.user);
+  const {
+    email, password, firstname, lastname, detail,
+  } = useSelector((state) => state.user);
   // const { avatar } = useSelector((state) => state.user);
-  // const { newFirstname } = useSelector((state) => state.user);
   // Fonctionne
   const handleLastName = () => {
     api
@@ -94,34 +92,32 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // const handleSetUserDetails = () => {
-  //   api
-  //     .get('/users/edit/detail', {
-  //               email: email,
-  //               password: password,
-  //               firstname: firstname,
-  //               lastname: lastname,
+  useEffect(() => {
+    // Effectuez ici votre requête API pour récupérer le prénom de l'utilisateur
+    // par exemple, en utilisant fetch() ou une librairie comme axios
+    api
+      .get('/users/edit/detail', {
+        detail: detail,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res);
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  }, [detail]);
 
-  //     })
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         console.log(firstname, lastname, email);
-  //       } else {
-  //         alert('Erreur lors de la modification');
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(`firstname:${firstname}`);
-  //       console.error("Une erreur s'est produite lors de la connexion :", err);
-  //     });
-  // };
   return (
     <section className="Login-Form" action="">
       <div className="Login-Card">
         {/* Login Header : Title and Image */}
         <div className="Header-Container">
           <img className="Header-UserImg" src={User} alt="Logo de personnage" />
-          <p className="Header-Title">Modifier mon profil</p>
+          <p className="Header-Title">Modifier mon profil{ firstname }</p>
         </div>
         {/* Login Input : Nom */}
         <form className="Field" onSubmit={handleLastName}>

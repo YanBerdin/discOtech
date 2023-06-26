@@ -25,6 +25,7 @@ export const initialState = {
   // userName: '',
   // newFirstname: '',
   favorites: [],
+  detail: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
