@@ -71,13 +71,13 @@ export const setNewFirstnameInput = (newFirstname) => ({
     firstname: newFirstname,
   },
 });
-// export const SET_FIRSTNAME = 'SET_FIRSTNAME';
-// export const setFirstName = (newFirstName) => ({
-//   type: SET_FIRSTNAME,
-//   payload: {
-//     firstname: newFirstName,
-//   },
-// });
+export const SET_DETAILS = 'SET_DETAILS';
+export const setDetails = (detail) => ({
+  type: SET_DETAILS,
+  payload: {
+    detail: detail,
+  },
+});
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const addFavorite = (id) => ({
   type: ADD_FAVORITE,

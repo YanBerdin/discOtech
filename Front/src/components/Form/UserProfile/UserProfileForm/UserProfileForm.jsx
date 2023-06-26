@@ -7,7 +7,11 @@ import api from '../../../../api/api';
 
 // == Import : local
 import {
-  setEmail, setPassword, setLastName, setNewFirstnameInput, // setFirstName
+  setEmail,
+  setPassword,
+  setLastName,
+  setNewFirstnameInput,
+  setDetails,
 } from '../../../../actions/user';
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
@@ -17,8 +21,10 @@ function UserProfileForm() {
   const dispatch = useDispatch();
 
   const {
-    email, password, firstname, lastname, detail,
-  } = useSelector((state) => state.user);
+    email, password, firstname, lastname,
+  } = useSelector(
+    (state) => state.user,
+  );
   // const { avatar } = useSelector((state) => state.user);
   // Fonctionne
   const handleLastName = () => {
@@ -57,7 +63,8 @@ function UserProfileForm() {
       });
   };
   // Fonctionne
-  const handleEmail = () => { // Fonctionne
+  const handleEmail = () => {
+    // Fonctionne
     api
       .patch('/users/edit/email', {
         email: email,
@@ -92,24 +99,33 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
+  // useEffect(() => {
+  //   // Effectuez ici votre requête API pour récupérer le prénom de l'utilisateur
+  //   // par exemple, en utilisant fetch() ou une librairie comme axios
+  //   api
+  //     .get('/users/detail', {
+  //       detail: detail,
+  //     })
+  //     .then((res) => {
+  //       if (res.status === 200) {
+  //         dispatch(setDetails({
+  //           email, password, firstname, lastname,
+  //         }));
+  //         console.log(email, password, firstname, lastname);
+  //       } else {
+  //         alert('Erreur lors de la modification');
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Une erreur s'est produite lors de la connexion :", err);
+  //     });
+  // }, []);
   useEffect(() => {
-    // Effectuez ici votre requête API pour récupérer le prénom de l'utilisateur
-    // par exemple, en utilisant fetch() ou une librairie comme axios
-    api
-      .get('/users/edit/detail', {
-        detail: detail,
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res);
-        } else {
-          alert('Erreur lors de la modification');
-        }
-      })
-      .catch((err) => {
-        console.error("Une erreur s'est produite lors de la connexion :", err);
-      });
-  }, [detail]);
+    api.get('/users/detail').then((res) => {
+      console.log(res.data);
+      setDetails(res.data.lastname);
+    });
+  }, []);
 
   return (
     <section className="Login-Form" action="">
@@ -117,7 +133,7 @@ function UserProfileForm() {
         {/* Login Header : Title and Image */}
         <div className="Header-Container">
           <img className="Header-UserImg" src={User} alt="Logo de personnage" />
-          <p className="Header-Title">Modifier mon profil{ firstname }</p>
+          <p className="Header-Title">Modifier mon profil{lastname}</p>
         </div>
         {/* Login Input : Nom */}
         <form className="Field" onSubmit={handleLastName}>
@@ -141,7 +157,7 @@ function UserProfileForm() {
             className="Field-Input"
             name="firstname"
             type="text"
-            placeholder="Prénom"
+            placeholder={firstname}
             value={firstname || ''} // Warning:`value` prop on `input` should not be null.
             onChange={(event) => dispatch(setNewFirstnameInput(event.target.value))}
           />

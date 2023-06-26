@@ -12,20 +12,21 @@ import {
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_FAVORITES,
+  SET_DETAILS,
 } from '../actions/user';
 
 export const initialState = {
-  email: null,
-  password: null,
-  lastname: null,
-  firstname: null,
+  email: '',
+  password: '',
+  lastname: '',
+  firstname: '',
   avatar: '',
   logged: false,
   token: null,
   // userName: '',
   // newFirstname: '',
   favorites: [],
-  detail: [],
+  // detail: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -83,6 +84,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         firstname: action.payload.firstname,
+      };
+    case SET_DETAILS:
+      return {
+        ...state,
+        detail: action.payload.detail,
       };
     case ADD_FAVORITE:
       return {
