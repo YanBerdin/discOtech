@@ -4,7 +4,7 @@
 import './SearchBar.scss';
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function SearchBar() {
   // stock in state every options of select
@@ -12,6 +12,7 @@ function SearchBar() {
   const [selectValue, setSelectValue] = useState('albums');
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   // onClick event on select to update the selected value in state
   const handleClick = (e) => {
@@ -26,9 +27,16 @@ function SearchBar() {
       navigate(`/resultat-recherche/artists/${search}`);
     }
   };
+  
+  const isMobile = window.innerWidth <= 767; // Si en dessous ou egal a 767 px alors isMobile
 
-  return (
-    <div className="SearchBar">
+  const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');
+  // Si l'url est resultat recherche alors isSearchResultPage
+
+  if (isMobile && isSearchResultPage) {
+    return (
+      <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>
+        {/* si on est sur la bonne url et que nous sommes en mobile alors ajoute la classe */}
       <form
         className="SearchBar-Form"
         onSubmit={(event) => {

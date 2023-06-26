@@ -27,6 +27,7 @@ function SearchResult() {
 
     fetchResults();
   }, [search, type]);
+
   return (
     <div className="SearchResult">
       <h2>Résultats de recherche pour "{search}" : </h2>

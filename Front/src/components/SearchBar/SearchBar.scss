@@ -4,9 +4,10 @@
   width: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   &-Form {
+    display: none;
     margin: auto;
-    // position: absolute;
     height: 2.5rem;
     border: none;
     border-radius: 10px;
@@ -15,9 +16,9 @@
     display: flex;
     padding: 0;
     padding-left: 1rem;
-    font-family: "Syncopate", sans-serif;
-    // top: 340px;
+    font-family: 'Syncopate', sans-serif;
     left: 15%;
+
   }
 
   &-Button {
@@ -69,19 +70,20 @@
 }
 
 @media (max-width: 767px) {
-  /* Styles spécifiques aux appareils portables */
-  .SearchBar {
-    &-Form {
-      display: none;
-    }
+  /* Si on est sur la bonne URL et que nous sommes en mobile alors affiche la searchbar */
+  .SearchBar.Search-Result-Visible .SearchBar-Form {
+    display: flex;
   }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* Styles spécifiques aux tablettes */
   .SearchBar {
-    &-Form {
-      top: 30%;
+    top: 220px;
+
+    &-Button {
+      font-size: 10px;
+      padding: 10px;
+    }
+
+    &-Input {
+      font-size: 10px;
     }
   }
 }

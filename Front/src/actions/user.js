@@ -55,3 +55,26 @@ export const saveLoginSuccessful = (firstname, token) => ({
     token: token,
   },
 });
+
+// export const CHANGE_FIRSTNAME = 'CHANGE_FIRSTNAME';
+// export const changeFirstname = (firstname) => ({
+//   type: CHANGE_FIRSTNAME,
+//   payload: {
+//     firstname: newFirstnameInput,
+//   },
+// });
+//
+export const SET_NEW_FIRSTNAME_INPUT = 'SET_NEW_FIRSTNAME_INPUT';
+export const setNewFirstnameInput = (newFirstname) => ({
+  type: SET_NEW_FIRSTNAME_INPUT,
+  payload: {
+    firstname: newFirstname,
+  },
+});
+// export const SET_FIRSTNAME = 'SET_FIRSTNAME';
+// export const setFirstName = (newFirstName) => ({
+//   type: SET_FIRSTNAME,
+//   payload: {
+//     firstname: newFirstName,
+//   },
+// });
