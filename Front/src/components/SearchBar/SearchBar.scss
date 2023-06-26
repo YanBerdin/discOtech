@@ -1,11 +1,13 @@
 .SearchBar {
+  position: absolute;
+  top: calc(100% - 80px);
+  width: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   &-Form {
-    width: 70%;
+    display: none;
     margin: auto;
-    margin-top: -3.5rem;
-    position: relative;
-    bottom:40%;
     height: 2.5rem;
     border: none;
     border-radius: 10px;
@@ -15,12 +17,14 @@
     padding: 0;
     padding-left: 1rem;
     font-family: 'Syncopate', sans-serif;
+    left: 15%;
+
   }
 
   &-Button {
     color: black;
   }
-  
+
   &-Input {
     background-color: white;
     color: black;
@@ -35,29 +39,51 @@
     }
   }
 
-  &-Button {
-    padding: 0rem 2rem;
+  &-Select {
+    padding: 0.8rem 0rem;
     background-color: transparent;
     border-color: transparent;
     font-size: 12px;
+    margin: 0rem 1rem;
+  }
+
+  &-Options {
+    display: block;
+    height: 36px;
+    width: 100%;
+    padding: 0 16px;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    outline: none;
+    text-align: left;
+    text-overflow: ellipsis;
+    line-height: 36px;
+  }
+
+  &-Button {
+    padding: 0.3rem 1.2rem 2rem 0rem;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 24px;
+    color: rgb(156, 156, 156);
   }
 }
 
 @media (max-width: 767px) {
-    /* Styles spécifiques aux appareils portables */
-      .SearchBar {
-        &-Form {
-          display: none;
-        }
-      }
-
+  /* Si on est sur la bonne URL et que nous sommes en mobile alors affiche la searchbar */
+  .SearchBar.Search-Result-Visible .SearchBar-Form {
+    display: flex;
   }
+  .SearchBar {
+    top: 220px;
 
- @media screen and (min-width: 768px) and (max-width: 1024px) {
-    /* Styles spécifiques aux tablettes */
-    .SearchBar {
-     &-Form{
-       bottom: 35%;
-     }
-     }
-   }
+    &-Button {
+      font-size: 10px;
+      padding: 10px;
+    }
+
+    &-Input {
+      font-size: 10px;
+    }
+  }
+}

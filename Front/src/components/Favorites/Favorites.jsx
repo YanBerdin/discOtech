@@ -1,12 +1,28 @@
+import { useEffect, useState } from 'react';
 import AlbumCard from '../HomePage/AlbumCard/AlbumCard';
 // import favoritesAlbums from '../../data/data';
 import './Favorites.scss';
-import Header from '../Header/Header';
 
-function Favorites({ albums }) {
+import api from '../../api/api';
+
+function Favorites() {
+  const [albums, setAlbums] = useState([]);
+
+  const getAlbums = () => {
+    api
+      .get('/favorites')
+      .then((res) => {
+        setAlbums(res.data);
+      })
+      .catch((err) => {
+        console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
+        console.error(err);
+      });
+  };
+  useEffect(getAlbums);
+
   return (
     <>
-      <Header />
       <header className="Favorites-Title">
         <h2>Mes Favoris :</h2>
       </header>

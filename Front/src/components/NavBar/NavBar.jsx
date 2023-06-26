@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -17,8 +17,21 @@ import about from '../../assets/about-icon.svg';
 
 function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const logged = useSelector((state) => state.user.logged);
+
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleToggle = () => {
     setToggleOpen(!toggleOpen);
@@ -34,7 +47,7 @@ function NavBar() {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className={`navbar-white-text ${toggleOpen ? 'mobile-open' : ''}`}
+      className={`navbar-white-text ${scrollPosition > 250 ? 'bg' : ''} ${toggleOpen ? 'mobile-open' : ''}`}
     >
       <Container>
         <Navbar.Brand
