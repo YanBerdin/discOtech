@@ -4,6 +4,7 @@
   width: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: black;
 
   &-Form {
     display: none;
@@ -86,5 +87,11 @@
     &-Input {
       font-size: 10px;
     }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .SearchBar {
+    top: 180px;
   }
 }

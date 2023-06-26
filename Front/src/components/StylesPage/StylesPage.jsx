@@ -12,7 +12,7 @@ function StylesPage({ styles }) {
       <h2 className="StylesPage-Title">Parcourir les styles :</h2>
       <div className="StylesPage">
         {styles.map((style) => (
-          <Link to={`/styles/${style.id}`}>
+          <Link to={`/styles/${style.name}`}>
             <div className="StylesPage-Container" key={style.id}>
               <div
                 className="StylesPage-Cards"

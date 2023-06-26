@@ -31,6 +31,7 @@ import { saveLoginSuccessful } from '../../actions/user';
 
 // = Import : Style
 import './App.scss';
+import StylesResult from '../StylesPage/StylesResult/StylesResult';
 
 // = App Component
 function App() {
@@ -46,7 +47,7 @@ function App() {
     api
       .post('/albums/random', { search: search })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setSuggestions(res.data);
       })
       .catch((err) => {
@@ -114,6 +115,7 @@ function App() {
         <Route path="/albums/:id" element={<AlbumPage />} />
         <Route path="/profil" element={<UserProfile />} />
         <Route path="/resultat-recherche/:type/:search" element={<SearchResult />} />
+        <Route path="/styles/:name" element={<StylesResult />} />
         <Route path="/*" />
       </Routes>
       {/* Toast notification for connexion */}
