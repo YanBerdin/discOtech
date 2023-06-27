@@ -25,26 +25,11 @@ function UserProfile() {
               artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
               image={favorite.album?.image}
               id={favorite.album?.id}
-              imageClassName="ImageContainer"
             />
           ))}
         </div>
       </section>
       <section className="MediumContainer">
-        <div className="Favorites-Container">
-          {favorites.slice(0, 6).map((favorite) => (
-            <FavoriteCard
-              className="Favorites-Card"
-              albumname={favorite.album?.name}
-              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
-              image={favorite.album?.image}
-              id={favorite.album?.id}
-              imageClassName="ImageContainer"
-            />
-          ))}
-        </div>
-      </section>
-      <section className="PcContainer">
         <div className="Favorites-Container">
           {favorites.slice(0, 8).map((favorite) => (
             <FavoriteCard
@@ -53,7 +38,19 @@ function UserProfile() {
               artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
               image={favorite.album?.image}
               id={favorite.album?.id}
-              imageClassName="ImageContainer"
+            />
+          ))}
+        </div>
+      </section>
+      <section className="PcContainer">
+        <div className="Favorites-Container">
+          {favorites.slice(0, 10).map((favorite) => (
+            <FavoriteCard
+              className="Favorites-Card"
+              albumname={favorite.album?.name}
+              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+              image={favorite.album?.image}
+              id={favorite.album?.id}
             />
           ))}
         </div>
