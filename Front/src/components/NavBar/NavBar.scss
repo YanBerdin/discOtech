@@ -234,13 +234,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     top: 150% !important;;
   }
 
-  @media screen and (min-width: 1025px) {
+  @media screen and (min-width: 1024px) {
 
     .navbar-collapse {
         display: flex !important;
         justify-content: flex-start;
         align-items: center;
-        height: 100%;
+        width: 100%;
       }
     
       .navbar-nav {
@@ -251,7 +251,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
         color: #fff;
         font-size: 18px;
         opacity: 0.75;
-        margin-left: 2.5rem;
+        margin-left: 35px;
       }
   
       .nav-icon {
@@ -263,13 +263,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
       }
   
       .logo-img {
-          margin-left: -2.5rem;
+          left: 0;
       }
   
       .user-img {
-          margin-right: -1.5rem;
+          margin-right: 10px;
           order: 2;
       }
+
+      .container-md, .container-sm, .container {
+        margin: 0;
+    }
+
+    .navbar-nav .nav-link {
+      top: 34px;
+      position: relative;
+      left: 80px;
+  }
 
   }
   

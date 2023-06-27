@@ -29,14 +29,14 @@ function HomePage({
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 6,
           infinite: true,
         },
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           infinite: true,
         },
       },
