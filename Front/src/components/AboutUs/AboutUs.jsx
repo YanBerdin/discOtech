@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-// = Import : assets
+// == Import : local
 import Sahra from '../../assets/about_us/dino_sahra.png';
 import Eva from '../../assets/about_us/dino_eva.png';
 import Gaetan from '../../assets/about_us/dino_gaetan.png';
@@ -122,5 +122,5 @@ function AboutUs() {
   );
 }
 
-// = Export
+// == Export
 export default AboutUs;

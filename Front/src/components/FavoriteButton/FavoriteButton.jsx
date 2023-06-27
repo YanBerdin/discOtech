@@ -1,10 +1,17 @@
 /* eslint-disable max-len */
-import { useState, useEffect } from 'react';
-import './FavoriteButton.scss';
+
+// == Import : npm
 import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+
+// == Import local
 import api from '../../api/api';
 import { addFavorite, removeFavorite } from '../../actions/user';
 
+// == Import : style
+import './FavoriteButton.scss';
+
+// == Component
 function FavoriteButton({ id }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
@@ -67,4 +74,5 @@ function FavoriteButton({ id }) {
   );
 }
 
+// == Export
 export default FavoriteButton;

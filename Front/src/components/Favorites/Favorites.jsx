@@ -1,13 +1,17 @@
+// == Import : npm
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+// == Import : local
 import api from '../../api/api';
 import FavoriteCard from './FavoriteCard/FavoriteCard';
 import { setFavorites } from '../../actions/user';
 
+// == Import : style
 import './Favorites.scss';
 
+// == Component
 function Favorites() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.user.favorites);
@@ -51,4 +55,5 @@ function Favorites() {
   );
 }
 
+// == Export
 export default Favorites;

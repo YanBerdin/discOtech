@@ -1,8 +1,15 @@
 /* eslint-disable no-console */
+
+// == Import : npm
 import { Link } from 'react-router-dom';
-import './StylesPage.scss';
+
+// == Import : local
 import ReturnButton from '../ReturnButton/ReturnButton';
 
+// == Import : style
+import './StylesPage.scss';
+
+// == Styles Page Component
 function StylesPage({ styles }) {
   return (
     <>
@@ -11,6 +18,7 @@ function StylesPage({ styles }) {
       </div>
       <h2 className="StylesPage-Title">Parcourir les styles :</h2>
       <div className="StylesPage">
+        {/* Mapping loop to display all styles (clickable with Link of React Router) */}
         {styles.map((style) => (
           <Link to={`/styles/${style.name}`}>
             <div className="StylesPage-Container" key={style.id}>
@@ -28,4 +36,5 @@ function StylesPage({ styles }) {
   );
 }
 
+// == Export
 export default StylesPage;

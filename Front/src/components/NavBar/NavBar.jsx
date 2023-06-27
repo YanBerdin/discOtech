@@ -1,13 +1,18 @@
+// == Import : npm
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+// == Import : bootstrap
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+// == Import : style
 import './NavBar.scss';
+
+// == Import : local
 import logo from '../../assets/Logo-round.png';
 import user from '../../assets/nav/user-icon.svg';
 import home from '../../assets/nav/home-icon.svg';
@@ -15,6 +20,7 @@ import style from '../../assets/nav/style-icon.svg';
 import heart from '../../assets/nav/heart-icon.svg';
 import about from '../../assets/nav/about-icon.svg';
 
+// == Component
 function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);

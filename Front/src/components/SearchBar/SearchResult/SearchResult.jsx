@@ -1,16 +1,20 @@
+// == Import : npm
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
+// == Import : local
 import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
 import api from '../../../api/api';
 
+// == Import : style
 import './SearchResult.scss';
 
+// == Component
 function SearchResult() {
   const { search, type } = useParams();
   const [results, setResults] = useState([]);
 
-  console.log(`search:${search}, type:${type}`);
-
+  // fetch data and update DOM
   useEffect(() => {
     const fetchResults = () => {
       api
@@ -66,4 +70,5 @@ function SearchResult() {
   );
 }
 
+// == Export
 export default SearchResult;

@@ -10,13 +10,12 @@ const Search = () => {
   // en fonction du type on fait tel ou tel appel API.
 
   return (
-    <div>
+    <><div>
       <select>
         <option value="albums">Album</option>
         <option value="artist">Artiste</option>
       </select>
-    </div>
-    <input></input>
+    </div><input></input></>
 
     {
       // une fois la recherce faite, mettre des conditions sur chacun des state qui contient soit album soit artiste etc,

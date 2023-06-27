@@ -1,4 +1,4 @@
-// == Imports : local
+// == Imports : style
 import './AlbumCard.scss';
 
 // == Component :

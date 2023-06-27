@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
 
-// = Import : npm
+// == Import : npm
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-// = Import : axios by api
-import api from '../../api/api';
-
-// Import : JSX
+// == Import : local
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import ReturnButton from '../ReturnButton/ReturnButton';
+import api from '../../api/api';
 
 // = Import : style
 import './AlbumPage.scss';
@@ -97,4 +95,5 @@ function AlbumPage() {
   );
 }
 
+// == Export
 export default AlbumPage;

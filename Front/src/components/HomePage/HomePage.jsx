@@ -1,18 +1,24 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
+
+// == Import : npm
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
+// == Import : local
 import StylesCarousel from './StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
+
+// == Import : syle
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.scss';
 
+// == Compoentn
 function HomePage({
   suggestions, styles, latest, ourfavorites,
 }) {
+// responsive style settings for carousel
   const settings = {
     infinite: true,
     speed: 300,

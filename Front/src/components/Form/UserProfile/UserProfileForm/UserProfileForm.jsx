@@ -9,7 +9,9 @@ import api from '../../../../api/api';
 import {
   setEmail, setPassword, setLastName, setFirstName,
 } from '../../../../actions/user';
-import User from '../../../../assets/form-icon.png';
+import User from '../../../../assets/form/form-icon.png';
+
+// == Import : style
 import './UserProfileForm.scss';
 
 // == Component
@@ -22,7 +24,6 @@ function UserProfileForm() {
   const { lastname } = useSelector((state) => state.user);
   // const { avatar } = useSelector((state) => state.user);
 
-  // Fonctionne
   const handleLastName = () => {
     api
       .patch('/users/edit/lastname', {
@@ -58,7 +59,6 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // Fonctionne
   const handleEmail = () => { // Fonctionne
     api
       .patch('/users/edit/email', {
@@ -76,7 +76,7 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // Fonctionne
+
   const handlePassword = () => {
     api
       .patch('/users/edit/password', {
@@ -94,27 +94,7 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // const handleSetUserDetails = () => {
-  //   api
-  //     .get('/users/edit/detail', {
-  //               email: email,
-  //               password: password,
-  //               firstname: firstname,
-  //               lastname: lastname,
 
-  //     })
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         console.log(firstname, lastname, email);
-  //       } else {
-  //         alert('Erreur lors de la modification');
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(`firstname:${firstname}`);
-  //       console.error("Une erreur s'est produite lors de la connexion :", err);
-  //     });
-  // };
   return (
     <section className="Login-Form" action="">
       <div className="Login-Card">
@@ -190,4 +170,5 @@ function UserProfileForm() {
   );
 }
 
+// == Export
 export default UserProfileForm;

@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import api from '../../api/api';
 
-// = Import : JSX
+// = Import : local
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 import NavBar from '../NavBar/NavBar';
@@ -25,14 +25,12 @@ import Header from '../Header/Header';
 import SearchResult from '../SearchBar/SearchResult/SearchResult';
 import BottomNavigation from '../BottomNavigation/BottomNavigation';
 import StylesResult from '../StylesPage/StylesResult/StylesResult';
-
-// = Import : Redux Actions
 import { saveLoginSuccessful } from '../../actions/user';
 
-// = Import : Style
+// == Import : style
 import './App.scss';
 
-// = App Component
+// == App Component
 function App() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
@@ -147,5 +145,5 @@ function App() {
     </div>
   );
 }
-// = Export
+// == Export
 export default App;

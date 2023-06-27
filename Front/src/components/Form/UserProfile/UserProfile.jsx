@@ -1,5 +1,9 @@
 /* eslint-disable no-console */
+
+// == Import : npm
 import { Link } from 'react-router-dom';
+
+// == Import : local
 import favoritesAlbumsData from '../../../data/data';
 import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
 import UserProfileForm from './UserProfileForm/UserProfileForm';
@@ -27,4 +31,5 @@ function UserProfile() {
   );
 }
 
+// == Export
 export default UserProfile;
