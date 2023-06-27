@@ -1,6 +1,3 @@
-// = Import : npm
-import { useLocation } from 'react-router-dom';
-
 // = Import : local
 import SearchBar from '../SearchBar/SearchBar';
 import videoBg from '../../assets/background/retro.mp4';

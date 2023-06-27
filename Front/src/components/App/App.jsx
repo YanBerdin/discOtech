@@ -24,7 +24,6 @@ import StylesPage from '../StylesPage/StylesPage';
 // import Header from '../Header/Header';
 import SearchResult from '../SearchBar/SearchResult/SearchResult';
 import BottomNavigation from '../BottomNavigation/BottomNavigation';
-import StylesResult from '../StylesPage/StylesResult/StylesResult';
 import { saveLoginSuccessful } from '../../actions/user';
 
 // == Import : style
