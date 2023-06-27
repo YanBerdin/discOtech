@@ -214,12 +214,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     }
 
     .logo-img {
-        margin-left: -2.5rem;
+        margin-left: -50px;
     }
 
     .user-img {
-        margin-right: -1.5rem;
+        margin-right: 10px;
     }
+
+    .container-md, .container-sm, .container {
+      max-width: 720px;
+      padding-left: 60px;
+  }
 
   }
   
