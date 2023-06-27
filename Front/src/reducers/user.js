@@ -46,12 +46,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         firstname: action.payload.firstname,
       };
-    // Champ controllé avec useSelector => Maintenant avec useState
-    // case UPDATE_FIRSTNAME:
-    //   return {
-    //     ...state,
-    //     firstname: action.payload.firstname,
-    //   };
     case SET_AVATAR:
       return {
         ...state,
@@ -82,7 +76,9 @@ const reducer = (state = initialState, action = {}) => {
     case REMOVE_FAVORITE:
       return {
         ...state,
-        favorites: state.favorites.filter((favorite) => favorite.album.id !== action.payload),
+        favorites: state.favorites.filter(
+          (favorite) => favorite.album.id !== action.payload,
+        ),
       };
     case SET_FAVORITES:
       return {
@@ -92,14 +88,20 @@ const reducer = (state = initialState, action = {}) => {
     default:
       return state;
   }
-// case UPDATE_LASTNAME:
-//   return {
-//     ...state,
-//     lastname: action.payload.value,
-//   };
-// default:
-//   return state;
-// }
+  // Champ controllé avec useSelector => Maintenant avec useState
+  // case UPDATE_FIRSTNAME:
+  //   return {
+  //     ...state,
+  //     firstname: action.payload.firstname,
+  //   };
+  // case UPDATE_LASTNAME:
+  //   return {
+  //     ...state,
+  //     lastname: action.payload.value,
+  //   };
+  // default:
+  //   return state;
+  // }
 };
 
 export default reducer;

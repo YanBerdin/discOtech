@@ -1,30 +1,29 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 // == Import : npm
 import api from '../../../../api/api';
 
 // == Import : local
-import {
-  setEmail,
-  setPassword,
-} from '../../../../actions/user';
+// import {
+// setEmail,
+// setPassword,
+// } from '../../../../actions/user';
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
 
 // == Component
 function UserProfileForm() {
-  const dispatch = useDispatch();
-  const {
-    email, password,
-  } = useSelector(
-    (state) => state.user,
-  );
+  // const dispatch = useDispatch();
+  // const { password } = useSelector(
+  //   (state) => state.user,
+  // );
   // const { avatar } = useSelector((state) => state.user);
   const [currentFirstname, setCurrentFirstname] = useState(null);
   const [currentLastname, setCurrentLastname] = useState(null);
-  // const [currentEmail, setCurrentEmail] = useState(null);
+  const [currentEmail, setCurrentEmail] = useState(null);
+  const [currentPassword, setCurrentPassword] = useState(null);
 
   // Fonctionne
   const handleLastName = (evt) => {
@@ -67,38 +66,42 @@ function UserProfileForm() {
       });
   };
   // OK
-  const handleEmail = () => {
+  const handleEmail = (evt) => {
+    evt.preventDefault();
     api
       .patch('/users/edit/email', {
-        email: email,
+        // email: email,
+        email: currentEmail,
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(email);
+          // console.log(email);
+          console.log(currentEmail);
         } else {
           alert('Erreur lors de la modification');
         }
       })
       .catch((err) => {
-        console.log(`email:${email}`);
+        console.log(`email:${currentEmail}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
   // Fonctionne
-  const handlePassword = () => {
+  const handlePassword = (evt) => {
+    evt.preventDefault();
     api
       .patch('/users/edit/password', {
-        password: password,
+        password: currentPassword,
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(password);
+          console.log(currentPassword);
         } else {
           alert('Erreur lors de la modification');
         }
       })
       .catch((err) => {
-        console.log(`password:${password}`);
+        console.log(`password:${currentPassword}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
@@ -110,6 +113,7 @@ function UserProfileForm() {
         console.log(currentFirstname);
         setCurrentLastname(res.data.lastname);
         console.log(currentLastname);
+        setCurrentEmail(res.data.email);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -160,9 +164,12 @@ function UserProfileForm() {
             className="Field-Input"
             name="email"
             type="email"
-            placeholder="Adresse e-mail"
-            value={email || ''} // Warning:`value` prop on `input` should not be null.
-            onChange={(event) => dispatch(setEmail(event.target.value))}
+            // placeholder="Adresse e-mail"
+            placeholder={currentEmail || ''}
+            // value={email || ''} // Warning:`value` prop on `input` should not be null.
+            value={currentEmail}
+            // onChange={(event) => dispatch(setEmail(event.target.value))}
+            onChange={(event) => setCurrentEmail(event.target.value)}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
@@ -175,10 +182,14 @@ function UserProfileForm() {
             required
             className="Field-Input"
             name="password"
-            type="text"
-            placeholder="Mot de passe"
-            value={password || ''} // Warning:`value` prop on `input` should not be null.
-            onChange={(event) => dispatch(setPassword(event.target.value))}
+            type="password"
+            // placeholder="Mot de passe"
+            placeholder="Password"
+            // value={password || ''} // Warning:`value` prop on `input` should not be null.
+            value={currentPassword || ''}
+            // onChange={(event) => dispatch(setPassword(event.target.value))}
+            onChange={(event) => setCurrentPassword(event.target.value)}
+            autoComplete="off"
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
