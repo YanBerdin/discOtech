@@ -104,7 +104,8 @@ function App() {
     }
   }, [logged]);
 
-  if (suggestions.length === 0) {
+  // eslint-disable-next-line max-len
+  if (suggestions.length === 0 || ourfavorites.length === 0 || styles.length === 0 || latest.length === 0) {
     return <Loading />;
   }
   return (
