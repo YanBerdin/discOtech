@@ -38,7 +38,7 @@ function AboutUs() {
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <img className="Dino" src={sharaDino} alt="illustration_dinosaure" />
-              <h5 className="title">Sahra Marchand</h5>
+              <h5 className="title">Sahra<br /> Marchand</h5>
               <h6>Lead Dev Front-End </h6>
             </div>
             <div className="flip-card-back">
@@ -60,7 +60,7 @@ function AboutUs() {
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <img className="Dino" src={GaetanDino} alt="illustration_dinosaure" />
-              <h5 className="title">Gaetan Leborgne</h5>
+              <h5 className="title">Gaetan<br /> Leborgne</h5>
               <h6>Lead Dev Back-end</h6>
             </div>
             <div className="flip-card-back">
@@ -83,7 +83,7 @@ function AboutUs() {
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <img className="Dino" src={RomainDino} alt="illustration_dinosaure" />
-              <h5 className="title">Romain Gradelet</h5>
+              <h5 className="title">Romain<br /> Gradelet</h5>
               <h6>Git Master</h6>
             </div>
             <div className="flip-card-back">
