@@ -125,20 +125,20 @@ function App() {
             )}
           />
           <Route path="styles" element={<StylesPage styles={styles} />} />
-          <Route path="favoris" element={<Favorites />} />
-          <Route path="mentions-legales" element={<LegalNotices />} />
-          <Route path="equipe-dev" element={<AboutUs />} />
-          <Route path="conditions-generales-utilisation" element={<TermsofService />} />
           <Route path="le-projet" />
-          <Route path="albums/:id" element={<AlbumPage />} />
           <Route path="resultat-recherche/:type/:search" element={<SearchResult />} />
           <Route path="styles/:name" element={<StylesResult />} />
         </Route>
 
         <Route path="/" element={<LayoutWithoutHeader />}>
+          <Route path="conditions-generales-utilisation" element={<TermsofService />} />
+          <Route path="mentions-legales" element={<LegalNotices />} />
           <Route path="connexion" element={<Login />} />
+          <Route path="albums/:id" element={<AlbumPage />} />
           <Route path="inscription" element={<SignUp />} />
           <Route path="profil" element={<UserProfile />} />
+          <Route path="favoris" element={<Favorites />} />
+          <Route path="equipe-dev" element={<AboutUs />} />
           <Route path="*" element={<Page404 />} />
         </Route>
 
