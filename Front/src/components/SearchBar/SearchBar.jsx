@@ -47,7 +47,7 @@ function SearchBar() {
 
   if ((isMobile && isSearchResultPage) || !isMobile) {
     return (
-      <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>
+      <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''} ${isSearchResultPage && !isMobile ? 'FormatPC' : ''}`}>
         {/* si on est sur la bonne url et que nous sommes en mobile alors ajoute la classe */}
         <h2 className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>Recherche</h2>
         <form
