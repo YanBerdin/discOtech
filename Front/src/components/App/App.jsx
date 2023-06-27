@@ -32,6 +32,7 @@ import StylesResult from '../StylesPage/StylesResult/StylesResult';
 import Page404 from '../Page404/Page404';
 import LayoutWithHeader from '../../layout/LayoutWithHeader';
 import LayoutWithoutHeader from '../../layout/LayoutWithoutHeader';
+import Loading from '../Loading/Loading';
 
 // == App Component
 function App() {
@@ -102,6 +103,11 @@ function App() {
       setShowToast(true);
     }
   }, [logged]);
+
+  // eslint-disable-next-line max-len
+  if (suggestions.length === 0 || ourfavorites.length === 0 || styles.length === 0 || latest.length === 0) {
+    return <Loading />;
+  }
   return (
     <div className="App">
       {/* Components available on every page */}

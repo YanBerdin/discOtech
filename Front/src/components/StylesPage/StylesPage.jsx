@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom';
 
 // == Import : local
 import ReturnButton from '../ReturnButton/ReturnButton';
+import Loading from '../Loading/Loading';
 
 // == Import : style
 import './StylesPage.scss';
 
 // == Styles Page Component
 function StylesPage({ styles }) {
+  if (styles.length === 0) {
+    return <Loading />;
+  }
   return (
     <>
       <div className="StylesPage-Return">
