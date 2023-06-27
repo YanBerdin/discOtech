@@ -1,3 +1,4 @@
+// = File manager for api requests and token
 import axios from 'axios';
 
 const api = axios.create({

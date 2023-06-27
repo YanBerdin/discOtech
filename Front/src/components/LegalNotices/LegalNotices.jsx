@@ -1,7 +1,10 @@
-import './LegalNotices.scss';
-
+// == Import npm :
 import Accordion from 'react-bootstrap/Accordion';
 
+// == Import : style
+import './LegalNotices.scss';
+
+// == Component
 function LegalNotices() {
   return (
     <Accordion className="Accordion-Container" defaultActiveKey="0">
@@ -77,4 +80,5 @@ function LegalNotices() {
   );
 }
 
+// == Export
 export default LegalNotices;

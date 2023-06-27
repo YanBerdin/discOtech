@@ -1,14 +1,17 @@
 // == Import : npm
-/* eslint-disable */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../../api/api';
 
 // == Import : local
-import { setEmail, setPassword, setClearInput, saveLoginSuccessful } from '../../../actions/user';
-import User from '../../../assets/WelcomeUser.png';
-import './Login.scss'
+import User from '../../../assets/form/form-icon.png';
+import {
+  setEmail, setPassword, setClearInput, saveLoginSuccessful,
+} from '../../../actions/user';
+
+// == Import : style
+import './Login.scss';
 
 // == Component
 function Login() {
@@ -22,7 +25,7 @@ function Login() {
     if (logged) {
       navigate('/');
     }
-  }, [logged]);
+  }, [logged, navigate]);
 
   const handleLogin = () => {
     api
@@ -32,20 +35,20 @@ function Login() {
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(email, password)
+          console.log(email, password);
 
-          if(res.data.token) {
+          if (res.data.token) {
             localStorage.setItem('token', res.data.token);
           }
 
-          dispatch(setClearInput(""));
+          dispatch(setClearInput(''));
           dispatch(saveLoginSuccessful());
         } else {
           alert('Identifiants incorrects. Veuillez réessayer.');
         }
       })
       .catch((err) => {
-        console.log(email, password)
+        console.log(email, password);
         console.error("Une erreur s'est produite lors de la connexion :", err);
         alert("Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.");
       });
@@ -97,4 +100,5 @@ function Login() {
   );
 }
 
+// == Export
 export default Login;

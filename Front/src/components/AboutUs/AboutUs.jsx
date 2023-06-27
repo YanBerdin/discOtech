@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 
-// = Import : assets
-import sharaDino from '../../assets/sahra_dino.png';
-import EvaDino from '../../assets/eva3_dino.png';
-import GaetanDino from '../../assets/gaetan_dino.png';
-import RomainDino from '../../assets/romain_dino.png';
-import YanDino from '../../assets/yan_dino.png';
+// == Import : local
+import Sahra from '../../assets/about_us/dino_sahra.png';
+import Eva from '../../assets/about_us/dino_eva.png';
+import Gaetan from '../../assets/about_us/dino_gaetan.png';
+import Romain from '../../assets/about_us/dino_romain.png';
+import Yan from '../../assets/about_us/dino_yan.png';
 
 // = Import : style
 import './AboutUs.scss';
@@ -19,7 +19,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <img className="Dino" src={EvaDino} alt="illustration_dinosaure" />
+              <img className="Dino" src={Eva} alt="illustration_dinosaure" />
               <h5 className="title">Eva <br /> Redon</h5>
               <h6>Scrum Master</h6>
             </div>
@@ -42,7 +42,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <img className="Dino" src={sharaDino} alt="illustration_dinosaure" />
+              <img className="Dino" src={Sahra} alt="illustration_dinosaure" />
               <h5 className="title">Sahra Marchand</h5>
               <h6>Lead Dev Front-End </h6>
             </div>
@@ -64,7 +64,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <img className="Dino" src={GaetanDino} alt="illustration_dinosaure" />
+              <img className="Dino" src={Gaetan} alt="illustration_dinosaure" />
               <h5 className="title">Gaetan Leborgne</h5>
               <h6>Lead Dev Back-end</h6>
             </div>
@@ -87,7 +87,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <img className="Dino" src={RomainDino} alt="illustration_dinosaure" />
+              <img className="Dino" src={Romain} alt="illustration_dinosaure" />
               <h5 className="title">Romain Gradelet</h5>
               <h6>Git Master</h6>
             </div>
@@ -103,7 +103,7 @@ function AboutUs() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <img className="Dino" src={YanDino} alt="illustration_dinosaure" />
+              <img className="Dino" src={Yan} alt="illustration_dinosaure" />
               <h5 className="title">Yan<br /> Berdin</h5>
               <h6>Product Owner</h6>
             </div>
@@ -122,5 +122,5 @@ function AboutUs() {
   );
 }
 
-// = Export
+// == Export
 export default AboutUs;

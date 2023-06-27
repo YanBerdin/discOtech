@@ -1,11 +1,11 @@
-// = Import : Dependencies
+// = Import : npm
 import { Link } from 'react-router-dom';
 
-// = Import : JSX
-import user from '../../assets/user-icon.svg';
-import home from '../../assets/home-icon.svg';
-import search from '../../assets/search.svg';
-import heart from '../../assets/heart-icon.svg';
+// = Import : local
+import user from '../../assets/nav/user-icon.svg';
+import home from '../../assets/nav/home-icon.svg';
+import search from '../../assets/nav/search.svg';
+import heart from '../../assets/nav/heart-icon.svg';
 
 // = Import : Style
 import './BottomNavigation.scss';

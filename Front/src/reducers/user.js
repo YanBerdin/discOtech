@@ -6,24 +6,19 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
-  SET_NEW_FIRSTNAME_INPUT,
-  // Change UserProfile
-  // CHANGE_LASTNAME,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_FAVORITES,
 } from '../actions/user';
 
 export const initialState = {
-  email: null,
-  password: null,
-  lastname: null,
-  firstname: null,
+  email: '',
+  password: '',
+  lastname: '',
+  firstname: '',
   avatar: '',
   logged: false,
   token: null,
-  // userName: '',
-  // newFirstname: '',
   favorites: [],
 };
 
@@ -71,18 +66,6 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
-      // case CHANGE_FIRSTNAME:
-      //   return {
-      //     ...state,
-      //     firstname: state.newFirstname,
-      //     newFirstname: '',
-      //   };
-
-    case SET_NEW_FIRSTNAME_INPUT:
-      return {
-        ...state,
-        firstname: action.payload.firstname,
-      };
     case ADD_FAVORITE:
       return {
         ...state,
@@ -101,14 +84,6 @@ const reducer = (state = initialState, action = {}) => {
     default:
       return state;
   }
-// case SET_NEW_LASTNAME_INPUT:
-//   return {
-//     ...state,
-//     newLastname: action.payload.value,
-//   };
-// default:
-//   return state;
-// }
 };
 
 export default reducer;

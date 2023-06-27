@@ -1,17 +1,20 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
 // == Import : npm
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import api from '../../../api/api';
 
 // == Import : local
+import inputFile from '../../../assets/form/input-file.svg';
+import User from '../../../assets/form/form-icon.png';
+import api from '../../../api/api';
 import {
   setEmail, setPassword, setFirstName, setLastName, setAvatar,
 } from '../../../actions/user';
-import inputFile from '../../../assets/input-file.svg';
-import User from '../../../assets/WelcomeUser.png';
+
+// == Import : style
 import './SignUp.scss';
 
 // == Composant
@@ -122,4 +125,6 @@ function SignUp() {
     </form>
   );
 }
+
+// == Export
 export default SignUp;

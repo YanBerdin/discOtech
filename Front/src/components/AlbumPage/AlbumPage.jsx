@@ -1,25 +1,27 @@
 /* eslint-disable no-console */
-// = Import : npm
-import axios from 'axios';
+
+// == Import : npm
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-// Import : JSX
+// == Import : local
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import ReturnButton from '../ReturnButton/ReturnButton';
+import api from '../../api/api';
 
+// = Import : style
 import './AlbumPage.scss';
 
+// = AlbumPage Component
 function AlbumPage() {
   const { id } = useParams();
   const [album, setAlbum] = useState();
 
   useEffect(() => {
-    axios
-      .get(`http://romain-gradelet-server.eddi.cloud/projet-disc-otech-back/Back/public/api/albums/${id}`)
+    api
+      .get(`/albums/${id}`)
       .then((res) => {
         setAlbum(res.data);
-        console.log(id);
       })
       .catch((err) => {
         console.err(err);
@@ -54,7 +56,13 @@ function AlbumPage() {
               <div className="AlbumPage-Title">
                 <h1 className="AlbumPage-Name">{album.name}</h1>
                 <h3 className="AlbumPage-ArtistName">{album.artist.fullname}</h3>
-                <p className="AlbumPage-Style">{album.style[0].name}</p>
+                <ul className="AlbumPage-Styles">
+                  {album.style.map((style) => (
+                    <li key={style.id} className="AlbumPage-Style">
+                      {style.name}
+                    </li>
+                  ))}
+                </ul>
                 <ul className="AlbumPage-Supports">
                   {album.support.map((support) => (
                     <li key={support.id} className="AlbumPage-Support">
@@ -64,14 +72,21 @@ function AlbumPage() {
                 </ul>
               </div>
 
+              <li className="AlbumPage-PlaylistHead">
+                <p className="AlbumPage-TrackNbHead">#</p>
+                <h3 className="AlbumPage-SongTitleHead">Titres</h3>
+                <h4 className="AlbumPage-SongArtistHead">Artiste</h4>
+                <p className="AlbumPage-DurationHead">&#x1F552; </p>
+              </li>
               {album.songs.map((song) => (
                 <li key={song.id} className="AlbumPage-Playlist">
                   <p className="AlbumPage-TrackNb">{song.trackNb}.</p>
-                  <h1 className="AlbumPage-SongTitle">{song.title}</h1>
-                  <h3 className="AlbumPage-SongArtist">{album.artist.fullname}</h3>
+                  <h3 className="AlbumPage-SongTitle">{song.title}</h3>
+                  <h4 className="AlbumPage-SongArtist">{album.artist.fullname}</h4>
                   <p className="AlbumPage-Duration">{convertToMinutes(song.duration)}</p>
                 </li>
               ))}
+              <p className="AlbumPage-Edition">&#xA9;&#x2117; {album.edition}</p>
             </ul>
           </div>
         )}
@@ -80,4 +95,5 @@ function AlbumPage() {
   );
 }
 
+// == Export
 export default AlbumPage;

@@ -1,6 +1,10 @@
-import './ReturnButton.scss';
+// == Import : local
 import returnBtn from '../../assets/returnBtn.svg';
 
+// == Import : style
+import './ReturnButton.scss';
+
+// when clicked, button go to the previous page
 const ReturnButton = () => {
   const handleGoBack = () => {
     window.history.back();
@@ -13,4 +17,5 @@ const ReturnButton = () => {
   );
 };
 
+// == Export
 export default ReturnButton;

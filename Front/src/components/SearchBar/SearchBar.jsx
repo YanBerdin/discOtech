@@ -1,16 +1,22 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
-import './SearchBar.scss';
 
+// == Import : npm
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+// == Import : style
+import './SearchBar.scss';
+
+// == Component
 function SearchBar() {
-  // stock in state every options of select
+  // define editable state of every options of select
   const [search, setSearch] = useState('');
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
   const [selectValue, setSelectValue] = useState('albums');
+
+  // define editable state of mobile, to display or not some parts of the app
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,8 +42,8 @@ function SearchBar() {
   window.addEventListener('resize', onWindowResize);
   window.addEventListener('load', onWindowResize);
 
+  // if url = resultat-recherche, then isSearchResultPage
   const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');
-  // Si l'url est resultat recherche alors isSearchResultPage
 
   if ((isMobile && isSearchResultPage) || !isMobile) {
     return (
@@ -83,4 +89,5 @@ function SearchBar() {
   }
 }
 
+// == Export
 export default SearchBar;

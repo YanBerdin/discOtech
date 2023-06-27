@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 
@@ -9,7 +8,7 @@ import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import api from '../../api/api';
 
-// = Import : JSX
+// = Import : local
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
 // import NavBar from '../NavBar/NavBar';
@@ -25,18 +24,17 @@ import StylesPage from '../StylesPage/StylesPage';
 // import Header from '../Header/Header';
 import SearchResult from '../SearchBar/SearchResult/SearchResult';
 import BottomNavigation from '../BottomNavigation/BottomNavigation';
-
-// = Import : Redux Actions
+import StylesResult from '../StylesPage/StylesResult/StylesResult';
 import { saveLoginSuccessful } from '../../actions/user';
 
-// = Import : Style
+// == Import : style
 import './App.scss';
 import StylesResult from '../StylesPage/StylesResult/StylesResult';
 import Page404 from '../Page404/Page404';
 import LayoutWithHeader from '../../layout/LayoutWithHeader';
 import LayoutWithoutHeader from '../../layout/LayoutWithoutHeader';
 
-// = App Component
+// == App Component
 function App() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
@@ -46,7 +44,6 @@ function App() {
   const [latest, setLatest] = useState([]);
   const [search, setSearch] = useState('');
   const [styles, setStyles] = useState([]);
-
   // for HomePage, get suggestions albums from api
   useEffect(() => {
     api.get('/albums/random')
@@ -59,7 +56,6 @@ function App() {
         console.err(err);
       });
   }, []);
-
   useEffect(() => {
     api.get('/albums/ourfavorites')
       .then((res) => {
@@ -71,7 +67,6 @@ function App() {
         console.err(err);
       });
   }, []);
-
   useEffect(() => {
     api.get('/albums/latest')
       .then((res) => {
@@ -83,7 +78,6 @@ function App() {
         console.err(err);
       });
   }, []);
-
   // for HomePage, get styles from api
   useEffect(() => {
     api.get('/styles')
@@ -96,22 +90,19 @@ function App() {
         console.err(err);
       });
   }, []);
-
   // save token in localstorage
   useEffect(() => {
     const token = localStorage.getItem('token');
-
     if (token) {
       dispatch(saveLoginSuccessful());
     }
-  }, []);
+  }, [dispatch]);
   // if user logged, show the toast (notification)
   useEffect(() => {
     if (logged) {
       setShowToast(true);
     }
   }, [logged]);
-
   return (
     <div className="App">
       {/* Components available on every page */}
@@ -165,6 +156,5 @@ function App() {
     </div>
   );
 }
-
-// = Export
+// == Export
 export default App;
