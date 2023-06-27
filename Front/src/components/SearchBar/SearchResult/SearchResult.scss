@@ -24,8 +24,17 @@
     }
 
     @media (max-width: 767px) {
-      padding-top:70px;
+      padding-top: 70px;
       font-size: 0.6rem;
     }
+
+    @media (min-width: 767px) and (max-width: 1024px) {
+       .SearchResult-CardWrapper .AlbumCard {
+      margin-left: 33px;
+      margin-bottom: 15px;
+    }
+
+    }
+
 
 }
