@@ -47,7 +47,7 @@ function Favorites() {
         <h2>Mes Favoris &#x2661;</h2>
       </header>
       <div className="Favorites-Box">
-        <div className="HomePage-Container">
+        <div className="Favorites-Container">
           {favorites.map((favorite) => (
             <Link to={`/albums/${favorite.album?.id}`} key={favorite.id}>
               <FavoriteCard

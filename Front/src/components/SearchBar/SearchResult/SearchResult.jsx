@@ -47,13 +47,15 @@ function SearchResult() {
       <div className="SearchResult-Box">
         {type === 'albums' && results.map((result) => (
           <Link to={`/${type}/${result.id}`} key={result.id}>
-            <AlbumCard
-              className="SearchResult-Card"
-              albumname={result.name}
-              artistfullname={result.artist?.fullname ?? 'Artiste inconnu'}
-              image={result.image}
-              id={result.id}
-            />
+            <div className="SearchResult-CardWrapper">
+              <AlbumCard
+                className="AlbumCard"
+                albumname={result.name}
+                artistfullname={result.artist?.fullname ?? 'Artiste inconnu'}
+                image={result.image}
+                id={result.id}
+              />
+            </div>
           </Link>
         ))}
 

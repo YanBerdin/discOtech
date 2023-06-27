@@ -27,30 +27,87 @@ function HomePage({
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          infinite: true,
-        },
-      },
-      {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 912,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 820,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 540,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 280,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          initialSlide: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1228,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 2000,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 3000,
+        settings: {
+          slidesToShow: 8,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -59,6 +116,7 @@ function HomePage({
   return (
     <>
       <StylesCarousel styles={styles} />
+
       <h2 className="HomePage-Title">Dernières sorties :</h2>
       <div className="Carousel">
         <Slider {...settings}>

@@ -73,6 +73,11 @@
     display: none;
   }
 }
+.FormatPC {
+  position: relative;
+  top: 20px;
+  padding-bottom: 30px;
+}
 
 @media (max-width: 767px) {
   /* Si on est sur la bonne URL et que nous sommes en mobile alors affiche la searchbar */
@@ -113,5 +118,18 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .SearchBar {
     top: 180px;
+  }
+  .FormatPC {
+    position: relative;
+    top: 20px;
+    padding-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .FormatPC {
+    position: relative;
+    top: 30px;
+    padding-bottom: 30px;
   }
 }
