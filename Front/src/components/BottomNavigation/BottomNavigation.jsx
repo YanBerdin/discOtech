@@ -17,7 +17,7 @@ function BottomNavigation() {
       <Link to="/" className="BottomNavigation-Link">
         <img src={home} alt="Icone de l'accueil" className="BottomNavigation-Icone" />
       </Link>
-      <Link to="/resultat-recherche" className="BottomNavigation-Link">
+      <Link to="resultat-recherche" className="BottomNavigation-Link">
         <img src={search} alt="Icone de la page recherche" className="BottomNavigation-Icone" />
       </Link>
       <Link to="/favoris" className="BottomNavigation-Link">
