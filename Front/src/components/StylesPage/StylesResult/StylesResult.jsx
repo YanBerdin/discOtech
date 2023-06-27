@@ -43,13 +43,16 @@ function StylesResult() {
               {/* Map Loop on the founded albums to display them, make them clickable  */}
               {filteredAlbums.map((album) => (
                 <Link to={`/albums/${album.id}`} key={album.id}>
-                  <AlbumCard
-                    className="SearchResult-Card"
-                    artistfullname={album.artist.fullname}
-                    albumname={album.name}
-                    image={album.image}
-                    id={album.id}
-                  />
+                  <div className="SearchResult-CardWrapper">
+                    <AlbumCard
+                      className="AlbumCard"
+                      artistfullname={album.artist.fullname}
+                      albumname={album.name}
+                      image={album.image}
+                      id={album.id}
+                    />
+                  </div>
+
                 </Link>
               ))}
             </div>
