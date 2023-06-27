@@ -11,7 +11,7 @@ import api from '../../api/api';
 // = Import : local
 import Login from '../Form/Login/Login';
 import SignUp from '../Form/SignUp/SignUp';
-import NavBar from '../NavBar/NavBar';
+// import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LegalNotices from '../LegalNotices/LegalNotices';
 import TermsofService from '../TermsofService/TermsofService';
@@ -21,7 +21,7 @@ import AboutUs from '../AboutUs/AboutUs';
 import UserProfile from '../Form/UserProfile/UserProfile';
 import HomePage from '../HomePage/HomePage';
 import StylesPage from '../StylesPage/StylesPage';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import SearchResult from '../SearchBar/SearchResult/SearchResult';
 import BottomNavigation from '../BottomNavigation/BottomNavigation';
 import StylesResult from '../StylesPage/StylesResult/StylesResult';
@@ -29,6 +29,10 @@ import { saveLoginSuccessful } from '../../actions/user';
 
 // == Import : style
 import './App.scss';
+import StylesResult from '../StylesPage/StylesResult/StylesResult';
+import Page404 from '../Page404/Page404';
+import LayoutWithHeader from '../../layout/LayoutWithHeader';
+import LayoutWithoutHeader from '../../layout/LayoutWithoutHeader';
 
 // == App Component
 function App() {
@@ -102,36 +106,43 @@ function App() {
   return (
     <div className="App">
       {/* Components available on every page */}
-      <NavBar />
-      <Header />
+      {/* <NavBar />
+      <Header /> */}
       {/* URL routes for each component */}
       <Routes>
-        <Route
-          path="/"
-          element={(
-            <HomePage
-              suggestions={suggestions}
-              latest={latest}
-              styles={styles}
-              ourfavorites={ourfavorites}
-              setSearch={setSearch}
-              search={search}
-            />
-)}
-        />
-        <Route path="/connexion" element={<Login />} />
-        <Route path="/inscription" element={<SignUp />} />
-        <Route path="/styles" element={<StylesPage styles={styles} />} />
-        <Route path="/favoris" element={<Favorites />} />
-        <Route path="/mentions-legales" element={<LegalNotices />} />
-        <Route path="/equipe-dev" element={<AboutUs />} />
-        <Route path="/conditions-generales-utilisation" element={<TermsofService />} />
-        <Route path="/le-projet" />
-        <Route path="/albums/:id" element={<AlbumPage />} />
-        <Route path="/profil" element={<UserProfile />} />
-        <Route path="/resultat-recherche/:type/:search" element={<SearchResult />} />
-        <Route path="/styles/:name" element={<StylesResult />} />
-        <Route path="/*" />
+
+        <Route path="/" element={<LayoutWithHeader />}>
+          <Route
+            path=""
+            element={(
+              <HomePage
+                suggestions={suggestions}
+                latest={latest}
+                styles={styles}
+                ourfavorites={ourfavorites}
+                setSearch={setSearch}
+                search={search}
+              />
+            )}
+          />
+          <Route path="styles" element={<StylesPage styles={styles} />} />
+          <Route path="favoris" element={<Favorites />} />
+          <Route path="mentions-legales" element={<LegalNotices />} />
+          <Route path="equipe-dev" element={<AboutUs />} />
+          <Route path="conditions-generales-utilisation" element={<TermsofService />} />
+          <Route path="le-projet" />
+          <Route path="albums/:id" element={<AlbumPage />} />
+          <Route path="resultat-recherche/:type/:search" element={<SearchResult />} />
+          <Route path="styles/:name" element={<StylesResult />} />
+        </Route>
+
+        <Route path="/" element={<LayoutWithoutHeader />}>
+          <Route path="connexion" element={<Login />} />
+          <Route path="inscription" element={<SignUp />} />
+          <Route path="profil" element={<UserProfile />} />
+          <Route path="*" element={<Page404 />} />
+        </Route>
+
       </Routes>
       {/* Toast notification for connexion */}
       <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
