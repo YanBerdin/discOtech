@@ -127,7 +127,9 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .SearchBar {
-    top: 240px;
+  .FormatPC {
+    position: relative;
+    top: 30px;
+    padding-bottom: 30px;
   }
 }
