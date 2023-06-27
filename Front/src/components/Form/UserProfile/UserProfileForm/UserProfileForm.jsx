@@ -20,10 +20,10 @@ function UserProfileForm() {
   //   (state) => state.user,
   // );
   // const { avatar } = useSelector((state) => state.user);
-  const [currentFirstname, setCurrentFirstname] = useState(null);
-  const [currentLastname, setCurrentLastname] = useState(null);
-  const [currentEmail, setCurrentEmail] = useState(null);
-  const [currentPassword, setCurrentPassword] = useState(null);
+  const [currentFirstname, setCurrentFirstname] = useState('');
+  const [currentLastname, setCurrentLastname] = useState('');
+  const [currentEmail, setCurrentEmail] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
 
   // Fonctionne
   const handleLastName = (evt) => {

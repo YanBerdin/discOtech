@@ -1,25 +1,63 @@
 /* eslint-disable no-console */
 import { Link } from 'react-router-dom';
-import favoritesAlbumsData from '../../../data/data';
-import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
+// import favoritesAlbumsData from '../../../data/data';
+import { useSelector } from 'react-redux';
+// import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
+import './UserProfile.scss';
+import FavoriteCard from '../../Favorites/FavoriteCard/FavoriteCard';
 import UserProfileForm from './UserProfileForm/UserProfileForm';
 
 function UserProfile() {
+  const favorites = useSelector((state) => state.user.favorites);
+  console.log(favorites);
+
   return (
     <div className="UserProfileContainer">
       <UserProfileForm />
       <h2 className="HomePage-Title">Mes Favoris &#x2661;</h2>
-      <div className="HomePage-Container">
-        {favoritesAlbumsData.slice(0, 4).map((album) => (
-          <AlbumCard
-            className="HomePage-Card"
-            key={album.id}
-            albumname={album.name}
-            artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
-            image={album.image}
-          />
-        ))}
-      </div>
+      <section className="SmartphoneContainer">
+        <div className="Favorites-Container">
+          {/* {favoritesAlbumsData.slice(0, 4).map((album) => ( */}
+          {favorites.slice(0, 4).map((favorite) => (
+            <FavoriteCard
+              className="Favorites-Card"
+              albumname={favorite.album?.name}
+              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+              image={favorite.album?.image}
+              id={favorite.album?.id}
+              imageClassName="ImageContainer"
+            />
+          ))}
+        </div>
+      </section>
+      <section className="MediumContainer">
+        <div className="Favorites-Container">
+          {favorites.slice(0, 6).map((favorite) => (
+            <FavoriteCard
+              className="Favorites-Card"
+              albumname={favorite.album?.name}
+              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+              image={favorite.album?.image}
+              id={favorite.album?.id}
+              imageClassName="ImageContainer"
+            />
+          ))}
+        </div>
+      </section>
+      <section className="PcContainer">
+        <div className="Favorites-Container">
+          {favorites.slice(0, 8).map((favorite) => (
+            <FavoriteCard
+              className="Favorites-Card"
+              albumname={favorite.album?.name}
+              artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
+              image={favorite.album?.image}
+              id={favorite.album?.id}
+              imageClassName="ImageContainer"
+            />
+          ))}
+        </div>
+      </section>
       <Link className="HomePage-Link" to="/favoris">
         Voir plus
       </Link>
