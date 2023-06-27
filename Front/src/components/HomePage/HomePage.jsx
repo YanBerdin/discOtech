@@ -44,13 +44,14 @@ function HomePage({
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          initialSlide: 1,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -59,6 +60,7 @@ function HomePage({
   return (
     <>
       <StylesCarousel styles={styles} />
+
       <h2 className="HomePage-Title">Dernières sorties :</h2>
       <div className="Carousel">
         <Slider {...settings}>
