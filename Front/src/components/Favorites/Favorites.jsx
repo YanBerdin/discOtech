@@ -1,5 +1,5 @@
 // == Import : npm
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import api from '../../api/api';
 import FavoriteCard from './FavoriteCard/FavoriteCard';
 import { setFavorites } from '../../actions/user';
+import Loading from '../Loading/Loading';
 
 // == Import : style
 import './Favorites.scss';
@@ -15,6 +16,7 @@ import './Favorites.scss';
 function Favorites() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.user.favorites);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getFavorites = () => {
@@ -26,10 +28,18 @@ function Favorites() {
         .catch((err) => {
           console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
           console.error(err);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     };
+
     getFavorites();
   }, [dispatch]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="Favorites">
@@ -51,7 +61,6 @@ function Favorites() {
         </div>
       </div>
     </div>
-
   );
 }
 

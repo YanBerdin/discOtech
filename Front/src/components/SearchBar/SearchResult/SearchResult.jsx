@@ -8,11 +8,13 @@ import api from '../../../api/api';
 
 // == Import : style
 import './SearchResult.scss';
+import Loading from '../../Loading/Loading';
 
 // == Component
 function SearchResult() {
   const { search, type } = useParams();
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // fetch data and update DOM
   useEffect(() => {
@@ -26,17 +28,23 @@ function SearchResult() {
         .catch((error) => {
           console.log("Erreur, l'API ne fonctionne plus. Rechargez plus tard.");
           console.error(error);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     };
 
     fetchResults();
   }, [search, type]);
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="SearchResult">
       <h2>{results.length} albums trouvés pour "{search}" </h2>
       <div className="SearchResult-Box">
-
         {type === 'albums' && results.map((result) => (
           <Link to={`/${type}/${result.id}`} key={result.id}>
             <AlbumCard

@@ -49,6 +49,7 @@ function SearchBar() {
     return (
       <div className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>
         {/* si on est sur la bonne url et que nous sommes en mobile alors ajoute la classe */}
+        <h2 className={`SearchBar ${isSearchResultPage && isMobile ? 'Search-Result-Visible' : ''}`}>Recherche</h2>
         <form
           className="SearchBar-Form"
           onSubmit={(event) => {

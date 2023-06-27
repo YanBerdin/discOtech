@@ -19,7 +19,7 @@
     padding-left: 1rem;
     font-family: 'Syncopate', sans-serif;
     left: 15%;
-
+    margin-top: 55px;
   }
 
   &-Button {
@@ -69,6 +69,9 @@
     font-size: 24px;
     color: rgb(156, 156, 156);
   }
+  h2 {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -76,8 +79,18 @@
   .SearchBar.Search-Result-Visible .SearchBar-Form {
     display: flex;
   }
+  .SearchBar h2 {
+    display: inherit;
+    top: 70px;
+  }
   .SearchBar {
-    top: 220px;
+    width: 90%;
+
+    &-Form {
+      position: relative;
+      top: 40px;
+      left: 0;
+    }
 
     &-Button {
       font-size: 10px;
@@ -87,6 +100,13 @@
     &-Input {
       font-size: 10px;
     }
+  }
+
+  .Search-Result-Visible {
+    color: white;
+    position: relative;
+    top: 40px;
+    padding: 0;
   }
 }
 

@@ -1,5 +1,5 @@
 // = Import : npm
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // = Import : local
 import AppLogo from '../../assets/Logo-round.png';
@@ -13,6 +13,13 @@ import './Footer.scss';
 
 // = Component
 function Footer() {
+  const location = useLocation();
+  const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');
+
+  if (isSearchResultPage) {
+    return null;
+  }
+
   return (
     <footer className="Footer">
 

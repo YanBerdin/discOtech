@@ -33,6 +33,7 @@ import Page404 from '../Page404/Page404';
 import LayoutWithHeader from '../../layout/LayoutWithHeader';
 import LayoutWithoutHeader from '../../layout/LayoutWithoutHeader';
 import Loading from '../Loading/Loading';
+import SearchBar from '../SearchBar/SearchBar';
 
 // == App Component
 function App() {
@@ -132,11 +133,12 @@ function App() {
           />
           <Route path="styles" element={<StylesPage styles={styles} />} />
           <Route path="le-projet" />
-          <Route path="resultat-recherche/:type/:search" element={<SearchResult />} />
           <Route path="styles/:name" element={<StylesResult />} />
         </Route>
 
         <Route path="/" element={<LayoutWithoutHeader />}>
+          <Route path="resultat-recherche" element={<><SearchBar /><SearchResult /></>} />
+          <Route path="resultat-recherche/:type/:search" element={<><SearchBar /><SearchResult /></>} />
           <Route path="conditions-generales-utilisation" element={<TermsofService />} />
           <Route path="mentions-legales" element={<LegalNotices />} />
           <Route path="connexion" element={<Login />} />
