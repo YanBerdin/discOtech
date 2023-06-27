@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // == Import : npm
 import api from '../../../../api/api';
 
@@ -9,8 +9,6 @@ import api from '../../../../api/api';
 import {
   setEmail,
   setPassword,
-  setLastName,
-  updateFirstname,
 } from '../../../../actions/user';
 import User from '../../../../assets/WelcomeUser.png';
 import './UserProfileForm.scss';
@@ -19,44 +17,52 @@ import './UserProfileForm.scss';
 function UserProfileForm() {
   const dispatch = useDispatch();
   const {
-    email, password, firstname, lastname,
+    email, password,
   } = useSelector(
     (state) => state.user,
   );
   // const { avatar } = useSelector((state) => state.user);
+  const [currentFirstname, setCurrentFirstname] = useState(null);
+  const [currentLastname, setCurrentLastname] = useState(null);
+  // const [currentEmail, setCurrentEmail] = useState(null);
+
   // Fonctionne
-  const handleLastName = () => {
+  const handleLastName = (evt) => {
+    evt.preventDefault();
+
     api
       .patch('/users/edit/lastname', {
-        lastname: lastname,
+        lastname: currentLastname,
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(lastname);
+          console.log(currentLastname);
         } else {
           alert('Erreur lors de la modification');
         }
       })
       .catch((err) => {
-        console.log(`lastname:${lastname}`);
+        console.log(`lastname:${currentLastname}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
 
-  const handleFirstName = () => {
+  const handleFirstName = (evt) => {
+    evt.preventDefault();
+
     api
       .patch('/users/edit/firstname', {
-        firstname: firstname,
+        firstname: currentFirstname,
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(firstname);
+          console.log(currentFirstname);
         } else {
           alert('Erreur lors de la modification');
         }
       })
       .catch((err) => {
-        console.log(`firstname:${firstname}`);
+        console.log(`firstname:${currentFirstname}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
@@ -97,11 +103,15 @@ function UserProfileForm() {
       });
   };
   useEffect(() => {
-    api.get('/users/detail').then((res) => {
-      console.log(res.data);
-      // setUserData(res.data);
-      // console.log(userData);
-    });
+    api.get('/users/detail')
+      .then((res) => {
+        console.log(res.data);
+        setCurrentFirstname(res.data.firstname);
+        console.log(currentFirstname);
+        setCurrentLastname(res.data.lastname);
+        console.log(currentLastname);
+      });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -118,10 +128,10 @@ function UserProfileForm() {
             required
             className="Field-Input"
             type="text"
-            name="lastname"
-            placeholder="Nom"
-            value={lastname || ''} // Warning:`value` prop on `input` should not be null
-            onChange={(event) => dispatch(setLastName(event.target.value))}
+            name="Nom"
+            placeholder={currentLastname}
+            value={currentLastname || ''} // Warning:`value` prop on `input` should not be null
+            onChange={(event) => setCurrentLastname(event.target.value)}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;
@@ -134,9 +144,9 @@ function UserProfileForm() {
             className="Field-Input"
             name="firstname"
             type="text"
-            placeholder="Prénom"
-            value={firstname || ''} // Warning:`value` prop on `input` should not be null.
-            onChange={(event) => dispatch(updateFirstname(event.target.value))}
+            placeholder={currentFirstname}
+            value={currentFirstname || ''} // Warning:`value` prop on `input` should not be null.
+            onChange={(event) => setCurrentFirstname(event.target.value)}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;

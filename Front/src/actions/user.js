@@ -23,14 +23,14 @@ export const setFirstName = (newFirstName) => ({
     firstname: newFirstName,
   },
 });
-
-export const UPDATE_FIRSTNAME = 'UPDATE_FIRSTNAME';
-export const updateFirstname = (newFirstName) => ({
-  type: UPDATE_FIRSTNAME,
-  payload: {
-    firstname: newFirstName,
-  },
-});
+// Champ controllé avec useSelector => Maintenant avec useState
+// export const UPDATE_FIRSTNAME = 'UPDATE_FIRSTNAME';
+// export const updateFirstname = (newFirstName) => ({
+//   type: UPDATE_FIRSTNAME,
+//   payload: {
+//     firstname: newFirstName,
+//   },
+// });
 export const SET_LASTNAME = 'SET_LASTNAME';
 export const setLastName = (newLastName) => ({
   type: SET_LASTNAME,
@@ -38,6 +38,7 @@ export const setLastName = (newLastName) => ({
     lastname: newLastName,
   },
 });
+// Champ controllé avec useSelector => Maintenant avec useState
 // export const UPDATE_LASTNAME = 'UPDATE_LASTNAME';
 // export const updateLastName = (newLastName) => ({
 //   type: UPDATE_LASTNAME,
@@ -61,21 +62,15 @@ export const setClearInput = (clearInput) => ({
   },
 });
 
-export const saveLoginSuccessful = (firstname, token) => ({
+export const saveLoginSuccessful = (firstname, lastname, token) => ({
   type: SAVE_LOGIN_SUCCESSFUL,
   payload: {
     firstname: firstname,
+    lastname: lastname,
     token: token,
   },
 });
 
-// export const SET_USER_DETAILS = 'SET_USER_DETAILS';
-// export const setUserDetails = (firstname,) => ({
-//   type: SET_USER_DETAILS,
-//   payload: {
-//     detail: detail,
-//   },
-// });
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const addFavorite = (id) => ({
   type: ADD_FAVORITE,

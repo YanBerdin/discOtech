@@ -6,7 +6,7 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
-  UPDATE_FIRSTNAME,
+  // UPDATE_FIRSTNAME,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_FAVORITES,
@@ -46,11 +46,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         firstname: action.payload.firstname,
       };
-    case UPDATE_FIRSTNAME:
-      return {
-        ...state,
-        firstname: action.payload.firstname,
-      };
+    // Champ controllé avec useSelector => Maintenant avec useState
+    // case UPDATE_FIRSTNAME:
+    //   return {
+    //     ...state,
+    //     firstname: action.payload.firstname,
+    //   };
     case SET_AVATAR:
       return {
         ...state,
