@@ -24,13 +24,13 @@ import StylesPage from '../StylesPage/StylesPage';
 import Header from '../Header/Header';
 import SearchResult from '../SearchBar/SearchResult/SearchResult';
 import BottomNavigation from '../BottomNavigation/BottomNavigation';
+import StylesResult from '../StylesPage/StylesResult/StylesResult';
 
 // = Import : Redux Actions
 import { saveLoginSuccessful } from '../../actions/user';
 
 // = Import : Style
 import './App.scss';
-import StylesResult from '../StylesPage/StylesResult/StylesResult';
 
 // = App Component
 function App() {

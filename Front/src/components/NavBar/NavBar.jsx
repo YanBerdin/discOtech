@@ -9,11 +9,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import './NavBar.scss';
 import logo from '../../assets/Logo-round.png';
-import user from '../../assets/user-icon.svg';
-import home from '../../assets/home-icon.svg';
-import style from '../../assets/style-icon.svg';
-import heart from '../../assets/heart-icon.svg';
-import about from '../../assets/about-icon.svg';
+import user from '../../assets/nav/user-icon.svg';
+import home from '../../assets/nav/home-icon.svg';
+import style from '../../assets/nav/style-icon.svg';
+import heart from '../../assets/nav/heart-icon.svg';
+import about from '../../assets/nav/about-icon.svg';
 
 function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);

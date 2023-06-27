@@ -7,7 +7,7 @@ import api from '../../../api/api';
 
 // == Import : local
 import { setEmail, setPassword, setClearInput, saveLoginSuccessful } from '../../../actions/user';
-import User from '../../../assets/WelcomeUser.png';
+import User from '../../../assets/form-icon.png';
 import './Login.scss'
 
 // == Component

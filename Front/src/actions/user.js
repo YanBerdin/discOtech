@@ -1,4 +1,11 @@
 export const SAVE_LOGIN_SUCCESSFUL = 'SAVE_LOGIN_SUCCESSFUL';
+export const saveLoginSuccessful = (firstname, token) => ({
+  type: SAVE_LOGIN_SUCCESSFUL,
+  payload: {
+    firstname: firstname,
+    token: token,
+  },
+});
 
 export const SET_EMAIL = 'SET_EMAIL';
 export const setEmail = (newEmail) => ({
@@ -48,36 +55,6 @@ export const setClearInput = (clearInput) => ({
   },
 });
 
-export const saveLoginSuccessful = (firstname, token) => ({
-  type: SAVE_LOGIN_SUCCESSFUL,
-  payload: {
-    firstname: firstname,
-    token: token,
-  },
-});
-
-// export const CHANGE_FIRSTNAME = 'CHANGE_FIRSTNAME';
-// export const changeFirstname = (firstname) => ({
-//   type: CHANGE_FIRSTNAME,
-//   payload: {
-//     firstname: newFirstnameInput,
-//   },
-// });
-//
-export const SET_NEW_FIRSTNAME_INPUT = 'SET_NEW_FIRSTNAME_INPUT';
-export const setNewFirstnameInput = (newFirstname) => ({
-  type: SET_NEW_FIRSTNAME_INPUT,
-  payload: {
-    firstname: newFirstname,
-  },
-});
-// export const SET_FIRSTNAME = 'SET_FIRSTNAME';
-// export const setFirstName = (newFirstName) => ({
-//   type: SET_FIRSTNAME,
-//   payload: {
-//     firstname: newFirstName,
-//   },
-// });
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const addFavorite = (id) => ({
   type: ADD_FAVORITE,

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 // = Import : JSX
 import SearchBar from '../SearchBar/SearchBar';
-import videoBg from '../../assets/retro.mp4';
+import videoBg from '../../assets/background/retro.mp4';
 
 // = Import : Style
 import './Header.scss';

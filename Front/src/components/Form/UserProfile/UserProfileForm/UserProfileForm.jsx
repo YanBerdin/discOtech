@@ -7,9 +7,9 @@ import api from '../../../../api/api';
 
 // == Import : local
 import {
-  setEmail, setPassword, setLastName, setNewFirstnameInput, // setFirstName
+  setEmail, setPassword, setLastName, setFirstName,
 } from '../../../../actions/user';
-import User from '../../../../assets/WelcomeUser.png';
+import User from '../../../../assets/form-icon.png';
 import './UserProfileForm.scss';
 
 // == Component
@@ -21,7 +21,7 @@ function UserProfileForm() {
   const { firstname } = useSelector((state) => state.user);
   const { lastname } = useSelector((state) => state.user);
   // const { avatar } = useSelector((state) => state.user);
-  // const { newFirstname } = useSelector((state) => state.user);
+
   // Fonctionne
   const handleLastName = () => {
     api
@@ -147,7 +147,7 @@ function UserProfileForm() {
             type="text"
             placeholder="Prénom"
             value={firstname || ''} // Warning:`value` prop on `input` should not be null.
-            onChange={(event) => dispatch(setNewFirstnameInput(event.target.value))}
+            onChange={(event) => dispatch(setFirstName(event.target.value))}
           />
           <button className="Field-Button" type="submit">
             &#x1F589;

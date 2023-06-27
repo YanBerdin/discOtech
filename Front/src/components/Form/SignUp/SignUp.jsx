@@ -10,8 +10,8 @@ import api from '../../../api/api';
 import {
   setEmail, setPassword, setFirstName, setLastName, setAvatar,
 } from '../../../actions/user';
-import inputFile from '../../../assets/input-file.svg';
-import User from '../../../assets/WelcomeUser.png';
+import inputFile from '../../../assets/form/input-file.svg';
+import User from '../../../assets/form/form-icon.png';
 import './SignUp.scss';
 
 // == Composant

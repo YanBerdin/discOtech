@@ -6,7 +6,6 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
-  SET_NEW_FIRSTNAME_INPUT,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_FAVORITES,
@@ -66,12 +65,6 @@ const reducer = (state = initialState, action = {}) => {
         // pour la sécurité : on efface les identifiants dès qu'on a plus besoin
         email: '',
         password: '',
-      };
-
-    case SET_NEW_FIRSTNAME_INPUT:
-      return {
-        ...state,
-        firstname: action.payload.firstname,
       };
     case ADD_FAVORITE:
       return {
