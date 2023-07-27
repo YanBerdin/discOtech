@@ -1,9 +1,11 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
-import './Header.scss';
+// = Import : local
 import SearchBar from '../SearchBar/SearchBar';
-import videoBg from '../../assets/retro.mp4';
+import videoBg from '../../assets/background/retro.mp4';
 
+// = Import : style
+import './Header.scss';
+
+// = Header Component
 function Header() {
   return (
     <div className="Header">
@@ -22,4 +24,6 @@ function Header() {
     </div>
   );
 }
+
+// = Export
 export default Header;

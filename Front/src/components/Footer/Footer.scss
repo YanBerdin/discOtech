@@ -95,7 +95,7 @@
   
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 1024px) {
   .Footer {
   &-Container {
     display: flex;
@@ -137,7 +137,6 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    // color: #646cff;
     margin-left: 0;
   }
 
@@ -161,6 +160,7 @@
   &-Copyright {
     font-size: 0.7rem;
     margin-top: 10px;
+    padding-bottom: 80px;
   }
 }
 }

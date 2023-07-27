@@ -1,4 +1,11 @@
 export const SAVE_LOGIN_SUCCESSFUL = 'SAVE_LOGIN_SUCCESSFUL';
+export const saveLoginSuccessful = (firstname, token) => ({
+  type: SAVE_LOGIN_SUCCESSFUL,
+  payload: {
+    firstname: firstname,
+    token: token,
+  },
+});
 
 export const SET_EMAIL = 'SET_EMAIL';
 export const setEmail = (newEmail) => ({

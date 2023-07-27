@@ -1,7 +1,10 @@
-import './TermsofService.scss';
-
+// == Import : npm
 import Accordion from 'react-bootstrap/Accordion';
 
+// == Import : style
+import './TermsofService.scss';
+
+// == Component
 function TermsofService() {
   return (
     <Accordion className="Accordion" defaultActiveKey="0">
@@ -77,4 +80,5 @@ function TermsofService() {
   );
 }
 
+// == Export
 export default TermsofService;

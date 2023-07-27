@@ -1,47 +1,113 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-import { Link } from 'react-router-dom';
-/* eslint-disable jsx-a11y/alt-text */
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
+// == Import : npm
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+
+// == Import : local
 import StylesCarousel from './StylesCarousel/StylesCarousel';
 import AlbumCard from './AlbumCard/AlbumCard';
+
+// == Import : syle
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.scss';
 
+// == Compoentn
 function HomePage({
-  suggestions, styles,
+  suggestions, styles, latest, ourfavorites,
 }) {
+// responsive style settings for carousel
   const settings = {
     infinite: true,
     speed: 300,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 5,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
           infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          initialSlide: 2,
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 912,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 820,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 540,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 280,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1228,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 2000,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 3000,
+        settings: {
+          slidesToShow: 8,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -50,48 +116,56 @@ function HomePage({
   return (
     <>
       <StylesCarousel styles={styles} />
-      <h2 className="HomePage-Title">Nos Suggestions :</h2>
-      <div className="HomePage-Container">
-        {suggestions.map((album, index) => {
-          const reversedIndex = suggestions.length - 1 - index;
-          return reversedIndex >= suggestions.length - 6 && (
-          <Link to={`/albums/${album.id}`} key={album.id}>
-            <AlbumCard
-              className="HomePage-Card"
-              albumname={album.name}
-              artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
-              image={album.image}
-              id={album.id}
-            />
-          </Link>
-          );
-        })}
-      </div>
-      <h2 className="HomePage-Title">Nos préférés :</h2>
-      <div className="HomePage-Container">
-        {suggestions.map((album, index) => (
-          index < 4 && (
-          <Link to={`/albums/${album.id}`} key={album.id}>
-            <AlbumCard
-              className="HomePage-Card"
-              albumname={album.name}
-              artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
-              image={album.image}
-              id={album.id}
-            />
-          </Link>
-          )
-        ))}
-      </div>
+
       <h2 className="HomePage-Title">Dernières sorties :</h2>
+      <div className="Carousel">
+        <Slider {...settings}>
+          {latest.map((album) => (
+            <div className="Carousel-Container" key={album.id}>
+              <Link to={`/albums/${album.id}`} key={album.id}>
+                <AlbumCard
+                  className="HomePage-Card"
+                  albumname={album.name}
+                  artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
+                  image={album.image}
+                  id={album.id}
+                />
+              </Link>
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <h2 className="HomePage-Title">Nos Suggestions :</h2>
       <div className="Carousel">
         <Slider {...settings}>
           {suggestions.map((album) => (
             <div className="Carousel-Container" key={album.id}>
               <Link to={`/albums/${album.id}`} key={album.id}>
-                <div className="Carousel-Cards" style={{ backgroundImage: `url(${album.image})` }}>
-                  <h3 className="HomePage-StyleName">{album.name}</h3>
-                </div>
+                <AlbumCard
+                  className="HomePage-Card"
+                  albumname={album.name}
+                  artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
+                  image={album.image}
+                  id={album.id}
+                />
+              </Link>
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <h2 className="HomePage-Title">Nos préférés :</h2>
+      <div className="Carousel">
+        <Slider {...settings}>
+          {ourfavorites.map((album) => (
+            <div className="Carousel-Container" key={album.id}>
+              <Link to={`/albums/${album.id}`} key={album.id}>
+                <AlbumCard
+                  className="HomePage-Card"
+                  albumname={album.name}
+                  artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
+                  image={album.image}
+                  id={album.id}
+                />
               </Link>
             </div>
           ))}

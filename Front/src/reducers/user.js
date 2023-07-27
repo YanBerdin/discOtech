@@ -6,11 +6,9 @@ import {
   SET_AVATAR,
   SET_CLEAR_INPUT,
   SAVE_LOGIN_SUCCESSFUL,
-  // UPDATE_FIRSTNAME,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
   SET_FAVORITES,
-  // UPDATE_LASTNAME
 } from '../actions/user';
 
 export const initialState = {
@@ -88,20 +86,6 @@ const reducer = (state = initialState, action = {}) => {
     default:
       return state;
   }
-  // Champ controllé avec useSelector => Maintenant avec useState
-  // case UPDATE_FIRSTNAME:
-  //   return {
-  //     ...state,
-  //     firstname: action.payload.firstname,
-  //   };
-  // case UPDATE_LASTNAME:
-  //   return {
-  //     ...state,
-  //     lastname: action.payload.value,
-  //   };
-  // default:
-  //   return state;
-  // }
 };
 
 export default reducer;

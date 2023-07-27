@@ -6,29 +6,23 @@ import { useEffect, useState } from 'react';
 import api from '../../../../api/api';
 
 // == Import : local
-// import {
-// setEmail,
-// setPassword,
-// } from '../../../../actions/user';
-import User from '../../../../assets/WelcomeUser.png';
+import {
+  setEmail, setPassword, setLastName, setFirstName,
+} from '../../../../actions/user';
+import User from '../../../../assets/form/form-icon.png';
+
+// == Import : style
 import './UserProfileForm.scss';
 
 // == Component
 function UserProfileForm() {
-  // const dispatch = useDispatch();
-  // const { password } = useSelector(
-  //   (state) => state.user,
-  // );
-  // const { avatar } = useSelector((state) => state.user);
   const [currentFirstname, setCurrentFirstname] = useState('');
   const [currentLastname, setCurrentLastname] = useState('');
   const [currentEmail, setCurrentEmail] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
 
-  // Fonctionne
   const handleLastName = (evt) => {
     evt.preventDefault();
-
     api
       .patch('/users/edit/lastname', {
         lastname: currentLastname,
@@ -65,7 +59,7 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // OK
+
   const handleEmail = (evt) => {
     evt.preventDefault();
     api
@@ -86,7 +80,7 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-  // Fonctionne
+
   const handlePassword = (evt) => {
     evt.preventDefault();
     api
@@ -105,6 +99,7 @@ function UserProfileForm() {
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
+
   useEffect(() => {
     api.get('/users/detail')
       .then((res) => {
@@ -200,4 +195,5 @@ function UserProfileForm() {
   );
 }
 
+// == Export
 export default UserProfileForm;

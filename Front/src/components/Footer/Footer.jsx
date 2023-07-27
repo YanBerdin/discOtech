@@ -1,21 +1,29 @@
 // = Import : npm
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // = Import : local
-import './Footer.scss';
 import AppLogo from '../../assets/Logo-round.png';
-import facebook from '../../assets/iconeFacebook.png';
-import linkedin from '../../assets/icone-linkedin.png';
-import twitter from '../../assets/icone-twitter.png';
-import instagram from '../../assets/icone-instagram.png';
+import facebook from '../../assets/social/icone-facebook.png';
+import linkedin from '../../assets/social/icone-linkedin.png';
+import twitter from '../../assets/social/icone-twitter.png';
+import instagram from '../../assets/social/icone-instagram.png';
+
+// = Import : style
+import './Footer.scss';
 
 // = Component
 function Footer() {
+  const location = useLocation();
+  const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');
+
+  if (isSearchResultPage) {
+    return null;
+  }
+
   return (
     <footer className="Footer">
 
       <div className="Footer-Container">
-        {/* <div className="Footer-Logo-Container"> */}
         <img
           src={AppLogo}
           className="Footer-AppLogo"
@@ -89,4 +97,5 @@ function Footer() {
   );
 }
 
+// = Export :
 export default Footer;

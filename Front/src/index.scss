@@ -3,11 +3,8 @@
 
 :root {
   line-height: 1.5;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #4B0065;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,14 +16,6 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
 }
-
-body {
-  font-weight: 400;
-  overflow-x: hidden;
-  position: relative;
-  color: #fff;
-}
-
 
 p,
 a,
@@ -64,13 +53,6 @@ select:focus {
 a {
   font-weight: 500;
   color: #ffffff;
-}
-
-body {
-  margin: auto;
-  min-width: 100%;
-  min-height: 100%;
-  color: white;
 }
 
 h1, h2 {

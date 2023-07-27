@@ -2,17 +2,39 @@
  
   &-Box {
     display: flex;
-    width: 80%;
-    margin: 0 auto;
     flex-wrap: wrap;
     // justify-content: center;
     text-align: center;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   &-Card {
-      width: 50%;
       padding: 50px;
       padding-bottom: 10px;
     }
+
+    &-Parent{
+      margin: auto;
+    }
+
+    .SearchResult-CardWrapper .AlbumCard {
+      margin-left: 40px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 767px) {
+      padding-top: 70px;
+      font-size: 0.6rem;
+    }
+
+    @media (min-width: 767px) and (max-width: 1024px) {
+       .SearchResult-CardWrapper .AlbumCard {
+        margin-left: 19px;
+        margin-bottom: 15px;
+    }
+
+    }
+
 
 }

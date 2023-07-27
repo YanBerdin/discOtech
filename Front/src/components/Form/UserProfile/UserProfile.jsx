@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
+
+// == Import : npm
 import { Link } from 'react-router-dom';
-// import favoritesAlbumsData from '../../../data/data';
 import { useSelector } from 'react-redux';
-// import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
-import './UserProfile.scss';
+
+// == Import : local
 import FavoriteCard from '../../Favorites/FavoriteCard/FavoriteCard';
 import UserProfileForm from './UserProfileForm/UserProfileForm';
+import './UserProfile.scss';
 
 function UserProfile() {
   const favorites = useSelector((state) => state.user.favorites);
@@ -62,4 +64,5 @@ function UserProfile() {
   );
 }
 
+// == Export
 export default UserProfile;
