@@ -1,0 +1,76 @@
+.FavoriteCard {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in-out;
+  margin: 8px;
+
+  &-Description {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: left;
+    text-shadow: rgb(56, 56, 56) 2px 2px 2px;
+    row-gap: 1px;
+    margin-top: 60px;
+
+    p {
+      margin-bottom: 0px;
+    }
+  }
+
+  &-Title {
+    margin: 0px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-Artist {
+    color:rgb(193, 191, 191);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 0;
+  }
+
+  img {
+    width: 40%;
+  }
+}
+/*Card Hover*/
+.FavoriteCard:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1, 1.1);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .FavoriteCard {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .FavoriteCard {
+    width: 210px;
+    height: 210px;
+    margin: 20px;
+
+    &-Description {
+      margin-top: 105px;
+      p {
+        font-size: 1.1rem;
+        vertical-align: bottom;
+      }
+    }
+  }
+}

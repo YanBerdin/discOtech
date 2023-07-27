@@ -1,0 +1,21 @@
+.Accordion {
+  margin-top: 2rem;
+  &-Container {
+    background: transparent;
+  }
+}
+
+.accordion-item .accordion-collapse {
+  background-color: #343541;
+  color: white;
+}
+
+.accordion-header{
+  background-color: #614789;
+}
+
+.accordion-item:first-of-type .accordion-button{
+  background-color: #614789;
+  color: white;
+  border-color: black;
+  }
