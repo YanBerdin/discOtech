@@ -6,9 +6,6 @@ import { useEffect, useState } from 'react';
 import api from '../../../../api/api';
 
 // == Import : local
-import {
-  setEmail, setPassword, setLastName, setFirstName,
-} from '../../../../actions/user';
 import User from '../../../../assets/form/form-icon.png';
 
 // == Import : style

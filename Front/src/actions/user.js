@@ -30,14 +30,7 @@ export const setFirstName = (newFirstName) => ({
     firstname: newFirstName,
   },
 });
-// Champ controllé avec useSelector => Maintenant avec useState
-// export const UPDATE_FIRSTNAME = 'UPDATE_FIRSTNAME';
-// export const updateFirstname = (newFirstName) => ({
-//   type: UPDATE_FIRSTNAME,
-//   payload: {
-//     firstname: newFirstName,
-//   },
-// });
+
 export const SET_LASTNAME = 'SET_LASTNAME';
 export const setLastName = (newLastName) => ({
   type: SET_LASTNAME,
@@ -45,14 +38,7 @@ export const setLastName = (newLastName) => ({
     lastname: newLastName,
   },
 });
-// Champ controllé avec useSelector => Maintenant avec useState
-// export const UPDATE_LASTNAME = 'UPDATE_LASTNAME';
-// export const updateLastName = (newLastName) => ({
-//   type: UPDATE_LASTNAME,
-//   payload: {
-//     lastname: newLastName,
-//   },
-// });
+
 export const SET_AVATAR = 'SET_AVATAR';
 export const setAvatar = (newAvatar) => ({
   type: SET_AVATAR,
@@ -66,15 +52,6 @@ export const setClearInput = (clearInput) => ({
   type: SET_CLEAR_INPUT,
   payload: {
     clearInput: clearInput,
-  },
-});
-
-export const saveLoginSuccessful = (firstname, lastname, token) => ({
-  type: SAVE_LOGIN_SUCCESSFUL,
-  payload: {
-    firstname: firstname,
-    lastname: lastname,
-    token: token,
   },
 });
 
