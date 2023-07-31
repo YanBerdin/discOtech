@@ -166,7 +166,7 @@ function SignUp() {
         {/* SignUp Input : Password */}
         <input
           className="SignUp-InputField"
-          // name="password"
+          name="password"
           type="password"
           placeholder="Mot de passe*"
           required

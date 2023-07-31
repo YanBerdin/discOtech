@@ -1,7 +1,7 @@
 // == Import : npm
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import api from '../../../api/api';
 
 // == Import : local
@@ -19,13 +19,12 @@ function Login() {
   const { email } = useSelector((state) => state.user);
   const { password } = useSelector((state) => state.user);
   const logged = useSelector((state) => state.user.logged);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (logged) {
-      navigate('/');
+      window.history.back();
     }
-  }, [logged, navigate]);
+  }, [logged]);
 
   const handleLogin = () => {
     api
