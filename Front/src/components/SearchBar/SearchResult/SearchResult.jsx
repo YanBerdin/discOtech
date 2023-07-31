@@ -18,6 +18,8 @@ function SearchResult() {
 
   // fetch data and update DOM
   useEffect(() => {
+    setLoading(true);
+    setResults([]);
     const fetchResults = () => {
       api
         .post(`/${type}/search`, { search: search })

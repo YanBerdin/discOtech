@@ -5,6 +5,7 @@
 // == Import : npm
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 // == Import : local
 import inputFile from '../../../assets/form/input-file.svg';
@@ -13,6 +14,7 @@ import api from '../../../api/api';
 import {
   setEmail, setPassword, setFirstName, setLastName, setAvatar,
 } from '../../../actions/user';
+import Validation from '../Validation';
 
 // == Import : style
 import './SignUp.scss';
@@ -26,16 +28,35 @@ function SignUp() {
   const { firstname } = useSelector((state) => state.user);
   const { avatar } = useSelector((state) => state.user);
 
+  const values = [
+    email, password, lastname, firstname,
+  ];
+
+  const [errors, setErrors] = useState({});
+
   const handleSignUp = () => {
-    api
-      .post('/users/signup', {
-        email: email,
-        password: password,
-        firstname: firstname,
-        lastname: lastname,
-        avatar: avatar,
-      })
+    const validationErrors = Validation({
+      email: email,
+      password: password,
+      firstname: firstname,
+      lastname: lastname,
+    });
+    // Vérifiez s'il y a des erreurs
+    if (Object.keys(validationErrors).length > 0) {
+      // S'il y a des erreurs, affichez-les à l'utilisateur
+      setErrors(validationErrors);
+      return; // Arrêtez l'exécution de la fonction si des erreurs sont présentes
+    }
+    // Si aucune erreur, appelez l'API pour l'enregistrement de l'utilisateur
+    api.post('/users/signup', {
+      email: email,
+      password: password,
+      firstname: firstname,
+      lastname: lastname,
+      avatar: avatar,
+    })
       .then((res) => {
+        // Gérez les réponses de l'API ici
         if (res.status === 201) {
           console.log(email, password, lastname, firstname, avatar);
         } else if (res.status === 200) {
@@ -45,18 +66,17 @@ function SignUp() {
         }
       })
       .catch((err) => {
-        console.log(`email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`);
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
-
-  const handleSubmit = (event) => {
+  const handleValidation = (event) => {
     event.preventDefault();
+    setErrors(Validation(values));
     handleSignUp();
   };
 
   return (
-    <form className="SignUp-Form" onSubmit={handleSubmit}>
+    <form className="SignUp-Form" onSubmit={handleValidation}>
       <div className="SignUp-Card">
         {/* Header */}
         <div className="Header-Container">
@@ -80,17 +100,21 @@ function SignUp() {
             <input
               className="SignUp-InputField"
               name="lastname"
-              placeholder="Nom"
+              placeholder="Nom*"
+              required
               value={lastname}
               onChange={(event) => dispatch(setLastName(event.target.value))}
             />
+            {errors.lastname && <p className="SignUp-Error">{errors.lastname}</p>}
             <input
               className="SignUp-InputField"
               name="firstname"
-              placeholder="Prénom"
+              placeholder="Prénom*"
+              required
               value={firstname}
               onChange={(event) => dispatch(setFirstName(event.target.value))}
             />
+            {errors.firstname && <p className="SignUp-Error">{errors.firstname}</p>}
           </div>
         </div>
 
@@ -98,22 +122,27 @@ function SignUp() {
         <input
           className="SignUp-InputField"
           name="email"
-          placeholder="Adresse e-mail"
+          placeholder="Adresse e-mail*"
+          required
           value={email}
           onChange={(event) => dispatch(setEmail(event.target.value))}
         />
+        {errors.email && <p className="SignUp-Error">{errors.email}</p>}
 
         {/* SignUp Input : Password */}
         <input
           className="SignUp-InputField"
           name="password"
           type="password"
-          placeholder="Mot de passe"
+          placeholder="Mot de passe*"
+          required
           value={password}
           onChange={(event) => dispatch(setPassword(event.target.value))}
         />
+        {errors.password && <p className="SignUp-Error">{errors.password}</p>}
 
         {/* Link to Login Form */}
+        <p className="SignUp-Message">( * ) Champs requis.</p>
         <p className="SignUp-Link">
           Pas encore parmi nous ? <br /><Link to="/connexion">Connectez-vous ici</Link>
         </p>

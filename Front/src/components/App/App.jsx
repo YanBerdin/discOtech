@@ -152,7 +152,7 @@ function App() {
 
       </Routes>
       {/* Toast notification for connexion */}
-      <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '20px' }} delay={3000} autohide>
+      <Toast show={showToast} onClose={() => setShowToast(false)} style={{ position: 'fixed', left: '20px', bottom: '80px' }} delay={3000} autohide>
         <Toast.Body style={{ color: 'black' }}>
           Vous êtes bien connecté.
         </Toast.Body>

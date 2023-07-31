@@ -62,7 +62,7 @@ const reducer = (state = initialState, action = {}) => {
         nickname: action.payload.nickname,
         token: action.payload.token,
 
-        // pour la sécurité : on efface les identifiants dès qu'on a plus besoin
+        // security : deleting informations when we don't need them
         email: '',
         password: '',
       };

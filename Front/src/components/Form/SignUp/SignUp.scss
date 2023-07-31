@@ -17,6 +17,17 @@
 }
 
 .SignUp {
+  &-Message{
+    font-size: 15px;
+    font-weight: 100;
+    text-align: start;
+  }
+  &-Error {
+    color: orange;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px black;
+  }
+
   &-Form {
     position: relative;
     display: flex;
