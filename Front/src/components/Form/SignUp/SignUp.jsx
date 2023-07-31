@@ -5,7 +5,7 @@
 // == Import : npm
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // == Import : local
 import inputFile from '../../../assets/form/input-file.svg';
@@ -27,6 +27,9 @@ function SignUp() {
   const { firstname } = useSelector((state) => state.user);
   const { avatar } = useSelector((state) => state.user);
   const logged = useSelector((state) => state.user.logged);
+
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -91,6 +94,10 @@ function SignUp() {
 
   const handleValidation = (event) => {
     event.preventDefault();
+    if (password !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
+      return;
+    }
     handleSignUp();
   };
 
@@ -157,6 +164,15 @@ function SignUp() {
           required
           pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{12,255}"
           onChange={(event) => dispatch(setPassword(event.target.value))}
+        />
+        <input
+          className="SignUp-InputField"
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirmez le mot de passe*"
+          value={confirmPassword}
+          required
+          onChange={(event) => setConfirmPassword(event.target.value)}
         />
 
         {/* Link to Login Form */}
