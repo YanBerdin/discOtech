@@ -5,7 +5,7 @@
 // == Import : npm
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 // == Import : local
 import inputFile from '../../../assets/form/input-file.svg';
@@ -14,7 +14,6 @@ import api from '../../../api/api';
 import {
   setEmail, setPassword, setFirstName, setLastName, setAvatar, saveLoginSuccessful, setClearInput,
 } from '../../../actions/user';
-import Validation from '../Validation';
 
 // == Import : style
 import './SignUp.scss';
@@ -29,14 +28,6 @@ function SignUp() {
   const { avatar } = useSelector((state) => state.user);
   const logged = useSelector((state) => state.user.logged);
   const navigate = useNavigate();
-
-  const values = {
-    email: email,
-    firstname: firstname,
-    lastname: lastname,
-  };
-
-  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (logged) {
@@ -56,8 +47,6 @@ function SignUp() {
       .then((res) => {
         if (res.status === 201) {
           console.log(email, password, lastname, firstname, avatar);
-
-          // Enregistrez l'utilisateur en tant que connecté s'il est enregistré avec succès
           api
             .post('/login_check', {
               email: email,
@@ -102,11 +91,7 @@ function SignUp() {
 
   const handleValidation = (event) => {
     event.preventDefault();
-    const validationErrors = Validation(values);
-    setErrors(validationErrors);
-    if (Object.keys(validationErrors).length === 0) {
-      handleSignUp();
-    }
+    handleSignUp();
   };
 
   return (
@@ -139,7 +124,6 @@ function SignUp() {
               value={lastname}
               onChange={(event) => dispatch(setLastName(event.target.value))}
             />
-            {errors.lastname && <p className="SignUp-Error">{errors.lastname}</p>}
             <input
               className="SignUp-InputField"
               name="firstname"
@@ -148,7 +132,6 @@ function SignUp() {
               value={firstname}
               onChange={(event) => dispatch(setFirstName(event.target.value))}
             />
-            {errors.firstname && <p className="SignUp-Error">{errors.firstname}</p>}
           </div>
         </div>
 
@@ -156,12 +139,13 @@ function SignUp() {
         <input
           className="SignUp-InputField"
           name="email"
+          type="email"
           placeholder="Adresse e-mail*"
-          required
           value={email}
+          required
+          pattern="^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$"
           onChange={(event) => dispatch(setEmail(event.target.value))}
         />
-        {errors.email && <p className="SignUp-Error">{errors.email}</p>}
 
         {/* SignUp Input : Password */}
         <input
@@ -169,13 +153,11 @@ function SignUp() {
           name="password"
           type="password"
           placeholder="Mot de passe*"
-          required
-          minLength="12"
-          pattern="[A-Za-z]{3}"
           value={password}
+          required
+          pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{12,255}"
           onChange={(event) => dispatch(setPassword(event.target.value))}
         />
-        {/* {errors.password && <p className="SignUp-Error">{errors.password}</p>} */}
 
         {/* Link to Login Form */}
         <p className="SignUp-Message">( * ) Champs requis.</p>

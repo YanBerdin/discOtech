@@ -16,7 +16,7 @@ function SearchBar() {
   const [selectValue, setSelectValue] = useState('albums');
 
   // define editable state of mobile, to display or not some parts of the app
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,7 +36,7 @@ function SearchBar() {
   };
 
   const onWindowResize = () => {
-    setIsMobile(window.innerWidth <= 767);
+    setIsMobile(window.innerWidth <= 768);
   };
 
   window.addEventListener('resize', onWindowResize);

@@ -175,8 +175,7 @@ function UserProfileForm() {
             className="Field-Input"
             name="password"
             type="password"
-            // placeholder="Mot de passe"
-            placeholder="Password"
+            placeholder="Mot de passe"
             // value={password || ''} // Warning:`value` prop on `input` should not be null.
             value={currentPassword || ''}
             // onChange={(event) => dispatch(setPassword(event.target.value))}
