@@ -3,16 +3,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 // == Import : npm
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // == Import : local
 import inputFile from '../../../assets/form/input-file.svg';
 import User from '../../../assets/form/form-icon.png';
 import api from '../../../api/api';
 import {
-  setEmail, setPassword, setFirstName, setLastName, setAvatar,
+  setEmail, setPassword, setFirstName, setLastName, setAvatar, saveLoginSuccessful, setClearInput,
 } from '../../../actions/user';
 import Validation from '../Validation';
 
@@ -27,52 +27,86 @@ function SignUp() {
   const { lastname } = useSelector((state) => state.user);
   const { firstname } = useSelector((state) => state.user);
   const { avatar } = useSelector((state) => state.user);
+  const logged = useSelector((state) => state.user.logged);
+  const navigate = useNavigate();
 
-  const values = [
-    email, password, lastname, firstname,
-  ];
+  const values = {
+    email: email,
+    firstname: firstname,
+    lastname: lastname,
+  };
 
   const [errors, setErrors] = useState({});
 
-  const handleSignUp = () => {
-    const validationErrors = Validation({
-      email: email,
-      password: password,
-      firstname: firstname,
-      lastname: lastname,
-    });
-    // Vérifiez s'il y a des erreurs
-    if (Object.keys(validationErrors).length > 0) {
-      // S'il y a des erreurs, affichez-les à l'utilisateur
-      setErrors(validationErrors);
-      return; // Arrêtez l'exécution de la fonction si des erreurs sont présentes
+  useEffect(() => {
+    if (logged) {
+      navigate('/');
     }
-    // Si aucune erreur, appelez l'API pour l'enregistrement de l'utilisateur
-    api.post('/users/signup', {
-      email: email,
-      password: password,
-      firstname: firstname,
-      lastname: lastname,
-      avatar: avatar,
-    })
+  }, [logged, navigate]);
+
+  const handleSignUp = () => {
+    api
+      .post('/users/signup', {
+        email: email,
+        password: password,
+        firstname: firstname,
+        lastname: lastname,
+        avatar: avatar,
+      })
       .then((res) => {
-        // Gérez les réponses de l'API ici
         if (res.status === 201) {
           console.log(email, password, lastname, firstname, avatar);
+
+          // Enregistrez l'utilisateur en tant que connecté s'il est enregistré avec succès
+          api
+            .post('/login_check', {
+              email: email,
+              password: password,
+            })
+            .then((response) => {
+              if (response.status === 200) {
+                console.log(email, password);
+
+                if (response.data.token) {
+                  localStorage.setItem('token', response.data.token);
+                }
+
+                dispatch(setClearInput(''));
+                dispatch(saveLoginSuccessful());
+
+                navigate('/');
+              } else {
+                alert('Identifiants incorrects. Veuillez réessayer.');
+              }
+            })
+            .catch((err) => {
+              console.log(email, password);
+              console.error("Une erreur s'est produite lors de la connexion :", err);
+              alert(
+                "Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.",
+              );
+            });
         } else if (res.status === 200) {
           alert('Cet utilisateur existe déjà');
         } else {
-          alert('Erreur lors de l\'inscription');
+          alert("Erreur lors de l'inscription");
         }
       })
       .catch((err) => {
+        console.error(
+          `email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`,
+        );
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
+
   const handleValidation = (event) => {
     event.preventDefault();
-    setErrors(Validation(values));
-    handleSignUp();
+    const validationErrors = Validation(values);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length === 0) {
+      handleSignUp();
+    }
   };
 
   return (
@@ -132,14 +166,16 @@ function SignUp() {
         {/* SignUp Input : Password */}
         <input
           className="SignUp-InputField"
-          name="password"
+          // name="password"
           type="password"
           placeholder="Mot de passe*"
           required
+          minLength="12"
+          pattern="[A-Za-z]{3}"
           value={password}
           onChange={(event) => dispatch(setPassword(event.target.value))}
         />
-        {errors.password && <p className="SignUp-Error">{errors.password}</p>}
+        {/* {errors.password && <p className="SignUp-Error">{errors.password}</p>} */}
 
         {/* Link to Login Form */}
         <p className="SignUp-Message">( * ) Champs requis.</p>
