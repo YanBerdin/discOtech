@@ -79,7 +79,7 @@
   padding-bottom: 30px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* Si on est sur la bonne URL et que nous sommes en mobile alors affiche la searchbar */
   .SearchBar.Search-Result-Visible .SearchBar-Form {
     display: flex;

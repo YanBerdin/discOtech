@@ -51,7 +51,7 @@ function AlbumPage() {
               </div>
             </div>
 
-            {/* HEADER IMAGE - BUTTON */}
+            {/* ALBUM DETAILS */}
             <ul className="AlbumPage-Songs">
               <div className="AlbumPage-Title">
                 <h1 className="AlbumPage-Name">{album.name}</h1>
@@ -71,7 +71,7 @@ function AlbumPage() {
                   ))}
                 </ul>
               </div>
-
+              {/* ALBUM DETAILS */}
               <li className="AlbumPage-PlaylistHead">
                 <p className="AlbumPage-TrackNbHead">#</p>
                 <h3 className="AlbumPage-SongTitleHead">Titres</h3>

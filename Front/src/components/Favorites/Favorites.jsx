@@ -1,7 +1,7 @@
 // == Import : npm
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // == Import : local
 import api from '../../api/api';
@@ -17,6 +17,14 @@ function Favorites() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.user.favorites);
   const [loading, setLoading] = useState(true);
+  const logged = useSelector((state) => state.user.logged);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!logged) {
+      navigate('/connexion');
+    }
+  }, [logged, navigate]);
 
   useEffect(() => {
     const getFavorites = () => {
