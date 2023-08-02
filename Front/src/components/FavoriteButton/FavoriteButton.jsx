@@ -3,6 +3,7 @@
 // == Import : npm
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // == Import local
 import api from '../../api/api';
@@ -16,6 +17,8 @@ function FavoriteButton({ id }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.user.favorites);
+  const logged = useSelector((state) => state.user.logged);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log('FAVORITE', favorites);
@@ -24,6 +27,10 @@ function FavoriteButton({ id }) {
 
   const handleFavoriteClick = (e) => {
     e.preventDefault();
+    if (!logged) {
+      navigate('/connexion');
+    }
+
     if (isFavorite) {
       api
         .delete(`/favorites/albums/${id}`)

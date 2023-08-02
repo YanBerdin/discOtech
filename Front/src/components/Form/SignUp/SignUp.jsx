@@ -3,15 +3,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 // == Import : npm
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 // == Import : local
 import inputFile from '../../../assets/form/input-file.svg';
 import User from '../../../assets/form/form-icon.png';
 import api from '../../../api/api';
 import {
-  setEmail, setPassword, setFirstName, setLastName, setAvatar,
+  setEmail, setPassword, setFirstName, setLastName, setAvatar, saveLoginSuccessful, setClearInput,
 } from '../../../actions/user';
 
 // == Import : style
@@ -25,6 +26,17 @@ function SignUp() {
   const { lastname } = useSelector((state) => state.user);
   const { firstname } = useSelector((state) => state.user);
   const { avatar } = useSelector((state) => state.user);
+  const logged = useSelector((state) => state.user.logged);
+
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (logged) {
+      navigate('/');
+    }
+  }, [logged, navigate]);
 
   const handleSignUp = () => {
     api
@@ -36,27 +48,63 @@ function SignUp() {
         avatar: avatar,
       })
       .then((res) => {
+        console.log(res.status);
         if (res.status === 201) {
           console.log(email, password, lastname, firstname, avatar);
+          api
+            .post('/login_check', {
+              email: email,
+              password: password,
+            })
+            .then((response) => {
+              if (response.status === 200) {
+                console.log(email, password);
+
+                if (response.data.token) {
+                  localStorage.setItem('token', response.data.token);
+                }
+
+                dispatch(setClearInput(''));
+                dispatch(saveLoginSuccessful());
+
+                navigate('/');
+              } else {
+                alert('Identifiants incorrects. Veuillez réessayer.');
+              }
+            })
+            .catch((err) => {
+              console.log(res.status);
+              console.log(email, password);
+              console.error("Une erreur s'est produite lors de la connexion :", err);
+              alert(
+                "Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.",
+              );
+            });
         } else if (res.status === 200) {
           alert('Cet utilisateur existe déjà');
         } else {
-          alert('Erreur lors de l\'inscription');
+          alert("Erreur lors de l'inscription");
         }
       })
       .catch((err) => {
-        console.log(`email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`);
+        console.error(
+          `email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`,
+        );
         console.error("Une erreur s'est produite lors de la connexion :", err);
       });
   };
 
-  const handleSubmit = (event) => {
+  const handleValidation = (event) => {
     event.preventDefault();
+    if (password !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
+      return;
+    }
     handleSignUp();
   };
 
   return (
-    <form className="SignUp-Form" onSubmit={handleSubmit}>
+    <form className="SignUp-Form" onSubmit={handleValidation}>
       <div className="SignUp-Card">
         {/* Header */}
         <div className="Header-Container">
@@ -80,14 +128,16 @@ function SignUp() {
             <input
               className="SignUp-InputField"
               name="lastname"
-              placeholder="Nom"
+              placeholder="Nom*"
+              required
               value={lastname}
               onChange={(event) => dispatch(setLastName(event.target.value))}
             />
             <input
               className="SignUp-InputField"
               name="firstname"
-              placeholder="Prénom"
+              placeholder="Prénom*"
+              required
               value={firstname}
               onChange={(event) => dispatch(setFirstName(event.target.value))}
             />
@@ -98,8 +148,11 @@ function SignUp() {
         <input
           className="SignUp-InputField"
           name="email"
-          placeholder="Adresse e-mail"
+          type="email"
+          placeholder="Adresse e-mail*"
           value={email}
+          required
+          pattern="^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$"
           onChange={(event) => dispatch(setEmail(event.target.value))}
         />
 
@@ -108,12 +161,24 @@ function SignUp() {
           className="SignUp-InputField"
           name="password"
           type="password"
-          placeholder="Mot de passe"
+          placeholder="Mot de passe*"
           value={password}
+          required
+          pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{12,255}"
           onChange={(event) => dispatch(setPassword(event.target.value))}
+        />
+        <input
+          className="SignUp-InputField"
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirmez le mot de passe*"
+          value={confirmPassword}
+          required
+          onChange={(event) => setConfirmPassword(event.target.value)}
         />
 
         {/* Link to Login Form */}
+        <p className="SignUp-Message">( * ) Champs requis.</p>
         <p className="SignUp-Link">
           Pas encore parmi nous ? <br /><Link to="/connexion">Connectez-vous ici</Link>
         </p>
