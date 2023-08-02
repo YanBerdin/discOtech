@@ -48,6 +48,7 @@ function SignUp() {
         avatar: avatar,
       })
       .then((res) => {
+        console.log(res.status);
         if (res.status === 201) {
           console.log(email, password, lastname, firstname, avatar);
           api
@@ -72,6 +73,7 @@ function SignUp() {
               }
             })
             .catch((err) => {
+              console.log(res.status);
               console.log(email, password);
               console.error("Une erreur s'est produite lors de la connexion :", err);
               alert(
