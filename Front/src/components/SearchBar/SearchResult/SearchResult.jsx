@@ -60,19 +60,20 @@ function SearchResult() {
             </div>
           </Link>
         ))}
-
         {type === 'artists' && results.map((result) => (
           <>
             {result.albums.map((album) => (
-              <Link to={`/albums/${album.id}`} key={result.id}>
-                <AlbumCard
-                  className="SearchResult-Card"
-                  artistfullname={result?.fullname ?? 'Artiste inconnu'}
-                  key={album.id}
-                  albumname={album.name}
-                  image={album.image}
-                  id={album.id}
-                />
+              <Link to={`/albums/${album.id}`} key={album.id}>
+                <div className="SearchResult-CardWrapper">
+                  <AlbumCard
+                    className="AlbumCard"
+                    artistfullname={result?.fullname ?? 'Artiste inconnu'}
+                    key={album.id}
+                    albumname={album.name}
+                    image={album.image}
+                    id={album.id}
+                  />
+                </div>
               </Link>
             ))}
           </>
