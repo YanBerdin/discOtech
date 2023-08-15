@@ -180,7 +180,7 @@ function SignUp() {
         {/* Link to Login Form */}
         <p className="SignUp-Message">( * ) Champs requis.</p>
         <p className="SignUp-Link">
-          Pas encore parmi nous ? <br /><Link to="/connexion">Connectez-vous ici</Link>
+          Déjà parmi nous ? <br /><Link to="/connexion">Connectez-vous ici</Link>
         </p>
       </div>
       {/* SignUp Button */}
