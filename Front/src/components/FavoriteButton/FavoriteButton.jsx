@@ -21,41 +21,44 @@ function FavoriteButton({ id }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('FAVORITE', favorites);
-    setIsFavorite(favorites.find((fav) => fav.album?.id === id));
-  }, [favorites, id]);
+    // Check if the album is in the user's favorites
+    setIsFavorite(favorites.some((fav) => fav.album?.id === id)); // Using 'some' here
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [favorites, id]); // Depend only on 'favorites' and 'id'
 
   const handleFavoriteClick = (e) => {
     e.preventDefault();
     if (!logged) {
       navigate('/connexion');
+      return;
     }
 
     if (isFavorite) {
       api
         .delete(`/favorites/albums/${id}`)
         .then((response) => {
-          console.log('Album retiré des favoris :', response.data);
+          console.log('Album removed from favorites:', response.data);
           dispatch(removeFavorite(id));
         })
         .catch((error) => {
-          console.error("Erreur lors de la suppression de l'album des favoris :", error);
+          console.error('Error removing album from favorites:', error);
         })
         .finally(() => {
-          setIsFavorite(false); // Mettre à jour l'état après la suppression du favori
+          setIsFavorite(false); // Update state after removing favorite
         });
     } else {
       api
         .post(`/favorites/albums/${id}`)
         .then((response) => {
-          console.log('Album ajouté aux favoris :', response.data);
+          console.log('Album added to favorites:', response.data);
           dispatch(addFavorite(response.data));
         })
         .catch((error) => {
-          console.error("Erreur lors de l'ajout de l'album aux favoris :", error);
+          console.error('Error adding album to favorites:', error);
         })
         .finally(() => {
-          setIsFavorite(true); // Mettre à jour l'état après l'ajout du favori
+          setIsFavorite(true); // Update state after adding favorite
         });
     }
   };
