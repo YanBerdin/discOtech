@@ -1,41 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 .Carousel {
-    margin: 40px;
-    &-Container {
-        padding:0 10px;
-    }
-    &-Title {
-        padding-top: 15px;
-        padding-bottom: 20px;
-    }
-    &-Cards {
-        margin: 0 auto;
-        width:100%;
-        height: 80px;
-        text-align: center;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Righteous', cursive;
-        text-shadow: rgb(19, 0, 68) 1px 0 10px;
-        background-position: center;
-        background-size: cover;
-        &:hover{
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            color: rgb(215, 167, 127);
-        }
-    }
-}
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 3rem;
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .Carousel {
+  &-Title {
+    border-top: rgb(148, 50, 145) 0.4rem solid;
+    padding: 1.5rem 0rem;
+    margin: 0rem 4rem;
+    font-size: 3rem;
+  }
 
-        &-Cards {
-            height: 6vh;
-        }
+  &-Container {
+    margin-bottom: 4rem;
+    margin: 1rem;
+  }
+
+  &-Cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(6, 4, 44, 0.882);
+    border: solid rgb(5, 3, 15) 2px;
+    width: 10rem;
+    height: 17rem;
+    background-position: center;
+    filter: grayscale(0);
+    transition: all 0.4s;
+
+    &:hover {
+      filter: grayscale(100%);
     }
-    
+  }
+
+  &-StyleName {
+    padding-top: 1rem;
+    font-size: 1rem;
+    text-shadow: rgb(19, 0, 68) 1px 0 10px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    width: 80%;
+  }
+
+  img {
+    width: 50%;
+    height: 30%;
+  }
+
+  &-More{
+    display: flex;
+    justify-content: center;
+  }
 }

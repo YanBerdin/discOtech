@@ -1,60 +1,39 @@
 // = Import : npm
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 
 // = Import : Styles
 import './StylesCarousel.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Eye from '../../../assets/nav/eye-seemore.png';
 
 // = Import : Carousel Component
 function StylesCarousel({ styles }) {
-  // style for slick slider
-  const settings = {
-    infinite: true,
-    speed: 300,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 4,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          initialSlide: 1,
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="Carousel">
-      <Slider {...settings}>
-        {styles.map((style) => (
-          <div className="Carousel-Container" key={style.id}>
-            <Link to={`/styles/${style.name}`}>
-              <div className="Carousel-Cards" style={{ backgroundImage: `url(${style.image})` }}>
-                <h3 className="Carousel-StyleName"> {style.name} </h3>
-              </div>
-            </Link>
-          </div>
+    <>
+      <h2 className="Carousel-Title">Découvrez nos styles :</h2>
+      <div className="Carousel">
+        {/* Mapping loop to display all styles (clickable with Link of React Router) */}
+        {styles.slice(0, 8).map((style) => (
+          <Link to={`/styles/${style.name}`}>
+            <div className="Carousel-Container" key={style.id}>
+              <div
+                className="Carousel-Cards"
+                style={{ backgroundImage: `url(${style.image})` }}
+              />
+              <h3 className="Carousel-StyleName"> {style.name} </h3>
+            </div>
+          </Link>
         ))}
-      </Slider>
-    </div>
+        <Link to="styles/">
+          <div className="Carousel-Container">
+            <div className="Carousel-Cards">
+              <img className="Carousel-More" src={Eye} alt="Eye Logo" />
+              <p className="Carousel-More">Voir plus</p>
+            </div>
+          </div>
+        </Link>
+      </div>
+    </>
   );
 }
 
