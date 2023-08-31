@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 :root {
   line-height: 1.5;
@@ -27,6 +28,8 @@ ul {
   padding: 0;
   line-height: normal;
   text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
 }
 
 a:hover {

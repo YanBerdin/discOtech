@@ -1,6 +1,6 @@
 // = Import : local
 import SearchBar from '../SearchBar/SearchBar';
-import synthwave from '../../assets/background/synthwave.jpg';
+import synthwave from '../../assets/background/synthwave1.jpg';
 
 // = Import : style
 import './Header.scss';

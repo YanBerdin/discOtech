@@ -1,61 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
-.Carousel {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 3rem;
-
-  &-Title {
-    border-top: rgb(148, 50, 145) 0.4rem solid;
-    padding: 1.5rem 0rem;
-    margin: 0rem 4rem;
-    font-size: 3rem;
-  }
-
-  &-Container {
-    margin-bottom: 4rem;
-    margin: 1rem;
-  }
-
-  &-Cards {
+  .Carousel {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(6, 4, 44, 0.882);
-    border: solid rgb(5, 3, 15) 2px;
-    width: 10rem;
-    height: 17rem;
-    background-position: center;
-    filter: grayscale(0);
-    transition: all 0.4s;
+    margin-left: 3rem;
 
-    &:hover {
-      filter: grayscale(100%);
+    &-Styles {
+      display: flex;
+      width: 80%;
+      margin: 5rem auto;
+    }
+
+    &-Banner {
+      width: 320px;
+      height: 320px;
+      border-radius: 10px;
+    }
+
+    &-Title {
+      border-top: rgb(148, 50, 145) 0.4rem solid;
+      padding: 1.5rem 0rem;
+      margin: 0rem 4rem;
+      font-size: 2rem;
+    }
+
+    &-Container {
+      margin: 0.5rem;
+    }
+
+    &-Cards {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(6, 4, 44, 0.882);
+      border: solid rgb(5, 3, 15) 2px;
+      width: 11rem;
+      height: 7rem;
+      border-radius: 10px;
+      background-position: center;
+      background-size: cover;
+      filter: brightness(80%);
+
+      &:hover {
+        filter: grayscale(100%);
+      }
+    }
+
+    &-StyleName {
+      padding-top: 0.5rem;
+      font-size: 1.1rem;
+      text-shadow: rgb(19, 0, 68) 1px 0 10px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+      width: 80%;
+    }
+
+    &-More {
+      display: flex;
+      justify-content: center;
     }
   }
 
-  &-StyleName {
-    padding-top: 1rem;
-    font-size: 1rem;
-    text-shadow: rgb(19, 0, 68) 1px 0 10px;
-    font-family: "Poppins", sans-serif;
-  }
-
-  p {
-    margin-top: 1rem;
-    font-size: 1.6rem;
-    width: 80%;
-  }
-
-  img {
-    width: 50%;
-    height: 30%;
-  }
-
-  &-More{
-    display: flex;
-    justify-content: center;
-  }
-}
