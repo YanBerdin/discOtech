@@ -1,0 +1,83 @@
+.AlbumCard {
+  position: relative;
+  width: 155px;
+  height: 155px;
+  border-radius: 7px;
+  padding: 15px;
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in-out;
+  margin: 0px 15px;
+
+  &:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1, 1.1);
+    cursor: pointer;
+  }
+
+  &-Description {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: left;
+    height: 100%;
+    justify-content: flex-end;
+    text-shadow: rgb(56, 56, 56) 2px 2px 2px;
+
+    p {
+      margin-top: 2px;
+      margin-bottom: 0px;
+    }
+  }
+
+  &-Title {
+    margin: 0px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:hover {
+      color: rgb(215, 167, 127);
+    }
+  }
+
+  &-Artist {
+    color: rgb(193, 191, 191);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  img {
+    width: 40%;
+  }
+
+  &-Subtitle {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .AlbumCard {
+    width: 130px;
+    height: 130px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .AlbumCard {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .AlbumCard {
+    width: 210px;
+    height: 210px;
+  }
+}

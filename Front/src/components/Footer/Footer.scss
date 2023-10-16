@@ -1,0 +1,166 @@
+.Footer {
+  // position: relative;
+  // bottom: 0; 
+  background-color: rgb(10, 10, 10);
+  width: 100%;
+
+  &-Container {
+    display: flex;
+    background-color: rgb(10, 10, 10);
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  &-Links {
+    display: flex;
+    max-width: 100%;
+    text-align: start;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  &-AppLogo {
+    max-width: 7%;
+  }
+
+  &-AppLogo:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.9);
+  }
+
+  &-About {
+    display: flex;
+    flex-direction: column;
+    max-width: 280px;
+    color: #ffffff;
+  }
+
+  &-Useful {
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+  }
+
+  // ex icons
+  &-Networks {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  // ex icon-reseaux
+  &-NetworkLogo {
+    max-width: 100%;
+  }
+
+  &-NetworkLogo:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.85);
+  }
+
+  &-Social {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 230px;
+  }
+
+  &-NavLink {
+    margin-bottom: 0.3rem;
+  }
+
+  &-NavLink:hover {
+    transition: all 0.5s ease-in-out;
+    color: rgb(177, 162, 174);
+
+  }
+
+  &-Title {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  &-Copyright {
+    text-align: center;
+    background-color: rgb(10, 10, 10);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px 20px 5px;
+  }
+  
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+  .Footer {
+  &-Container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(10, 10, 10);
+    max-width: 100%;
+  }
+
+  &-AppLogo {
+    max-width: 13%;
+  }
+
+  &-NetworkLogo {
+    max-width: 80%;
+  }
+
+  &-About {
+    display: flex;
+    flex-direction: column;
+    // max-width: 280px;
+    width: 100vw;
+    // color: #646cff;
+    margin-left: 0;
+  }
+
+  &-Links {
+    display: flex;
+    max-width: 100%;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    align-self: flex-start;
+    padding-bottom: 15px;
+  }
+
+  &-Useful {
+    //   padding: 0.5rem;
+    // max-width: 280px;
+    // width: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  &-Social {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 230px;
+    margin: auto;
+  }
+
+  &-Networks {
+    gap: 1rem;
+  }
+
+  &-Title {
+    font-size: 0.8rem;
+    // margin-bottom: 0.4rem;
+  }
+
+  &-Copyright {
+    font-size: 0.7rem;
+    margin-top: 10px;
+    padding-bottom: 80px;
+  }
+}
+}

@@ -1,0 +1,27 @@
+.BottomNavigation {
+    background-color: #060111eb;
+    padding: 20px;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+  
+    &-Link {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+    }
+  
+    &-Icone {
+      width: 30%;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .BottomNavigation {
+      display: none;
+    }
+  }

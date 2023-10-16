@@ -1,0 +1,46 @@
+// .UserProfileContainer {
+//   max-width: 100%;
+//   min-width: 321px;
+// }
+.Favorites-Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  // align-items: center; // A verifier
+}
+// .SmartphoneContainer {
+//   flex-basis: 321px;
+// }
+.Favorites-Card img {
+  max-width: 100%; // A verifier
+  flex-shrink: 1.6;
+}
+
+@media screen and (min-width: 100px) and (max-width: 569px) {
+  .PcContainer {
+    display: none;
+  }
+  .MediumContainer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 570px) and (max-width: 1998px) {
+  .SmartphoneContainer {
+    display: none;
+  }
+  .PcContainer {
+    display: none;
+  }
+}
+
+// Display 8 cards
+@media screen and (min-width: 1999px) {
+  .SmartphoneContainer {
+    display: none;
+  }
+  .MediumContainer {
+    display: none;
+  }
+}

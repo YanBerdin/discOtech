@@ -1,0 +1,117 @@
+.Header {
+    &-UserImg {
+        width: 30%;
+      }
+      &-Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5px;
+      }
+      &-Title {
+        font-family: 'Righteous', cursive;
+        font-size: 2.5em;
+        font-weight: 600;
+        margin: 10px 0px;
+        text-align: center;
+      }
+}
+.Login {
+  &-Form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 110px;
+    &::before {
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:100%;
+      background-image: url('../../../assets/background/music-shop.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      filter: blur(2px);
+    }
+  }
+
+  &-Card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.675);
+    background: rgba(0, 0, 0, 0.611);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.608);
+    margin: 50px 50px 0px 50px;
+    z-index: 2;
+  }
+  &-Button {
+    position: relative;
+    width: 230px;
+    background-color: #402656d3;
+    height: 40px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    cursor: pointer;
+  }
+  &-Link {
+    padding-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: rgb(19, 0, 68) 1px 0 10px;
+  }
+
+}
+.Field {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-Input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgb(173, 173, 173);
+    border-radius: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    padding: 8px 15px;
+  
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid rgb(199, 114, 255);
+    }
+    
+    &::placeholder {
+      color: rgb(80, 80, 80);
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
+}
+
+@media screen and (min-width: 481px) {
+    .Login {
+      &-Card {
+        width:450px;
+      }
+      &-Button {
+        width:300px
+      }
+    }
+    .Header-UserImg {
+      width: 20%;
+    }
+   }

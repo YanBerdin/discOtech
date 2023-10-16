@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.StylesPage {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &-Container {
+        padding: 10px;
+    }
+    &-Cards {
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Righteous', cursive;
+        text-shadow: rgb(19, 0, 68) 1px 0 10px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &-Title {
+        padding-left: 2rem;
+    }
+
+    &-Return {
+        bottom: 210px;
+        position: relative;
+        left: 10px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .StylesPage {
+
+        &-Cards {
+            width: 200px;
+            height: 200px;
+        }
+
+        &-Return {
+            bottom: 270px;
+        }
+
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .StylesPage {
+
+        &-Cards {
+            width: 250px;
+            height: 200px;
+        }
+
+        &-Return {
+            display: none;
+        }
+
+    }
+    
+}

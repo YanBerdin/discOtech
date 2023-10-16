@@ -1,0 +1,135 @@
+.SearchBar {
+  position: absolute;
+  top: calc(100% - 80px);
+  width: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+
+  &-Form {
+    display: none;
+    margin: auto;
+    height: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #ddd;
+    background-color: white;
+    display: flex;
+    padding: 0;
+    padding-left: 1rem;
+    font-family: 'Syncopate', sans-serif;
+    left: 15%;
+    margin-top: 55px;
+  }
+
+  &-Button {
+    color: black;
+  }
+
+  &-Input {
+    background-color: white;
+    color: black;
+    border: none;
+    height: 100%;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 12px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-Select {
+    padding: 0.8rem 0rem;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 12px;
+    margin: 0rem 1rem;
+    color: black;
+  }
+
+  &-Options {
+    display: block;
+    height: 36px;
+    width: 100%;
+    padding: 0 16px;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    outline: none;
+    text-align: left;
+    text-overflow: ellipsis;
+    line-height: 36px;
+  }
+
+  &-Button {
+    padding: 0.3rem 1.2rem 2rem 0rem;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 24px;
+    color: rgb(156, 156, 156);
+  }
+  h2 {
+    display: none;
+  }
+}
+.FormatPC {
+  position: relative;
+  top: 20px;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  /* Si on est sur la bonne URL et que nous sommes en mobile alors affiche la searchbar */
+  .SearchBar.Search-Result-Visible .SearchBar-Form {
+    display: flex;
+  }
+  .SearchBar h2 {
+    display: inherit;
+    top: 70px;
+  }
+  .SearchBar {
+    width: 90%;
+
+    &-Form {
+      position: relative;
+      top: 40px;
+      left: 0;
+    }
+
+    &-Button {
+      font-size: 10px;
+      padding: 10px;
+    }
+
+    &-Input {
+      font-size: 10px;
+    }
+  }
+
+  .Search-Result-Visible {
+    color: white;
+    position: relative;
+    top: 40px;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .SearchBar {
+    top: 180px;
+  }
+  .FormatPC {
+    position: relative;
+    top: 20px;
+    padding-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .FormatPC {
+    position: relative;
+    top: 30px;
+    padding-bottom: 30px;
+  }
+}
