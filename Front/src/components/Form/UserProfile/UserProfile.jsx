@@ -22,6 +22,7 @@ function UserProfile() {
           {/* {favoritesAlbumsData.slice(0, 4).map((album) => ( */}
           {favorites.slice(0, 4).map((favorite) => (
             <FavoriteCard
+              key={favorite.album?.id}
               className="Favorites-Card"
               albumname={favorite.album?.name}
               artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
@@ -35,6 +36,7 @@ function UserProfile() {
         <div className="Favorites-Container">
           {favorites.slice(0, 8).map((favorite) => (
             <FavoriteCard
+              key={favorite.album?.id}
               className="Favorites-Card"
               albumname={favorite.album?.name}
               artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}
@@ -48,6 +50,7 @@ function UserProfile() {
         <div className="Favorites-Container">
           {favorites.slice(0, 10).map((favorite) => (
             <FavoriteCard
+              key={favorite.album?.id}
               className="Favorites-Card"
               albumname={favorite.album?.name}
               artistfullname={favorite.album?.artist?.fullname ?? 'Artiste inconnu'}

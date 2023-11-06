@@ -94,8 +94,28 @@ function SignUp() {
       });
   };
 
+  // const handleValidation = (event) => {
+  //   event.preventDefault();
+  //   if (password !== confirmPassword) {
+  //     alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
+  //     return;
+  //   }
+  //   handleSignUp();
+  // };
+
   const handleValidation = (event) => {
     event.preventDefault();
+    const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$/;
+    if (!emailPattern.test(email)) {
+      alert('Veuillez entrer une adresse e-mail valide.');
+      return;
+    }
+    if (!passwordPattern.test(password)) {
+      // eslint-disable-next-line max-len
+      alert('Votre mot de passe doit contenir au moins une lettre, un chiffre, un caractère spécial et avoir une longueur comprise entre 12 et 255 caractères.');
+      return;
+    }
     if (password !== confirmPassword) {
       alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
       return;
@@ -164,8 +184,9 @@ function SignUp() {
           placeholder="Mot de passe*"
           value={password}
           required
-          pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{12,255}"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$"
           onChange={(event) => dispatch(setPassword(event.target.value))}
+          // Minimum= 1x(chiffre minuscule majuscule caractère spécial) > 12 caractères
         />
         <input
           className="SignUp-InputField"
