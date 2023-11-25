@@ -1,10 +1,9 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
-// import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 // == Import : npm
+import { useNavigate } from 'react-router-dom';
 import api from '../../../../api/api';
-
 // == Import : local
 import User from '../../../../assets/form/form-icon.png';
 
@@ -19,6 +18,8 @@ function UserProfileForm() {
   const [currentPassword, setCurrentPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const navigate = useNavigate();
+
   const handleLastName = (evt) => {
     evt.preventDefault();
     api
@@ -29,6 +30,7 @@ function UserProfileForm() {
         if (res.status === 200) {
           setCurrentLastname(res.data.lastname || '');
           console.log('modification Lasname OK');
+          navigate('/');
         } else {
           alert('Erreur lors de la modification');
         }
@@ -49,6 +51,7 @@ function UserProfileForm() {
         if (res.status === 200) {
           setCurrentFirstname(res.data.firstname || '');
           console.log('modification Firstname OK');
+          navigate('/');
         } else {
           alert('Erreur lors de la modification');
         }
@@ -61,6 +64,15 @@ function UserProfileForm() {
 
   const handleEmail = (evt) => {
     evt.preventDefault();
+    const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(currentEmail)) {
+      alert('Veuillez entrer une adresse e-mail valide.');
+      return;
+    }
+    if (currentPassword !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
+      return;
+    }
     api
       .patch('/users/edit/email', {
         email: currentEmail,
@@ -69,6 +81,8 @@ function UserProfileForm() {
         if (res.status === 200) {
           // setCurrentEmail(res.data.email || '');
           console.log('modification email OK');
+          navigate('/');
+          // window.history.back();
         } else {
           alert('Erreur lors de la modification');
         }
@@ -81,22 +95,13 @@ function UserProfileForm() {
 
   const handlePassword = (evt) => {
     evt.preventDefault();
-    //   const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
-    //   const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$/;
-    //   if (!emailPattern.test(email)) {
-    //     alert('Veuillez entrer une adresse e-mail valide.');
-    //     return;
-    //   }
-    //   if (!passwordPattern.test(password)) {
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$/;
+
+    if (!passwordPattern.test(currentPassword)) {
     // eslint-disable-next-line max-len, max-len, max-len
-    //     alert('Votre mot de passe doit contenir au moins une lettre, un chiffre, un caractère spécial et avoir une longueur comprise entre 12 et 255 caractères.');
-    //     return;
-    //   }
-    // }
-    //   if (password !== confirmPassword) {
-    //     alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
-    //     return;
-    // }
+      alert('Votre mot de passe doit contenir au moins une lettre, un chiffre, un caractère spécial et avoir une longueur comprise entre 12 et 255 caractères.');
+      return;
+    }
     api
       .patch('/users/edit/password', {
         password: currentPassword,
@@ -105,6 +110,7 @@ function UserProfileForm() {
         if (res.status === 200) {
           // setCurrentPassword(res.data.password || '');
           console.log('modification MDP OK');
+          navigate('/');
         } else {
           alert('Erreur lors de la modification');
         }
@@ -117,12 +123,10 @@ function UserProfileForm() {
   useEffect(() => {
     api.get('/users/detail')
       .then((res) => {
-        // setCurrentPassword(res.data.password);
         setCurrentEmail(res.data.email);
         setCurrentLastname(res.data.lastname);
         setCurrentFirstname(res.data.firstname);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -171,9 +175,8 @@ function UserProfileForm() {
             className="Field-Input"
             name="email"
             type="email"
-            // placeholder={currentEmail}
             value={currentEmail}
-            // pattern="^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$"
+            pattern="^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$"
             onChange={(event) => setCurrentEmail(event.target.value)}
           />
           <button className="Field-Button" type="submit">
@@ -190,7 +193,7 @@ function UserProfileForm() {
             type="password"
             placeholder="Mot de passe"
             value={currentPassword}
-            // pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{12,255}"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$"
             // Minimum= 1x(chiffre minuscule majuscule caractère spécial) > 12 caractères
             onChange={(event) => setCurrentPassword(event.target.value)}
             autoComplete="off"
