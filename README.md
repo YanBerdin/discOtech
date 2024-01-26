@@ -1,6 +1,8 @@
 # :man_dancing: DiscO'Tech 
-### FrontEnd interface (React)
-### https://discotech-git-master-yanberdins-projects.vercel.app/
+### App (React)
+Démo : https://discotech-git-master-yanberdins-projects.vercel.app/
+
+#### BackOffice App+API (Symfony) : https://github.com/YanBerdin/api-discOtech
 
 ##  :star2: About
 
