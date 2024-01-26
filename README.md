@@ -1,15 +1,59 @@
-# :man_dancing: DiscO'Tech 
-### App (React)
-Démo : https://discotech-git-master-yanberdins-projects.vercel.app/
+# `:man_dancing: DiscO'Tech`
+This is a starter template for a Github Repositories Explorer project built with **React.js**
 
-#### BackOffice App+API (Symfony) : https://github.com/YanBerdin/api-discOtech
+### `Demo`
+This project hosted at : https://discotech-git-master-yanberdins-projects.vercel.app/
 
-##  :star2: About
+BackOffice App/API (Symfony) : https://github.com/YanBerdin/api-discOtech
+
+## `:star2: About`
 
 The project consists in creating an online platform allowing the referencing of all musical genres
 The main goal is to provide users with a friendly and attractive interface to explore music discs.
 
-### :nerd_face: CREDIT
+## `:gear: Checklist Run`
+
+### `Prerequisites`
+Make sure you have the following installed Node.js.
+
+### `Getting Started`
+Follow the steps below to get started with this template:
+
+Clone this repository
+
+### `Navigate to the project directory:`
+```bash
+cd discOtech/Front
+```
+
+### `Install the dependencies using npm or Yarn:`
+```bash
+npm install
+# or
+yarn install
+```
+
+### `:hammer: Configuration`
+
+**Warning** : Only after Back is launch, create a file .env as the `.env.example`.
+You need to use your `LASTNAME` and `FIRSTNAME` to create your base url in `.env`
+
+```bash
+VITE_API_BASE_URL=http://[firstname]-[lastname]-server.eddi.cloud/projet-disc-otech-back/Back/public/api
+```
+
+
+### `Start the development server:`
+
+Runs the app in the development mode. Open [http://localhost:8000].
+
+The page will reload when you make changes. You may also see any lint errors in the console.
+```bash
+npm start
+```
+
+
+### `:nerd_face: CREDIT`
 FrontEnd Team:
 
 - Eva Redon (https://github.com/evaredon)
