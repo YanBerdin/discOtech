@@ -1,17 +1,17 @@
-# `:man_dancing: DiscO'Tech`
+#  DiscO'Tech
 This is a starter template for a Github Repositories Explorer project built with **React.js**
 
-### `Demo`
+## :man_dancing: Demo
 This project hosted at : https://discotech-git-master-yanberdins-projects.vercel.app/
 
 BackOffice App/API (Symfony) : https://github.com/YanBerdin/api-discOtech
 
-## `:star2: About`
+## :star2: About
 
 The project consists in creating an online platform allowing the referencing of all musical genres
 The main goal is to provide users with a friendly and attractive interface to explore music discs.
 
-## `:gear: Checklist Run`
+## :gear: Checklist Run
 
 ### `Prerequisites`
 Make sure you have the following installed Node.js.
@@ -33,7 +33,7 @@ npm install
 yarn install
 ```
 
-### `:hammer: Configuration`
+### :hammer: Configuration
 
 **Warning** : Only after Back is launch, create a file .env as the `.env.example`.
 You need to use your `LASTNAME` and `FIRSTNAME` to create your base url in `.env`
@@ -53,7 +53,7 @@ npm start
 ```
 
 
-### `:nerd_face: CREDIT`
+### :nerd_face: CREDIT
 FrontEnd Team:
 
 - Eva Redon (https://github.com/evaredon)
