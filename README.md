@@ -1,15 +1,15 @@
-#  DiscO'Tech
-This is a starter template for a Github Repositories Explorer project built with **React.js**
+# `DiscO'Tech`
+
+## :star2: About
+The project consists in creating an online platform allowing the referencing of all musical genres
+The main goal is to provide users with a friendly and attractive interface to explore music discs
+
+built with **React.js**
 
 ## :man_dancing: Demo
 This project hosted at : https://discotech-git-master-yanberdins-projects.vercel.app/
 
 BackOffice App/API (Symfony) : https://github.com/YanBerdin/api-discOtech
-
-## :star2: About
-
-The project consists in creating an online platform allowing the referencing of all musical genres
-The main goal is to provide users with a friendly and attractive interface to explore music discs.
 
 ## :gear: Checklist Run
 
