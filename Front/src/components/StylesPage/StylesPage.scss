@@ -1,3 +1,6 @@
+/**
+ * Styles for the StylesPage component.
+ */
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 .StylesPage {
@@ -5,9 +8,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    /**
+     * Styles for the StylesPage container.
+     */
     &-Container {
         padding: 10px;
     }
+
+    /**
+     * Styles for the StylesPage cards.
+     */
     &-Cards {
         margin: 0 auto;
         width: 150px;
@@ -23,10 +34,16 @@
         background-size: cover;
     }
 
+    /**
+     * Styles for the StylesPage title.
+     */
     &-Title {
         padding-left: 2rem;
     }
 
+    /**
+     * Styles for the StylesPage return button.
+     */
     &-Return {
         bottom: 210px;
         position: relative;
@@ -35,14 +52,23 @@
 
 }
 
+/**
+ * Media query styles for screens between 768px and 1024px.
+ */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .StylesPage {
 
+        /**
+         * Styles for the StylesPage cards in the media query range.
+         */
         &-Cards {
             width: 200px;
             height: 200px;
         }
 
+        /**
+         * Styles for the StylesPage return button in the media query range.
+         */
         &-Return {
             bottom: 270px;
         }
@@ -51,14 +77,23 @@
     
 }
 
+/**
+ * Media query styles for screens larger than 1024px.
+ */
 @media screen and (min-width: 1024px) {
     .StylesPage {
 
+        /**
+         * Styles for the StylesPage cards in the larger screen media query.
+         */
         &-Cards {
             width: 250px;
             height: 200px;
         }
 
+        /**
+         * Styles for hiding the StylesPage return button in the larger screen media query.
+         */
         &-Return {
             display: none;
         }

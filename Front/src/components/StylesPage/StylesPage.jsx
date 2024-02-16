@@ -10,7 +10,13 @@ import Loading from '../Loading/Loading';
 // == Import : style
 import './StylesPage.scss';
 
-// == Styles Page Component
+/**
+ * Renders the StylesPage component.
+ *
+ * @param {Object} props - The component props.
+ * @param {Array} props.styles - The array of styles to be displayed.
+ * @returns {JSX.Element} The rendered StylesPage component.
+ */
 function StylesPage({ styles }) {
   if (styles.length === 0) {
     return <Loading />;

@@ -1,3 +1,10 @@
+/**
+ * Styles for the FavoriteCard component.
+ *
+ * The FavoriteCard component represents a card displaying information about a favorite item.
+ * It includes styling for the card container, title, artist, description, and hover effects.
+ */
+
 .FavoriteCard {
   position: relative;
   width: 160px;
@@ -45,6 +52,7 @@
     width: 40%;
   }
 }
+
 /*Card Hover*/
 .FavoriteCard:hover {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);

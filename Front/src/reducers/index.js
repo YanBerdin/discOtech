@@ -6,6 +6,10 @@ import { combineReducers } from 'redux';
 import userReducer from './user';
 
 // lien entre les tiroirs et les reducers
+/**
+ * Root reducer for the application.
+ * @type {Function}
+ */
 const rootReducer = combineReducers({
   // nom du tiroir : nom du reducer qui s'en occupe
   user: userReducer,

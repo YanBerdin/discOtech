@@ -11,6 +11,12 @@ import User from '../../../../assets/form/form-icon.png';
 import './UserProfileForm.scss';
 
 // == Component
+/**
+ * Component for editing user profile information.
+ *
+ * @component
+ * @returns {JSX.Element} UserProfileForm component
+ */
 function UserProfileForm() {
   const [currentFirstname, setCurrentFirstname] = useState('');
   const [currentLastname, setCurrentLastname] = useState('');
@@ -20,6 +26,10 @@ function UserProfileForm() {
 
   const navigate = useNavigate();
 
+  /**
+   * Handles the submission of the last name form.
+   * @param {Event} evt - The event object.
+   */
   const handleLastName = (evt) => {
     evt.preventDefault();
     api
@@ -40,6 +50,12 @@ function UserProfileForm() {
       });
   };
 
+  /**
+   * Handles the submission of the first name form.
+   *
+   * @param {Event} evt - The event object.
+   * @returns {void}
+   */
   const handleFirstName = (evt) => {
     evt.preventDefault();
 
@@ -62,6 +78,16 @@ function UserProfileForm() {
       });
   };
 
+  /**
+   * Handles the email submission in the UserProfileForm component.
+   * Validates the email format and checks if the passwords match.
+   * Sends a PATCH request to update the user's email.
+   * Navigates to the home page upon successful email modification.
+   * Displays an error message if there is an issue with the modification.
+   *
+   * @param {Event} evt - The event object.
+   * @returns {void}
+   */
   const handleEmail = (evt) => {
     evt.preventDefault();
     const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
@@ -93,6 +119,10 @@ function UserProfileForm() {
       });
   };
 
+  /**
+   * Handles the password change.
+   * @param {Event} evt - The event object.
+   */
   const handlePassword = (evt) => {
     evt.preventDefault();
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$/;

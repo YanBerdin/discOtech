@@ -11,7 +11,11 @@ import instagram from '../../assets/social/icone-instagram.png';
 // = Import : style
 import './Footer.scss';
 
-// = Component
+/**
+ * Component representing the footer of the application.
+ *
+ * @returns {JSX.Element} The rendered footer component.
+ */
 function Footer() {
   const location = useLocation();
   const isSearchResultPage = location.pathname.startsWith('/resultat-recherche');

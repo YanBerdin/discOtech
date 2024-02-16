@@ -4,7 +4,10 @@ import returnBtn from '../../assets/returnBtn.svg';
 // == Import : style
 import './ReturnButton.scss';
 
-// when clicked, button go to the previous page
+/**
+ * Component representing a return button.
+ * @returns {JSX.Element} The return button component.
+ */
 const ReturnButton = () => {
   const handleGoBack = () => {
     window.history.back();

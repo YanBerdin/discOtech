@@ -1,30 +1,44 @@
+/**
+ * Styles for the Favorites component.
+ */
 .Favorites {
   display: flex;
   flex-direction: column;
 
-&-Title {
-  width: 100%;
-  display: flex;
-  height: auto;
-  justify-content: center;
-}
+  /**
+   * Styles for the title of the Favorites component.
+   */
+  &-Title {
+    width: 100%;
+    display: flex;
+    height: auto;
+    justify-content: center;
+  }
 
-&-Box {
-  display: flex;
-  justify-content: center;
-}
+  /**
+   * Styles for the box of the Favorites component.
+   */
+  &-Box {
+    display: flex;
+    justify-content: center;
+  }
 
-&-Container {
-  display: flex;
-  flex-direction: start;
-  margin: 0;
-  flex-wrap: wrap;
-  margin-left: 18px;
-}
+  /**
+   * Styles for the container of the Favorites component.
+   */
+  &-Container {
+    display: flex;
+    flex-direction: start;
+    margin: 0;
+    flex-wrap: wrap;
+    margin-left: 18px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  //   /* Styles spécifiques aux tablettes */
+  /**
+   * Tablet-specific styles for the title of the Favorites component.
+   */
   .Favorites-Title {
     width: 100%;
     justify-content: flex-start;
@@ -33,6 +47,9 @@
 }
 
 @media (min-width: 1025px) {
+  /**
+   * Desktop-specific styles for the title of the Favorites component.
+   */
   .Favorites-Title {
     margin-top: 30px;
     margin-left: 0;

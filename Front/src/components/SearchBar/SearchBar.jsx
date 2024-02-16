@@ -9,7 +9,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 // == Import : style
 import './SearchBar.scss';
 
-// == Component
+/**
+ * Component representing a search bar.
+ * @returns {JSX.Element} The search bar component.
+ */
 function SearchBar() {
   // define editable state of every options of select
   const [search, setSearch] = useState('');
@@ -21,7 +24,10 @@ function SearchBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // onClick event on select to update the selected value in state
+  /**
+   * Handles the click event for the search bar.
+   * @param {Object} e - The event object.
+   */
   const handleClick = (e) => {
     setSelectValue(e.target.value);
     console.log(e.target.value);

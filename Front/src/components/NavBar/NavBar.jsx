@@ -20,7 +20,12 @@ import style from '../../assets/nav/style-icon.svg';
 import heart from '../../assets/nav/heart-icon.svg';
 import about from '../../assets/nav/about-icon.svg';
 
-// == Component
+/**
+ * Represents the navigation bar component.
+ *
+ * @component
+ * @returns {JSX.Element} The JSX element representing the navigation bar.
+ */
 function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);

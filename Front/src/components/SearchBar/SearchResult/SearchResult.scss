@@ -1,5 +1,7 @@
+/**
+ * Styles for the SearchResult component.
+ */
 .SearchResult {
- 
   &-Box {
     display: flex;
     flex-wrap: wrap;
@@ -10,31 +12,28 @@
   }
 
   &-Card {
-      padding: 50px;
-      padding-bottom: 10px;
-    }
+    padding: 50px;
+    padding-bottom: 10px;
+  }
 
-    &-Parent{
-      margin: auto;
-    }
+  &-Parent {
+    margin: auto;
+  }
 
+  .SearchResult-CardWrapper .AlbumCard {
+    margin-left: 40px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 70px;
+    font-size: 0.6rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
     .SearchResult-CardWrapper .AlbumCard {
-      margin-left: 40px;
-      margin-bottom: 10px;
+      margin-left: 19px;
+      margin-bottom: 15px;
     }
-
-    @media (max-width: 768px) {
-      padding-top: 70px;
-      font-size: 0.6rem;
-    }
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-       .SearchResult-CardWrapper .AlbumCard {
-        margin-left: 19px;
-        margin-bottom: 15px;
-    }
-
-    }
-
-
+  }
 }

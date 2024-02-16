@@ -12,7 +12,8 @@ import './AboutUs.scss';
 
 /**
  * Component representing the About Us section.
- * @component
+ *
+ * @returns {JSX.Element} The About Us component.
  */
 function AboutUs() {
   return (
@@ -47,7 +48,7 @@ function AboutUs() {
             <div className="flip-card-front">
               <img className="Dino" src={Sahra} alt="illustration_dinosaure" />
               <h5 className="title">Sahra <br /> Marchand</h5>
-              <h6>Lead Dev Front-End </h6>
+              <h6>Lead Dev Front </h6>
             </div>
             <div className="flip-card-back">
               <p className="title">Lead Dev Front-End</p>
@@ -69,10 +70,10 @@ function AboutUs() {
             <div className="flip-card-front">
               <img className="Dino" src={Gaetan} alt="illustration_dinosaure" />
               <h5 className="title">Gaetan  <br /> Leborgne</h5>
-              <h6>Lead Dev Back-end</h6>
+              <h6>Lead Dev Back</h6>
             </div>
             <div className="flip-card-back">
-              <p className="title">Lead Dev Back-end</p>
+              <p className="title">Lead Dev Back</p>
               <p>
                 Choisit les orientations importantes, choix techniques
                 importants

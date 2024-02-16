@@ -9,6 +9,12 @@ import FavoriteCard from '../../Favorites/FavoriteCard/FavoriteCard';
 import UserProfileForm from './UserProfileForm/UserProfileForm';
 import './UserProfile.scss';
 
+/**
+ * Component for displaying user profile information and favorite albums.
+ *
+ * @component
+ * @returns {JSX.Element} User profile component.
+ */
 function UserProfile() {
   const favorites = useSelector((state) => state.user.favorites);
   console.log(favorites);

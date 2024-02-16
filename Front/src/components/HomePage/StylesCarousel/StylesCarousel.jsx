@@ -7,7 +7,13 @@ import './StylesCarousel.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// = Import : Carousel Component
+/**
+ * Renders a carousel component displaying different styles.
+ *
+ * @component
+ * @param {Object[]} styles - An array of style objects.
+ * @returns {JSX.Element} The StylesCarousel component.
+ */
 function StylesCarousel({ styles }) {
   // style for slick slider
   const settings = {

@@ -5,7 +5,10 @@ import videoBg from '../../assets/background/retro.mp4';
 // = Import : style
 import './Header.scss';
 
-// = Header Component
+/**
+ * Header component.
+ * @returns {JSX.Element} The rendered Header component.
+ */
 function Header() {
   return (
     <div className="Header">

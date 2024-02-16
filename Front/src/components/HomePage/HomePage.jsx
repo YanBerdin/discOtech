@@ -14,7 +14,17 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.scss';
 
-// == Compoentn
+/**
+ * Renders the HomePage component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Array} props.suggestions - The array of suggested albums.
+ * @param {Array} props.styles - The array of styles for the carousel.
+ * @param {Array} props.latest - The array of latest albums.
+ * @param {Array} props.ourfavorites - The array of favorite albums.
+ * @returns {JSX.Element} The rendered HomePage component.
+ */
 function HomePage({
   suggestions, styles, latest, ourfavorites,
 }) {

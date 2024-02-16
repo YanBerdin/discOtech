@@ -1,26 +1,34 @@
+/**
+ * Styles for the back button component.
+ */
 .back-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  
-    img {
-      width: 35px;
-      height: 35px;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition: stroke 0.2s ease-in-out;
-    }
-  
-    &:hover {
-      transform: scale(1.1);
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  /**
+     * Styles for the image inside the back button.
+     */
+  img {
+    width: 35px;
+    height: 35px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s ease-in-out;
   }
-  
+
+  /**
+     * Styles when hovering over the back button.
+     */
+  &:hover {
+    transform: scale(1.1);
+  }
+}

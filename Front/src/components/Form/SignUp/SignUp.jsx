@@ -18,7 +18,12 @@ import {
 // == Import : style
 import './SignUp.scss';
 
-// == Composant
+/**
+ * Component for user sign up.
+ *
+ * @component
+ * @returns {JSX.Element} SignUp component
+ */
 function SignUp() {
   const dispatch = useDispatch();
   const { email } = useSelector((state) => state.user);
@@ -38,6 +43,9 @@ function SignUp() {
     }
   }, [logged, navigate]);
 
+  /**
+   * Handles the sign-up process.
+   */
   const handleSignUp = () => {
     api
       .post('/users/signup', {
@@ -94,15 +102,6 @@ function SignUp() {
       });
   };
 
-  // const handleValidation = (event) => {
-  //   event.preventDefault();
-  //   if (password !== confirmPassword) {
-  //     alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
-  //     return;
-  //   }
-  //   handleSignUp();
-  // };
-
   const handleValidation = (event) => {
     event.preventDefault();
     const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
@@ -112,7 +111,6 @@ function SignUp() {
       return;
     }
     if (!passwordPattern.test(password)) {
-      // eslint-disable-next-line max-len
       alert('Votre mot de passe doit contenir au moins une lettre, un chiffre, un caractère spécial et avoir une longueur comprise entre 12 et 255 caractères.');
       return;
     }

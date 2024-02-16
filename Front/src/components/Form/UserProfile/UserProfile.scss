@@ -1,22 +1,33 @@
+/**
+ * Styles for the UserProfile component.
+ */
+
 // .UserProfileContainer {
 //   max-width: 100%;
 //   min-width: 321px;
 // }
+
+/**
+ * Styles for the Favorites container.
+ */
 .Favorites-Container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  // align-items: center; // A verifier
 }
-// .SmartphoneContainer {
-//   flex-basis: 321px;
-// }
+
+/**
+ * Styles for the images inside the Favorites card.
+ */
 .Favorites-Card img {
   max-width: 100%; // A verifier
   flex-shrink: 1.6;
 }
 
+/**
+ * Media query styles for screen widths between 100px and 569px.
+ */
 @media screen and (min-width: 100px) and (max-width: 569px) {
   .PcContainer {
     display: none;
@@ -26,6 +37,9 @@
   }
 }
 
+/**
+ * Media query styles for screen widths between 570px and 1998px.
+ */
 @media screen and (min-width: 570px) and (max-width: 1998px) {
   .SmartphoneContainer {
     display: none;
@@ -35,7 +49,10 @@
   }
 }
 
-// Display 8 cards
+/**
+ * Media query styles for screen widths larger than 1999px.
+ * Display 8 cards.
+ */
 @media screen and (min-width: 1999px) {
   .SmartphoneContainer {
     display: none;

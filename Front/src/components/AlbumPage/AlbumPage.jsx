@@ -13,6 +13,11 @@ import api from '../../api/api';
 import './AlbumPage.scss';
 
 // = AlbumPage Component
+/**
+ * Renders the album page component.
+ *
+ * @returns {JSX.Element} The album page component.
+ */
 function AlbumPage() {
   const { id } = useParams();
   const [album, setAlbum] = useState();
@@ -29,6 +34,11 @@ function AlbumPage() {
       });
   }, [id]);
 
+  /**
+   * Converts the given duration in seconds to a formatted string in minutes:seconds format.
+   * @param {number} duration - The duration in seconds.
+   * @returns {string} The formatted duration in minutes:seconds format.
+   */
   function convertToMinutes(duration) {
     const minutes = Math.floor(duration / 60);
     const seconds = duration % 60;

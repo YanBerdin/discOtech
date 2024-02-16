@@ -1,161 +1,166 @@
+/**
+ * FILEPATH: /home/student/Bureau/html/Post-Formation/discOtech/Front/src/components/Page404/Page404.scss
+ * 
+ * Styles for the Page404 component.
+ * 
+ * The Page404 component is responsible for rendering the 404 error page.
+ * It contains styles for the container, OOps message, loader animation, music icons, and comic button.
+ */
 .Page404 {
-    &-Container {
-        background-color: #8EC5FC;
-        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-        width: 100%;
-        min-height: 100vh;
-        text-align: center;
+  &-Container {
+    background-color: #8ec5fc;
+    background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+  }
+  &-OOps {
+    padding-top: 80px;
+    font-size: 4rem;
+  }
+  &-Flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+    padding-top: 80px;
+  }
+  &-Loader {
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    box-shadow: 0px 35px 0 -5px #aaa, 0 -5px 0 0px #ddd, 0 -25px 0 -5px #fff,
+      -25px -30px 0 0px #ddd, -25px 30px 0 0px #ddd, 25px -30px 0 0px #ddd,
+      25px 30px 0 0px #ddd, 20px 10px 0 5px #ddd, 20px -10px 0 5px #ddd,
+      -20px -10px 0 5px #ddd, -20px 10px 0 5px #ddd;
+    background-color: black;
+
+    &:after,
+    &:before {
+      content: "";
+      border-radius: 100%;
+      width: 35px;
+      height: 35px;
+      display: block;
+      position: absolute;
+      border: 4px dashed #fff;
+      bottom: -4px;
+      transform: rotate(0deg);
+      box-sizing: border-box;
+      animation: tape 4s linear infinite;
     }
-    &-OOps {
-        padding-top: 80px;
-        font-size: 4rem;
+
+    &:before {
+      right: 0;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 34px #000;
     }
-    &-Flex {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 50px;
-        padding-top: 80px;
+
+    &:after {
+      left: 0;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 65px #000;
     }
-    &-Loader {
-            margin: auto;
-            width: 100px;
-            height: 30px;
-            overflow: hidden;
-            position: relative;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-            box-shadow: 0px 35px 0 -5px #aaa, 0 -5px 0 0px #ddd, 0 -25px 0 -5px #fff,
-              -25px -30px 0 0px #ddd, -25px 30px 0 0px #ddd, 25px -30px 0 0px #ddd,
-              25px 30px 0 0px #ddd, 20px 10px 0 5px #ddd, 20px -10px 0 5px #ddd,
-              -20px -10px 0 5px #ddd, -20px 10px 0 5px #ddd;
-              background-color: black;
-          
-          &:after,
-          &:before {
-            content: "";
-            border-radius: 100%;
-            width: 35px;
-            height: 35px;
-            display: block;
-            position: absolute;
-            border: 4px dashed #fff;
-            bottom: -4px;
-            transform: rotate(0deg);
-            box-sizing: border-box;
-            animation: tape 4s linear infinite;
-          }
-          
-          &:before {
-            right: 0;
-            box-shadow: 0 0 0 4px #fff, 0 0 0 34px #000;
-          }
-          
-          &:after {
-            left: 0;
-            box-shadow: 0 0 0 4px #fff, 0 0 0 65px #000;
-          }
-          
-          @keyframes tape {
-            0% {
-              transform: rotate(0deg) scale(0.4);
-            }
-          
-            100% {
-              transform: rotate(-360deg) scale(0.4);
-            }
-          }
-    }
-    &-Music {
-        --icon-count: 3;
-        --inner-height: 4em;
-        --ratio: 2/3;
-       /* Customizable */
-        --period: 1s;
-       /* Customizable */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: var(--inner-height);
-        width: calc(var(--inner-height) * var(--ratio) * var(--icon-count));
-        padding-left: 90px;
-        padding-bottom: 20px;
-      }
-      
-      &-Music,
-       &-icon {
-        width: calc(100% / var(--icon-count));
-        height: calc(100% * var(--ratio));
-        animation: loader-bounce02 var(--period) infinite linear;
+
+    @keyframes tape {
+      0% {
+        transform: rotate(0deg) scale(0.4);
       }
 
-      @media screen and (min-width: 768px){
-        &-Music,
-       &-icon {
-            width: 20%;
-        }
+      100% {
+        transform: rotate(-360deg) scale(0.4);
       }
-      
-      &-Music,
-       &-icon:nth-of-type(2) {
-        animation-delay: calc(1 / 5 * var(--period));
-      }
-      
-      &-Music,
-      &-icon:nth-of-type(3) {
-        animation-delay: calc(2 / 5 * var(--period));
-      }
-      
-      @keyframes loader-bounce02 {
-        20% {
-          /* Raise */
-          transform: translateY(calc(-50% * (1 - var(--ratio))));
-        }
-      
-        40% {
-          /* Lower */
-          transform: translateY(calc(50% * (1 - var(--ratio))));
-        }
-      
-        60% {
-          /* Keep centered */
-          transform: translateY(0);
-        }
-      
-        80% {
-          /* Keep centered */
-          transform: translateY(0);
-        }
-      }
-      &-comic-btn {
-        display: inline-block;
-        padding: 1rem 3rem;
-        border-radius: 2rem;
-        border: none;
-        background-color: #ff7675;
-        color: #fff;
-        font-size: 100%;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-shadow: 2px 2px #000;
-        box-shadow: 6px 6px 0px #d63031;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 100px;
-      }
-      
-      &-comic-btn:hover {
-        background-color: #fdcb6e;
-        box-shadow: 4px 4px 0px #e17055;
-        transform: translate(2px, 2px);
-      }
-      
-      &-comic-btn:active {
-        background-color: #e17055;
-        box-shadow: 0px 0px 0px #d63031;
-        transform: translate(6px, 6px);
-      }
+    }
+  }
+  &-Music {
+    --icon-count: 3;
+    --inner-height: 4em;
+    --ratio: 2/3;
+    /* Customizable */
+    --period: 1s;
+    /* Customizable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--inner-height);
+    width: calc(var(--inner-height) * var(--ratio) * var(--icon-count));
+    padding-left: 90px;
+    padding-bottom: 20px;
+  }
+
+  &-Music,
+  &-icon {
+    width: calc(100% / var(--icon-count));
+    height: calc(100% * var(--ratio));
+    animation: loader-bounce02 var(--period) infinite linear;
+  }
+
+  @media screen and (min-width: 768px) {
+    &-Music,
+    &-icon {
+      width: 20%;
+    }
+  }
+
+  &-Music,
+  &-icon:nth-of-type(2) {
+    animation-delay: calc(1 / 5 * var(--period));
+  }
+
+  &-Music,
+  &-icon:nth-of-type(3) {
+    animation-delay: calc(2 / 5 * var(--period));
+  }
+
+  @keyframes loader-bounce02 {
+    20% {
+      /* Raise */
+      transform: translateY(calc(-50% * (1 - var(--ratio))));
+    }
+
+    40% {
+      /* Lower */
+      transform: translateY(calc(50% * (1 - var(--ratio))));
+    }
+
+    60% {
+      /* Keep centered */
+      transform: translateY(0);
+    }
+
+    80% {
+      /* Keep centered */
+      transform: translateY(0);
+    }
+  }
+  &-comic-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: #ff7675;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+    box-shadow: 6px 6px 0px #d63031;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 100px;
+  }
+
+  &-comic-btn:hover {
+    background-color: #fdcb6e;
+    box-shadow: 4px 4px 0px #e17055;
+    transform: translate(2px, 2px);
+  }
+
+  &-comic-btn:active {
+    background-color: #e17055;
+    box-shadow: 0px 0px 0px #d63031;
+    transform: translate(6px, 6px);
+  }
 }
-
-  
-

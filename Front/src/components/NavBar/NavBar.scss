@@ -1,12 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+/**
+ * FILEPATH: /home/student/Bureau/html/Post-Formation/discOtech/Front/src/components/NavBar/NavBar.scss
+ * 
+ * This SCSS file contains the styles for the navigation bar component.
+ * It includes styles for the navbar links, background, toggler, icons, and media queries for different screen sizes.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+
 /************ Navbar Css ************/
 
 .navbar-white-text {
-    .nav-link {
-      color: #fff;
-      font-family: 'Syncopate', sans-serif;
-    }
+  .nav-link {
+    color: #fff;
+    font-family: "Syncopate", sans-serif;
   }
+}
 
 nav.navbar {
   padding: 15px;
@@ -148,7 +155,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   right: 50px;
 }
 
-
 @media (max-width: 767px) {
   /* Styles spécifiques aux appareils portables */
   .navbar .logo-img {
@@ -181,104 +187,103 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .transition-delayed {
     transition-delay: 6s; /* Délai de 0.2 seconde avant le début de la transition */
   }
-
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .navbar-collapse {
-      display: flex !important;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100%;
-    }
-  
-    .navbar-nav {
-      flex-direction: row !important;
-    }
-  
-    .navbar-nav .nav-link {
-      color: #fff;
-      font-size: 18px;
-      opacity: 0.75;
-      text-align: start;
-      margin-top: -3rem;
-      padding-left: 2.5rem;
-    }
-
-    .nav-icon {
-        display: none;
-    }
-
-    .navbar-toggler {
-      display: none !important;
-    }
-
-    .logo-img {
-        margin-left: -50px;
-    }
-
-    .user-img {
-        margin-right: 10px;
-    }
-
-    .container-md, .container-sm, .container {
-      max-width: 720px;
-      padding-left: 60px;
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
   }
 
+  .navbar-nav {
+    flex-direction: row !important;
   }
-  
+
+  .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+    opacity: 0.75;
+    text-align: start;
+    margin-top: -3rem;
+    padding-left: 2.5rem;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .logo-img {
+    margin-left: -50px;
+  }
+
+  .user-img {
+    margin-right: 10px;
+  }
+
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 720px;
+    padding-left: 60px;
+  }
+}
+
 .dropdown-center .dropdown-menu {
-    transform: translateX(-50%) !important;
-    left: -50% !important;
-    top: 150% !important;;
+  transform: translateX(-50%) !important;
+  left: -50% !important;
+  top: 150% !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
   }
 
-  @media screen and (min-width: 1024px) {
-
-    .navbar-collapse {
-        display: flex !important;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-      }
-    
-      .navbar-nav {
-        flex-direction: row !important;
-      }
-    
-      .navbar-nav .nav-link {
-        color: #fff;
-        font-size: 18px;
-        opacity: 0.75;
-        margin-left: 35px;
-      }
-  
-      .nav-icon {
-          display: none;
-      }
-  
-      .navbar-toggler {
-        display: none !important;
-      }
-  
-      .logo-img {
-          left: 0;
-      }
-  
-      .user-img {
-          margin-right: 10px;
-          order: 2;
-      }
-
-      .container-md, .container-sm, .container {
-        margin: 0;
-    }
-
-    .navbar-nav .nav-link {
-      position: relative;
-      left: 80px;
+  .navbar-nav {
+    flex-direction: row !important;
   }
 
+  .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+    opacity: 0.75;
+    margin-left: 35px;
   }
-  
+
+  .nav-icon {
+    display: none;
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .logo-img {
+    left: 0;
+  }
+
+  .user-img {
+    margin-right: 10px;
+    order: 2;
+  }
+
+  .container-md,
+  .container-sm,
+  .container {
+    margin: 0;
+  }
+
+  .navbar-nav .nav-link {
+    position: relative;
+    left: 80px;
+  }
+}

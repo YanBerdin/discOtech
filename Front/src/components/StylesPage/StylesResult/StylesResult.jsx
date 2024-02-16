@@ -7,7 +7,12 @@ import api from '../../../api/api';
 import AlbumCard from '../../HomePage/AlbumCard/AlbumCard';
 import Loading from '../../Loading/Loading';
 
-// == Component
+/**
+ * Component that displays the search results for a specific style.
+ *
+ * @component
+ * @returns {JSX.Element} The StylesResult component.
+ */
 function StylesResult() {
   const [isLoading, setIsLoading] = useState(true);
   const [albums, setAlbums] = useState([]);

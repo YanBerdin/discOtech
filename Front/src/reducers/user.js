@@ -22,6 +22,13 @@ export const initialState = {
   favorites: [],
 };
 
+/**
+ * Reducer function that handles state updates based on dispatched actions.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The dispatched action.
+ * @returns {Object} - The updated state.
+ */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_EMAIL:

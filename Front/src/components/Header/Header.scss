@@ -1,3 +1,17 @@
+/**
+ * FILEPATH: /home/student/Bureau/html/Post-Formation/discOtech/Front/src/components/Header/Header.scss
+ * 
+ * This SCSS file contains styles for the Header component.
+ * The Header component is a section at the top of the page that displays a video background and some content.
+ * It is responsive and adjusts its height and font size based on the screen size.
+ * 
+ * The styles in this file include:
+ * - Setting the width, height, margin, font family, and position of the Header component
+ * - Creating an overlay with a semi-transparent background color
+ * - Styling the content within the Header component, including text alignment and margin
+ * - Styling the video background with object-fit, filter, and border-radius
+ * - Adjusting the position and font size of the content for different screen sizes using media queries
+ */
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@300;400;500&display=swap');
 
 .Header {

@@ -1,6 +1,10 @@
 // = File manager for api requests and token
 import axios from 'axios';
 
+/**
+ * The axios instance for making API requests.
+ * @type {import("axios").AxiosInstance}
+ */
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });

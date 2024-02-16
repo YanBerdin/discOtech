@@ -4,7 +4,17 @@ import FavoriteButton from '../../FavoriteButton/FavoriteButton';
 // == Import : style
 import './FavoriteCard.scss';
 
-// == Component :
+/**
+ * Component representing a favorite card.
+ *
+ * @component
+ * @param {Object} props - The props object.
+ * @param {string} props.albumname - The name of the album.
+ * @param {string} props.artistfullname - The full name of the artist.
+ * @param {string} props.image - The URL of the image.
+ * @param {string} props.id - The unique identifier of the favorite card.
+ * @returns {JSX.Element} The rendered favorite card component.
+ */
 function FavoriteCard({
   albumname, artistfullname, image, id,
 }) {

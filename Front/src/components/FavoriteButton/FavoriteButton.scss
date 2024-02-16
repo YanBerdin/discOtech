@@ -1,3 +1,6 @@
+/**
+ * Styles for the favorite button component.
+ */
 .favorite-button {
   display: flex;
   justify-content: center;
@@ -11,6 +14,9 @@
   border-radius: 30px;
   transition: 0.3s ease-in-out;
   
+  /**
+   * Styles for the SVG icon inside the favorite button.
+   */
   svg {
     width: 15px;
     height: 15px;
@@ -18,25 +24,40 @@
     cursor: pointer;
     fill: none;
     transition: 0.3s ease-in-out;
+    
+    /**
+     * Styles for the SVG icon when hovered.
+     */
     &:hover {
       transform: scale(1.3);
     }
   }
 
+  /**
+   * Styles for the favorite button when active.
+   */
   &.active svg {
     fill: #401064d5;
   }
 
+  /**
+   * Styles for the favorite button when hovered.
+   */
   &:hover {
     transform: scale(1.1);
   }
   
+  /**
+   * Media query for screen sizes between 768px and 1024px.
+   */
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     margin-left: 160px;
-
   }
   
+  /**
+   * Media query for screen sizes larger than 1024px.
+   */
   @media screen and (min-width: 1025px) {
-      margin-left: 150px;
-    }
+    margin-left: 150px;
+  }
 }

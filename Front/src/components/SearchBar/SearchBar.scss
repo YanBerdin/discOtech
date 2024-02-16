@@ -1,3 +1,16 @@
+/**
+ * FILEPATH: /home/student/Bureau/html/Post-Formation/discOtech/Front/src/components/SearchBar/SearchBar.scss
+ * 
+ * This SCSS file contains styles for the SearchBar component.
+ * The SearchBar component is a search input field with options and a submit button.
+ * It is used to search for specific content within the application.
+ * 
+ * The styles in this file are organized using the BEM (Block Element Modifier) methodology.
+ * The main class is ".SearchBar" and it contains several nested elements with their respective modifiers.
+ * 
+ * Media queries are used to apply different styles based on the screen size.
+ * The styles within each media query target specific screen sizes and adjust the layout and appearance of the SearchBar component accordingly.
+ */
 .SearchBar {
   position: absolute;
   top: calc(100% - 80px);

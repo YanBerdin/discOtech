@@ -13,6 +13,13 @@ import Loading from '../Loading/Loading';
 import './Favorites.scss';
 
 // == Component
+
+/**
+ * Component for displaying the user's favorite albums.
+ *
+ * @component
+ * @returns {JSX.Element} The Favorites component.
+ */
 function Favorites() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.user.favorites);

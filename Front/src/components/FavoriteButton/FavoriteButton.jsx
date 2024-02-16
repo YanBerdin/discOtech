@@ -35,6 +35,14 @@ function FavoriteButton({ id }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [favorites, id]); // Depend only on 'favorites' and 'id'
 
+  /**
+   * Handles the click event for the favorite button.
+   * If the user is not logged in, it navigates to the login page.
+   * If the album is already a favorite, it removes it from the favorites.
+   * If the album is not a favorite, it adds it to the favorites.
+   * @param {Event} e - The click event.
+   * @returns {void}
+   */
   const handleFavoriteClick = (e) => {
     e.preventDefault();
     if (!logged) {

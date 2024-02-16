@@ -10,7 +10,11 @@ import api from '../../../api/api';
 import './SearchResult.scss';
 import Loading from '../../Loading/Loading';
 
-// == Component
+/**
+ * Component for displaying search results.
+ *
+ * @returns {JSX.Element} The SearchResult component.
+ */
 function SearchResult() {
   const { search, type } = useParams();
   const [results, setResults] = useState([]);
@@ -20,6 +24,7 @@ function SearchResult() {
   useEffect(() => {
     setLoading(true);
     setResults([]);
+
     const fetchResults = () => {
       api
         .post(`/${type}/search`, { search: search })

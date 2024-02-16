@@ -12,8 +12,6 @@ import './BottomNavigation.scss';
 
 /**
  * Component representing the bottom navigation bar.
- *
- * @component
  * @returns {JSX.Element} The rendered bottom navigation bar.
  */
 function BottomNavigation() {

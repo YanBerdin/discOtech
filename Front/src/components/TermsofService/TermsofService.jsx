@@ -4,7 +4,11 @@ import Accordion from 'react-bootstrap/Accordion';
 // == Import : style
 import './TermsofService.scss';
 
-// == Component
+/**
+ * Component representing the Terms of Service.
+ *
+ * @returns {JSX.Element} The Terms of Service component.
+ */
 function TermsofService() {
   return (
     <Accordion className="Accordion" defaultActiveKey="0">

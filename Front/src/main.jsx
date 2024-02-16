@@ -8,6 +8,11 @@ import './index.scss';
 import store from './store/index';
 import App from './components/App/App';
 
+/**
+ * The root React element of the application.
+ *
+ * @type {ReactElement}
+ */
 const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>

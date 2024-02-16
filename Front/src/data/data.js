@@ -1,4 +1,25 @@
 /* eslint-disable */
+/**
+ * Represents an array of music albums.
+ * @typedef {Object[]} AlbumData
+ * @property {number} id - The ID of the album.
+ * @property {string} name - The name of the album.
+ * @property {string} edition - The edition of the album.
+ * @property {string} releaseDate - The release date of the album.
+ * @property {string} createdAt - The creation date of the album.
+ * @property {string|null} updatedAt - The update date of the album.
+ * @property {Object[]} style - The style(s) of the album.
+ * @property {string} style.name - The name of the style.
+ * @property {Object[]} support - The support(s) of the album.
+ * @property {string} support.name - The name of the support.
+ * @property {Object[]} songs - The songs of the album.
+ * @property {string} songs.title - The title of the song.
+ * @property {number} songs.duration - The duration of the song.
+ * @property {number} songs.trackNb - The track number of the song.
+ * @property {Object} artist - The artist of the album.
+ * @property {string} artist.fullname - The full name of the artist.
+ * @property {string} image - The URL of the album image.
+ */
 export default [
   {
     "id": 909,

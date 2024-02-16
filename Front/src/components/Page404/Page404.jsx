@@ -1,6 +1,11 @@
 import './Page404.scss';
 import { Link } from 'react-router-dom';
 
+/**
+ * Renders the Page404 component.
+ *
+ * @returns {JSX.Element} The rendered Page404 component.
+ */
 function Page404() {
   return (
     <div className="Page404-Container">

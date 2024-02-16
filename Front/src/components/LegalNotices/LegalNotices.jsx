@@ -5,6 +5,11 @@ import Accordion from 'react-bootstrap/Accordion';
 import './LegalNotices.scss';
 
 // == Component
+/**
+ * Component for displaying legal notices and personal data information.
+ *
+ * @returns {JSX.Element} The LegalNotices component.
+ */
 function LegalNotices() {
   return (
     <Accordion className="Accordion-Container" defaultActiveKey="0">

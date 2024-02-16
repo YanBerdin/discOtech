@@ -13,7 +13,11 @@ import {
 // == Import : style
 import './Login.scss';
 
-// == Component
+/**
+ * Renders a login form component.
+ *
+ * @returns {JSX.Element} The login form component.
+ */
 function Login() {
   const dispatch = useDispatch();
   const { email } = useSelector((state) => state.user);
@@ -26,6 +30,9 @@ function Login() {
     }
   }, [logged]);
 
+  /**
+   * Handles the login functionality.
+   */
   const handleLogin = () => {
     api
       .post('/login_check', {
