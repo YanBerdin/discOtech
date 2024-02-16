@@ -1,3 +1,9 @@
+// Page d'ecemple inutilisée dans l'app
+
+/**
+ * Example for searching albums or artists.
+ * @returns {JSX.Element} The search component.
+ */
 const Search = () => {
   const [type, setType] = useState('albums');
 
@@ -10,19 +16,18 @@ const Search = () => {
   // en fonction du type on fait tel ou tel appel API.
 
   return (
-    <><div>
-      <select>
-        <option value="albums">Album</option>
-        <option value="artist">Artiste</option>
-      </select>
-    </div><input></input></>
+    <>
+      <div>
+        <select>
+          <option value="albums">Album</option>
+          <option value="artist">Artiste</option>
+        </select>
+      </div>
+      <input />
+    </>
 
-    {
-      // une fois la recherce faite, mettre des conditions sur chacun des state qui contient soit album soit artiste etc,
-      // si ils sont pas vide, afficher les résultats
-    }
   );
-
-}
-
-export default Search;
+  // une fois la recherche faite, mettre des conditions
+  // sur chacun des state qui contient soit album soit artiste etc,
+  // si ils sont pas vide, afficher les résultats
+};

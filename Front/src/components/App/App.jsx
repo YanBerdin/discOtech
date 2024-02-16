@@ -34,7 +34,11 @@ import LayoutWithoutHeader from '../../layout/LayoutWithoutHeader';
 import Loading from '../Loading/Loading';
 import SearchBar from '../SearchBar/SearchBar';
 
-// == App Component
+/**
+ * The main component of the application.
+ *
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);

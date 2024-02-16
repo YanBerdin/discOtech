@@ -1,13 +1,17 @@
-*:root {
-   max-width: 100%;
-   margin: 0 auto;
-   min-height: 100vh;
-   height: auto;
- }
+/**
+ * Styles for the App component.
+ */
 
- body {
+*:root {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  height: auto;
+}
+
+body {
   background-size: cover;
-  background: linear-gradient(rgb(3, 0, 7),rgb(9, 3, 18), rgb(0, 0, 0));
+  background: linear-gradient(rgb(3, 0, 7), rgb(9, 3, 18), rgb(0, 0, 0));
   background-repeat: no-repeat;
   font-weight: 400;
   overflow-x: hidden;
@@ -17,22 +21,27 @@
   margin: 0 auto;
   min-height: 100vh;
   height: auto;
-  }
+}
 
-
- .App {
+/**
+ * Styles for the App component.
+ */
+.App {
   width: 100vw;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
+  /**
+   * Styles for the Toast sub-component of App.
+   */
   &-Toast {
-      position: 'fixed';
-      left: '20px';
-      top: '70px';
-      background-color: rgba(255, 255, 255, 0.465),
+    position: "fixed";
+    left: "20px";
+    top: "70px";
+    background-color: rgba(255, 255, 255, 0.465);
   }
- }
+}
 
 // .logo {
 //   height: 6em;

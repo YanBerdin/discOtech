@@ -1,3 +1,6 @@
+/**
+ * Styles for the BottomNavigation component.
+ */
 .BottomNavigation {
     background-color: #060111eb;
     padding: 20px;
@@ -20,6 +23,10 @@
       width: 30%;
     }
   }
+
+  /**
+   * Styles for hiding the BottomNavigation component on screens with a minimum width of 768px.
+   */
   @media only screen and (min-width: 768px) {
     .BottomNavigation {
       display: none;

@@ -13,6 +13,14 @@ import { addFavorite, removeFavorite } from '../../actions/user';
 import './FavoriteButton.scss';
 
 // == Component
+/**
+ * Component representing a favorite button.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.id - The ID of the album.
+ * @returns {JSX.Element} The rendered favorite button.
+ */
 function FavoriteButton({ id }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();

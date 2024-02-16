@@ -18,6 +18,7 @@ function AlbumPage() {
   const [album, setAlbum] = useState();
 
   useEffect(() => {
+    // Fetch album data from API
     api
       .get(`/albums/${id}`)
       .then((res) => {

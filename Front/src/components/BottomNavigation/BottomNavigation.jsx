@@ -10,7 +10,12 @@ import heart from '../../assets/nav/heart-icon.svg';
 // = Import : Style
 import './BottomNavigation.scss';
 
-// = Bottom Navigation Component
+/**
+ * Component representing the bottom navigation bar.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered bottom navigation bar.
+ */
 function BottomNavigation() {
   return (
     <div className="BottomNavigation">

@@ -10,7 +10,10 @@ import Yan from '../../assets/about_us/dino_yan.png';
 // = Import : style
 import './AboutUs.scss';
 
-// = AboutUs Component
+/**
+ * Component representing the About Us section.
+ * @component
+ */
 function AboutUs() {
   return (
     <div className="Info">
