@@ -1,35 +1,12 @@
-/**
- * FILEPATH: /home/student/Bureau/html/Post-Formation/discOtech/Front/src/components/Footer/Footer.scss
- * 
- * This SCSS file contains styles for the Footer component.
- * The Footer component is a section that appears at the bottom of the page and typically contains links, logos, and copyright information.
- * 
- * The styles are organized using BEM (Block Element Modifier) methodology, with each element of the Footer having its own class.
- * 
- * The styles include:
- * - Background color
- * - Width
- * - Container styles
- * - Links styles
- * - AppLogo styles
- * - About section styles
- * - Useful section styles
- * - Networks section styles
- * - NetworkLogo styles
- * - Social section styles
- * - NavLink styles
- * - Title styles
- * - Copyright styles
- * 
- * Additionally, there are media queries to adjust the styles for different screen sizes.
- */
+$black: rgb(10, 10, 10);
+
 .Footer {
-  background-color: rgb(10, 10, 10);
+  background-color: $black;
   width: 100%;
 
   &-Container {
     display: flex;
-    background-color: rgb(10, 10, 10);
+    background-color: $black;
     max-width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -69,14 +46,12 @@
     color: #ffffff;
   }
 
-  // ex icons
   &-Networks {
     display: flex;
     gap: 0.5rem;
     justify-content: center;
   }
 
-  // ex icon-reseaux
   &-NetworkLogo {
     max-width: 100%;
 
@@ -110,7 +85,7 @@
 
   &-Copyright {
     text-align: center;
-    background-color: rgb(10, 10, 10);
+    background-color: $black;
     font-size: 0.8rem;
     text-align: center;
     padding: 10px 20px 5px;
@@ -120,7 +95,7 @@
     &-Container {
       display: flex;
       flex-direction: column;
-      background-color: rgb(10, 10, 10);
+      background-color: $black;
       max-width: 100%;
     }
 
@@ -153,9 +128,6 @@
       display: flex;
       flex-direction: column;
       margin-left: 0;
-      //   padding: 0.5rem;
-      // max-width: 280px;
-      // width: 100%;
     }
 
     &-Social {

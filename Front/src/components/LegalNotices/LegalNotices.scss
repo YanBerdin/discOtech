@@ -1,8 +1,12 @@
 /**
  * Styles for the LegalNotices component.
  */
+$color-primary: #614789;
+$color-secondary: #343541;
+
 .Accordion {
   margin-top: 2rem;
+  
   &-Container {
     background: transparent;
   }
@@ -12,22 +16,22 @@
  * Styles for the accordion collapse section.
  */
 .accordion-item .accordion-collapse {
-  background-color: #343541;
+  background-color: $color-secondary;
   color: white;
 }
 
 /**
  * Styles for the accordion header section.
  */
-.accordion-header{
-  background-color: #614789;
+.accordion-header {
+  background-color: $color-primary;
 }
 
 /**
  * Styles for the first accordion item button.
  */
-.accordion-item:first-of-type .accordion-button{
-  background-color: #614789;
+.accordion-item:first-of-type .accordion-button {
+  background-color: $color-primary;
   color: white;
   border-color: black;
 }
