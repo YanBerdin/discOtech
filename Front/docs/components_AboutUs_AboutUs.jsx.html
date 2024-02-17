@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/AboutUs/AboutUs.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/AboutUs/AboutUs.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable max-len */
+
+// == Import : local
+import Sahra from '../../assets/about_us/dino_sahra.png';
+import Eva from '../../assets/about_us/dino_eva.png';
+import Gaetan from '../../assets/about_us/dino_gaetan.png';
+import Romain from '../../assets/about_us/dino_romain.png';
+import Yan from '../../assets/about_us/dino_yan.png';
+
+// = Import : style
+import './AboutUs.scss';
+
+/**
+ * Component representing the About Us section.
+ *
+ * @returns {JSX.Element} The About Us component.
+ */
+function AboutUs() {
+  return (
+    &lt;div className="Info">
+      &lt;h2> L’équipe de développement&lt;/h2>
+      &lt;section className="AboutUs-Container">
+        &lt;div className="flip-card">
+          &lt;div className="flip-card-inner">
+            &lt;div className="flip-card-front">
+              &lt;img className="Dino" src={Eva} alt="illustration_dinosaure" />
+              &lt;h5 className="title">Eva &lt;br /> Redon&lt;/h5>
+              &lt;h6>Scrum Master&lt;/h6>
+            &lt;/div>
+            &lt;div className="flip-card-back">
+              &lt;p className="title">Scrum Master&lt;/p>
+              &lt;p>
+                Eva veille au respect des
+                conventions définies par l'équipe.
+              &lt;/p>
+              &lt;p>Tranche en cas de conflits fonctionnels (non techniques)&lt;/p>
+              &lt;p>
+                S’assure que toutes les taches sont bien attribuées, suivies,
+                accomplies.
+              &lt;/p>
+              &lt;p>Assure la communication au sein du groupe&lt;/p>
+              &lt;p>Anime le Daily Scrum et gère l’avancement du projet&lt;/p>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;div className="flip-card">
+          &lt;div className="flip-card-inner">
+            &lt;div className="flip-card-front">
+              &lt;img className="Dino" src={Sahra} alt="illustration_dinosaure" />
+              &lt;h5 className="title">Sahra &lt;br /> Marchand&lt;/h5>
+              &lt;h6>Lead Dev Front &lt;/h6>
+            &lt;/div>
+            &lt;div className="flip-card-back">
+              &lt;p className="title">Lead Dev Front-End&lt;/p>
+              &lt;p>
+                Choisit les orientations importantes, choix techniques
+                importants
+              &lt;/p>
+              &lt;p>Référent des librairies et techno utilisées.&lt;/p>
+              &lt;p>
+                Se documente sur les technos, leur sémantique, leur utilisation.
+              &lt;/p>
+              &lt;p>Restitue ces informations à l’équipe.&lt;/p>
+              &lt;p>Veille au bon fonctionnement du projet&lt;/p>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;div className="flip-card">
+          &lt;div className="flip-card-inner">
+            &lt;div className="flip-card-front">
+              &lt;img className="Dino" src={Gaetan} alt="illustration_dinosaure" />
+              &lt;h5 className="title">Gaetan  &lt;br /> Leborgne&lt;/h5>
+              &lt;h6>Lead Dev Back&lt;/h6>
+            &lt;/div>
+            &lt;div className="flip-card-back">
+              &lt;p className="title">Lead Dev Back&lt;/p>
+              &lt;p>
+                Choisit les orientations importantes, choix techniques
+                importants
+              &lt;/p>
+              &lt;p>Référent des librairies et techno utilisées.&lt;/p>
+              &lt;p>
+                Se documente sur les technos, leur sémantique, leur
+                utilisation.
+              &lt;/p>
+              &lt;p>Restitue ces informations à l’équipe.&lt;/p>
+              &lt;p>Veille au bon fonctionnement du projet&lt;/p>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;div className="flip-card">
+          &lt;div className="flip-card-inner">
+            &lt;div className="flip-card-front">
+              &lt;img className="Dino" src={Romain} alt="illustration_dinosaure" />
+              &lt;h5 className="title">Romain  &lt;br /> Gradelet&lt;/h5>
+              &lt;h6>Git Master&lt;/h6>
+            &lt;/div>
+            &lt;div className="flip-card-back">
+              &lt;p className="title">Git Master&lt;/p>
+              &lt;p>Référent technique du versionning avec Git&lt;/p>
+              &lt;p>Garant du versionning de notre application&lt;/p>
+              &lt;p>gère les conflits&lt;/p>
+              &lt;p>valide et Merge les Pull Request.&lt;/p>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;div className="flip-card">
+          &lt;div className="flip-card-inner">
+            &lt;div className="flip-card-front">
+              &lt;img className="Dino" src={Yan} alt="illustration_dinosaure" />
+              &lt;h5 className="title">Yan &lt;br /> Berdin&lt;/h5>
+              &lt;h6>Product Owner&lt;/h6>
+            &lt;/div>
+            &lt;div className="flip-card-back">
+              &lt;p className="title">Product Owner&lt;/p>
+              &lt;p>
+                Connait le produit et représente les intérêts et les besoins
+                du client/des utilisateurs purement fonctionnels (non
+                techniques).
+              &lt;/p>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/section>
+    &lt;/div>
+  );
+}
+
+// == Export
+export default AboutUs;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#AlbumCard">AlbumCard</a></li><li><a href="global.html#AlbumPage">AlbumPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BottomNavigation">BottomNavigation</a></li><li><a href="global.html#FavoriteButton">FavoriteButton</a></li><li><a href="global.html#FavoriteCard">FavoriteCard</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#LayoutWithHeader">LayoutWithHeader</a></li><li><a href="global.html#LayoutWithoutHeader">LayoutWithoutHeader</a></li><li><a href="global.html#LegalNotices">LegalNotices</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#ReturnButton">ReturnButton</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchBar">SearchBar</a></li><li><a href="global.html#SearchResult">SearchResult</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#StylesCarousel">StylesCarousel</a></li><li><a href="global.html#StylesPage">StylesPage</a></li><li><a href="global.html#StylesResult">StylesResult</a></li><li><a href="global.html#TermsofService">TermsofService</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#UserProfileForm">UserProfileForm</a></li><li><a href="global.html#addFavorite">addFavorite</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#reducer">reducer</a></li><li><a href="global.html#removeFavorite">removeFavorite</a></li><li><a href="global.html#rootReactElement">rootReactElement</a></li><li><a href="global.html#rootReducer">rootReducer</a></li><li><a href="global.html#saveLoginSuccessful">saveLoginSuccessful</a></li><li><a href="global.html#setAvatar">setAvatar</a></li><li><a href="global.html#setClearInput">setClearInput</a></li><li><a href="global.html#setEmail">setEmail</a></li><li><a href="global.html#setFavorites">setFavorites</a></li><li><a href="global.html#setFirstName">setFirstName</a></li><li><a href="global.html#setLastName">setLastName</a></li><li><a href="global.html#setPassword">setPassword</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 17 2024 17:24:01 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

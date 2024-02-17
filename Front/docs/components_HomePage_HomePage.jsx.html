@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/HomePage/HomePage.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/HomePage/HomePage.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable no-alert */
+/* eslint-disable no-console */
+
+// == Import : npm
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+
+// == Import : local
+import StylesCarousel from './StylesCarousel/StylesCarousel';
+import AlbumCard from './AlbumCard/AlbumCard';
+
+// == Import : syle
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './HomePage.scss';
+
+/**
+ * Renders the HomePage component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Array} props.suggestions - The array of suggested albums.
+ * @param {Array} props.styles - The array of styles for the carousel.
+ * @param {Array} props.latest - The array of latest albums.
+ * @param {Array} props.ourfavorites - The array of favorite albums.
+ * @returns {JSX.Element} The rendered HomePage component.
+ */
+function HomePage({
+  suggestions, styles, latest, ourfavorites,
+}) {
+// responsive style settings for carousel
+  const settings = {
+    infinite: true,
+    speed: 300,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 912,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 820,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 540,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 280,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1228,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 2000,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 3000,
+        settings: {
+          slidesToShow: 8,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    &lt;>
+      &lt;StylesCarousel styles={styles} />
+
+      &lt;h2 className="HomePage-Title">Dernières sorties :&lt;/h2>
+      &lt;div className="Carousel">
+        &lt;Slider {...settings}>
+          {latest.map((album) => (
+            &lt;div className="Carousel-Container" key={album.id}>
+              &lt;Link to={`/albums/${album.id}`} key={album.id}>
+                &lt;AlbumCard
+                  className="HomePage-Card"
+                  albumname={album.name}
+                  artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
+                  image={album.image}
+                  id={album.id}
+                />
+              &lt;/Link>
+            &lt;/div>
+          ))}
+        &lt;/Slider>
+      &lt;/div>
+      &lt;h2 className="HomePage-Title">Nos Suggestions :&lt;/h2>
+      &lt;div className="Carousel">
+        &lt;Slider {...settings}>
+          {suggestions.map((album) => (
+            &lt;div className="Carousel-Container" key={album.id}>
+              &lt;Link to={`/albums/${album.id}`} key={album.id}>
+                &lt;AlbumCard
+                  className="HomePage-Card"
+                  albumname={album.name}
+                  artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
+                  image={album.image}
+                  id={album.id}
+                />
+              &lt;/Link>
+            &lt;/div>
+          ))}
+        &lt;/Slider>
+      &lt;/div>
+      &lt;h2 className="HomePage-Title">Nos préférés :&lt;/h2>
+      &lt;div className="Carousel">
+        &lt;Slider {...settings}>
+          {ourfavorites.map((album) => (
+            &lt;div className="Carousel-Container" key={album.id}>
+              &lt;Link to={`/albums/${album.id}`} key={album.id}>
+                &lt;AlbumCard
+                  className="HomePage-Card"
+                  albumname={album.name}
+                  artistfullname={album.artist?.fullname ?? 'Artiste inconnu'}
+                  image={album.image}
+                  id={album.id}
+                />
+              &lt;/Link>
+            &lt;/div>
+          ))}
+        &lt;/Slider>
+      &lt;/div>
+    &lt;/>
+  );
+}
+
+export default HomePage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#AlbumCard">AlbumCard</a></li><li><a href="global.html#AlbumPage">AlbumPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BottomNavigation">BottomNavigation</a></li><li><a href="global.html#FavoriteButton">FavoriteButton</a></li><li><a href="global.html#FavoriteCard">FavoriteCard</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#LayoutWithHeader">LayoutWithHeader</a></li><li><a href="global.html#LayoutWithoutHeader">LayoutWithoutHeader</a></li><li><a href="global.html#LegalNotices">LegalNotices</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#ReturnButton">ReturnButton</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchBar">SearchBar</a></li><li><a href="global.html#SearchResult">SearchResult</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#StylesCarousel">StylesCarousel</a></li><li><a href="global.html#StylesPage">StylesPage</a></li><li><a href="global.html#StylesResult">StylesResult</a></li><li><a href="global.html#TermsofService">TermsofService</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#UserProfileForm">UserProfileForm</a></li><li><a href="global.html#addFavorite">addFavorite</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#reducer">reducer</a></li><li><a href="global.html#removeFavorite">removeFavorite</a></li><li><a href="global.html#rootReactElement">rootReactElement</a></li><li><a href="global.html#rootReducer">rootReducer</a></li><li><a href="global.html#saveLoginSuccessful">saveLoginSuccessful</a></li><li><a href="global.html#setAvatar">setAvatar</a></li><li><a href="global.html#setClearInput">setClearInput</a></li><li><a href="global.html#setEmail">setEmail</a></li><li><a href="global.html#setFavorites">setFavorites</a></li><li><a href="global.html#setFirstName">setFirstName</a></li><li><a href="global.html#setLastName">setLastName</a></li><li><a href="global.html#setPassword">setPassword</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 17 2024 17:24:01 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

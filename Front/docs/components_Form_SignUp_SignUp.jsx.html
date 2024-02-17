@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Form/SignUp/SignUp.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Form/SignUp/SignUp.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
+// == Import : npm
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+
+// == Import : local
+import inputFile from '../../../assets/form/input-file.svg';
+import User from '../../../assets/form/form-icon.png';
+import api from '../../../api/api';
+import {
+  setEmail, setPassword, setFirstName, setLastName, setAvatar, saveLoginSuccessful, setClearInput,
+} from '../../../actions/user';
+
+// == Import : style
+import './SignUp.scss';
+
+/**
+ * Component for user sign up.
+ *
+ * @component
+ * @returns {JSX.Element} SignUp component
+ */
+function SignUp() {
+  const dispatch = useDispatch();
+  const { email } = useSelector((state) => state.user);
+  const { password } = useSelector((state) => state.user);
+  const { lastname } = useSelector((state) => state.user);
+  const { firstname } = useSelector((state) => state.user);
+  const { avatar } = useSelector((state) => state.user);
+  const logged = useSelector((state) => state.user.logged);
+
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (logged) {
+      navigate('/');
+    }
+  }, [logged, navigate]);
+
+  /**
+   * Handles the sign-up process.
+   */
+  const handleSignUp = () => {
+    api
+      .post('/users/signup', {
+        email: email,
+        password: password,
+        firstname: firstname,
+        lastname: lastname,
+        avatar: avatar,
+      })
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 201) {
+          console.log(email, password, lastname, firstname, avatar);
+          api
+            .post('/login_check', {
+              email: email,
+              password: password,
+            })
+            .then((response) => {
+              if (response.status === 200) {
+                console.log(email, password);
+
+                if (response.data.token) {
+                  localStorage.setItem('token', response.data.token);
+                }
+
+                dispatch(setClearInput(''));
+                dispatch(saveLoginSuccessful());
+
+                navigate('/');
+              } else {
+                alert('Identifiants incorrects. Veuillez réessayer.');
+              }
+            })
+            .catch((err) => {
+              console.log(res.status);
+              console.log(email, password);
+              console.error("Une erreur s'est produite lors de la connexion :", err);
+              alert(
+                "Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.",
+              );
+            });
+        } else if (res.status === 200) {
+          alert('Cet utilisateur existe déjà');
+        } else {
+          alert("Erreur lors de l'inscription");
+        }
+      })
+      .catch((err) => {
+        console.error(
+          `email:${email} password:${password} lastname:${lastname} firstname:${firstname}, avatar:${avatar}`,
+        );
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+
+  const handleValidation = (event) => {
+    event.preventDefault();
+    const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$/;
+    if (!emailPattern.test(email)) {
+      alert('Veuillez entrer une adresse e-mail valide.');
+      return;
+    }
+    if (!passwordPattern.test(password)) {
+      alert('Votre mot de passe doit contenir au moins une lettre, un chiffre, un caractère spécial et avoir une longueur comprise entre 12 et 255 caractères.');
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
+      return;
+    }
+    handleSignUp();
+  };
+
+  return (
+    &lt;form className="SignUp-Form" onSubmit={handleValidation}>
+      &lt;div className="SignUp-Card">
+        {/* Header */}
+        &lt;div className="Header-Container">
+          &lt;img className="Header-UserImg" src={User} alt="Logo de personnage" />
+          &lt;p className="Header-Title">Inscription&lt;/p>
+        &lt;/div>
+
+        &lt;div className="SignUp-UserTop">
+          {/* SignUp Input : Avatar */}
+          &lt;input
+            className="SignUp-AvatarInput"
+            type="text"
+            value={avatar}
+            onChange={(event) => dispatch(setAvatar(event.target.value))}
+          />
+          &lt;label className="SignUp-Avatar" htmlFor="file">
+            &lt;img className="SignUp-AvatarImg" src={inputFile} alt="Icone dl" />
+          &lt;/label>
+          {/* SignUp Input : Username */}
+          &lt;div className="SignUp-Username">
+            &lt;input
+              className="SignUp-InputField"
+              name="lastname"
+              placeholder="Nom*"
+              required
+              value={lastname}
+              onChange={(event) => dispatch(setLastName(event.target.value))}
+            />
+            &lt;input
+              className="SignUp-InputField"
+              name="firstname"
+              placeholder="Prénom*"
+              required
+              value={firstname}
+              onChange={(event) => dispatch(setFirstName(event.target.value))}
+            />
+          &lt;/div>
+        &lt;/div>
+
+        {/* SignUp Input : Mail Adress */}
+        &lt;input
+          className="SignUp-InputField"
+          name="email"
+          type="email"
+          placeholder="Adresse e-mail*"
+          value={email}
+          required
+          pattern="^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$"
+          onChange={(event) => dispatch(setEmail(event.target.value))}
+        />
+
+        {/* SignUp Input : Password */}
+        &lt;input
+          className="SignUp-InputField"
+          name="password"
+          type="password"
+          placeholder="Mot de passe*"
+          value={password}
+          required
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$"
+          onChange={(event) => dispatch(setPassword(event.target.value))}
+          // Minimum= 1x(chiffre minuscule majuscule caractère spécial) > 12 caractères
+        />
+        &lt;input
+          className="SignUp-InputField"
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirmez le mot de passe*"
+          value={confirmPassword}
+          required
+          onChange={(event) => setConfirmPassword(event.target.value)}
+        />
+
+        {/* Link to Login Form */}
+        &lt;p className="SignUp-Message">( * ) Champs requis.&lt;/p>
+        &lt;p className="SignUp-Link">
+          Déjà parmi nous ? &lt;br />&lt;Link to="/connexion">Connectez-vous ici&lt;/Link>
+        &lt;/p>
+      &lt;/div>
+      {/* SignUp Button */}
+      &lt;button className="SignUp-Button" id="button" type="submit">
+        M'inscrire
+      &lt;/button>
+    &lt;/form>
+  );
+}
+
+// == Export
+export default SignUp;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#AlbumCard">AlbumCard</a></li><li><a href="global.html#AlbumPage">AlbumPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BottomNavigation">BottomNavigation</a></li><li><a href="global.html#FavoriteButton">FavoriteButton</a></li><li><a href="global.html#FavoriteCard">FavoriteCard</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#LayoutWithHeader">LayoutWithHeader</a></li><li><a href="global.html#LayoutWithoutHeader">LayoutWithoutHeader</a></li><li><a href="global.html#LegalNotices">LegalNotices</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#ReturnButton">ReturnButton</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchBar">SearchBar</a></li><li><a href="global.html#SearchResult">SearchResult</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#StylesCarousel">StylesCarousel</a></li><li><a href="global.html#StylesPage">StylesPage</a></li><li><a href="global.html#StylesResult">StylesResult</a></li><li><a href="global.html#TermsofService">TermsofService</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#UserProfileForm">UserProfileForm</a></li><li><a href="global.html#addFavorite">addFavorite</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#reducer">reducer</a></li><li><a href="global.html#removeFavorite">removeFavorite</a></li><li><a href="global.html#rootReactElement">rootReactElement</a></li><li><a href="global.html#rootReducer">rootReducer</a></li><li><a href="global.html#saveLoginSuccessful">saveLoginSuccessful</a></li><li><a href="global.html#setAvatar">setAvatar</a></li><li><a href="global.html#setClearInput">setClearInput</a></li><li><a href="global.html#setEmail">setEmail</a></li><li><a href="global.html#setFavorites">setFavorites</a></li><li><a href="global.html#setFirstName">setFirstName</a></li><li><a href="global.html#setLastName">setLastName</a></li><li><a href="global.html#setPassword">setPassword</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 17 2024 17:24:01 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

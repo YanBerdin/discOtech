@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Form/UserProfile/UserProfileForm/UserProfileForm.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Form/UserProfile/UserProfileForm/UserProfileForm.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable no-alert */
+/* eslint-disable no-console */
+import { useState, useEffect } from 'react';
+// == Import : npm
+import { useNavigate } from 'react-router-dom';
+import api from '../../../../api/api';
+// == Import : local
+import User from '../../../../assets/form/form-icon.png';
+
+// == Import : style
+import './UserProfileForm.scss';
+
+// == Component
+/**
+ * Component for editing user profile information.
+ *
+ * @component
+ * @returns {JSX.Element} UserProfileForm component
+ */
+function UserProfileForm() {
+  const [currentFirstname, setCurrentFirstname] = useState('');
+  const [currentLastname, setCurrentLastname] = useState('');
+  const [currentEmail, setCurrentEmail] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  /**
+   * Handles the submission of the last name form.
+   * @param {Event} evt - The event object.
+   */
+  const handleLastName = (evt) => {
+    evt.preventDefault();
+    api
+      .patch('/users/edit/lastname', {
+        lastname: currentLastname,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setCurrentLastname(res.data.lastname || '');
+          console.log('modification Lasname OK');
+          navigate('/');
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+
+  /**
+   * Handles the submission of the first name form.
+   *
+   * @param {Event} evt - The event object.
+   * @returns {void}
+   */
+  const handleFirstName = (evt) => {
+    evt.preventDefault();
+
+    api
+      .patch('/users/edit/firstname', {
+        firstname: currentFirstname,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setCurrentFirstname(res.data.firstname || '');
+          console.log('modification Firstname OK');
+          navigate('/');
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.log(`firstname:${currentFirstname}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+
+  /**
+   * Handles the email submission in the UserProfileForm component.
+   * Validates the email format and checks if the passwords match.
+   * Sends a PATCH request to update the user's email.
+   * Navigates to the home page upon successful email modification.
+   * Displays an error message if there is an issue with the modification.
+   *
+   * @param {Event} evt - The event object.
+   * @returns {void}
+   */
+  const handleEmail = (evt) => {
+    evt.preventDefault();
+    const emailPattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(currentEmail)) {
+      alert('Veuillez entrer une adresse e-mail valide.');
+      return;
+    }
+    if (currentPassword !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas. Veuillez les saisir à nouveau.');
+      return;
+    }
+    api
+      .patch('/users/edit/email', {
+        email: currentEmail,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          // setCurrentEmail(res.data.email || '');
+          console.log('modification email OK');
+          navigate('/');
+          // window.history.back();
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.log(`email:${currentEmail}`);
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+
+  /**
+   * Handles the password change.
+   * @param {Event} evt - The event object.
+   */
+  const handlePassword = (evt) => {
+    evt.preventDefault();
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$/;
+
+    if (!passwordPattern.test(currentPassword)) {
+    // eslint-disable-next-line max-len, max-len, max-len
+      alert('Votre mot de passe doit contenir au moins une lettre, un chiffre, un caractère spécial et avoir une longueur comprise entre 12 et 255 caractères.');
+      return;
+    }
+    api
+      .patch('/users/edit/password', {
+        password: currentPassword,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          // setCurrentPassword(res.data.password || '');
+          console.log('modification MDP OK');
+          navigate('/');
+        } else {
+          alert('Erreur lors de la modification');
+        }
+      })
+      .catch((err) => {
+        console.error("Une erreur s'est produite lors de la connexion :", err);
+      });
+  };
+
+  useEffect(() => {
+    api.get('/users/detail')
+      .then((res) => {
+        setCurrentEmail(res.data.email);
+        setCurrentLastname(res.data.lastname);
+        setCurrentFirstname(res.data.firstname);
+      });
+  }, []);
+
+  return (
+    &lt;section className="Login-Form" action="">
+      &lt;div className="Login-Card">
+        {/* Login Header : Title and Image */}
+        &lt;div className="Header-Container">
+          &lt;img className="Header-UserImg" src={User} alt="Logo de personnage" />
+          &lt;p className="Header-Title">Modifier mon profil&lt;/p>
+        &lt;/div>
+        {/* Login Input : Lastname */}
+        &lt;form className="Field" onSubmit={handleLastName}>
+          &lt;input
+            required
+            className="Field-Input"
+            type="text"
+            name="Nom"
+            placeholder={currentLastname}
+            value={currentLastname}
+            onChange={(event) => setCurrentLastname(event.target.value)}
+          />
+          &lt;button className="Field-Button" type="submit">
+            &amp;#x1F589;
+          &lt;/button>
+        &lt;/form>
+        {/* Login Input : FirstName */}
+        &lt;form className="Field" onSubmit={handleFirstName}>
+          &lt;input
+            required
+            className="Field-Input"
+            name="firstname"
+            type="text"
+            placeholder={currentFirstname}
+            value={currentFirstname}
+            onChange={(event) => setCurrentFirstname(event.target.value)}
+          />
+          &lt;button className="Field-Button" type="submit">
+            &amp;#x1F589;
+          &lt;/button>
+        &lt;/form>
+
+        {/* Login Input : Mail Adress */}
+        &lt;form className="Field" onSubmit={handleEmail}>
+          &lt;input
+            required
+            className="Field-Input"
+            name="email"
+            type="email"
+            value={currentEmail}
+            pattern="^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$"
+            onChange={(event) => setCurrentEmail(event.target.value)}
+          />
+          &lt;button className="Field-Button" type="submit">
+            &amp;#x1F589;
+          &lt;/button>
+        &lt;/form>
+
+        {/* Login Input : Password Adress */}
+        &lt;form className="Field" onSubmit={handlePassword}>
+          &lt;input
+            required
+            className="Field-Input"
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            value={currentPassword}
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,255}$"
+            // Minimum= 1x(chiffre minuscule majuscule caractère spécial) > 12 caractères
+            onChange={(event) => setCurrentPassword(event.target.value)}
+            autoComplete="off"
+          />
+          &lt;input
+            required
+            className="Field-Input"
+            name="confirmPassword"
+            type="password"
+            placeholder="Confirmez le mot de passe"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+            autoComplete="off"
+          />
+          &lt;button className="Field-Button" type="submit">
+            &amp;#x1F589;
+          &lt;/button>
+        &lt;/form>
+      &lt;/div>
+    &lt;/section>
+  );
+}
+
+// == Export
+export default UserProfileForm;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#AlbumCard">AlbumCard</a></li><li><a href="global.html#AlbumPage">AlbumPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BottomNavigation">BottomNavigation</a></li><li><a href="global.html#FavoriteButton">FavoriteButton</a></li><li><a href="global.html#FavoriteCard">FavoriteCard</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#LayoutWithHeader">LayoutWithHeader</a></li><li><a href="global.html#LayoutWithoutHeader">LayoutWithoutHeader</a></li><li><a href="global.html#LegalNotices">LegalNotices</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#ReturnButton">ReturnButton</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchBar">SearchBar</a></li><li><a href="global.html#SearchResult">SearchResult</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#StylesCarousel">StylesCarousel</a></li><li><a href="global.html#StylesPage">StylesPage</a></li><li><a href="global.html#StylesResult">StylesResult</a></li><li><a href="global.html#TermsofService">TermsofService</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#UserProfileForm">UserProfileForm</a></li><li><a href="global.html#addFavorite">addFavorite</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#reducer">reducer</a></li><li><a href="global.html#removeFavorite">removeFavorite</a></li><li><a href="global.html#rootReactElement">rootReactElement</a></li><li><a href="global.html#rootReducer">rootReducer</a></li><li><a href="global.html#saveLoginSuccessful">saveLoginSuccessful</a></li><li><a href="global.html#setAvatar">setAvatar</a></li><li><a href="global.html#setClearInput">setClearInput</a></li><li><a href="global.html#setEmail">setEmail</a></li><li><a href="global.html#setFavorites">setFavorites</a></li><li><a href="global.html#setFirstName">setFirstName</a></li><li><a href="global.html#setLastName">setLastName</a></li><li><a href="global.html#setPassword">setPassword</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 17 2024 17:24:01 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

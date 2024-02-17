@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/FavoriteButton/FavoriteButton.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/FavoriteButton/FavoriteButton.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable max-len */
+
+// == Import : npm
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// == Import local
+import api from '../../api/api';
+import { addFavorite, removeFavorite } from '../../actions/user';
+
+// == Import : style
+import './FavoriteButton.scss';
+
+// == Component
+/**
+ * Component representing a favorite button.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.id - The ID of the album.
+ * @returns {JSX.Element} The rendered favorite button.
+ */
+function FavoriteButton({ id }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.user.favorites);
+  const logged = useSelector((state) => state.user.logged);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the album is in the user's favorites
+    setIsFavorite(favorites.some((fav) => fav.album?.id === id)); // Using 'some' here
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [favorites, id]); // Depend only on 'favorites' and 'id'
+
+  /**
+   * Handles the click event for the favorite button.
+   * If the user is not logged in, it navigates to the login page.
+   * If the album is already a favorite, it removes it from the favorites.
+   * If the album is not a favorite, it adds it to the favorites.
+   * @param {Event} e - The click event.
+   * @returns {void}
+   */
+  const handleFavoriteClick = (e) => {
+    e.preventDefault();
+    if (!logged) {
+      navigate('/connexion');
+      return;
+    }
+
+    if (isFavorite) {
+      api
+        .delete(`/favorites/albums/${id}`)
+        .then((response) => {
+          console.log('Album removed from favorites:', response.data);
+          dispatch(removeFavorite(id));
+        })
+        .catch((error) => {
+          console.error('Error removing album from favorites:', error);
+        })
+        .finally(() => {
+          setIsFavorite(false); // Update state after removing favorite
+        });
+    } else {
+      api
+        .post(`/favorites/albums/${id}`)
+        .then((response) => {
+          console.log('Album added to favorites:', response.data);
+          dispatch(addFavorite(response.data));
+        })
+        .catch((error) => {
+          console.error('Error adding album to favorites:', error);
+        })
+        .finally(() => {
+          setIsFavorite(true); // Update state after adding favorite
+        });
+    }
+  };
+
+  return (
+    &lt;button
+      type="button"
+      className={`favorite-button ${isFavorite ? 'active' : ''}`}
+      onClick={handleFavoriteClick}
+    >
+      &lt;svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill={isFavorite ? 'rgb(177, 139, 189)' : 'none'}
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        &lt;path d="M12 21.35l-1.64-1.48C5.4 15.85 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 7.35-8.36 11.37L12 21.35z" />
+      &lt;/svg>
+    &lt;/button>
+  );
+}
+
+// == Export
+export default FavoriteButton;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#AlbumCard">AlbumCard</a></li><li><a href="global.html#AlbumPage">AlbumPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BottomNavigation">BottomNavigation</a></li><li><a href="global.html#FavoriteButton">FavoriteButton</a></li><li><a href="global.html#FavoriteCard">FavoriteCard</a></li><li><a href="global.html#Favorites">Favorites</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#LayoutWithHeader">LayoutWithHeader</a></li><li><a href="global.html#LayoutWithoutHeader">LayoutWithoutHeader</a></li><li><a href="global.html#LegalNotices">LegalNotices</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#ReturnButton">ReturnButton</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchBar">SearchBar</a></li><li><a href="global.html#SearchResult">SearchResult</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#StylesCarousel">StylesCarousel</a></li><li><a href="global.html#StylesPage">StylesPage</a></li><li><a href="global.html#StylesResult">StylesResult</a></li><li><a href="global.html#TermsofService">TermsofService</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#UserProfileForm">UserProfileForm</a></li><li><a href="global.html#addFavorite">addFavorite</a></li><li><a href="global.html#api">api</a></li><li><a href="global.html#reducer">reducer</a></li><li><a href="global.html#removeFavorite">removeFavorite</a></li><li><a href="global.html#rootReactElement">rootReactElement</a></li><li><a href="global.html#rootReducer">rootReducer</a></li><li><a href="global.html#saveLoginSuccessful">saveLoginSuccessful</a></li><li><a href="global.html#setAvatar">setAvatar</a></li><li><a href="global.html#setClearInput">setClearInput</a></li><li><a href="global.html#setEmail">setEmail</a></li><li><a href="global.html#setFavorites">setFavorites</a></li><li><a href="global.html#setFirstName">setFirstName</a></li><li><a href="global.html#setLastName">setLastName</a></li><li><a href="global.html#setPassword">setPassword</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Feb 17 2024 17:24:01 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

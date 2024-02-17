@@ -2,8 +2,7 @@
 import axios from 'axios';
 
 /**
- * The axios instance for making API requests.
- * @type {import("axios").AxiosInstance}
+ * @param {axios} - An instance of Axios.
  */
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
